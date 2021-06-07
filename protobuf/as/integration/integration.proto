@@ -126,7 +126,7 @@ message DownlinkEvent {
     // Frame port.
     uint32 f_port = 9;
 
-    // FRMPayload data.
+    // FOpts or Frmpayload data.
     bytes data = 10;
 
     // JSON string containing the decoded object.

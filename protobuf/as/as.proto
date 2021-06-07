@@ -132,7 +132,6 @@ message HandleUplinkDataRequest {
     bool confirmed_uplink = 11;
 }
 
-
 message HandleDownlinkDataRequest {
     // DevEUI EUI (8 bytes).
     bytes dev_eui = 1;
@@ -159,7 +158,7 @@ message HandleDownlinkDataRequest {
     bytes data = 8;
 
     // Sending time to gateway.
-    bytes sent_at = 9;
+    google.protobuf.Timestamp sent_at = 9;
 
     // Uplink was of type confirmed.
     bool confirmed_downlink = 10;
