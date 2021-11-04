@@ -130,6 +130,9 @@ message HandleUplinkDataRequest {
 
     // Uplink was of type confirmed.
     bool confirmed_uplink = 11;
+
+    // Received mac commands.
+    bytes macdata = 12;
 }
 
 message HandleDownlinkDataRequest {
