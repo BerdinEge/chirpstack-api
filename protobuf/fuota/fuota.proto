@@ -15,6 +15,9 @@ service FUOTAServerService {
     // CreateDeployment creates the given FUOTA deployment.
     rpc CreateDeployment(CreateDeploymentRequest) returns (CreateDeploymentResponse) {}
 
+    // CreateMulticastDeployment creates the given Multicast deployment.
+    rpc CreateMulticastDeployment(CreateMulticastDeploymentRequest) returns (CreateMulticastDeploymentResponse) {}
+
     // GetDeploymentStatus returns the FUOTA deployment status given an ID.
     rpc GetDeploymentStatus(GetDeploymentStatusRequest) returns (GetDeploymentStatusResponse) {}
 
@@ -125,6 +128,46 @@ message Deployment {
     RequestFragmentationSessionStatus request_fragmentation_session_status = 18;
 }
 
+message MulticastDeployment {
+    // Application ID.
+    int64 application_id = 1;
+
+    // Devices to include in this deployment.
+    repeated DeploymentDevice devices = 2;
+
+    // Multicast-group type.
+    MulticastGroupType multicast_group_type = 3;
+
+    // Multicast data-rate.
+    uint32 multicast_dr = 4;
+
+    // Multicast ping-slot period (Class-B only).
+    uint32 multicast_ping_slot_period = 5;
+
+    // Multicast frequency (Hz).
+    uint32 multicast_frequency = 6;
+
+    // Multicast group ID.
+    uint32 multicast_group_id = 7;
+
+    // Multicast timeout.
+	// This defines the timeout of the multicast-session.
+	// Please refer to the Remote Multicast Setup specification as this field
+	// has a different meaning for Class-B and Class-C groups.
+    uint32 multicast_timeout = 8;
+
+    // Unicast timeout.
+	// Set this to the value in which you at least expect an uplink frame from
+	// the device. The FUOTA server will wait for the given time before
+	// attempting a retry or continuing with the next step.
+    google.protobuf.Duration unicast_timeout = 9;
+
+    // Unicast attempt count.
+	// The number of attempts before considering an unicast command
+	// to be failed.
+    uint32 unicast_attempt_count = 10;
+}
+
 
 message CreateDeploymentRequest {
     // Deployment.
@@ -132,6 +175,16 @@ message CreateDeploymentRequest {
 }
 
 message CreateDeploymentResponse {
+    // ID of the created deployment.
+    bytes id = 1;
+}
+
+message CreateMulticastDeploymentRequest {
+    // Deployment.
+    MulticastDeployment deployment = 1;
+}
+
+message CreateMulticastDeploymentResponse {
     // ID of the created deployment.
     bytes id = 1;
 }

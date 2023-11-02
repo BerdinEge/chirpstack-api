@@ -87,6 +87,14 @@ service MulticastGroupService {
             get: "/api/multicast-groups/{multicast_group_id}/queue"
         };
     }
+
+    // CreateMulticastDeployment creates the given multicast-deployment.
+    rpc CreateMulticastDeployment(CreateMulticastDeploymentRequest) returns (CreateMulticastDeploymentResponse) {
+        option(google.api.http) = {
+            post: "/api/multicast-groups/multicast-deployment"
+            body: "*"
+        };
+    }
 }
 
 enum MulticastGroupType {
@@ -98,6 +106,44 @@ enum MulticastGroupType {
 }
 
 message MulticastGroup {
+    // ID (string formatted UUID).
+    // This will be generated automatically on create.
+    string id = 1;
+
+    // Multicast-group name.
+    string name = 2;
+
+    // Multicast address (HEX encoded DevAddr).
+    string mc_addr = 3;
+
+    // Multicast network session key (HEX encoded AES128 key).
+    string mc_nwk_s_key = 4;
+
+    // Multicast application session key (HEX encoded AES128 key).
+    string mc_app_s_key = 5;
+
+    // Frame-counter.
+    uint32 f_cnt = 6;
+
+    // Multicast type.
+    MulticastGroupType group_type = 7;
+
+    // Data-rate.
+    uint32 dr = 8;
+
+    // Frequency (Hz).
+    uint32 frequency = 9;
+
+    // Ping-slot period.
+    // Mandatory for Class-B multicast groups.
+    uint32 ping_slot_period = 10;
+
+    // Application ID.
+    // After creation, this can not be updated.
+    int64 application_id = 12 [json_name = "applicationID"];
+}
+
+message MulticastDeployment {
     // ID (string formatted UUID).
     // This will be generated automatically on create.
     string id = 1;
@@ -156,6 +202,16 @@ message CreateMulticastGroupRequest {
 
 message CreateMulticastGroupResponse {
     // ID of created group (string formatted UUID).
+    string id = 1;
+}
+
+message CreateMulticastDeploymentRequest {
+    // Multicast-deployment object to create.
+    MulticastDeployment multicast_deployment = 1;
+}
+
+message CreateMulticastDeploymentResponse {
+    // ID of created deployment (string formatted UUID).
     string id = 1;
 }
 
