@@ -235,7 +235,7 @@ message BulkMulticastDeploymentRequest {
 
 message BulkMulticastDeploymentResponse {
     // ID of the created deployment.
-    bytes id = 1;
+    uint32 number_of_devices = 1;
 }
 
 
