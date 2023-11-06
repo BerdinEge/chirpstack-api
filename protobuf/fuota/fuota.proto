@@ -18,6 +18,9 @@ service FUOTAServerService {
     // CreateMulticastDeployment creates the given Multicast deployment.
     rpc CreateMulticastDeployment(CreateMulticastDeploymentRequest) returns (CreateMulticastDeploymentResponse) {}
 
+    // CreateMulticastDeployment creates the given Multicast deployment.
+    rpc BulkMulticastDeployment(BulkMulticastDeploymentRequest) returns (BulkMulticastDeploymentResponse) {}
+
     // GetDeploymentStatus returns the FUOTA deployment status given an ID.
     rpc GetDeploymentStatus(GetDeploymentStatusRequest) returns (GetDeploymentStatusResponse) {}
 
@@ -57,6 +60,11 @@ message DeploymentDevice {
 
     // McRootKey.
     bytes mc_root_key = 2;
+}
+
+message BulkDeploymentDevice {
+    // DevEUI.
+    bytes dev_eui = 1;
 }
 
 
@@ -168,6 +176,37 @@ message MulticastDeployment {
     uint32 unicast_attempt_count = 10;
 }
 
+message BulkMulticastDeployment {
+    // Application ID.
+    int64 application_id = 1;
+
+    // Devices to include in this deployment.
+    repeated BulkDeploymentDevice devices = 2;
+
+    // McRootKey.
+    bytes mc_root_key = 3;
+
+    // Multicast data-rate.
+    uint32 multicast_dr = 4;
+
+    // Multicast frequency (Hz).
+    uint32 multicast_frequency = 5;
+
+    // Multicast group ID.
+    uint32 multicast_group_id = 6;
+
+    // Unicast timeout.
+	// Set this to the value in which you at least expect an uplink frame from
+	// the device. The FUOTA server will wait for the given time before
+	// attempting a retry or continuing with the next step.
+    google.protobuf.Duration unicast_timeout = 7;
+
+    // Unicast attempt count.
+	// The number of attempts before considering an unicast command
+	// to be failed.
+    uint32 unicast_attempt_count = 8;
+}
+
 
 message CreateDeploymentRequest {
     // Deployment.
@@ -188,6 +227,17 @@ message CreateMulticastDeploymentResponse {
     // ID of the created deployment.
     bytes id = 1;
 }
+
+message BulkMulticastDeploymentRequest {
+    // Deployment.
+    BulkMulticastDeployment deployment = 1;
+}
+
+message BulkMulticastDeploymentResponse {
+    // ID of the created deployment.
+    bytes id = 1;
+}
+
 
 message GetDeploymentStatusRequest {
     // Deployment ID.
