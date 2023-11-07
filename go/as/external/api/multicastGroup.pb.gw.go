@@ -600,40 +600,6 @@ func local_request_MulticastGroupService_ListQueue_0(ctx context.Context, marsha
 
 }
 
-func request_MulticastGroupService_CreateMulticastDeployment_0(ctx context.Context, marshaler runtime.Marshaler, client MulticastGroupServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMulticastDeploymentRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.CreateMulticastDeployment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_MulticastGroupService_CreateMulticastDeployment_0(ctx context.Context, marshaler runtime.Marshaler, server MulticastGroupServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMulticastDeploymentRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.CreateMulticastDeployment(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 func request_MulticastGroupService_BulkMulticastDeployment_0(ctx context.Context, marshaler runtime.Marshaler, client MulticastGroupServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq BulkMulticastDeploymentRequest
 	var metadata runtime.ServerMetadata
@@ -870,26 +836,6 @@ func RegisterMulticastGroupServiceHandlerServer(ctx context.Context, mux *runtim
 		}
 
 		forward_MulticastGroupService_ListQueue_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_MulticastGroupService_CreateMulticastDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_MulticastGroupService_CreateMulticastDeployment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_MulticastGroupService_CreateMulticastDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -1154,26 +1100,6 @@ func RegisterMulticastGroupServiceHandlerClient(ctx context.Context, mux *runtim
 
 	})
 
-	mux.Handle("POST", pattern_MulticastGroupService_CreateMulticastDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_MulticastGroupService_CreateMulticastDeployment_0(rctx, inboundMarshaler, client, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_MulticastGroupService_CreateMulticastDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
 	mux.Handle("POST", pattern_MulticastGroupService_BulkMulticastDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -1218,8 +1144,6 @@ var (
 
 	pattern_MulticastGroupService_ListQueue_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"api", "multicast-groups", "multicast_group_id", "queue"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MulticastGroupService_CreateMulticastDeployment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "multicast-groups", "multicast-deployment"}, "", runtime.AssumeColonVerbOpt(true)))
-
 	pattern_MulticastGroupService_BulkMulticastDeployment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "multicast-groups", "bulk-multicast-deployment"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
@@ -1243,8 +1167,6 @@ var (
 	forward_MulticastGroupService_FlushQueue_0 = runtime.ForwardResponseMessage
 
 	forward_MulticastGroupService_ListQueue_0 = runtime.ForwardResponseMessage
-
-	forward_MulticastGroupService_CreateMulticastDeployment_0 = runtime.ForwardResponseMessage
 
 	forward_MulticastGroupService_BulkMulticastDeployment_0 = runtime.ForwardResponseMessage
 )

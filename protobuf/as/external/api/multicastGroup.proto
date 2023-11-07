@@ -89,14 +89,6 @@ service MulticastGroupService {
         };
     }
 
-    // CreateMulticastDeployment creates the given multicast-deployment.
-    rpc CreateMulticastDeployment(CreateMulticastDeploymentRequest) returns (CreateMulticastDeploymentResponse) {
-        option(google.api.http) = {
-            post: "/api/multicast-groups/multicast-deployment"
-            body: "*"
-        };
-    }
-
     // BulkMulticastDeployment creates the given multicast-deployment.
     rpc BulkMulticastDeployment(BulkMulticastDeploymentRequest) returns (BulkMulticastDeploymentResponse) {
         option(google.api.http) = {
