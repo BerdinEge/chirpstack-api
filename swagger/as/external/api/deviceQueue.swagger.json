@@ -119,12 +119,12 @@
         "confirmed": {
           "type": "boolean",
           "format": "boolean",
-          "description": "Set this to true when an acknowledgement from the device is required.\nPlease note that this must not be used to guarantee a delivery."
+          "description": "Set this to true when an acknowledgement from the device is required.\r\nPlease note that this must not be used to guarantee a delivery."
         },
         "fCnt": {
           "type": "integer",
           "format": "int64",
-          "description": "Downlink frame-counter.\nThis will be automatically set on enquue."
+          "description": "Downlink frame-counter.\r\nThis will be automatically set on enquue."
         },
         "fPort": {
           "type": "integer",
@@ -134,11 +134,11 @@
         "data": {
           "type": "string",
           "format": "byte",
-          "description": "Base64 encoded data.\nOr use the json_object field when an application codec has been configured."
+          "description": "Base64 encoded data.\r\nOr use the json_object field when an application codec has been configured."
         },
         "jsonObject": {
           "type": "string",
-          "description": "JSON object (string).\nOnly use this when an application codec has been configured that can convert\nthis object into binary form."
+          "description": "JSON object (string).\r\nOnly use this when an application codec has been configured that can convert\r\nthis object into binary form."
         }
       }
     },

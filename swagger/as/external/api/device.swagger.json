@@ -206,7 +206,7 @@
     },
     "/api/devices/{dev_eui}/devnonce": {
       "delete": {
-        "summary": "ClearDeviceNonces deletes the device older activation records for the given DevEUI.\n  * These are clear older DevNonce records from device activation records in Network Server\n  * These clears all DevNonce records but keeps latest 20 records for maintain device activation status",
+        "summary": "ClearDeviceNonces deletes the device older activation records for the given DevEUI.\r\n  * These are clear older DevNonce records from device activation records in Network Server\r\n  * These clears all DevNonce records but keeps latest 20 records for maintain device activation status",
         "operationId": "ClearDeviceNonces",
         "responses": {
           "200": {
@@ -232,7 +232,7 @@
     },
     "/api/devices/{dev_eui}/events": {
       "get": {
-        "summary": "StreamEventLogs stream the device events (uplink payloads, ACKs, joins, errors).\n  * This endpoint is intended for debugging only.\n  * This endpoint does not work from a web-browser.",
+        "summary": "StreamEventLogs stream the device events (uplink payloads, ACKs, joins, errors).\r\n  * This endpoint is intended for debugging only.\r\n  * This endpoint does not work from a web-browser.",
         "operationId": "StreamEventLogs",
         "responses": {
           "200": {
@@ -258,7 +258,7 @@
     },
     "/api/devices/{dev_eui}/frames": {
       "get": {
-        "summary": "StreamFrameLogs streams the uplink and downlink frame-logs for the given DevEUI.\n  * These are the raw LoRaWAN frames and this endpoint is intended for debugging only.\n  * This endpoint does not work from a web-browser.",
+        "summary": "StreamFrameLogs streams the uplink and downlink frame-logs for the given DevEUI.\r\n  * These are the raw LoRaWAN frames and this endpoint is intended for debugging only.\r\n  * This endpoint does not work from a web-browser.",
         "operationId": "StreamFrameLogs",
         "responses": {
           "200": {
@@ -380,7 +380,7 @@
           },
           {
             "name": "interval",
-            "description": "Aggregation interval.  One of \"second\", \"minute\", \"hour\", \"day\", \"week\",\n\"month\", \"quarter\", \"year\".  Case insensitive.",
+            "description": "Aggregation interval.  One of \"second\", \"minute\", \"hour\", \"day\", \"week\",\r\n\"month\", \"quarter\", \"year\".  Case insensitive.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -583,7 +583,7 @@
         "applicationID": {
           "type": "string",
           "format": "int64",
-          "description": "ID of the application to which the device must be added.\nIt is possible to move a device to a different application on update,\ngiven that both the old and the new application share the same\nservice-profile."
+          "description": "ID of the application to which the device must be added.\r\nIt is possible to move a device to a different application on update,\r\ngiven that both the old and the new application share the same\r\nservice-profile."
         },
         "description": {
           "type": "string",
@@ -601,21 +601,21 @@
         "referenceAltitude": {
           "type": "number",
           "format": "double",
-          "description": "Reference altitude.\nWhen using geolocation, this altitude will be used as a reference\n(when supported by the geolocation-server) to increase geolocation\naccuracy."
+          "description": "Reference altitude.\r\nWhen using geolocation, this altitude will be used as a reference\r\n(when supported by the geolocation-server) to increase geolocation\r\naccuracy."
         },
         "variables": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Variables (user defined).\nThese variables can be used together with integrations to store tokens /\nsecrets that must be configured per device. These variables are not\nexposed in the event payloads."
+          "description": "Variables (user defined).\r\nThese variables can be used together with integrations to store tokens /\r\nsecrets that must be configured per device. These variables are not\r\nexposed in the event payloads."
         },
         "tags": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Tags (user defined).\nThese tags are exposed in the event payloads or to integration. Tags are\nintended for aggregation and filtering."
+          "description": "Tags (user defined).\r\nThese tags are exposed in the event payloads or to integration. Tags are\r\nintended for aggregation and filtering."
         },
         "isDisabled": {
           "type": "boolean",
@@ -677,15 +677,15 @@
         },
         "nwkKey": {
           "type": "string",
-          "title": "Network root key (HEX encoded).\nNote: For LoRaWAN 1.0.x, use this field for the LoRaWAN 1.0.x 'AppKey`!"
+          "title": "Network root key (HEX encoded).\r\nNote: For LoRaWAN 1.0.x, use this field for the LoRaWAN 1.0.x 'AppKey`!"
         },
         "appKey": {
           "type": "string",
-          "title": "Application root key (HEX encoded).\nNote: This field only needs to be set for LoRaWAN 1.1.x devices!"
+          "title": "Application root key (HEX encoded).\r\nNote: This field only needs to be set for LoRaWAN 1.1.x devices!"
         },
         "genAppKey": {
           "type": "string",
-          "description": "Gen application key (HEX encoded).\nThis is an optional key that only must be set for LORaWAN 1.0.x devices\nthat implement the remote multicast setup specification."
+          "description": "Gen application key (HEX encoded).\r\nThis is an optional key that only must be set for LORaWAN 1.0.x devices\r\nthat implement the remote multicast setup specification."
         }
       }
     },
@@ -720,12 +720,12 @@
         "deviceStatusBattery": {
           "type": "integer",
           "format": "int64",
-          "description": "The device battery status (deprecated, use device_status_battery_level).\n0:      The end-device is connected to an external power source\n1..254: The battery level, 1 being at minimum and 254 being at maximum\n255:    The end-device was not able to measure the battery level\n256:    The device-status is not available."
+          "description": "The device battery status (deprecated, use device_status_battery_level).\r\n0:      The end-device is connected to an external power source\r\n1..254: The battery level, 1 being at minimum and 254 being at maximum\r\n255:    The end-device was not able to measure the battery level\r\n256:    The device-status is not available."
         },
         "deviceStatusMargin": {
           "type": "integer",
           "format": "int32",
-          "description": "The device margin status\n-32..32: The demodulation SNR ration in dB\n256:     The device-status is not available."
+          "description": "The device margin status\r\n-32..32: The demodulation SNR ration in dB\r\n256:     The device-status is not available."
         },
         "deviceStatusExternalPowerSource": {
           "type": "boolean",
@@ -745,7 +745,7 @@
         "lastSeenAt": {
           "type": "string",
           "format": "date-time",
-          "description": "The last time the application-server received any data from the device,\nor an empty string when the device never sent any data."
+          "description": "The last time the application-server received any data from the device,\r\nor an empty string when the device never sent any data."
         }
       }
     },
@@ -853,16 +853,16 @@
         "deviceStatusBattery": {
           "type": "integer",
           "format": "int64",
-          "description": "The device battery status\n0:      The end-device is connected to an external power source\n1..254: The battery level, 1 being at minimum and 254 being at maximum\n255:    The end-device was not able to measure the battery level\n256:    The device-status is not available."
+          "description": "The device battery status\r\n0:      The end-device is connected to an external power source\r\n1..254: The battery level, 1 being at minimum and 254 being at maximum\r\n255:    The end-device was not able to measure the battery level\r\n256:    The device-status is not available."
         },
         "deviceStatusMargin": {
           "type": "integer",
           "format": "int32",
-          "description": "The device margin status\n-32..32: The demodulation SNR ration in dB\n256:     The device-status is not available."
+          "description": "The device margin status\r\n-32..32: The demodulation SNR ration in dB\r\n256:     The device-status is not available."
         },
         "location": {
           "$ref": "#/definitions/commonLocation",
-          "description": "Device location.\nThis will set when the network-server was able to resolve the location\nusing the geolocation-server."
+          "description": "Device location.\r\nThis will set when the network-server was able to resolve the location\r\nusing the geolocation-server."
         }
       }
     },
@@ -1049,7 +1049,7 @@
       "properties": {
         "delay": {
           "type": "string",
-          "description": "Delay (duration).\nThe delay will be added to the gateway internal timing, provided by the context object."
+          "description": "Delay (duration).\r\nThe delay will be added to the gateway internal timing, provided by the context object."
         }
       }
     },
@@ -1059,7 +1059,7 @@
         "gatewayID": {
           "type": "string",
           "format": "byte",
-          "description": "Gateway ID.\nDeprecated: replaced by gateway_id in DownlinkFrame."
+          "description": "Gateway ID.\r\nDeprecated: replaced by gateway_id in DownlinkFrame."
         },
         "frequency": {
           "type": "integer",
@@ -1112,7 +1112,7 @@
         "context": {
           "type": "string",
           "format": "byte",
-          "description": "Gateway specific context.\nIn case of a Class-A downlink, this contains a copy of the uplink context."
+          "description": "Gateway specific context.\r\nIn case of a Class-A downlink, this contains a copy of the uplink context."
         }
       }
     },
@@ -1307,7 +1307,7 @@
         "uplinkID": {
           "type": "string",
           "format": "byte",
-          "description": "Uplink ID (UUID bytes).\nUnique and random ID which can be used to correlate the uplink across multiple logs."
+          "description": "Uplink ID (UUID bytes).\r\nUnique and random ID which can be used to correlate the uplink across multiple logs."
         },
         "crcStatus": {
           "$ref": "#/definitions/gwCRCStatus",

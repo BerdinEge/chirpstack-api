@@ -300,7 +300,7 @@
         },
         "server": {
           "type": "string",
-          "description": "Network-server server.\nFormat: hostname:ip (e.g. localhost:8000)."
+          "description": "Network-server server.\r\nFormat: hostname:ip (e.g. localhost:8000)."
         },
         "caCert": {
           "type": "string",
@@ -316,15 +316,15 @@
         },
         "routingProfileCACert": {
           "type": "string",
-          "description": "Routing-profile ca certificate (used by the network-server to connect\nback to the application-server) (optional)."
+          "description": "Routing-profile ca certificate (used by the network-server to connect\r\nback to the application-server) (optional)."
         },
         "routingProfileTLSCert": {
           "type": "string",
-          "description": "Routing-profile TLS certificate (used by the network-server to connect\nback to the application-server) (optional)."
+          "description": "Routing-profile TLS certificate (used by the network-server to connect\r\nback to the application-server) (optional)."
         },
         "routingProfileTLSKey": {
           "type": "string",
-          "description": "Routing-profile TLS key (used by the network-server to connect\nback to the application-server) (optional)."
+          "description": "Routing-profile TLS key (used by the network-server to connect\r\nback to the application-server) (optional)."
         },
         "gatewayDiscoveryEnabled": {
           "type": "boolean",
@@ -334,7 +334,7 @@
         "gatewayDiscoveryInterval": {
           "type": "integer",
           "format": "int64",
-          "description": "The number of times per day the gateway discovery 'ping' must be\nbroadcasted per gateway."
+          "description": "The number of times per day the gateway discovery 'ping' must be\r\nbroadcasted per gateway."
         },
         "gatewayDiscoveryTXFrequency": {
           "type": "integer",
@@ -362,7 +362,7 @@
         },
         "server": {
           "type": "string",
-          "description": "Network-server server.\nFormat: hostname:ip (e.g. localhost:8000)."
+          "description": "Network-server server.\r\nFormat: hostname:ip (e.g. localhost:8000)."
         },
         "createdAt": {
           "type": "string",

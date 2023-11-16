@@ -105,7 +105,7 @@
         "parameters": [
           {
             "name": "application.id",
-            "description": "Application ID.\nThis will be automatically assigned on create.",
+            "description": "Application ID.\r\nThis will be automatically assigned on create.",
             "in": "path",
             "required": true,
             "type": "string",
@@ -466,7 +466,7 @@
     },
     "/api/applications/{application_id}/integrations/mqtt/certificate": {
       "post": {
-        "summary": "GenerateMQTTIntegrationClientCertificate generates an application ID specific TLS certificate\nto connect to the MQTT broker.",
+        "summary": "GenerateMQTTIntegrationClientCertificate generates an application ID specific TLS certificate\r\nto connect to the MQTT broker.",
         "operationId": "GenerateMQTTIntegrationClientCertificate",
         "responses": {
           "200": {
@@ -1323,7 +1323,7 @@
         },
         "marshaler": {
           "$ref": "#/definitions/apiMarshaler",
-          "description": "Marshaler.\nThis defines the marshaler that is used to encode the event payload."
+          "description": "Marshaler.\r\nThis defines the marshaler that is used to encode the event payload."
         },
         "region": {
           "type": "string",
@@ -1349,7 +1349,7 @@
         "id": {
           "type": "string",
           "format": "int64",
-          "description": "Application ID.\nThis will be automatically assigned on create."
+          "description": "Application ID.\r\nThis will be automatically assigned on create."
         },
         "name": {
           "type": "string",
@@ -1362,7 +1362,7 @@
         "organizationID": {
           "type": "string",
           "format": "int64",
-          "description": "ID of the organization to which the application belongs.\nAfter create, this can not be modified."
+          "description": "ID of the organization to which the application belongs.\r\nAfter create, this can not be modified."
         },
         "serviceProfileID": {
           "type": "string",
@@ -1370,15 +1370,15 @@
         },
         "payloadCodec": {
           "type": "string",
-          "description": "Payload codec.\nNOTE: These field have moved to the device-profile and will be removed\nin the next major release. When set, the device-profile payload_ fields\nhave priority over the application payload_ fields."
+          "description": "Payload codec.\r\nNOTE: These field have moved to the device-profile and will be removed\r\nin the next major release. When set, the device-profile payload_ fields\r\nhave priority over the application payload_ fields."
         },
         "payloadEncoderScript": {
           "type": "string",
-          "description": "Payload encoder script.\nNOTE: These field have moved to the device-profile and will be removed\nin the next major release. When set, the device-profile payload_ fields\nhave priority over the application payload_ fields."
+          "description": "Payload encoder script.\r\nNOTE: These field have moved to the device-profile and will be removed\r\nin the next major release. When set, the device-profile payload_ fields\r\nhave priority over the application payload_ fields."
         },
         "payloadDecoderScript": {
           "type": "string",
-          "description": "Payload decoder script.\nNOTE: These field have moved to the device-profile and will be removed\nin the next major release. When set, the device-profile payload_ fields\nhave priority over the application payload_ fields."
+          "description": "Payload decoder script.\r\nNOTE: These field have moved to the device-profile and will be removed\r\nin the next major release. When set, the device-profile payload_ fields\r\nhave priority over the application payload_ fields."
         }
       }
     },
@@ -1423,7 +1423,7 @@
         },
         "marshaler": {
           "$ref": "#/definitions/apiMarshaler",
-          "description": "Marshaler.\nThis defines the marshaler that is used to encode the event payload."
+          "description": "Marshaler.\r\nThis defines the marshaler that is used to encode the event payload."
         },
         "connectionString": {
           "type": "string",
@@ -1431,7 +1431,7 @@
         },
         "publishName": {
           "type": "string",
-          "description": "Publish name.\nThis is the name of the topic or queue."
+          "description": "Publish name.\r\nThis is the name of the topic or queue."
         }
       }
     },
@@ -1545,11 +1545,11 @@
         },
         "marshaler": {
           "$ref": "#/definitions/apiMarshaler",
-          "description": "Marshaler.\nThis defines the marshaler that is used to encode the event payload."
+          "description": "Marshaler.\r\nThis defines the marshaler that is used to encode the event payload."
         },
         "credentialsFile": {
           "type": "string",
-          "title": "Credentials file.\nThis IAM service-account credentials file (JSON) must have the following Pub/Sub roles:\n* Pub/Sub Publisher"
+          "title": "Credentials file.\r\nThis IAM service-account credentials file (JSON) must have the following Pub/Sub roles:\r\n* Pub/Sub Publisher"
         },
         "projectID": {
           "type": "string",
@@ -1557,7 +1557,7 @@
         },
         "topicName": {
           "type": "string",
-          "description": "Topic name.\nThis is the name of the Pub/Sub topic."
+          "description": "Topic name.\r\nThis is the name of the Pub/Sub topic."
         }
       }
     },
@@ -1690,43 +1690,43 @@
         },
         "uplinkDataURL": {
           "type": "string",
-          "description": "The URL to call for uplink data.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for uplink data.\r\nDeprecated: use event_endpoint_url."
         },
         "joinNotificationURL": {
           "type": "string",
-          "description": "The URL to call for join notifications.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for join notifications.\r\nDeprecated: use event_endpoint_url."
         },
         "ackNotificationURL": {
           "type": "string",
-          "description": "The URL to call for ACK notifications (for confirmed downlink data).\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for ACK notifications (for confirmed downlink data).\r\nDeprecated: use event_endpoint_url."
         },
         "errorNotificationURL": {
           "type": "string",
-          "description": "The URL to call for error notifications.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for error notifications.\r\nDeprecated: use event_endpoint_url."
         },
         "statusNotificationURL": {
           "type": "string",
-          "description": "The URL to call for device-status notifications.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for device-status notifications.\r\nDeprecated: use event_endpoint_url."
         },
         "locationNotificationURL": {
           "type": "string",
-          "description": "The URL to call for location notifications.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for location notifications.\r\nDeprecated: use event_endpoint_url."
         },
         "txAckNotificationURL": {
           "type": "string",
-          "description": "The URL to call for tx ack notifications (downlink acknowledged by gateway for transmission).\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for tx ack notifications (downlink acknowledged by gateway for transmission).\r\nDeprecated: use event_endpoint_url."
         },
         "integrationNotificationURL": {
           "type": "string",
-          "description": "The URL to call for integration notifications.\nDeprecated: use event_endpoint_url."
+          "description": "The URL to call for integration notifications.\r\nDeprecated: use event_endpoint_url."
         },
         "marshaler": {
           "$ref": "#/definitions/apiMarshaler",
-          "description": "Marshaler.\nThis defines the marshaler that is used to encode the event payload."
+          "description": "Marshaler.\r\nThis defines the marshaler that is used to encode the event payload."
         },
         "eventEndpointURL": {
           "type": "string",
-          "description": "Event endpoint URL.\nThe HTTP integration will POST all events to this enpoint. The request\nwill contain a query parameters \"event\" containing the type of the\nevent."
+          "description": "Event endpoint URL.\r\nThe HTTP integration will POST all events to this enpoint. The request\r\nwill contain a query parameters \"event\" containing the type of the\r\nevent."
         }
       }
     },
@@ -1887,17 +1887,17 @@
         },
         "geolocationToken": {
           "type": "string",
-          "description": "Geolocation token.\nThis token can be obtained from the LoRa Cloud console."
+          "description": "Geolocation token.\r\nThis token can be obtained from the LoRa Cloud console."
         },
         "geolocationBufferTTL": {
           "type": "integer",
           "format": "int64",
-          "description": "Geolocation buffer TTL (in seconds).\nWhen \u003e 0, uplink RX meta-data will be stored in a buffer so that\nthe meta-data of multiple uplinks can be used for geolocation."
+          "description": "Geolocation buffer TTL (in seconds).\r\nWhen \u003e 0, uplink RX meta-data will be stored in a buffer so that\r\nthe meta-data of multiple uplinks can be used for geolocation."
         },
         "geolocationMinBufferSize": {
           "type": "integer",
           "format": "int64",
-          "description": "Geolocation minimum buffer size.\nWhen \u003e 0, geolocation will only be performed when the buffer has\nat least the given size."
+          "description": "Geolocation minimum buffer size.\r\nWhen \u003e 0, geolocation will only be performed when the buffer has\r\nat least the given size."
         },
         "geolocationTDOA": {
           "type": "boolean",
@@ -1916,12 +1916,12 @@
         },
         "geolocationGNSSPayloadField": {
           "type": "string",
-          "description": "GNSS payload field.\nThis holds the name of the field in the decoded payload object which\ncontains the GNSS payload bytes."
+          "description": "GNSS payload field.\r\nThis holds the name of the field in the decoded payload object which\r\ncontains the GNSS payload bytes."
         },
         "geolocationGNSSUseRxTime": {
           "type": "boolean",
           "format": "boolean",
-          "description": "GNSS use RX time.\nIn case this is set to true, the resolver will use the RX time of the\nnetwork instead of the timestamp included in the LR1110 payload."
+          "description": "GNSS use RX time.\r\nIn case this is set to true, the resolver will use the RX time of the\r\nnetwork instead of the timestamp included in the LR1110 payload."
         },
         "geolocationWifi": {
           "type": "boolean",
@@ -1930,7 +1930,7 @@
         },
         "geolocationWifiPayloadField": {
           "type": "string",
-          "title": "Wifi payload field.\nThis holds the name of the field in the decoded payload object which\ncontains an array of objects with the following fields:\n* macAddress - e.g. 01:23:45:67:89:ab\n* signalStrength - e.g. -51 (optional)"
+          "title": "Wifi payload field.\r\nThis holds the name of the field in the decoded payload object which\r\ncontains an array of objects with the following fields:\r\n* macAddress - e.g. 01:23:45:67:89:ab\r\n* signalStrength - e.g. -51 (optional)"
         },
         "das": {
           "type": "boolean",
@@ -1939,27 +1939,27 @@
         },
         "dasToken": {
           "type": "string",
-          "description": "Device Application Services token.\nThis token can be obtained from the LoRa Cloud console."
+          "description": "Device Application Services token.\r\nThis token can be obtained from the LoRa Cloud console."
         },
         "dasModemPort": {
           "type": "integer",
           "format": "int64",
-          "description": "Device Application Services modem port (FPort).\nChirpStack Application Server will only forward the FRMPayload to DAS\nwhen the uplink FPort is equal to this value."
+          "description": "Device Application Services modem port (FPort).\r\nChirpStack Application Server will only forward the FRMPayload to DAS\r\nwhen the uplink FPort is equal to this value."
         },
         "dasGNSSPort": {
           "type": "integer",
           "format": "int64",
-          "description": "Device Application Services GNSS port (FPort).\nChirpStack Application Server will forward the FRMPayload to DAS when\nas GNSS payload when the uplink FPort is equal to this value."
+          "description": "Device Application Services GNSS port (FPort).\r\nChirpStack Application Server will forward the FRMPayload to DAS when\r\nas GNSS payload when the uplink FPort is equal to this value."
         },
         "dasGNSSUseRxTime": {
           "type": "boolean",
           "format": "boolean",
-          "description": "Device Application Services GNSS use RX time.\nIn case this is set to true, the DAS resolver will use the RX time of the\nnetwork instead of the timestamp included in the LR1110 payload."
+          "description": "Device Application Services GNSS use RX time.\r\nIn case this is set to true, the DAS resolver will use the RX time of the\r\nnetwork instead of the timestamp included in the LR1110 payload."
         },
         "dasStreamingGeolocWorkaround": {
           "type": "boolean",
           "format": "boolean",
-          "description": "Device Application Services streaming geoloc work-around.\nThis is a temporarily work-around for processing streaming geolocation\ndata. When enabled, stream records (expected in TLV format) are scanned\nfor GNSS data (0x06 or 0x07). If found, the ChirpStack Application Server\nwill make an additional call to the DAS API for resolving the location\nusing the detected payload."
+          "description": "Device Application Services streaming geoloc work-around.\r\nThis is a temporarily work-around for processing streaming geolocation\r\ndata. When enabled, stream records (expected in TLV format) are scanned\r\nfor GNSS data (0x06 or 0x07). If found, the ChirpStack Application Server\r\nwill make an additional call to the DAS API for resolving the location\r\nusing the detected payload."
         }
       }
     },

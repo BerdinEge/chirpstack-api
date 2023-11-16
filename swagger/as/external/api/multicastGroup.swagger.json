@@ -105,6 +105,33 @@
         ]
       }
     },
+    "/api/multicast-groups/bulk-multicast-deployment": {
+      "post": {
+        "summary": "BulkMulticastDeployment creates the given multicast-deployment.",
+        "operationId": "BulkMulticastDeployment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiBulkMulticastDeploymentResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiBulkMulticastDeploymentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MulticastGroupService"
+        ]
+      }
+    },
     "/api/multicast-groups/{id}": {
       "get": {
         "summary": "Get returns a multicast-group given an ID.",
@@ -170,7 +197,7 @@
         "parameters": [
           {
             "name": "multicast_group.id",
-            "description": "ID (string formatted UUID).\nThis will be generated automatically on create.",
+            "description": "ID (string formatted UUID).\r\nThis will be generated automatically on create.",
             "in": "path",
             "required": true,
             "type": "string"
@@ -351,7 +378,82 @@
         },
         "devEUI": {
           "type": "string",
-          "description": "Device EUI (HEX encoded string).\nNote that the device and the multicast-group must share the same\napplication ID."
+          "description": "Device EUI (HEX encoded string).\r\nNote that the device and the multicast-group must share the same\r\napplication ID."
+        }
+      }
+    },
+    "apiBulkDeploymentDevice": {
+      "type": "object",
+      "properties": {
+        "devEui": {
+          "type": "string",
+          "format": "byte",
+          "description": "DevEUI."
+        }
+      }
+    },
+    "apiBulkMulticastDeployment": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "format": "int64",
+          "description": "Application ID."
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiBulkDeploymentDevice"
+          },
+          "description": "Devices to include in this deployment."
+        },
+        "mcRootKey": {
+          "type": "string",
+          "format": "byte",
+          "description": "McRootKey."
+        },
+        "multicastDr": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Multicast data-rate."
+        },
+        "multicastFrequency": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Multicast frequency (Hz)."
+        },
+        "multicastGroupId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Multicast group ID."
+        },
+        "unicastTimeout": {
+          "type": "string",
+          "description": "Unicast timeout.\r\nSet this to the value in which you at least expect an uplink frame from\r\nthe device. The FUOTA server will wait for the given time before\r\nattempting a retry or continuing with the next step."
+        },
+        "unicastAttemptCount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Unicast attempt count.\r\nThe number of attempts before considering an unicast command\r\nto be failed."
+        }
+      }
+    },
+    "apiBulkMulticastDeploymentRequest": {
+      "type": "object",
+      "properties": {
+        "deployment": {
+          "$ref": "#/definitions/apiBulkMulticastDeployment",
+          "description": "Deployment."
+        }
+      }
+    },
+    "apiBulkMulticastDeploymentResponse": {
+      "type": "object",
+      "properties": {
+        "numberOfDevices": {
+          "type": "integer",
+          "format": "int64",
+          "description": "ID of the created deployment."
         }
       }
     },
@@ -443,7 +545,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "ID (string formatted UUID).\nThis will be generated automatically on create."
+          "description": "ID (string formatted UUID).\r\nThis will be generated automatically on create."
         },
         "name": {
           "type": "string",
@@ -483,12 +585,12 @@
         "pingSlotPeriod": {
           "type": "integer",
           "format": "int64",
-          "description": "Ping-slot period.\nMandatory for Class-B multicast groups."
+          "description": "Ping-slot period.\r\nMandatory for Class-B multicast groups."
         },
         "applicationID": {
           "type": "string",
           "format": "int64",
-          "description": "Application ID.\nAfter creation, this can not be updated."
+          "description": "Application ID.\r\nAfter creation, this can not be updated."
         }
       }
     },
@@ -533,7 +635,7 @@
         "fCnt": {
           "type": "integer",
           "format": "int64",
-          "description": "Downlink frame-counter.\nThis will be automatically set on enqueue."
+          "description": "Downlink frame-counter.\r\nThis will be automatically set on enqueue."
         },
         "fPort": {
           "type": "integer",

@@ -313,25 +313,25 @@
         },
         "payloadCodec": {
           "type": "string",
-          "description": "Payload codec.\nLeave blank to disable the codec feature."
+          "description": "Payload codec.\r\nLeave blank to disable the codec feature."
         },
         "payloadEncoderScript": {
           "type": "string",
-          "description": "Payload encoder script.\nDepending the codec, it is possible to provide a script which implements\nthe encoder function."
+          "description": "Payload encoder script.\r\nDepending the codec, it is possible to provide a script which implements\r\nthe encoder function."
         },
         "payloadDecoderScript": {
           "type": "string",
-          "description": "Payload decoder script.\nDepending the codec, it is possible to provide a script which implements\nthe decoder function."
+          "description": "Payload decoder script.\r\nDepending the codec, it is possible to provide a script which implements\r\nthe decoder function."
         },
         "geolocBufferTTL": {
           "type": "integer",
           "format": "int64",
-          "description": "Geolocation buffer TTL (in seconds).\nWhen \u003e 0, uplink RX meta-data will be stored in a buffer so that\nthe meta-data of multiple uplinks can be used for geolocation."
+          "description": "Geolocation buffer TTL (in seconds).\r\nWhen \u003e 0, uplink RX meta-data will be stored in a buffer so that\r\nthe meta-data of multiple uplinks can be used for geolocation."
         },
         "geolocMinBufferSize": {
           "type": "integer",
           "format": "int64",
-          "description": "Geolocation minimum buffer size.\nWhen \u003e 0, geolocation will only be performed when the buffer has\nat least the given size."
+          "description": "Geolocation minimum buffer size.\r\nWhen \u003e 0, geolocation will only be performed when the buffer has\r\nat least the given size."
         },
         "tags": {
           "type": "object",
@@ -342,11 +342,11 @@
         },
         "uplinkInterval": {
           "type": "string",
-          "description": "Uplink interval.\nThis defines the expected uplink interval which the device uses for\ncommunication. When the uplink interval has expired and no uplink has\nbeen received, the device is considered inactive."
+          "description": "Uplink interval.\r\nThis defines the expected uplink interval which the device uses for\r\ncommunication. When the uplink interval has expired and no uplink has\r\nbeen received, the device is considered inactive."
         },
         "adrAlgorithmID": {
           "type": "string",
-          "description": "ADR algorithm ID.\nIn case this is left blank, or is configured to a non-existing ADR\nalgorithm (plugin), then it falls back to 'default'."
+          "description": "ADR algorithm ID.\r\nIn case this is left blank, or is configured to a non-existing ADR\r\nalgorithm (plugin), then it falls back to 'default'."
         }
       }
     },

@@ -209,18 +209,18 @@
             "type": "integer",
             "format": "int64"
           },
-          "description": "Default channels (channels specified by the LoRaWAN Regional Parameters\nspecification) enabled for this configuration."
+          "description": "Default channels (channels specified by the LoRaWAN Regional Parameters\r\nspecification) enabled for this configuration."
         },
         "extraChannels": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/apiGatewayProfileExtraChannel"
           },
-          "description": "Extra channels added to the channel-configuration (in case the LoRaWAN\nregion supports adding custom channels)."
+          "description": "Extra channels added to the channel-configuration (in case the LoRaWAN\r\nregion supports adding custom channels)."
         },
         "statsInterval": {
           "type": "string",
-          "description": "Stats interval.\nThis defines the (expected) stats interval which the gateways using this\ngateway-profile are using."
+          "description": "Stats interval.\r\nThis defines the (expected) stats interval which the gateways using this\r\ngateway-profile are using."
         }
       }
     },

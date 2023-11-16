@@ -46,7 +46,7 @@
           },
           {
             "name": "organizationID",
-            "description": "ID of the organization for which to filter on, when left blank the\nresponse will return all gateways to which the user has access to.",
+            "description": "ID of the organization for which to filter on, when left blank the\r\nresponse will return all gateways to which the user has access to.",
             "in": "query",
             "required": false,
             "type": "string",
@@ -126,7 +126,7 @@
     },
     "/api/gateways/{gateway_id}/frames": {
       "get": {
-        "summary": "StreamFrameLogs streams the uplink and downlink frame-logs for the given gateway ID.\nNotes:\n  * These are the raw LoRaWAN frames and this endpoint is intended for debugging only.\n  * This endpoint does not work from a web-browser.",
+        "summary": "StreamFrameLogs streams the uplink and downlink frame-logs for the given gateway ID.\r\nNotes:\r\n  * These are the raw LoRaWAN frames and this endpoint is intended for debugging only.\r\n  * This endpoint does not work from a web-browser.",
         "operationId": "StreamFrameLogs",
         "responses": {
           "200": {
@@ -152,7 +152,7 @@
     },
     "/api/gateways/{gateway_id}/generate-certificate": {
       "post": {
-        "summary": "GenerateGatewayClientCertificate returns TLS certificate gateway authentication / authorization.\nThis endpoint can ony be used when ChirpStack Network Server is configured with a gateway\nCA certificate and key, which is used for signing the TLS certificate. The returned TLS\ncertificate will have the Gateway ID as Common Name.",
+        "summary": "GenerateGatewayClientCertificate returns TLS certificate gateway authentication / authorization.\r\nThis endpoint can ony be used when ChirpStack Network Server is configured with a gateway\r\nCA certificate and key, which is used for signing the TLS certificate. The returned TLS\r\ncertificate will have the Gateway ID as Common Name.",
         "operationId": "GenerateGatewayClientCertificate",
         "responses": {
           "200": {
@@ -224,7 +224,7 @@
           },
           {
             "name": "interval",
-            "description": "Aggregation interval.  One of \"second\", \"minute\", \"hour\", \"day\", \"week\",\n\"month\", \"quarter\", \"year\".  Case insensitive.",
+            "description": "Aggregation interval.  One of \"second\", \"minute\", \"hour\", \"day\", \"week\",\r\n\"month\", \"quarter\", \"year\".  Case insensitive.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -356,7 +356,7 @@
         "organizationID": {
           "type": "string",
           "format": "int64",
-          "description": "Organization ID to which the gateway belongs.\nThis can't be changed after creating the gateway."
+          "description": "Organization ID to which the gateway belongs.\r\nThis can't be changed after creating the gateway."
         },
         "discoveryEnabled": {
           "type": "boolean",
@@ -377,7 +377,7 @@
           "items": {
             "$ref": "#/definitions/apiGatewayBoard"
           },
-          "description": "Gateway boards configuration (optional).\nThis is (currently) only needed when the gateway supports the fine-timestamp\nand you you would like to add the FPGA ID to the gateway meta-data or would\nlike ChirpStack Network Server to decrypt the fine-timestamp."
+          "description": "Gateway boards configuration (optional).\r\nThis is (currently) only needed when the gateway supports the fine-timestamp\r\nand you you would like to add the FPGA ID to the gateway meta-data or would\r\nlike ChirpStack Network Server to decrypt the fine-timestamp."
         },
         "tags": {
           "type": "object",
@@ -792,7 +792,7 @@
       "properties": {
         "delay": {
           "type": "string",
-          "description": "Delay (duration).\nThe delay will be added to the gateway internal timing, provided by the context object."
+          "description": "Delay (duration).\r\nThe delay will be added to the gateway internal timing, provided by the context object."
         }
       }
     },
@@ -802,7 +802,7 @@
         "gatewayID": {
           "type": "string",
           "format": "byte",
-          "description": "Gateway ID.\nDeprecated: replaced by gateway_id in DownlinkFrame."
+          "description": "Gateway ID.\r\nDeprecated: replaced by gateway_id in DownlinkFrame."
         },
         "frequency": {
           "type": "integer",
@@ -855,7 +855,7 @@
         "context": {
           "type": "string",
           "format": "byte",
-          "description": "Gateway specific context.\nIn case of a Class-A downlink, this contains a copy of the uplink context."
+          "description": "Gateway specific context.\r\nIn case of a Class-A downlink, this contains a copy of the uplink context."
         }
       }
     },
@@ -1050,7 +1050,7 @@
         "uplinkID": {
           "type": "string",
           "format": "byte",
-          "description": "Uplink ID (UUID bytes).\nUnique and random ID which can be used to correlate the uplink across multiple logs."
+          "description": "Uplink ID (UUID bytes).\r\nUnique and random ID which can be used to correlate the uplink across multiple logs."
         },
         "crcStatus": {
           "$ref": "#/definitions/gwCRCStatus",

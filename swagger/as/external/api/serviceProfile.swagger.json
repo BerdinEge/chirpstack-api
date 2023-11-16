@@ -156,7 +156,7 @@
         "parameters": [
           {
             "name": "service_profile.id",
-            "description": "Service-profile ID (UUID string).\nThis will be automatically set on create.",
+            "description": "Service-profile ID (UUID string).\r\nThis will be automatically set on create.",
             "in": "path",
             "required": true,
             "type": "string"
@@ -244,7 +244,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Service-profile ID (UUID string).\nThis will be automatically set on create."
+          "description": "Service-profile ID (UUID string).\r\nThis will be automatically set on create."
         },
         "name": {
           "type": "string",
@@ -356,7 +356,7 @@
         "gwsPrivate": {
           "type": "boolean",
           "format": "boolean",
-          "description": "Gateways under this service-profile are private.\nThis means that these gateways can only be used by devices under the\nsame service-profile."
+          "description": "Gateways under this service-profile are private.\r\nThis means that these gateways can only be used by devices under the\r\nsame service-profile."
         }
       }
     },
