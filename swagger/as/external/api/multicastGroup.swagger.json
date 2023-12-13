@@ -387,7 +387,6 @@
       "properties": {
         "devEui": {
           "type": "string",
-          "format": "byte",
           "description": "DevEUI."
         }
       }
@@ -409,7 +408,6 @@
         },
         "mcRootKey": {
           "type": "string",
-          "format": "byte",
           "description": "McRootKey."
         },
         "multicastDr": {
@@ -428,13 +426,18 @@
           "description": "Multicast group ID."
         },
         "unicastTimeout": {
-          "type": "string",
+          "type": "integer",
+          "format": "int64",
           "description": "Unicast timeout.\r\nSet this to the value in which you at least expect an uplink frame from\r\nthe device. The FUOTA server will wait for the given time before\r\nattempting a retry or continuing with the next step."
         },
         "unicastAttemptCount": {
           "type": "integer",
           "format": "int64",
           "description": "Unicast attempt count.\r\nThe number of attempts before considering an unicast command\r\nto be failed."
+        },
+        "existingMulticastGroupId": {
+          "type": "string",
+          "description": "Multicast group id for devices to add into(if it exists)."
         }
       }
     },
@@ -454,6 +457,10 @@
           "type": "integer",
           "format": "int64",
           "description": "ID of the created deployment."
+        },
+        "multicastGroupId": {
+          "type": "string",
+          "title": "Multicast group id if a mc group created"
         }
       }
     },

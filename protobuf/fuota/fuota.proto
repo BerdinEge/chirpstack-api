@@ -64,7 +64,7 @@ message DeploymentDevice {
 
 message BulkDeploymentDevice {
     // DevEUI.
-    bytes dev_eui = 1;
+    string dev_eui = 1;
 }
 
 
@@ -174,6 +174,9 @@ message MulticastDeployment {
 	// The number of attempts before considering an unicast command
 	// to be failed.
     uint32 unicast_attempt_count = 10;
+
+    // Multicast group id for devices to add into(if it exists).
+    string existing_multicast_group_id = 11;
 }
 
 message BulkMulticastDeployment {
@@ -184,7 +187,7 @@ message BulkMulticastDeployment {
     repeated BulkDeploymentDevice devices = 2;
 
     // McRootKey.
-    bytes mc_root_key = 3;
+    string mc_root_key = 3;
 
     // Multicast data-rate.
     uint32 multicast_dr = 4;
@@ -199,12 +202,15 @@ message BulkMulticastDeployment {
 	// Set this to the value in which you at least expect an uplink frame from
 	// the device. The FUOTA server will wait for the given time before
 	// attempting a retry or continuing with the next step.
-    google.protobuf.Duration unicast_timeout = 7;
+    uint32 unicast_timeout = 7;
 
     // Unicast attempt count.
 	// The number of attempts before considering an unicast command
 	// to be failed.
     uint32 unicast_attempt_count = 8;
+
+    // Multicast group id for devices to add into(if it exists).
+    string existing_multicast_group_id = 9;
 }
 
 
@@ -226,6 +232,9 @@ message CreateMulticastDeploymentRequest {
 message CreateMulticastDeploymentResponse {
     // ID of the created deployment.
     bytes id = 1;
+
+    //Multicast group id if a mc group created
+    string multicast_group_id = 2;
 }
 
 message BulkMulticastDeploymentRequest {
@@ -236,6 +245,9 @@ message BulkMulticastDeploymentRequest {
 message BulkMulticastDeploymentResponse {
     // ID of the created deployment.
     uint32 number_of_devices = 1;
+
+    //Multicast group id if a mc group created
+    string multicast_group_id = 2;
 }
 
 
