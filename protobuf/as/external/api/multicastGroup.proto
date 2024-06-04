@@ -214,6 +214,9 @@ message BulkMulticastDeployment {
 
     // Multicast group id for devices to add into(if it exists).
     string existing_multicast_group_id = 9;
+
+    // FS deployment db key, set if want to update a deployment.
+    string existing_deployment_id = 10;
 }
 
 message BulkDeploymentDevice {
@@ -264,8 +267,11 @@ message BulkMulticastDeploymentResponse {
     // ID of the created deployment.
     uint32 number_of_devices = 1;
 
-    //Multicast group id if a mc group created
+    // Multicast group id if a mc group created
     string multicast_group_id = 2;
+
+    // Deployment id of the fuota server deployment object
+    string deployment_id = 3;
 }
 
 message GetMulticastGroupRequest {

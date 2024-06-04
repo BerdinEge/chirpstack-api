@@ -438,6 +438,10 @@
         "existingMulticastGroupId": {
           "type": "string",
           "description": "Multicast group id for devices to add into(if it exists)."
+        },
+        "existingDeploymentId": {
+          "type": "string",
+          "description": "FS deployment db key, set if want to update a deployment."
         }
       }
     },
@@ -461,6 +465,10 @@
         "multicastGroupId": {
           "type": "string",
           "title": "Multicast group id if a mc group created"
+        },
+        "deploymentId": {
+          "type": "string",
+          "title": "Deployment id of the fuota server deployment object"
         }
       }
     },
