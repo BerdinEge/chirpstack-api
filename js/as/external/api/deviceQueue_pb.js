@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -60,15 +62,16 @@ proto.api.DeviceQueueItem.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceQueueItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceQueueItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    confirmed: msg.getConfirmed(),
-    fCnt: msg.getFCnt(),
-    fPort: msg.getFPort(),
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    confirmed: jspb.Message.getFieldWithDefault(msg, 2, false),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    fPort: jspb.Message.getFieldWithDefault(msg, 3, 0),
     data: msg.getData_asB64(),
-    jsonObject: msg.getJsonObject()
+    jsonObject: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -139,70 +142,61 @@ proto.api.DeviceQueueItem.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceQueueItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceQueueItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceQueueItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceQueueItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceQueueItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceQueueItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceQueueItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getConfirmed();
+  f = message.getConfirmed();
   if (f) {
     writer.writeBool(
       2,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getFPort();
+  f = message.getFPort();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getData_asU8();
+  f = message.getData_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getJsonObject();
+  f = message.getJsonObject();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -213,26 +207,17 @@ proto.api.DeviceQueueItem.prototype.serializeBinaryToWriter = function (writer) 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceQueueItem} The clone.
- */
-proto.api.DeviceQueueItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceQueueItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeviceQueueItem.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceQueueItem.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -243,13 +228,13 @@ proto.api.DeviceQueueItem.prototype.setDevEui = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceQueueItem.prototype.getConfirmed = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceQueueItem.prototype.setConfirmed = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -258,13 +243,13 @@ proto.api.DeviceQueueItem.prototype.setConfirmed = function(value) {
  * @return {number}
  */
 proto.api.DeviceQueueItem.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceQueueItem.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -273,13 +258,13 @@ proto.api.DeviceQueueItem.prototype.setFCnt = function(value) {
  * @return {number}
  */
 proto.api.DeviceQueueItem.prototype.getFPort = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceQueueItem.prototype.setFPort = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -288,7 +273,7 @@ proto.api.DeviceQueueItem.prototype.setFPort = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.api.DeviceQueueItem.prototype.getData = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -316,9 +301,9 @@ proto.api.DeviceQueueItem.prototype.getData_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.api.DeviceQueueItem.prototype.setData = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -327,13 +312,13 @@ proto.api.DeviceQueueItem.prototype.setData = function(value) {
  * @return {string}
  */
 proto.api.DeviceQueueItem.prototype.getJsonObject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceQueueItem.prototype.setJsonObject = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -380,6 +365,7 @@ proto.api.EnqueueDeviceQueueItemRequest.prototype.toObject = function(opt_includ
  *     http://goto/soy-param-migration
  * @param {!proto.api.EnqueueDeviceQueueItemRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.EnqueueDeviceQueueItemRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -435,35 +421,26 @@ proto.api.EnqueueDeviceQueueItemRequest.deserializeBinaryFromReader = function(m
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.EnqueueDeviceQueueItemRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.EnqueueDeviceQueueItemRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.EnqueueDeviceQueueItemRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.EnqueueDeviceQueueItemRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.EnqueueDeviceQueueItemRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.EnqueueDeviceQueueItemRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.EnqueueDeviceQueueItemRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceQueueItem();
+  f = message.getDeviceQueueItem();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -475,25 +452,16 @@ proto.api.EnqueueDeviceQueueItemRequest.prototype.serializeBinaryToWriter = func
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.EnqueueDeviceQueueItemRequest} The clone.
- */
-proto.api.EnqueueDeviceQueueItemRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.EnqueueDeviceQueueItemRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceQueueItem device_queue_item = 1;
- * @return {proto.api.DeviceQueueItem}
+ * @return {?proto.api.DeviceQueueItem}
  */
 proto.api.EnqueueDeviceQueueItemRequest.prototype.getDeviceQueueItem = function() {
-  return /** @type{proto.api.DeviceQueueItem} */ (
+  return /** @type{?proto.api.DeviceQueueItem} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceQueueItem, 1));
 };
 
 
-/** @param {proto.api.DeviceQueueItem|undefined} value  */
+/** @param {?proto.api.DeviceQueueItem|undefined} value */
 proto.api.EnqueueDeviceQueueItemRequest.prototype.setDeviceQueueItem = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -506,7 +474,7 @@ proto.api.EnqueueDeviceQueueItemRequest.prototype.clearDeviceQueueItem = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.EnqueueDeviceQueueItemRequest.prototype.hasDeviceQueueItem = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -556,10 +524,11 @@ proto.api.EnqueueDeviceQueueItemResponse.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.EnqueueDeviceQueueItemResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.EnqueueDeviceQueueItemResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    fCnt: msg.getFCnt()
+    fCnt: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -610,35 +579,26 @@ proto.api.EnqueueDeviceQueueItemResponse.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.EnqueueDeviceQueueItemResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.EnqueueDeviceQueueItemResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.EnqueueDeviceQueueItemResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.EnqueueDeviceQueueItemResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.EnqueueDeviceQueueItemResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.EnqueueDeviceQueueItemResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.EnqueueDeviceQueueItemResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       1,
@@ -649,26 +609,17 @@ proto.api.EnqueueDeviceQueueItemResponse.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.EnqueueDeviceQueueItemResponse} The clone.
- */
-proto.api.EnqueueDeviceQueueItemResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.EnqueueDeviceQueueItemResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 f_cnt = 1;
  * @return {number}
  */
 proto.api.EnqueueDeviceQueueItemResponse.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.EnqueueDeviceQueueItemResponse.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -715,10 +666,11 @@ proto.api.FlushDeviceQueueRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.FlushDeviceQueueRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.FlushDeviceQueueRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -769,35 +721,26 @@ proto.api.FlushDeviceQueueRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.FlushDeviceQueueRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.FlushDeviceQueueRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.FlushDeviceQueueRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.FlushDeviceQueueRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.FlushDeviceQueueRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.FlushDeviceQueueRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.FlushDeviceQueueRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -808,26 +751,17 @@ proto.api.FlushDeviceQueueRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.FlushDeviceQueueRequest} The clone.
- */
-proto.api.FlushDeviceQueueRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.FlushDeviceQueueRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.FlushDeviceQueueRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.FlushDeviceQueueRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -874,11 +808,12 @@ proto.api.ListDeviceQueueItemsRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListDeviceQueueItemsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListDeviceQueueItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    countOnly: msg.getCountOnly()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    countOnly: jspb.Message.getFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -933,42 +868,33 @@ proto.api.ListDeviceQueueItemsRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListDeviceQueueItemsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListDeviceQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListDeviceQueueItemsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListDeviceQueueItemsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListDeviceQueueItemsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListDeviceQueueItemsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListDeviceQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getCountOnly();
+  f = message.getCountOnly();
   if (f) {
     writer.writeBool(
       2,
@@ -979,26 +905,17 @@ proto.api.ListDeviceQueueItemsRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListDeviceQueueItemsRequest} The clone.
- */
-proto.api.ListDeviceQueueItemsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListDeviceQueueItemsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.ListDeviceQueueItemsRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListDeviceQueueItemsRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1009,13 +926,13 @@ proto.api.ListDeviceQueueItemsRequest.prototype.setDevEui = function(value) {
  * @return {boolean}
  */
 proto.api.ListDeviceQueueItemsRequest.prototype.getCountOnly = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ListDeviceQueueItemsRequest.prototype.setCountOnly = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -1069,12 +986,13 @@ proto.api.ListDeviceQueueItemsResponse.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListDeviceQueueItemsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListDeviceQueueItemsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     deviceQueueItemsList: jspb.Message.toObjectList(msg.getDeviceQueueItemsList(),
     proto.api.DeviceQueueItem.toObject, includeInstance),
-    totalCount: msg.getTotalCount()
+    totalCount: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1114,8 +1032,7 @@ proto.api.ListDeviceQueueItemsResponse.deserializeBinaryFromReader = function(ms
     case 1:
       var value = new proto.api.DeviceQueueItem;
       reader.readMessage(value,proto.api.DeviceQueueItem.deserializeBinaryFromReader);
-      msg.getDeviceQueueItemsList().push(value);
-      msg.setDeviceQueueItemsList(msg.getDeviceQueueItemsList());
+      msg.addDeviceQueueItems(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readUint32());
@@ -1131,35 +1048,26 @@ proto.api.ListDeviceQueueItemsResponse.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListDeviceQueueItemsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListDeviceQueueItemsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListDeviceQueueItemsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListDeviceQueueItemsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListDeviceQueueItemsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListDeviceQueueItemsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListDeviceQueueItemsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceQueueItemsList();
+  f = message.getDeviceQueueItemsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -1167,7 +1075,7 @@ proto.api.ListDeviceQueueItemsResponse.prototype.serializeBinaryToWriter = funct
       proto.api.DeviceQueueItem.serializeBinaryToWriter
     );
   }
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeUint32(
       2,
@@ -1178,29 +1086,28 @@ proto.api.ListDeviceQueueItemsResponse.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListDeviceQueueItemsResponse} The clone.
- */
-proto.api.ListDeviceQueueItemsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListDeviceQueueItemsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated DeviceQueueItem device_queue_items = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.DeviceQueueItem>}
+ * @return {!Array<!proto.api.DeviceQueueItem>}
  */
 proto.api.ListDeviceQueueItemsResponse.prototype.getDeviceQueueItemsList = function() {
-  return /** @type{!Array.<!proto.api.DeviceQueueItem>} */ (
+  return /** @type{!Array<!proto.api.DeviceQueueItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.DeviceQueueItem, 1));
 };
 
 
-/** @param {Array.<!proto.api.DeviceQueueItem>} value  */
+/** @param {!Array<!proto.api.DeviceQueueItem>} value */
 proto.api.ListDeviceQueueItemsResponse.prototype.setDeviceQueueItemsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.api.DeviceQueueItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.DeviceQueueItem}
+ */
+proto.api.ListDeviceQueueItemsResponse.prototype.addDeviceQueueItems = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.api.DeviceQueueItem, opt_index);
 };
 
 
@@ -1214,13 +1121,13 @@ proto.api.ListDeviceQueueItemsResponse.prototype.clearDeviceQueueItemsList = fun
  * @return {number}
  */
 proto.api.ListDeviceQueueItemsResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListDeviceQueueItemsResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

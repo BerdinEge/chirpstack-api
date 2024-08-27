@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -75,13 +77,14 @@ proto.api.GatewayProfile.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.GatewayProfile} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GatewayProfile.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    networkServerId: msg.getNetworkServerId(),
-    channelsList: jspb.Message.getField(msg, 4),
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    channelsList: jspb.Message.getRepeatedField(msg, 4),
     extraChannelsList: jspb.Message.toObjectList(msg.getExtraChannelsList(),
     proto.api.GatewayProfileExtraChannel.toObject, includeInstance),
     statsInterval: (f = msg.getStatsInterval()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f)
@@ -134,14 +137,13 @@ proto.api.GatewayProfile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setNetworkServerId(value);
       break;
     case 4:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setChannelsList(value);
       break;
     case 5:
       var value = new proto.api.GatewayProfileExtraChannel;
       reader.readMessage(value,proto.api.GatewayProfileExtraChannel.deserializeBinaryFromReader);
-      msg.getExtraChannelsList().push(value);
-      msg.setExtraChannelsList(msg.getExtraChannelsList());
+      msg.addExtraChannels(value);
       break;
     case 6:
       var value = new google_protobuf_duration_pb.Duration;
@@ -158,63 +160,54 @@ proto.api.GatewayProfile.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GatewayProfile} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GatewayProfile.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GatewayProfile.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GatewayProfile.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GatewayProfile} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GatewayProfile.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GatewayProfile.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getChannelsList();
+  f = message.getChannelsList();
   if (f.length > 0) {
     writer.writePackedUint32(
       4,
       f
     );
   }
-  f = this.getExtraChannelsList();
+  f = message.getExtraChannelsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -222,7 +215,7 @@ proto.api.GatewayProfile.prototype.serializeBinaryToWriter = function (writer) {
       proto.api.GatewayProfileExtraChannel.serializeBinaryToWriter
     );
   }
-  f = this.getStatsInterval();
+  f = message.getStatsInterval();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -234,26 +227,17 @@ proto.api.GatewayProfile.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GatewayProfile} The clone.
- */
-proto.api.GatewayProfile.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GatewayProfile} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.GatewayProfile.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GatewayProfile.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -262,13 +246,13 @@ proto.api.GatewayProfile.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.GatewayProfile.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GatewayProfile.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -277,53 +261,68 @@ proto.api.GatewayProfile.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.GatewayProfile.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GatewayProfile.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
  * repeated uint32 channels = 4;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<number>}
+ * @return {!Array<number>}
  */
 proto.api.GatewayProfile.prototype.getChannelsList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getField(this, 4));
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 4));
 };
 
 
-/** @param {Array.<number>} value  */
+/** @param {!Array<number>} value */
 proto.api.GatewayProfile.prototype.setChannelsList = function(value) {
   jspb.Message.setField(this, 4, value || []);
 };
 
 
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.api.GatewayProfile.prototype.addChannels = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
 proto.api.GatewayProfile.prototype.clearChannelsList = function() {
-  jspb.Message.setField(this, 4, []);
+  this.setChannelsList([]);
 };
 
 
 /**
  * repeated GatewayProfileExtraChannel extra_channels = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.GatewayProfileExtraChannel>}
+ * @return {!Array<!proto.api.GatewayProfileExtraChannel>}
  */
 proto.api.GatewayProfile.prototype.getExtraChannelsList = function() {
-  return /** @type{!Array.<!proto.api.GatewayProfileExtraChannel>} */ (
+  return /** @type{!Array<!proto.api.GatewayProfileExtraChannel>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.GatewayProfileExtraChannel, 5));
 };
 
 
-/** @param {Array.<!proto.api.GatewayProfileExtraChannel>} value  */
+/** @param {!Array<!proto.api.GatewayProfileExtraChannel>} value */
 proto.api.GatewayProfile.prototype.setExtraChannelsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.api.GatewayProfileExtraChannel=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.GatewayProfileExtraChannel}
+ */
+proto.api.GatewayProfile.prototype.addExtraChannels = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.api.GatewayProfileExtraChannel, opt_index);
 };
 
 
@@ -334,15 +333,15 @@ proto.api.GatewayProfile.prototype.clearExtraChannelsList = function() {
 
 /**
  * optional google.protobuf.Duration stats_interval = 6;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.api.GatewayProfile.prototype.getStatsInterval = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 6));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.api.GatewayProfile.prototype.setStatsInterval = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
 };
@@ -355,7 +354,7 @@ proto.api.GatewayProfile.prototype.clearStatsInterval = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GatewayProfile.prototype.hasStatsInterval = function() {
   return jspb.Message.getField(this, 6) != null;
@@ -405,13 +404,14 @@ proto.api.GatewayProfileListItem.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.GatewayProfileListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GatewayProfileListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    networkServerId: msg.getNetworkServerId(),
-    networkServerName: msg.getNetworkServerName(),
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    networkServerName: jspb.Message.getFieldWithDefault(msg, 7, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
@@ -486,63 +486,54 @@ proto.api.GatewayProfileListItem.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GatewayProfileListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GatewayProfileListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GatewayProfileListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GatewayProfileListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GatewayProfileListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GatewayProfileListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GatewayProfileListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getNetworkServerName();
+  f = message.getNetworkServerName();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -550,7 +541,7 @@ proto.api.GatewayProfileListItem.prototype.serializeBinaryToWriter = function (w
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -562,26 +553,17 @@ proto.api.GatewayProfileListItem.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GatewayProfileListItem} The clone.
- */
-proto.api.GatewayProfileListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GatewayProfileListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.GatewayProfileListItem.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GatewayProfileListItem.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -590,13 +572,13 @@ proto.api.GatewayProfileListItem.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.GatewayProfileListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GatewayProfileListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -605,13 +587,13 @@ proto.api.GatewayProfileListItem.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.GatewayProfileListItem.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GatewayProfileListItem.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -620,27 +602,27 @@ proto.api.GatewayProfileListItem.prototype.setNetworkServerId = function(value) 
  * @return {string}
  */
 proto.api.GatewayProfileListItem.prototype.getNetworkServerName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GatewayProfileListItem.prototype.setNetworkServerName = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp created_at = 5;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GatewayProfileListItem.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GatewayProfileListItem.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 5, value);
 };
@@ -653,7 +635,7 @@ proto.api.GatewayProfileListItem.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GatewayProfileListItem.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -662,15 +644,15 @@ proto.api.GatewayProfileListItem.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 6;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GatewayProfileListItem.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 6));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GatewayProfileListItem.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
 };
@@ -683,7 +665,7 @@ proto.api.GatewayProfileListItem.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GatewayProfileListItem.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 6) != null;
@@ -740,14 +722,15 @@ proto.api.GatewayProfileExtraChannel.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.GatewayProfileExtraChannel} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GatewayProfileExtraChannel.toObject = function(includeInstance, msg) {
   var f, obj = {
-    modulation: msg.getModulation(),
-    frequency: msg.getFrequency(),
-    bandwidth: msg.getBandwidth(),
-    bitrate: msg.getBitrate(),
-    spreadingFactorsList: jspb.Message.getField(msg, 5)
+    modulation: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    frequency: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    bandwidth: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    bitrate: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    spreadingFactorsList: jspb.Message.getRepeatedField(msg, 5)
   };
 
   if (includeInstance) {
@@ -801,7 +784,7 @@ proto.api.GatewayProfileExtraChannel.deserializeBinaryFromReader = function(msg,
       msg.setBitrate(value);
       break;
     case 5:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setSpreadingFactorsList(value);
       break;
     default:
@@ -814,63 +797,54 @@ proto.api.GatewayProfileExtraChannel.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GatewayProfileExtraChannel} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GatewayProfileExtraChannel.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GatewayProfileExtraChannel.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GatewayProfileExtraChannel.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GatewayProfileExtraChannel} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GatewayProfileExtraChannel.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GatewayProfileExtraChannel.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getModulation();
+  f = message.getModulation();
   if (f !== 0.0) {
     writer.writeEnum(
       1,
       f
     );
   }
-  f = this.getFrequency();
+  f = message.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getBandwidth();
+  f = message.getBandwidth();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getBitrate();
+  f = message.getBitrate();
   if (f !== 0) {
     writer.writeUint32(
       4,
       f
     );
   }
-  f = this.getSpreadingFactorsList();
+  f = message.getSpreadingFactorsList();
   if (f.length > 0) {
     writer.writePackedUint32(
       5,
@@ -881,26 +855,17 @@ proto.api.GatewayProfileExtraChannel.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GatewayProfileExtraChannel} The clone.
- */
-proto.api.GatewayProfileExtraChannel.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GatewayProfileExtraChannel} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional common.Modulation modulation = 1;
  * @return {!proto.common.Modulation}
  */
 proto.api.GatewayProfileExtraChannel.prototype.getModulation = function() {
-  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {!proto.common.Modulation} value  */
+/** @param {!proto.common.Modulation} value */
 proto.api.GatewayProfileExtraChannel.prototype.setModulation = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -909,13 +874,13 @@ proto.api.GatewayProfileExtraChannel.prototype.setModulation = function(value) {
  * @return {number}
  */
 proto.api.GatewayProfileExtraChannel.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GatewayProfileExtraChannel.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -924,13 +889,13 @@ proto.api.GatewayProfileExtraChannel.prototype.setFrequency = function(value) {
  * @return {number}
  */
 proto.api.GatewayProfileExtraChannel.prototype.getBandwidth = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GatewayProfileExtraChannel.prototype.setBandwidth = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -939,35 +904,42 @@ proto.api.GatewayProfileExtraChannel.prototype.setBandwidth = function(value) {
  * @return {number}
  */
 proto.api.GatewayProfileExtraChannel.prototype.getBitrate = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GatewayProfileExtraChannel.prototype.setBitrate = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
  * repeated uint32 spreading_factors = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<number>}
+ * @return {!Array<number>}
  */
 proto.api.GatewayProfileExtraChannel.prototype.getSpreadingFactorsList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getField(this, 5));
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
-/** @param {Array.<number>} value  */
+/** @param {!Array<number>} value */
 proto.api.GatewayProfileExtraChannel.prototype.setSpreadingFactorsList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
 
 
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.api.GatewayProfileExtraChannel.prototype.addSpreadingFactors = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
 proto.api.GatewayProfileExtraChannel.prototype.clearSpreadingFactorsList = function() {
-  jspb.Message.setField(this, 5, []);
+  this.setSpreadingFactorsList([]);
 };
 
 
@@ -1014,6 +986,7 @@ proto.api.CreateGatewayProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateGatewayProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateGatewayProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1069,35 +1042,26 @@ proto.api.CreateGatewayProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateGatewayProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateGatewayProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateGatewayProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateGatewayProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateGatewayProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayProfile();
+  f = message.getGatewayProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1109,25 +1073,16 @@ proto.api.CreateGatewayProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateGatewayProfileRequest} The clone.
- */
-proto.api.CreateGatewayProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateGatewayProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GatewayProfile gateway_profile = 1;
- * @return {proto.api.GatewayProfile}
+ * @return {?proto.api.GatewayProfile}
  */
 proto.api.CreateGatewayProfileRequest.prototype.getGatewayProfile = function() {
-  return /** @type{proto.api.GatewayProfile} */ (
+  return /** @type{?proto.api.GatewayProfile} */ (
     jspb.Message.getWrapperField(this, proto.api.GatewayProfile, 1));
 };
 
 
-/** @param {proto.api.GatewayProfile|undefined} value  */
+/** @param {?proto.api.GatewayProfile|undefined} value */
 proto.api.CreateGatewayProfileRequest.prototype.setGatewayProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1140,7 +1095,7 @@ proto.api.CreateGatewayProfileRequest.prototype.clearGatewayProfile = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateGatewayProfileRequest.prototype.hasGatewayProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1190,10 +1145,11 @@ proto.api.CreateGatewayProfileResponse.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateGatewayProfileResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateGatewayProfileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1244,35 +1200,26 @@ proto.api.CreateGatewayProfileResponse.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateGatewayProfileResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateGatewayProfileResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateGatewayProfileResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateGatewayProfileResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateGatewayProfileResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateGatewayProfileResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateGatewayProfileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1283,26 +1230,17 @@ proto.api.CreateGatewayProfileResponse.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateGatewayProfileResponse} The clone.
- */
-proto.api.CreateGatewayProfileResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateGatewayProfileResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.CreateGatewayProfileResponse.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.CreateGatewayProfileResponse.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1349,10 +1287,11 @@ proto.api.GetGatewayProfileRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetGatewayProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetGatewayProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1403,35 +1342,26 @@ proto.api.GetGatewayProfileRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetGatewayProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetGatewayProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetGatewayProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetGatewayProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetGatewayProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1442,26 +1372,17 @@ proto.api.GetGatewayProfileRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetGatewayProfileRequest} The clone.
- */
-proto.api.GetGatewayProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetGatewayProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.GetGatewayProfileRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetGatewayProfileRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1508,6 +1429,7 @@ proto.api.GetGatewayProfileResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetGatewayProfileResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetGatewayProfileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1575,35 +1497,26 @@ proto.api.GetGatewayProfileResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetGatewayProfileResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetGatewayProfileResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetGatewayProfileResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetGatewayProfileResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetGatewayProfileResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetGatewayProfileResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetGatewayProfileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayProfile();
+  f = message.getGatewayProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1611,7 +1524,7 @@ proto.api.GetGatewayProfileResponse.prototype.serializeBinaryToWriter = function
       proto.api.GatewayProfile.serializeBinaryToWriter
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -1619,7 +1532,7 @@ proto.api.GetGatewayProfileResponse.prototype.serializeBinaryToWriter = function
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -1631,25 +1544,16 @@ proto.api.GetGatewayProfileResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetGatewayProfileResponse} The clone.
- */
-proto.api.GetGatewayProfileResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetGatewayProfileResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GatewayProfile gateway_profile = 1;
- * @return {proto.api.GatewayProfile}
+ * @return {?proto.api.GatewayProfile}
  */
 proto.api.GetGatewayProfileResponse.prototype.getGatewayProfile = function() {
-  return /** @type{proto.api.GatewayProfile} */ (
+  return /** @type{?proto.api.GatewayProfile} */ (
     jspb.Message.getWrapperField(this, proto.api.GatewayProfile, 1));
 };
 
 
-/** @param {proto.api.GatewayProfile|undefined} value  */
+/** @param {?proto.api.GatewayProfile|undefined} value */
 proto.api.GetGatewayProfileResponse.prototype.setGatewayProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1662,7 +1566,7 @@ proto.api.GetGatewayProfileResponse.prototype.clearGatewayProfile = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetGatewayProfileResponse.prototype.hasGatewayProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1671,15 +1575,15 @@ proto.api.GetGatewayProfileResponse.prototype.hasGatewayProfile = function() {
 
 /**
  * optional google.protobuf.Timestamp created_at = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetGatewayProfileResponse.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetGatewayProfileResponse.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -1692,7 +1596,7 @@ proto.api.GetGatewayProfileResponse.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetGatewayProfileResponse.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -1701,15 +1605,15 @@ proto.api.GetGatewayProfileResponse.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetGatewayProfileResponse.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetGatewayProfileResponse.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -1722,7 +1626,7 @@ proto.api.GetGatewayProfileResponse.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetGatewayProfileResponse.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -1772,6 +1676,7 @@ proto.api.UpdateGatewayProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateGatewayProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateGatewayProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1827,35 +1732,26 @@ proto.api.UpdateGatewayProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateGatewayProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateGatewayProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateGatewayProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateGatewayProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateGatewayProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayProfile();
+  f = message.getGatewayProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1867,25 +1763,16 @@ proto.api.UpdateGatewayProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateGatewayProfileRequest} The clone.
- */
-proto.api.UpdateGatewayProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateGatewayProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GatewayProfile gateway_profile = 1;
- * @return {proto.api.GatewayProfile}
+ * @return {?proto.api.GatewayProfile}
  */
 proto.api.UpdateGatewayProfileRequest.prototype.getGatewayProfile = function() {
-  return /** @type{proto.api.GatewayProfile} */ (
+  return /** @type{?proto.api.GatewayProfile} */ (
     jspb.Message.getWrapperField(this, proto.api.GatewayProfile, 1));
 };
 
 
-/** @param {proto.api.GatewayProfile|undefined} value  */
+/** @param {?proto.api.GatewayProfile|undefined} value */
 proto.api.UpdateGatewayProfileRequest.prototype.setGatewayProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1898,7 +1785,7 @@ proto.api.UpdateGatewayProfileRequest.prototype.clearGatewayProfile = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateGatewayProfileRequest.prototype.hasGatewayProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1948,10 +1835,11 @@ proto.api.DeleteGatewayProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteGatewayProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteGatewayProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -2002,35 +1890,26 @@ proto.api.DeleteGatewayProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteGatewayProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteGatewayProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteGatewayProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteGatewayProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteGatewayProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteGatewayProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -2041,26 +1920,17 @@ proto.api.DeleteGatewayProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteGatewayProfileRequest} The clone.
- */
-proto.api.DeleteGatewayProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteGatewayProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.DeleteGatewayProfileRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeleteGatewayProfileRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2107,12 +1977,13 @@ proto.api.ListGatewayProfilesRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListGatewayProfilesRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListGatewayProfilesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    networkServerId: msg.getNetworkServerId()
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2171,49 +2042,40 @@ proto.api.ListGatewayProfilesRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListGatewayProfilesRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListGatewayProfilesRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListGatewayProfilesRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListGatewayProfilesRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListGatewayProfilesRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListGatewayProfilesRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListGatewayProfilesRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       3,
@@ -2224,26 +2086,17 @@ proto.api.ListGatewayProfilesRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListGatewayProfilesRequest} The clone.
- */
-proto.api.ListGatewayProfilesRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListGatewayProfilesRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 limit = 1;
  * @return {number}
  */
 proto.api.ListGatewayProfilesRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListGatewayProfilesRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2252,13 +2105,13 @@ proto.api.ListGatewayProfilesRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListGatewayProfilesRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListGatewayProfilesRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2267,13 +2120,13 @@ proto.api.ListGatewayProfilesRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListGatewayProfilesRequest.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListGatewayProfilesRequest.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2327,10 +2180,11 @@ proto.api.ListGatewayProfilesResponse.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListGatewayProfilesResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListGatewayProfilesResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.GatewayProfileListItem.toObject, includeInstance)
   };
@@ -2376,8 +2230,7 @@ proto.api.ListGatewayProfilesResponse.deserializeBinaryFromReader = function(msg
     case 2:
       var value = new proto.api.GatewayProfileListItem;
       reader.readMessage(value,proto.api.GatewayProfileListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -2389,42 +2242,33 @@ proto.api.ListGatewayProfilesResponse.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListGatewayProfilesResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListGatewayProfilesResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListGatewayProfilesResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListGatewayProfilesResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListGatewayProfilesResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListGatewayProfilesResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListGatewayProfilesResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2436,44 +2280,43 @@ proto.api.ListGatewayProfilesResponse.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListGatewayProfilesResponse} The clone.
- */
-proto.api.ListGatewayProfilesResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListGatewayProfilesResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListGatewayProfilesResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListGatewayProfilesResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated GatewayProfileListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.GatewayProfileListItem>}
+ * @return {!Array<!proto.api.GatewayProfileListItem>}
  */
 proto.api.ListGatewayProfilesResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.GatewayProfileListItem>} */ (
+  return /** @type{!Array<!proto.api.GatewayProfileListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.GatewayProfileListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.GatewayProfileListItem>} value  */
+/** @param {!Array<!proto.api.GatewayProfileListItem>} value */
 proto.api.ListGatewayProfilesResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.GatewayProfileListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.GatewayProfileListItem}
+ */
+proto.api.ListGatewayProfilesResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.GatewayProfileListItem, opt_index);
 };
 
 

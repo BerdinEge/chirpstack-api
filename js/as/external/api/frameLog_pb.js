@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -66,13 +68,14 @@ proto.api.UplinkFrameLog.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.UplinkFrameLog} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UplinkFrameLog.toObject = function(includeInstance, msg) {
   var f, obj = {
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.UplinkTXInfo.toObject(includeInstance, f),
     rxInfoList: jspb.Message.toObjectList(msg.getRxInfoList(),
     gw_gw_pb.UplinkRXInfo.toObject, includeInstance),
-    phyPayloadJson: msg.getPhyPayloadJson(),
+    phyPayloadJson: jspb.Message.getFieldWithDefault(msg, 3, ""),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -118,8 +121,7 @@ proto.api.UplinkFrameLog.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = new gw_gw_pb.UplinkRXInfo;
       reader.readMessage(value,gw_gw_pb.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -140,35 +142,26 @@ proto.api.UplinkFrameLog.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UplinkFrameLog} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UplinkFrameLog.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UplinkFrameLog.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UplinkFrameLog.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UplinkFrameLog} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UplinkFrameLog.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UplinkFrameLog.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -176,7 +169,7 @@ proto.api.UplinkFrameLog.prototype.serializeBinaryToWriter = function (writer) {
       gw_gw_pb.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -184,14 +177,14 @@ proto.api.UplinkFrameLog.prototype.serializeBinaryToWriter = function (writer) {
       gw_gw_pb.UplinkRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getPhyPayloadJson();
+  f = message.getPhyPayloadJson();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -203,25 +196,16 @@ proto.api.UplinkFrameLog.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UplinkFrameLog} The clone.
- */
-proto.api.UplinkFrameLog.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UplinkFrameLog} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional gw.UplinkTXInfo tx_info = 1;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.api.UplinkFrameLog.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.UplinkTXInfo, 1));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.api.UplinkFrameLog.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -234,7 +218,7 @@ proto.api.UplinkFrameLog.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UplinkFrameLog.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -243,19 +227,27 @@ proto.api.UplinkFrameLog.prototype.hasTxInfo = function() {
 
 /**
  * repeated gw.UplinkRXInfo rx_info = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.api.UplinkFrameLog.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, gw_gw_pb.UplinkRXInfo, 2));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.api.UplinkFrameLog.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.api.UplinkFrameLog.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -269,27 +261,27 @@ proto.api.UplinkFrameLog.prototype.clearRxInfoList = function() {
  * @return {string}
  */
 proto.api.UplinkFrameLog.prototype.getPhyPayloadJson = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.UplinkFrameLog.prototype.setPhyPayloadJson = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 4;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.UplinkFrameLog.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.UplinkFrameLog.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -302,7 +294,7 @@ proto.api.UplinkFrameLog.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UplinkFrameLog.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -352,12 +344,13 @@ proto.api.DownlinkFrameLog.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DownlinkFrameLog} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DownlinkFrameLog.toObject = function(includeInstance, msg) {
   var f, obj = {
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.DownlinkTXInfo.toObject(includeInstance, f),
-    phyPayloadJson: msg.getPhyPayloadJson(),
-    gatewayId: msg.getGatewayId(),
+    phyPayloadJson: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    gatewayId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -423,35 +416,26 @@ proto.api.DownlinkFrameLog.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DownlinkFrameLog} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DownlinkFrameLog.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DownlinkFrameLog.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DownlinkFrameLog.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DownlinkFrameLog} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DownlinkFrameLog.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DownlinkFrameLog.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -459,21 +443,21 @@ proto.api.DownlinkFrameLog.prototype.serializeBinaryToWriter = function (writer)
       gw_gw_pb.DownlinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getPhyPayloadJson();
+  f = message.getPhyPayloadJson();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getGatewayId();
+  f = message.getGatewayId();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -485,25 +469,16 @@ proto.api.DownlinkFrameLog.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DownlinkFrameLog} The clone.
- */
-proto.api.DownlinkFrameLog.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DownlinkFrameLog} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional gw.DownlinkTXInfo tx_info = 1;
- * @return {proto.gw.DownlinkTXInfo}
+ * @return {?proto.gw.DownlinkTXInfo}
  */
 proto.api.DownlinkFrameLog.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.DownlinkTXInfo} */ (
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.DownlinkTXInfo, 1));
 };
 
 
-/** @param {proto.gw.DownlinkTXInfo|undefined} value  */
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
 proto.api.DownlinkFrameLog.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -516,7 +491,7 @@ proto.api.DownlinkFrameLog.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.DownlinkFrameLog.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -528,13 +503,13 @@ proto.api.DownlinkFrameLog.prototype.hasTxInfo = function() {
  * @return {string}
  */
 proto.api.DownlinkFrameLog.prototype.getPhyPayloadJson = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DownlinkFrameLog.prototype.setPhyPayloadJson = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -543,27 +518,27 @@ proto.api.DownlinkFrameLog.prototype.setPhyPayloadJson = function(value) {
  * @return {string}
  */
 proto.api.DownlinkFrameLog.prototype.getGatewayId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DownlinkFrameLog.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 4;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.DownlinkFrameLog.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.DownlinkFrameLog.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -576,7 +551,7 @@ proto.api.DownlinkFrameLog.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.DownlinkFrameLog.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 4) != null;

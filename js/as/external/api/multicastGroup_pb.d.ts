@@ -5,6 +5,7 @@ import * as jspb from "google-protobuf";
 import * as google_api_annotations_pb from "../../../google/api/annotations_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
+import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 
 export class MulticastGroup extends jspb.Message {
   getId(): string;
@@ -63,6 +64,144 @@ export namespace MulticastGroup {
     frequency: number,
     pingSlotPeriod: number,
     applicationId: number,
+  }
+}
+
+export class MulticastDeployment extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getMcAddr(): string;
+  setMcAddr(value: string): void;
+
+  getMcNwkSKey(): string;
+  setMcNwkSKey(value: string): void;
+
+  getMcAppSKey(): string;
+  setMcAppSKey(value: string): void;
+
+  getFCnt(): number;
+  setFCnt(value: number): void;
+
+  getGroupType(): MulticastGroupTypeMap[keyof MulticastGroupTypeMap];
+  setGroupType(value: MulticastGroupTypeMap[keyof MulticastGroupTypeMap]): void;
+
+  getDr(): number;
+  setDr(value: number): void;
+
+  getFrequency(): number;
+  setFrequency(value: number): void;
+
+  getPingSlotPeriod(): number;
+  setPingSlotPeriod(value: number): void;
+
+  getApplicationId(): number;
+  setApplicationId(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MulticastDeployment.AsObject;
+  static toObject(includeInstance: boolean, msg: MulticastDeployment): MulticastDeployment.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MulticastDeployment, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MulticastDeployment;
+  static deserializeBinaryFromReader(message: MulticastDeployment, reader: jspb.BinaryReader): MulticastDeployment;
+}
+
+export namespace MulticastDeployment {
+  export type AsObject = {
+    id: string,
+    name: string,
+    mcAddr: string,
+    mcNwkSKey: string,
+    mcAppSKey: string,
+    fCnt: number,
+    groupType: MulticastGroupTypeMap[keyof MulticastGroupTypeMap],
+    dr: number,
+    frequency: number,
+    pingSlotPeriod: number,
+    applicationId: number,
+  }
+}
+
+export class BulkMulticastDeployment extends jspb.Message {
+  getApplicationId(): number;
+  setApplicationId(value: number): void;
+
+  clearDevicesList(): void;
+  getDevicesList(): Array<BulkDeploymentDevice>;
+  setDevicesList(value: Array<BulkDeploymentDevice>): void;
+  addDevices(value?: BulkDeploymentDevice, index?: number): BulkDeploymentDevice;
+
+  getMcRootKey(): string;
+  setMcRootKey(value: string): void;
+
+  getMulticastDr(): number;
+  setMulticastDr(value: number): void;
+
+  getMulticastFrequency(): number;
+  setMulticastFrequency(value: number): void;
+
+  getMulticastGroupId(): number;
+  setMulticastGroupId(value: number): void;
+
+  getUnicastTimeout(): number;
+  setUnicastTimeout(value: number): void;
+
+  getUnicastAttemptCount(): number;
+  setUnicastAttemptCount(value: number): void;
+
+  getExistingMulticastGroupId(): string;
+  setExistingMulticastGroupId(value: string): void;
+
+  getExistingDeploymentId(): string;
+  setExistingDeploymentId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BulkMulticastDeployment.AsObject;
+  static toObject(includeInstance: boolean, msg: BulkMulticastDeployment): BulkMulticastDeployment.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BulkMulticastDeployment, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BulkMulticastDeployment;
+  static deserializeBinaryFromReader(message: BulkMulticastDeployment, reader: jspb.BinaryReader): BulkMulticastDeployment;
+}
+
+export namespace BulkMulticastDeployment {
+  export type AsObject = {
+    applicationId: number,
+    devicesList: Array<BulkDeploymentDevice.AsObject>,
+    mcRootKey: string,
+    multicastDr: number,
+    multicastFrequency: number,
+    multicastGroupId: number,
+    unicastTimeout: number,
+    unicastAttemptCount: number,
+    existingMulticastGroupId: string,
+    existingDeploymentId: string,
+  }
+}
+
+export class BulkDeploymentDevice extends jspb.Message {
+  getDevEui(): string;
+  setDevEui(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BulkDeploymentDevice.AsObject;
+  static toObject(includeInstance: boolean, msg: BulkDeploymentDevice): BulkDeploymentDevice.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BulkDeploymentDevice, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BulkDeploymentDevice;
+  static deserializeBinaryFromReader(message: BulkDeploymentDevice, reader: jspb.BinaryReader): BulkDeploymentDevice;
+}
+
+export namespace BulkDeploymentDevice {
+  export type AsObject = {
+    devEui: string,
   }
 }
 
@@ -137,6 +276,142 @@ export class CreateMulticastGroupResponse extends jspb.Message {
 export namespace CreateMulticastGroupResponse {
   export type AsObject = {
     id: string,
+  }
+}
+
+export class CreateMulticastDeploymentRequest extends jspb.Message {
+  hasMulticastDeployment(): boolean;
+  clearMulticastDeployment(): void;
+  getMulticastDeployment(): MulticastDeployment | undefined;
+  setMulticastDeployment(value?: MulticastDeployment): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateMulticastDeploymentRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateMulticastDeploymentRequest): CreateMulticastDeploymentRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateMulticastDeploymentRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateMulticastDeploymentRequest;
+  static deserializeBinaryFromReader(message: CreateMulticastDeploymentRequest, reader: jspb.BinaryReader): CreateMulticastDeploymentRequest;
+}
+
+export namespace CreateMulticastDeploymentRequest {
+  export type AsObject = {
+    multicastDeployment?: MulticastDeployment.AsObject,
+  }
+}
+
+export class CreateMulticastDeploymentResponse extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateMulticastDeploymentResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateMulticastDeploymentResponse): CreateMulticastDeploymentResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateMulticastDeploymentResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateMulticastDeploymentResponse;
+  static deserializeBinaryFromReader(message: CreateMulticastDeploymentResponse, reader: jspb.BinaryReader): CreateMulticastDeploymentResponse;
+}
+
+export namespace CreateMulticastDeploymentResponse {
+  export type AsObject = {
+    id: string,
+  }
+}
+
+export class BulkMulticastDeploymentRequest extends jspb.Message {
+  hasDeployment(): boolean;
+  clearDeployment(): void;
+  getDeployment(): BulkMulticastDeployment | undefined;
+  setDeployment(value?: BulkMulticastDeployment): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BulkMulticastDeploymentRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BulkMulticastDeploymentRequest): BulkMulticastDeploymentRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BulkMulticastDeploymentRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BulkMulticastDeploymentRequest;
+  static deserializeBinaryFromReader(message: BulkMulticastDeploymentRequest, reader: jspb.BinaryReader): BulkMulticastDeploymentRequest;
+}
+
+export namespace BulkMulticastDeploymentRequest {
+  export type AsObject = {
+    deployment?: BulkMulticastDeployment.AsObject,
+  }
+}
+
+export class BulkMulticastDeploymentResponse extends jspb.Message {
+  getNumberOfDevices(): number;
+  setNumberOfDevices(value: number): void;
+
+  getMulticastGroupId(): string;
+  setMulticastGroupId(value: string): void;
+
+  getDeploymentId(): string;
+  setDeploymentId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BulkMulticastDeploymentResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BulkMulticastDeploymentResponse): BulkMulticastDeploymentResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BulkMulticastDeploymentResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BulkMulticastDeploymentResponse;
+  static deserializeBinaryFromReader(message: BulkMulticastDeploymentResponse, reader: jspb.BinaryReader): BulkMulticastDeploymentResponse;
+}
+
+export namespace BulkMulticastDeploymentResponse {
+  export type AsObject = {
+    numberOfDevices: number,
+    multicastGroupId: string,
+    deploymentId: string,
+  }
+}
+
+export class ResetMulticastSetupRequest extends jspb.Message {
+  getDeploymentId(): string;
+  setDeploymentId(value: string): void;
+
+  getDevEui(): string;
+  setDevEui(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ResetMulticastSetupRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ResetMulticastSetupRequest): ResetMulticastSetupRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ResetMulticastSetupRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ResetMulticastSetupRequest;
+  static deserializeBinaryFromReader(message: ResetMulticastSetupRequest, reader: jspb.BinaryReader): ResetMulticastSetupRequest;
+}
+
+export namespace ResetMulticastSetupRequest {
+  export type AsObject = {
+    deploymentId: string,
+    devEui: string,
+  }
+}
+
+export class ResetMulticastSetupResponse extends jspb.Message {
+  getIsSucceed(): boolean;
+  setIsSucceed(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ResetMulticastSetupResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ResetMulticastSetupResponse): ResetMulticastSetupResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ResetMulticastSetupResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ResetMulticastSetupResponse;
+  static deserializeBinaryFromReader(message: ResetMulticastSetupResponse, reader: jspb.BinaryReader): ResetMulticastSetupResponse;
+}
+
+export namespace ResetMulticastSetupResponse {
+  export type AsObject = {
+    isSucceed: boolean,
   }
 }
 

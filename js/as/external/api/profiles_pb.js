@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -56,33 +58,34 @@ proto.api.ServiceProfile.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.ServiceProfile} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ServiceProfile.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    organizationId: msg.getOrganizationId(),
-    networkServerId: msg.getNetworkServerId(),
-    ulRate: msg.getUlRate(),
-    ulBucketSize: msg.getUlBucketSize(),
-    ulRatePolicy: msg.getUlRatePolicy(),
-    dlRate: msg.getDlRate(),
-    dlBucketSize: msg.getDlBucketSize(),
-    dlRatePolicy: msg.getDlRatePolicy(),
-    addGwMetadata: msg.getAddGwMetadata(),
-    devStatusReqFreq: msg.getDevStatusReqFreq(),
-    reportDevStatusBattery: msg.getReportDevStatusBattery(),
-    reportDevStatusMargin: msg.getReportDevStatusMargin(),
-    drMin: msg.getDrMin(),
-    drMax: msg.getDrMax(),
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 21, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 22, 0),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 23, 0),
+    ulRate: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    ulBucketSize: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    ulRatePolicy: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    dlRate: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    dlBucketSize: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    dlRatePolicy: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    addGwMetadata: jspb.Message.getFieldWithDefault(msg, 8, false),
+    devStatusReqFreq: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    reportDevStatusBattery: jspb.Message.getFieldWithDefault(msg, 10, false),
+    reportDevStatusMargin: jspb.Message.getFieldWithDefault(msg, 11, false),
+    drMin: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    drMax: jspb.Message.getFieldWithDefault(msg, 13, 0),
     channelMask: msg.getChannelMask_asB64(),
-    prAllowed: msg.getPrAllowed(),
-    hrAllowed: msg.getHrAllowed(),
-    raAllowed: msg.getRaAllowed(),
-    nwkGeoLoc: msg.getNwkGeoLoc(),
-    targetPer: msg.getTargetPer(),
-    minGwDiversity: msg.getMinGwDiversity(),
-    gwsPrivate: msg.getGwsPrivate()
+    prAllowed: jspb.Message.getFieldWithDefault(msg, 15, false),
+    hrAllowed: jspb.Message.getFieldWithDefault(msg, 16, false),
+    raAllowed: jspb.Message.getFieldWithDefault(msg, 17, false),
+    nwkGeoLoc: jspb.Message.getFieldWithDefault(msg, 18, false),
+    targetPer: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    minGwDiversity: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    gwsPrivate: jspb.Message.getFieldWithDefault(msg, 24, false)
   };
 
   if (includeInstance) {
@@ -225,196 +228,187 @@ proto.api.ServiceProfile.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ServiceProfile} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ServiceProfile.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ServiceProfile.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ServiceProfile.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ServiceProfile} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ServiceProfile.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ServiceProfile.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       21,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       22,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       23,
       f
     );
   }
-  f = this.getUlRate();
+  f = message.getUlRate();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getUlBucketSize();
+  f = message.getUlBucketSize();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getUlRatePolicy();
+  f = message.getUlRatePolicy();
   if (f !== 0.0) {
     writer.writeEnum(
       4,
       f
     );
   }
-  f = this.getDlRate();
+  f = message.getDlRate();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getDlBucketSize();
+  f = message.getDlBucketSize();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getDlRatePolicy();
+  f = message.getDlRatePolicy();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
       f
     );
   }
-  f = this.getAddGwMetadata();
+  f = message.getAddGwMetadata();
   if (f) {
     writer.writeBool(
       8,
       f
     );
   }
-  f = this.getDevStatusReqFreq();
+  f = message.getDevStatusReqFreq();
   if (f !== 0) {
     writer.writeUint32(
       9,
       f
     );
   }
-  f = this.getReportDevStatusBattery();
+  f = message.getReportDevStatusBattery();
   if (f) {
     writer.writeBool(
       10,
       f
     );
   }
-  f = this.getReportDevStatusMargin();
+  f = message.getReportDevStatusMargin();
   if (f) {
     writer.writeBool(
       11,
       f
     );
   }
-  f = this.getDrMin();
+  f = message.getDrMin();
   if (f !== 0) {
     writer.writeUint32(
       12,
       f
     );
   }
-  f = this.getDrMax();
+  f = message.getDrMax();
   if (f !== 0) {
     writer.writeUint32(
       13,
       f
     );
   }
-  f = this.getChannelMask_asU8();
+  f = message.getChannelMask_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       14,
       f
     );
   }
-  f = this.getPrAllowed();
+  f = message.getPrAllowed();
   if (f) {
     writer.writeBool(
       15,
       f
     );
   }
-  f = this.getHrAllowed();
+  f = message.getHrAllowed();
   if (f) {
     writer.writeBool(
       16,
       f
     );
   }
-  f = this.getRaAllowed();
+  f = message.getRaAllowed();
   if (f) {
     writer.writeBool(
       17,
       f
     );
   }
-  f = this.getNwkGeoLoc();
+  f = message.getNwkGeoLoc();
   if (f) {
     writer.writeBool(
       18,
       f
     );
   }
-  f = this.getTargetPer();
+  f = message.getTargetPer();
   if (f !== 0) {
     writer.writeUint32(
       19,
       f
     );
   }
-  f = this.getMinGwDiversity();
+  f = message.getMinGwDiversity();
   if (f !== 0) {
     writer.writeUint32(
       20,
       f
     );
   }
-  f = this.getGwsPrivate();
+  f = message.getGwsPrivate();
   if (f) {
     writer.writeBool(
       24,
@@ -425,26 +419,17 @@ proto.api.ServiceProfile.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ServiceProfile} The clone.
- */
-proto.api.ServiceProfile.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ServiceProfile} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.ServiceProfile.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ServiceProfile.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -453,13 +438,13 @@ proto.api.ServiceProfile.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.ServiceProfile.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 21, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ServiceProfile.prototype.setName = function(value) {
-  jspb.Message.setField(this, 21, value);
+  jspb.Message.setProto3StringField(this, 21, value);
 };
 
 
@@ -468,13 +453,13 @@ proto.api.ServiceProfile.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 22, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 22, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 22, value);
+  jspb.Message.setProto3IntField(this, 22, value);
 };
 
 
@@ -483,13 +468,13 @@ proto.api.ServiceProfile.prototype.setOrganizationId = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 23, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 23, value);
+  jspb.Message.setProto3IntField(this, 23, value);
 };
 
 
@@ -498,13 +483,13 @@ proto.api.ServiceProfile.prototype.setNetworkServerId = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getUlRate = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setUlRate = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -513,13 +498,13 @@ proto.api.ServiceProfile.prototype.setUlRate = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getUlBucketSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setUlBucketSize = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -528,13 +513,13 @@ proto.api.ServiceProfile.prototype.setUlBucketSize = function(value) {
  * @return {!proto.api.RatePolicy}
  */
 proto.api.ServiceProfile.prototype.getUlRatePolicy = function() {
-  return /** @type {!proto.api.RatePolicy} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {!proto.api.RatePolicy} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {!proto.api.RatePolicy} value  */
+/** @param {!proto.api.RatePolicy} value */
 proto.api.ServiceProfile.prototype.setUlRatePolicy = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
@@ -543,13 +528,13 @@ proto.api.ServiceProfile.prototype.setUlRatePolicy = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getDlRate = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setDlRate = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -558,13 +543,13 @@ proto.api.ServiceProfile.prototype.setDlRate = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getDlBucketSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setDlBucketSize = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -573,13 +558,13 @@ proto.api.ServiceProfile.prototype.setDlBucketSize = function(value) {
  * @return {!proto.api.RatePolicy}
  */
 proto.api.ServiceProfile.prototype.getDlRatePolicy = function() {
-  return /** @type {!proto.api.RatePolicy} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.api.RatePolicy} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.api.RatePolicy} value  */
+/** @param {!proto.api.RatePolicy} value */
 proto.api.ServiceProfile.prototype.setDlRatePolicy = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -590,13 +575,13 @@ proto.api.ServiceProfile.prototype.setDlRatePolicy = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getAddGwMetadata = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 8, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setAddGwMetadata = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
 
@@ -605,13 +590,13 @@ proto.api.ServiceProfile.prototype.setAddGwMetadata = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getDevStatusReqFreq = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setDevStatusReqFreq = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -622,13 +607,13 @@ proto.api.ServiceProfile.prototype.setDevStatusReqFreq = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getReportDevStatusBattery = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setReportDevStatusBattery = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -639,13 +624,13 @@ proto.api.ServiceProfile.prototype.setReportDevStatusBattery = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getReportDevStatusMargin = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setReportDevStatusMargin = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -654,13 +639,13 @@ proto.api.ServiceProfile.prototype.setReportDevStatusMargin = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getDrMin = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setDrMin = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -669,13 +654,13 @@ proto.api.ServiceProfile.prototype.setDrMin = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getDrMax = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 13, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setDrMax = function(value) {
-  jspb.Message.setField(this, 13, value);
+  jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -684,7 +669,7 @@ proto.api.ServiceProfile.prototype.setDrMax = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.api.ServiceProfile.prototype.getChannelMask = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 14, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
 };
 
 
@@ -712,9 +697,9 @@ proto.api.ServiceProfile.prototype.getChannelMask_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.api.ServiceProfile.prototype.setChannelMask = function(value) {
-  jspb.Message.setField(this, 14, value);
+  jspb.Message.setProto3BytesField(this, 14, value);
 };
 
 
@@ -725,13 +710,13 @@ proto.api.ServiceProfile.prototype.setChannelMask = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getPrAllowed = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 15, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 15, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setPrAllowed = function(value) {
-  jspb.Message.setField(this, 15, value);
+  jspb.Message.setProto3BooleanField(this, 15, value);
 };
 
 
@@ -742,13 +727,13 @@ proto.api.ServiceProfile.prototype.setPrAllowed = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getHrAllowed = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 16, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 16, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setHrAllowed = function(value) {
-  jspb.Message.setField(this, 16, value);
+  jspb.Message.setProto3BooleanField(this, 16, value);
 };
 
 
@@ -759,13 +744,13 @@ proto.api.ServiceProfile.prototype.setHrAllowed = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getRaAllowed = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 17, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 17, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setRaAllowed = function(value) {
-  jspb.Message.setField(this, 17, value);
+  jspb.Message.setProto3BooleanField(this, 17, value);
 };
 
 
@@ -776,13 +761,13 @@ proto.api.ServiceProfile.prototype.setRaAllowed = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getNwkGeoLoc = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 18, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 18, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setNwkGeoLoc = function(value) {
-  jspb.Message.setField(this, 18, value);
+  jspb.Message.setProto3BooleanField(this, 18, value);
 };
 
 
@@ -791,13 +776,13 @@ proto.api.ServiceProfile.prototype.setNwkGeoLoc = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getTargetPer = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 19, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setTargetPer = function(value) {
-  jspb.Message.setField(this, 19, value);
+  jspb.Message.setProto3IntField(this, 19, value);
 };
 
 
@@ -806,13 +791,13 @@ proto.api.ServiceProfile.prototype.setTargetPer = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfile.prototype.getMinGwDiversity = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 20, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfile.prototype.setMinGwDiversity = function(value) {
-  jspb.Message.setField(this, 20, value);
+  jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
@@ -823,13 +808,13 @@ proto.api.ServiceProfile.prototype.setMinGwDiversity = function(value) {
  * @return {boolean}
  */
 proto.api.ServiceProfile.prototype.getGwsPrivate = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 24, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 24, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.ServiceProfile.prototype.setGwsPrivate = function(value) {
-  jspb.Message.setField(this, 24, value);
+  jspb.Message.setProto3BooleanField(this, 24, value);
 };
 
 
@@ -883,40 +868,41 @@ proto.api.DeviceProfile.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceProfile} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceProfile.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    organizationId: msg.getOrganizationId(),
-    networkServerId: msg.getNetworkServerId(),
-    supportsClassB: msg.getSupportsClassB(),
-    classBTimeout: msg.getClassBTimeout(),
-    pingSlotPeriod: msg.getPingSlotPeriod(),
-    pingSlotDr: msg.getPingSlotDr(),
-    pingSlotFreq: msg.getPingSlotFreq(),
-    supportsClassC: msg.getSupportsClassC(),
-    classCTimeout: msg.getClassCTimeout(),
-    macVersion: msg.getMacVersion(),
-    regParamsRevision: msg.getRegParamsRevision(),
-    rxDelay1: msg.getRxDelay1(),
-    rxDrOffset1: msg.getRxDrOffset1(),
-    rxDatarate2: msg.getRxDatarate2(),
-    rxFreq2: msg.getRxFreq2(),
-    factoryPresetFreqsList: jspb.Message.getField(msg, 15),
-    maxEirp: msg.getMaxEirp(),
-    maxDutyCycle: msg.getMaxDutyCycle(),
-    supportsJoin: msg.getSupportsJoin(),
-    rfRegion: msg.getRfRegion(),
-    supports32bitFCnt: msg.getSupports32bitFCnt(),
-    payloadCodec: msg.getPayloadCodec(),
-    payloadEncoderScript: msg.getPayloadEncoderScript(),
-    payloadDecoderScript: msg.getPayloadDecoderScript(),
-    geolocBufferTtl: msg.getGeolocBufferTtl(),
-    geolocMinBufferSize: msg.getGeolocMinBufferSize(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 21, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 22, 0),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 23, 0),
+    supportsClassB: jspb.Message.getFieldWithDefault(msg, 2, false),
+    classBTimeout: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    pingSlotPeriod: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    pingSlotDr: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    pingSlotFreq: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    supportsClassC: jspb.Message.getFieldWithDefault(msg, 7, false),
+    classCTimeout: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    macVersion: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    regParamsRevision: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    rxDelay1: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    rxDrOffset1: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    rxDatarate2: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    rxFreq2: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    factoryPresetFreqsList: jspb.Message.getRepeatedField(msg, 15),
+    maxEirp: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    maxDutyCycle: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    supportsJoin: jspb.Message.getFieldWithDefault(msg, 18, false),
+    rfRegion: jspb.Message.getFieldWithDefault(msg, 19, ""),
+    supports32bitFCnt: jspb.Message.getFieldWithDefault(msg, 20, false),
+    payloadCodec: jspb.Message.getFieldWithDefault(msg, 24, ""),
+    payloadEncoderScript: jspb.Message.getFieldWithDefault(msg, 25, ""),
+    payloadDecoderScript: jspb.Message.getFieldWithDefault(msg, 26, ""),
+    geolocBufferTtl: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    geolocMinBufferSize: jspb.Message.getFieldWithDefault(msg, 28, 0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     uplinkInterval: (f = msg.getUplinkInterval()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
-    adrAlgorithmId: msg.getAdrAlgorithmId()
+    adrAlgorithmId: jspb.Message.getFieldWithDefault(msg, 31, "")
   };
 
   if (includeInstance) {
@@ -1022,7 +1008,7 @@ proto.api.DeviceProfile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setRxFreq2(value);
       break;
     case 15:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setFactoryPresetFreqsList(value);
       break;
     case 16:
@@ -1068,7 +1054,7 @@ proto.api.DeviceProfile.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 30:
@@ -1090,235 +1076,226 @@ proto.api.DeviceProfile.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceProfile} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceProfile.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceProfile.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceProfile.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceProfile} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceProfile.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceProfile.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       21,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       22,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       23,
       f
     );
   }
-  f = this.getSupportsClassB();
+  f = message.getSupportsClassB();
   if (f) {
     writer.writeBool(
       2,
       f
     );
   }
-  f = this.getClassBTimeout();
+  f = message.getClassBTimeout();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getPingSlotPeriod();
+  f = message.getPingSlotPeriod();
   if (f !== 0) {
     writer.writeUint32(
       4,
       f
     );
   }
-  f = this.getPingSlotDr();
+  f = message.getPingSlotDr();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getPingSlotFreq();
+  f = message.getPingSlotFreq();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getSupportsClassC();
+  f = message.getSupportsClassC();
   if (f) {
     writer.writeBool(
       7,
       f
     );
   }
-  f = this.getClassCTimeout();
+  f = message.getClassCTimeout();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getMacVersion();
+  f = message.getMacVersion();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getRegParamsRevision();
+  f = message.getRegParamsRevision();
   if (f.length > 0) {
     writer.writeString(
       10,
       f
     );
   }
-  f = this.getRxDelay1();
+  f = message.getRxDelay1();
   if (f !== 0) {
     writer.writeUint32(
       11,
       f
     );
   }
-  f = this.getRxDrOffset1();
+  f = message.getRxDrOffset1();
   if (f !== 0) {
     writer.writeUint32(
       12,
       f
     );
   }
-  f = this.getRxDatarate2();
+  f = message.getRxDatarate2();
   if (f !== 0) {
     writer.writeUint32(
       13,
       f
     );
   }
-  f = this.getRxFreq2();
+  f = message.getRxFreq2();
   if (f !== 0) {
     writer.writeUint32(
       14,
       f
     );
   }
-  f = this.getFactoryPresetFreqsList();
+  f = message.getFactoryPresetFreqsList();
   if (f.length > 0) {
     writer.writePackedUint32(
       15,
       f
     );
   }
-  f = this.getMaxEirp();
+  f = message.getMaxEirp();
   if (f !== 0) {
     writer.writeUint32(
       16,
       f
     );
   }
-  f = this.getMaxDutyCycle();
+  f = message.getMaxDutyCycle();
   if (f !== 0) {
     writer.writeUint32(
       17,
       f
     );
   }
-  f = this.getSupportsJoin();
+  f = message.getSupportsJoin();
   if (f) {
     writer.writeBool(
       18,
       f
     );
   }
-  f = this.getRfRegion();
+  f = message.getRfRegion();
   if (f.length > 0) {
     writer.writeString(
       19,
       f
     );
   }
-  f = this.getSupports32bitFCnt();
+  f = message.getSupports32bitFCnt();
   if (f) {
     writer.writeBool(
       20,
       f
     );
   }
-  f = this.getPayloadCodec();
+  f = message.getPayloadCodec();
   if (f.length > 0) {
     writer.writeString(
       24,
       f
     );
   }
-  f = this.getPayloadEncoderScript();
+  f = message.getPayloadEncoderScript();
   if (f.length > 0) {
     writer.writeString(
       25,
       f
     );
   }
-  f = this.getPayloadDecoderScript();
+  f = message.getPayloadDecoderScript();
   if (f.length > 0) {
     writer.writeString(
       26,
       f
     );
   }
-  f = this.getGeolocBufferTtl();
+  f = message.getGeolocBufferTtl();
   if (f !== 0) {
     writer.writeUint32(
       27,
       f
     );
   }
-  f = this.getGeolocMinBufferSize();
+  f = message.getGeolocMinBufferSize();
   if (f !== 0) {
     writer.writeUint32(
       28,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(29, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getUplinkInterval();
+  f = message.getUplinkInterval();
   if (f != null) {
     writer.writeMessage(
       30,
@@ -1326,7 +1303,7 @@ proto.api.DeviceProfile.prototype.serializeBinaryToWriter = function (writer) {
       google_protobuf_duration_pb.Duration.serializeBinaryToWriter
     );
   }
-  f = this.getAdrAlgorithmId();
+  f = message.getAdrAlgorithmId();
   if (f.length > 0) {
     writer.writeString(
       31,
@@ -1337,26 +1314,17 @@ proto.api.DeviceProfile.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceProfile} The clone.
- */
-proto.api.DeviceProfile.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceProfile} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1365,13 +1333,13 @@ proto.api.DeviceProfile.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 21, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setName = function(value) {
-  jspb.Message.setField(this, 21, value);
+  jspb.Message.setProto3StringField(this, 21, value);
 };
 
 
@@ -1380,13 +1348,13 @@ proto.api.DeviceProfile.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 22, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 22, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 22, value);
+  jspb.Message.setProto3IntField(this, 22, value);
 };
 
 
@@ -1395,13 +1363,13 @@ proto.api.DeviceProfile.prototype.setOrganizationId = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 23, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 23, value);
+  jspb.Message.setProto3IntField(this, 23, value);
 };
 
 
@@ -1412,13 +1380,13 @@ proto.api.DeviceProfile.prototype.setNetworkServerId = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceProfile.prototype.getSupportsClassB = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceProfile.prototype.setSupportsClassB = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -1427,13 +1395,13 @@ proto.api.DeviceProfile.prototype.setSupportsClassB = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getClassBTimeout = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setClassBTimeout = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1442,13 +1410,13 @@ proto.api.DeviceProfile.prototype.setClassBTimeout = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getPingSlotPeriod = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setPingSlotPeriod = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -1457,13 +1425,13 @@ proto.api.DeviceProfile.prototype.setPingSlotPeriod = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getPingSlotDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setPingSlotDr = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -1472,13 +1440,13 @@ proto.api.DeviceProfile.prototype.setPingSlotDr = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getPingSlotFreq = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setPingSlotFreq = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1489,13 +1457,13 @@ proto.api.DeviceProfile.prototype.setPingSlotFreq = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceProfile.prototype.getSupportsClassC = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 7, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceProfile.prototype.setSupportsClassC = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -1504,13 +1472,13 @@ proto.api.DeviceProfile.prototype.setSupportsClassC = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getClassCTimeout = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setClassCTimeout = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -1519,13 +1487,13 @@ proto.api.DeviceProfile.prototype.setClassCTimeout = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getMacVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setMacVersion = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -1534,13 +1502,13 @@ proto.api.DeviceProfile.prototype.setMacVersion = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getRegParamsRevision = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setRegParamsRevision = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -1549,13 +1517,13 @@ proto.api.DeviceProfile.prototype.setRegParamsRevision = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getRxDelay1 = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 11, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setRxDelay1 = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -1564,13 +1532,13 @@ proto.api.DeviceProfile.prototype.setRxDelay1 = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getRxDrOffset1 = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setRxDrOffset1 = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -1579,13 +1547,13 @@ proto.api.DeviceProfile.prototype.setRxDrOffset1 = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getRxDatarate2 = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 13, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setRxDatarate2 = function(value) {
-  jspb.Message.setField(this, 13, value);
+  jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -1594,35 +1562,42 @@ proto.api.DeviceProfile.prototype.setRxDatarate2 = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getRxFreq2 = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 14, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setRxFreq2 = function(value) {
-  jspb.Message.setField(this, 14, value);
+  jspb.Message.setProto3IntField(this, 14, value);
 };
 
 
 /**
  * repeated uint32 factory_preset_freqs = 15;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<number>}
+ * @return {!Array<number>}
  */
 proto.api.DeviceProfile.prototype.getFactoryPresetFreqsList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getField(this, 15));
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 15));
 };
 
 
-/** @param {Array.<number>} value  */
+/** @param {!Array<number>} value */
 proto.api.DeviceProfile.prototype.setFactoryPresetFreqsList = function(value) {
   jspb.Message.setField(this, 15, value || []);
 };
 
 
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.api.DeviceProfile.prototype.addFactoryPresetFreqs = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 15, value, opt_index);
+};
+
+
 proto.api.DeviceProfile.prototype.clearFactoryPresetFreqsList = function() {
-  jspb.Message.setField(this, 15, []);
+  this.setFactoryPresetFreqsList([]);
 };
 
 
@@ -1631,13 +1606,13 @@ proto.api.DeviceProfile.prototype.clearFactoryPresetFreqsList = function() {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getMaxEirp = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 16, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setMaxEirp = function(value) {
-  jspb.Message.setField(this, 16, value);
+  jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
@@ -1646,13 +1621,13 @@ proto.api.DeviceProfile.prototype.setMaxEirp = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getMaxDutyCycle = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 17, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setMaxDutyCycle = function(value) {
-  jspb.Message.setField(this, 17, value);
+  jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
@@ -1663,13 +1638,13 @@ proto.api.DeviceProfile.prototype.setMaxDutyCycle = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceProfile.prototype.getSupportsJoin = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 18, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 18, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceProfile.prototype.setSupportsJoin = function(value) {
-  jspb.Message.setField(this, 18, value);
+  jspb.Message.setProto3BooleanField(this, 18, value);
 };
 
 
@@ -1678,13 +1653,13 @@ proto.api.DeviceProfile.prototype.setSupportsJoin = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getRfRegion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 19, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setRfRegion = function(value) {
-  jspb.Message.setField(this, 19, value);
+  jspb.Message.setProto3StringField(this, 19, value);
 };
 
 
@@ -1695,13 +1670,13 @@ proto.api.DeviceProfile.prototype.setRfRegion = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceProfile.prototype.getSupports32bitFCnt = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 20, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 20, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceProfile.prototype.setSupports32bitFCnt = function(value) {
-  jspb.Message.setField(this, 20, value);
+  jspb.Message.setProto3BooleanField(this, 20, value);
 };
 
 
@@ -1710,13 +1685,13 @@ proto.api.DeviceProfile.prototype.setSupports32bitFCnt = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getPayloadCodec = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 24, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 24, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setPayloadCodec = function(value) {
-  jspb.Message.setField(this, 24, value);
+  jspb.Message.setProto3StringField(this, 24, value);
 };
 
 
@@ -1725,13 +1700,13 @@ proto.api.DeviceProfile.prototype.setPayloadCodec = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getPayloadEncoderScript = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 25, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 25, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setPayloadEncoderScript = function(value) {
-  jspb.Message.setField(this, 25, value);
+  jspb.Message.setProto3StringField(this, 25, value);
 };
 
 
@@ -1740,13 +1715,13 @@ proto.api.DeviceProfile.prototype.setPayloadEncoderScript = function(value) {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getPayloadDecoderScript = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 26, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 26, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setPayloadDecoderScript = function(value) {
-  jspb.Message.setField(this, 26, value);
+  jspb.Message.setProto3StringField(this, 26, value);
 };
 
 
@@ -1755,13 +1730,13 @@ proto.api.DeviceProfile.prototype.setPayloadDecoderScript = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getGeolocBufferTtl = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 27, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setGeolocBufferTtl = function(value) {
-  jspb.Message.setField(this, 27, value);
+  jspb.Message.setProto3IntField(this, 27, value);
 };
 
 
@@ -1770,13 +1745,13 @@ proto.api.DeviceProfile.prototype.setGeolocBufferTtl = function(value) {
  * @return {number}
  */
 proto.api.DeviceProfile.prototype.getGeolocMinBufferSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 28, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 28, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceProfile.prototype.setGeolocMinBufferSize = function(value) {
-  jspb.Message.setField(this, 28, value);
+  jspb.Message.setProto3IntField(this, 28, value);
 };
 
 
@@ -1793,17 +1768,22 @@ proto.api.DeviceProfile.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.api.DeviceProfile.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional google.protobuf.Duration uplink_interval = 30;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.api.DeviceProfile.prototype.getUplinkInterval = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 30));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.api.DeviceProfile.prototype.setUplinkInterval = function(value) {
   jspb.Message.setWrapperField(this, 30, value);
 };
@@ -1816,7 +1796,7 @@ proto.api.DeviceProfile.prototype.clearUplinkInterval = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.DeviceProfile.prototype.hasUplinkInterval = function() {
   return jspb.Message.getField(this, 30) != null;
@@ -1828,13 +1808,13 @@ proto.api.DeviceProfile.prototype.hasUplinkInterval = function() {
  * @return {string}
  */
 proto.api.DeviceProfile.prototype.getAdrAlgorithmId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 31, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 31, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceProfile.prototype.setAdrAlgorithmId = function(value) {
-  jspb.Message.setField(this, 31, value);
+  jspb.Message.setProto3StringField(this, 31, value);
 };
 
 

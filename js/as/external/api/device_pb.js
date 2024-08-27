@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -87,19 +89,20 @@ proto.api.Device.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.Device} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.Device.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    name: msg.getName(),
-    applicationId: msg.getApplicationId(),
-    description: msg.getDescription(),
-    deviceProfileId: msg.getDeviceProfileId(),
-    skipFCntCheck: msg.getSkipFCntCheck(),
-    referenceAltitude: msg.getReferenceAltitude(),
-    variablesMap: (f = msg.getVariablesMap(true)) ? f.toArray() : [],
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
-    isDisabled: msg.getIsDisabled()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    deviceProfileId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    skipFCntCheck: jspb.Message.getFieldWithDefault(msg, 6, false),
+    referenceAltitude: +jspb.Message.getFieldWithDefault(msg, 7, 0.0),
+    variablesMap: (f = msg.getVariablesMap()) ? f.toObject(includeInstance, undefined) : [],
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
+    isDisabled: jspb.Message.getFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -167,13 +170,13 @@ proto.api.Device.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = msg.getVariablesMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 9:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 10:
@@ -190,92 +193,83 @@ proto.api.Device.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.Device} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.Device.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.Device.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.Device.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.Device} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.Device.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.Device.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getDescription();
+  f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getDeviceProfileId();
+  f = message.getDeviceProfileId();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getSkipFCntCheck();
+  f = message.getSkipFCntCheck();
   if (f) {
     writer.writeBool(
       6,
       f
     );
   }
-  f = this.getReferenceAltitude();
+  f = message.getReferenceAltitude();
   if (f !== 0.0) {
     writer.writeDouble(
       7,
       f
     );
   }
-  f = this.getVariablesMap(true);
+  f = message.getVariablesMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(8, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getIsDisabled();
+  f = message.getIsDisabled();
   if (f) {
     writer.writeBool(
       10,
@@ -286,26 +280,17 @@ proto.api.Device.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.Device} The clone.
- */
-proto.api.Device.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.Device} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.Device.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Device.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -314,13 +299,13 @@ proto.api.Device.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.Device.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Device.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -329,13 +314,13 @@ proto.api.Device.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.Device.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.Device.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -344,13 +329,13 @@ proto.api.Device.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.Device.prototype.getDescription = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Device.prototype.setDescription = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -359,13 +344,13 @@ proto.api.Device.prototype.setDescription = function(value) {
  * @return {string}
  */
 proto.api.Device.prototype.getDeviceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Device.prototype.setDeviceProfileId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -376,13 +361,13 @@ proto.api.Device.prototype.setDeviceProfileId = function(value) {
  * @return {boolean}
  */
 proto.api.Device.prototype.getSkipFCntCheck = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 6, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.Device.prototype.setSkipFCntCheck = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
@@ -391,13 +376,13 @@ proto.api.Device.prototype.setSkipFCntCheck = function(value) {
  * @return {number}
  */
 proto.api.Device.prototype.getReferenceAltitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 7, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.Device.prototype.setReferenceAltitude = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3FloatField(this, 7, value);
 };
 
 
@@ -414,6 +399,11 @@ proto.api.Device.prototype.getVariablesMap = function(opt_noLazyCreate) {
 };
 
 
+proto.api.Device.prototype.clearVariablesMap = function() {
+  this.getVariablesMap().clear();
+};
+
+
 /**
  * map<string, string> tags = 9;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
@@ -427,6 +417,11 @@ proto.api.Device.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.api.Device.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional bool is_disabled = 10;
  * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
@@ -434,13 +429,13 @@ proto.api.Device.prototype.getTagsMap = function(opt_noLazyCreate) {
  * @return {boolean}
  */
 proto.api.Device.prototype.getIsDisabled = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.Device.prototype.setIsDisabled = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -487,20 +482,21 @@ proto.api.DeviceListItem.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    name: msg.getName(),
-    applicationId: msg.getApplicationId(),
-    description: msg.getDescription(),
-    deviceProfileId: msg.getDeviceProfileId(),
-    deviceProfileName: msg.getDeviceProfileName(),
-    deviceStatusBattery: msg.getDeviceStatusBattery(),
-    deviceStatusMargin: msg.getDeviceStatusMargin(),
-    deviceStatusExternalPowerSource: msg.getDeviceStatusExternalPowerSource(),
-    deviceStatusBatteryLevelUnavailable: msg.getDeviceStatusBatteryLevelUnavailable(),
-    deviceStatusBatteryLevel: msg.getDeviceStatusBatteryLevel(),
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    deviceProfileId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    deviceProfileName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    deviceStatusBattery: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    deviceStatusMargin: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    deviceStatusExternalPowerSource: jspb.Message.getFieldWithDefault(msg, 10, false),
+    deviceStatusBatteryLevelUnavailable: jspb.Message.getFieldWithDefault(msg, 11, false),
+    deviceStatusBatteryLevel: +jspb.Message.getFieldWithDefault(msg, 12, 0.0),
     lastSeenAt: (f = msg.getLastSeenAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -597,112 +593,103 @@ proto.api.DeviceListItem.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getDescription();
+  f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getDeviceProfileId();
+  f = message.getDeviceProfileId();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getDeviceProfileName();
+  f = message.getDeviceProfileName();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getDeviceStatusBattery();
+  f = message.getDeviceStatusBattery();
   if (f !== 0) {
     writer.writeUint32(
       7,
       f
     );
   }
-  f = this.getDeviceStatusMargin();
+  f = message.getDeviceStatusMargin();
   if (f !== 0) {
     writer.writeInt32(
       8,
       f
     );
   }
-  f = this.getDeviceStatusExternalPowerSource();
+  f = message.getDeviceStatusExternalPowerSource();
   if (f) {
     writer.writeBool(
       10,
       f
     );
   }
-  f = this.getDeviceStatusBatteryLevelUnavailable();
+  f = message.getDeviceStatusBatteryLevelUnavailable();
   if (f) {
     writer.writeBool(
       11,
       f
     );
   }
-  f = this.getDeviceStatusBatteryLevel();
+  f = message.getDeviceStatusBatteryLevel();
   if (f !== 0.0) {
     writer.writeFloat(
       12,
       f
     );
   }
-  f = this.getLastSeenAt();
+  f = message.getLastSeenAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -714,26 +701,17 @@ proto.api.DeviceListItem.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceListItem} The clone.
- */
-proto.api.DeviceListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeviceListItem.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceListItem.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -742,13 +720,13 @@ proto.api.DeviceListItem.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.DeviceListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -757,13 +735,13 @@ proto.api.DeviceListItem.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.DeviceListItem.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceListItem.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -772,13 +750,13 @@ proto.api.DeviceListItem.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.DeviceListItem.prototype.getDescription = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceListItem.prototype.setDescription = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -787,13 +765,13 @@ proto.api.DeviceListItem.prototype.setDescription = function(value) {
  * @return {string}
  */
 proto.api.DeviceListItem.prototype.getDeviceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceListItem.prototype.setDeviceProfileId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -802,13 +780,13 @@ proto.api.DeviceListItem.prototype.setDeviceProfileId = function(value) {
  * @return {string}
  */
 proto.api.DeviceListItem.prototype.getDeviceProfileName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceListItem.prototype.setDeviceProfileName = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -817,13 +795,13 @@ proto.api.DeviceListItem.prototype.setDeviceProfileName = function(value) {
  * @return {number}
  */
 proto.api.DeviceListItem.prototype.getDeviceStatusBattery = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceListItem.prototype.setDeviceStatusBattery = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -832,13 +810,13 @@ proto.api.DeviceListItem.prototype.setDeviceStatusBattery = function(value) {
  * @return {number}
  */
 proto.api.DeviceListItem.prototype.getDeviceStatusMargin = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceListItem.prototype.setDeviceStatusMargin = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -849,13 +827,13 @@ proto.api.DeviceListItem.prototype.setDeviceStatusMargin = function(value) {
  * @return {boolean}
  */
 proto.api.DeviceListItem.prototype.getDeviceStatusExternalPowerSource = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceListItem.prototype.setDeviceStatusExternalPowerSource = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -866,13 +844,13 @@ proto.api.DeviceListItem.prototype.setDeviceStatusExternalPowerSource = function
  * @return {boolean}
  */
 proto.api.DeviceListItem.prototype.getDeviceStatusBatteryLevelUnavailable = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.DeviceListItem.prototype.setDeviceStatusBatteryLevelUnavailable = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -881,27 +859,27 @@ proto.api.DeviceListItem.prototype.setDeviceStatusBatteryLevelUnavailable = func
  * @return {number}
  */
 proto.api.DeviceListItem.prototype.getDeviceStatusBatteryLevel = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 12, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceListItem.prototype.setDeviceStatusBatteryLevel = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3FloatField(this, 12, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp last_seen_at = 9;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.DeviceListItem.prototype.getLastSeenAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.DeviceListItem.prototype.setLastSeenAt = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
@@ -914,7 +892,7 @@ proto.api.DeviceListItem.prototype.clearLastSeenAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.DeviceListItem.prototype.hasLastSeenAt = function() {
   return jspb.Message.getField(this, 9) != null;
@@ -964,13 +942,14 @@ proto.api.DeviceKeys.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceKeys} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceKeys.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    nwkKey: msg.getNwkKey(),
-    appKey: msg.getAppKey(),
-    genAppKey: msg.getGenAppKey()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    nwkKey: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    appKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    genAppKey: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -1033,56 +1012,47 @@ proto.api.DeviceKeys.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceKeys} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceKeys.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceKeys.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceKeys.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceKeys} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceKeys.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceKeys.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getNwkKey();
+  f = message.getNwkKey();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getAppKey();
+  f = message.getAppKey();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getGenAppKey();
+  f = message.getGenAppKey();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -1093,26 +1063,17 @@ proto.api.DeviceKeys.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceKeys} The clone.
- */
-proto.api.DeviceKeys.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceKeys} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeviceKeys.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceKeys.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1121,13 +1082,13 @@ proto.api.DeviceKeys.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.DeviceKeys.prototype.getNwkKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceKeys.prototype.setNwkKey = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1136,13 +1097,13 @@ proto.api.DeviceKeys.prototype.setNwkKey = function(value) {
  * @return {string}
  */
 proto.api.DeviceKeys.prototype.getAppKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceKeys.prototype.setAppKey = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1151,13 +1112,13 @@ proto.api.DeviceKeys.prototype.setAppKey = function(value) {
  * @return {string}
  */
 proto.api.DeviceKeys.prototype.getGenAppKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceKeys.prototype.setGenAppKey = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -1204,6 +1165,7 @@ proto.api.CreateDeviceRequest.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1259,35 +1221,26 @@ proto.api.CreateDeviceRequest.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevice();
+  f = message.getDevice();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1299,25 +1252,16 @@ proto.api.CreateDeviceRequest.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateDeviceRequest} The clone.
- */
-proto.api.CreateDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Device device = 1;
- * @return {proto.api.Device}
+ * @return {?proto.api.Device}
  */
 proto.api.CreateDeviceRequest.prototype.getDevice = function() {
-  return /** @type{proto.api.Device} */ (
+  return /** @type{?proto.api.Device} */ (
     jspb.Message.getWrapperField(this, proto.api.Device, 1));
 };
 
 
-/** @param {proto.api.Device|undefined} value  */
+/** @param {?proto.api.Device|undefined} value */
 proto.api.CreateDeviceRequest.prototype.setDevice = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1330,7 +1274,7 @@ proto.api.CreateDeviceRequest.prototype.clearDevice = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateDeviceRequest.prototype.hasDevice = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1380,10 +1324,11 @@ proto.api.GetDeviceRequest.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1434,35 +1379,26 @@ proto.api.GetDeviceRequest.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1473,26 +1409,17 @@ proto.api.GetDeviceRequest.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceRequest} The clone.
- */
-proto.api.GetDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.GetDeviceRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetDeviceRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1539,13 +1466,14 @@ proto.api.GetDeviceResponse.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     device: (f = msg.getDevice()) && proto.api.Device.toObject(includeInstance, f),
     lastSeenAt: (f = msg.getLastSeenAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    deviceStatusBattery: msg.getDeviceStatusBattery(),
-    deviceStatusMargin: msg.getDeviceStatusMargin(),
+    deviceStatusBattery: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    deviceStatusMargin: jspb.Message.getFieldWithDefault(msg, 20, 0),
     location: (f = msg.getLocation()) && common_common_pb.Location.toObject(includeInstance, f)
   };
 
@@ -1616,35 +1544,26 @@ proto.api.GetDeviceResponse.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevice();
+  f = message.getDevice();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1652,7 +1571,7 @@ proto.api.GetDeviceResponse.prototype.serializeBinaryToWriter = function (writer
       proto.api.Device.serializeBinaryToWriter
     );
   }
-  f = this.getLastSeenAt();
+  f = message.getLastSeenAt();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -1660,21 +1579,21 @@ proto.api.GetDeviceResponse.prototype.serializeBinaryToWriter = function (writer
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getDeviceStatusBattery();
+  f = message.getDeviceStatusBattery();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getDeviceStatusMargin();
+  f = message.getDeviceStatusMargin();
   if (f !== 0) {
     writer.writeInt32(
       20,
       f
     );
   }
-  f = this.getLocation();
+  f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
       21,
@@ -1686,25 +1605,16 @@ proto.api.GetDeviceResponse.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceResponse} The clone.
- */
-proto.api.GetDeviceResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Device device = 1;
- * @return {proto.api.Device}
+ * @return {?proto.api.Device}
  */
 proto.api.GetDeviceResponse.prototype.getDevice = function() {
-  return /** @type{proto.api.Device} */ (
+  return /** @type{?proto.api.Device} */ (
     jspb.Message.getWrapperField(this, proto.api.Device, 1));
 };
 
 
-/** @param {proto.api.Device|undefined} value  */
+/** @param {?proto.api.Device|undefined} value */
 proto.api.GetDeviceResponse.prototype.setDevice = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1717,7 +1627,7 @@ proto.api.GetDeviceResponse.prototype.clearDevice = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceResponse.prototype.hasDevice = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1726,15 +1636,15 @@ proto.api.GetDeviceResponse.prototype.hasDevice = function() {
 
 /**
  * optional google.protobuf.Timestamp last_seen_at = 5;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetDeviceResponse.prototype.getLastSeenAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetDeviceResponse.prototype.setLastSeenAt = function(value) {
   jspb.Message.setWrapperField(this, 5, value);
 };
@@ -1747,7 +1657,7 @@ proto.api.GetDeviceResponse.prototype.clearLastSeenAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceResponse.prototype.hasLastSeenAt = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -1759,13 +1669,13 @@ proto.api.GetDeviceResponse.prototype.hasLastSeenAt = function() {
  * @return {number}
  */
 proto.api.GetDeviceResponse.prototype.getDeviceStatusBattery = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetDeviceResponse.prototype.setDeviceStatusBattery = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1774,27 +1684,27 @@ proto.api.GetDeviceResponse.prototype.setDeviceStatusBattery = function(value) {
  * @return {number}
  */
 proto.api.GetDeviceResponse.prototype.getDeviceStatusMargin = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 20, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetDeviceResponse.prototype.setDeviceStatusMargin = function(value) {
-  jspb.Message.setField(this, 20, value);
+  jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
 /**
  * optional common.Location location = 21;
- * @return {proto.common.Location}
+ * @return {?proto.common.Location}
  */
 proto.api.GetDeviceResponse.prototype.getLocation = function() {
-  return /** @type{proto.common.Location} */ (
+  return /** @type{?proto.common.Location} */ (
     jspb.Message.getWrapperField(this, common_common_pb.Location, 21));
 };
 
 
-/** @param {proto.common.Location|undefined} value  */
+/** @param {?proto.common.Location|undefined} value */
 proto.api.GetDeviceResponse.prototype.setLocation = function(value) {
   jspb.Message.setWrapperField(this, 21, value);
 };
@@ -1807,7 +1717,7 @@ proto.api.GetDeviceResponse.prototype.clearLocation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceResponse.prototype.hasLocation = function() {
   return jspb.Message.getField(this, 21) != null;
@@ -1857,16 +1767,17 @@ proto.api.ListDeviceRequest.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    applicationId: msg.getApplicationId(),
-    search: msg.getSearch(),
-    multicastGroupId: msg.getMulticastGroupId(),
-    serviceProfileId: msg.getServiceProfileId(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : []
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    search: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    serviceProfileId: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1930,7 +1841,7 @@ proto.api.ListDeviceRequest.deserializeBinaryFromReader = function(msg, reader) 
     case 7:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     default:
@@ -1943,89 +1854,71 @@ proto.api.ListDeviceRequest.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getSearch();
+  f = message.getSearch();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getServiceProfileId();
+  f = message.getServiceProfileId();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(7, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-};
-
-
-/**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListDeviceRequest} The clone.
- */
-proto.api.ListDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListDeviceRequest} */ (jspb.Message.cloneMessage(this));
 };
 
 
@@ -2034,13 +1927,13 @@ proto.api.ListDeviceRequest.prototype.cloneMessage = function() {
  * @return {number}
  */
 proto.api.ListDeviceRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListDeviceRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2049,13 +1942,13 @@ proto.api.ListDeviceRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListDeviceRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListDeviceRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2064,13 +1957,13 @@ proto.api.ListDeviceRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListDeviceRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListDeviceRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2079,13 +1972,13 @@ proto.api.ListDeviceRequest.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.ListDeviceRequest.prototype.getSearch = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListDeviceRequest.prototype.setSearch = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2094,13 +1987,13 @@ proto.api.ListDeviceRequest.prototype.setSearch = function(value) {
  * @return {string}
  */
 proto.api.ListDeviceRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListDeviceRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -2109,13 +2002,13 @@ proto.api.ListDeviceRequest.prototype.setMulticastGroupId = function(value) {
  * @return {string}
  */
 proto.api.ListDeviceRequest.prototype.getServiceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListDeviceRequest.prototype.setServiceProfileId = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -2129,6 +2022,11 @@ proto.api.ListDeviceRequest.prototype.getTagsMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 7, opt_noLazyCreate,
       null));
+};
+
+
+proto.api.ListDeviceRequest.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
 };
 
 
@@ -2182,10 +2080,11 @@ proto.api.ListDeviceResponse.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListDeviceResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListDeviceResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.DeviceListItem.toObject, includeInstance)
   };
@@ -2231,8 +2130,7 @@ proto.api.ListDeviceResponse.deserializeBinaryFromReader = function(msg, reader)
     case 2:
       var value = new proto.api.DeviceListItem;
       reader.readMessage(value,proto.api.DeviceListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -2244,42 +2142,33 @@ proto.api.ListDeviceResponse.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListDeviceResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListDeviceResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListDeviceResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListDeviceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListDeviceResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListDeviceResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListDeviceResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2291,44 +2180,43 @@ proto.api.ListDeviceResponse.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListDeviceResponse} The clone.
- */
-proto.api.ListDeviceResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListDeviceResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListDeviceResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListDeviceResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated DeviceListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.DeviceListItem>}
+ * @return {!Array<!proto.api.DeviceListItem>}
  */
 proto.api.ListDeviceResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.DeviceListItem>} */ (
+  return /** @type{!Array<!proto.api.DeviceListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.DeviceListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.DeviceListItem>} value  */
+/** @param {!Array<!proto.api.DeviceListItem>} value */
 proto.api.ListDeviceResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.DeviceListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.DeviceListItem}
+ */
+proto.api.ListDeviceResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.DeviceListItem, opt_index);
 };
 
 
@@ -2380,10 +2268,11 @@ proto.api.DeleteDeviceRequest.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -2434,35 +2323,26 @@ proto.api.DeleteDeviceRequest.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -2473,26 +2353,17 @@ proto.api.DeleteDeviceRequest.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteDeviceRequest} The clone.
- */
-proto.api.DeleteDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeleteDeviceRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeleteDeviceRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2539,6 +2410,7 @@ proto.api.UpdateDeviceRequest.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -2594,35 +2466,26 @@ proto.api.UpdateDeviceRequest.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevice();
+  f = message.getDevice();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2634,25 +2497,16 @@ proto.api.UpdateDeviceRequest.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateDeviceRequest} The clone.
- */
-proto.api.UpdateDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Device device = 1;
- * @return {proto.api.Device}
+ * @return {?proto.api.Device}
  */
 proto.api.UpdateDeviceRequest.prototype.getDevice = function() {
-  return /** @type{proto.api.Device} */ (
+  return /** @type{?proto.api.Device} */ (
     jspb.Message.getWrapperField(this, proto.api.Device, 1));
 };
 
 
-/** @param {proto.api.Device|undefined} value  */
+/** @param {?proto.api.Device|undefined} value */
 proto.api.UpdateDeviceRequest.prototype.setDevice = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -2665,7 +2519,7 @@ proto.api.UpdateDeviceRequest.prototype.clearDevice = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateDeviceRequest.prototype.hasDevice = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -2715,6 +2569,7 @@ proto.api.CreateDeviceKeysRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateDeviceKeysRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateDeviceKeysRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -2770,35 +2625,26 @@ proto.api.CreateDeviceKeysRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateDeviceKeysRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateDeviceKeysRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateDeviceKeysRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateDeviceKeysRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateDeviceKeysRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceKeys();
+  f = message.getDeviceKeys();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2810,25 +2656,16 @@ proto.api.CreateDeviceKeysRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateDeviceKeysRequest} The clone.
- */
-proto.api.CreateDeviceKeysRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateDeviceKeysRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceKeys device_keys = 1;
- * @return {proto.api.DeviceKeys}
+ * @return {?proto.api.DeviceKeys}
  */
 proto.api.CreateDeviceKeysRequest.prototype.getDeviceKeys = function() {
-  return /** @type{proto.api.DeviceKeys} */ (
+  return /** @type{?proto.api.DeviceKeys} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceKeys, 1));
 };
 
 
-/** @param {proto.api.DeviceKeys|undefined} value  */
+/** @param {?proto.api.DeviceKeys|undefined} value */
 proto.api.CreateDeviceKeysRequest.prototype.setDeviceKeys = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -2841,7 +2678,7 @@ proto.api.CreateDeviceKeysRequest.prototype.clearDeviceKeys = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateDeviceKeysRequest.prototype.hasDeviceKeys = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -2891,10 +2728,11 @@ proto.api.GetDeviceKeysRequest.prototype.toObject = function(opt_includeInstance
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceKeysRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceKeysRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -2945,35 +2783,26 @@ proto.api.GetDeviceKeysRequest.deserializeBinaryFromReader = function(msg, reade
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceKeysRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceKeysRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceKeysRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceKeysRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceKeysRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -2984,26 +2813,17 @@ proto.api.GetDeviceKeysRequest.prototype.serializeBinaryToWriter = function (wri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceKeysRequest} The clone.
- */
-proto.api.GetDeviceKeysRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceKeysRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.GetDeviceKeysRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetDeviceKeysRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3050,6 +2870,7 @@ proto.api.GetDeviceKeysResponse.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceKeysResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceKeysResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3105,35 +2926,26 @@ proto.api.GetDeviceKeysResponse.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceKeysResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceKeysResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceKeysResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceKeysResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceKeysResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceKeysResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceKeysResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceKeys();
+  f = message.getDeviceKeys();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -3145,25 +2957,16 @@ proto.api.GetDeviceKeysResponse.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceKeysResponse} The clone.
- */
-proto.api.GetDeviceKeysResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceKeysResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceKeys device_keys = 1;
- * @return {proto.api.DeviceKeys}
+ * @return {?proto.api.DeviceKeys}
  */
 proto.api.GetDeviceKeysResponse.prototype.getDeviceKeys = function() {
-  return /** @type{proto.api.DeviceKeys} */ (
+  return /** @type{?proto.api.DeviceKeys} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceKeys, 1));
 };
 
 
-/** @param {proto.api.DeviceKeys|undefined} value  */
+/** @param {?proto.api.DeviceKeys|undefined} value */
 proto.api.GetDeviceKeysResponse.prototype.setDeviceKeys = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3176,7 +2979,7 @@ proto.api.GetDeviceKeysResponse.prototype.clearDeviceKeys = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceKeysResponse.prototype.hasDeviceKeys = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3226,6 +3029,7 @@ proto.api.UpdateDeviceKeysRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateDeviceKeysRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateDeviceKeysRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3281,35 +3085,26 @@ proto.api.UpdateDeviceKeysRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateDeviceKeysRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateDeviceKeysRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateDeviceKeysRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateDeviceKeysRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateDeviceKeysRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceKeys();
+  f = message.getDeviceKeys();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -3321,25 +3116,16 @@ proto.api.UpdateDeviceKeysRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateDeviceKeysRequest} The clone.
- */
-proto.api.UpdateDeviceKeysRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateDeviceKeysRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceKeys device_keys = 1;
- * @return {proto.api.DeviceKeys}
+ * @return {?proto.api.DeviceKeys}
  */
 proto.api.UpdateDeviceKeysRequest.prototype.getDeviceKeys = function() {
-  return /** @type{proto.api.DeviceKeys} */ (
+  return /** @type{?proto.api.DeviceKeys} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceKeys, 1));
 };
 
 
-/** @param {proto.api.DeviceKeys|undefined} value  */
+/** @param {?proto.api.DeviceKeys|undefined} value */
 proto.api.UpdateDeviceKeysRequest.prototype.setDeviceKeys = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3352,7 +3138,7 @@ proto.api.UpdateDeviceKeysRequest.prototype.clearDeviceKeys = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateDeviceKeysRequest.prototype.hasDeviceKeys = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3402,10 +3188,11 @@ proto.api.DeleteDeviceKeysRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteDeviceKeysRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteDeviceKeysRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -3456,35 +3243,26 @@ proto.api.DeleteDeviceKeysRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteDeviceKeysRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteDeviceKeysRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteDeviceKeysRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteDeviceKeysRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteDeviceKeysRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteDeviceKeysRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -3495,26 +3273,17 @@ proto.api.DeleteDeviceKeysRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteDeviceKeysRequest} The clone.
- */
-proto.api.DeleteDeviceKeysRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteDeviceKeysRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeleteDeviceKeysRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeleteDeviceKeysRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3561,18 +3330,19 @@ proto.api.DeviceActivation.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceActivation} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceActivation.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    devAddr: msg.getDevAddr(),
-    appSKey: msg.getAppSKey(),
-    nwkSEncKey: msg.getNwkSEncKey(),
-    sNwkSIntKey: msg.getSNwkSIntKey(),
-    fNwkSIntKey: msg.getFNwkSIntKey(),
-    fCntUp: msg.getFCntUp(),
-    nFCntDown: msg.getNFCntDown(),
-    aFCntDown: msg.getAFCntDown()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    devAddr: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    appSKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    nwkSEncKey: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    sNwkSIntKey: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    fNwkSIntKey: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    fCntUp: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    nFCntDown: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    aFCntDown: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -3655,91 +3425,82 @@ proto.api.DeviceActivation.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceActivation} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceActivation.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceActivation.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceActivation.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceActivation} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceActivation.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceActivation.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getDevAddr();
+  f = message.getDevAddr();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getAppSKey();
+  f = message.getAppSKey();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getNwkSEncKey();
+  f = message.getNwkSEncKey();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getSNwkSIntKey();
+  f = message.getSNwkSIntKey();
   if (f.length > 0) {
     writer.writeString(
       8,
       f
     );
   }
-  f = this.getFNwkSIntKey();
+  f = message.getFNwkSIntKey();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getFCntUp();
+  f = message.getFCntUp();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getNFCntDown();
+  f = message.getNFCntDown();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getAFCntDown();
+  f = message.getAFCntDown();
   if (f !== 0) {
     writer.writeUint32(
       10,
@@ -3750,26 +3511,17 @@ proto.api.DeviceActivation.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceActivation} The clone.
- */
-proto.api.DeviceActivation.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceActivation} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3778,13 +3530,13 @@ proto.api.DeviceActivation.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getDevAddr = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setDevAddr = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3793,13 +3545,13 @@ proto.api.DeviceActivation.prototype.setDevAddr = function(value) {
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getAppSKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setAppSKey = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -3808,13 +3560,13 @@ proto.api.DeviceActivation.prototype.setAppSKey = function(value) {
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getNwkSEncKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setNwkSEncKey = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -3823,13 +3575,13 @@ proto.api.DeviceActivation.prototype.setNwkSEncKey = function(value) {
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getSNwkSIntKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setSNwkSIntKey = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -3838,13 +3590,13 @@ proto.api.DeviceActivation.prototype.setSNwkSIntKey = function(value) {
  * @return {string}
  */
 proto.api.DeviceActivation.prototype.getFNwkSIntKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeviceActivation.prototype.setFNwkSIntKey = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -3853,13 +3605,13 @@ proto.api.DeviceActivation.prototype.setFNwkSIntKey = function(value) {
  * @return {number}
  */
 proto.api.DeviceActivation.prototype.getFCntUp = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceActivation.prototype.setFCntUp = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -3868,13 +3620,13 @@ proto.api.DeviceActivation.prototype.setFCntUp = function(value) {
  * @return {number}
  */
 proto.api.DeviceActivation.prototype.getNFCntDown = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceActivation.prototype.setNFCntDown = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -3883,13 +3635,13 @@ proto.api.DeviceActivation.prototype.setNFCntDown = function(value) {
  * @return {number}
  */
 proto.api.DeviceActivation.prototype.getAFCntDown = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceActivation.prototype.setAFCntDown = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -3936,6 +3688,7 @@ proto.api.ActivateDeviceRequest.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.ActivateDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ActivateDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3991,35 +3744,26 @@ proto.api.ActivateDeviceRequest.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ActivateDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ActivateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ActivateDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ActivateDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ActivateDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ActivateDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ActivateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceActivation();
+  f = message.getDeviceActivation();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -4031,25 +3775,16 @@ proto.api.ActivateDeviceRequest.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ActivateDeviceRequest} The clone.
- */
-proto.api.ActivateDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ActivateDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceActivation device_activation = 1;
- * @return {proto.api.DeviceActivation}
+ * @return {?proto.api.DeviceActivation}
  */
 proto.api.ActivateDeviceRequest.prototype.getDeviceActivation = function() {
-  return /** @type{proto.api.DeviceActivation} */ (
+  return /** @type{?proto.api.DeviceActivation} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceActivation, 1));
 };
 
 
-/** @param {proto.api.DeviceActivation|undefined} value  */
+/** @param {?proto.api.DeviceActivation|undefined} value */
 proto.api.ActivateDeviceRequest.prototype.setDeviceActivation = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -4062,7 +3797,7 @@ proto.api.ActivateDeviceRequest.prototype.clearDeviceActivation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.ActivateDeviceRequest.prototype.hasDeviceActivation = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -4112,10 +3847,11 @@ proto.api.DeactivateDeviceRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeactivateDeviceRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeactivateDeviceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -4166,35 +3902,26 @@ proto.api.DeactivateDeviceRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeactivateDeviceRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeactivateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeactivateDeviceRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeactivateDeviceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeactivateDeviceRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeactivateDeviceRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeactivateDeviceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -4205,26 +3932,17 @@ proto.api.DeactivateDeviceRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeactivateDeviceRequest} The clone.
- */
-proto.api.DeactivateDeviceRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeactivateDeviceRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.DeactivateDeviceRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeactivateDeviceRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4271,10 +3989,11 @@ proto.api.GetDeviceActivationRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceActivationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceActivationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -4325,35 +4044,26 @@ proto.api.GetDeviceActivationRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceActivationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceActivationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceActivationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceActivationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceActivationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceActivationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceActivationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -4364,26 +4074,17 @@ proto.api.GetDeviceActivationRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceActivationRequest} The clone.
- */
-proto.api.GetDeviceActivationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceActivationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.GetDeviceActivationRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetDeviceActivationRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4430,6 +4131,7 @@ proto.api.GetDeviceActivationResponse.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceActivationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceActivationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4485,35 +4187,26 @@ proto.api.GetDeviceActivationResponse.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceActivationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceActivationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceActivationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceActivationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceActivationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceActivationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceActivationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDeviceActivation();
+  f = message.getDeviceActivation();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -4525,25 +4218,16 @@ proto.api.GetDeviceActivationResponse.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceActivationResponse} The clone.
- */
-proto.api.GetDeviceActivationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceActivationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional DeviceActivation device_activation = 1;
- * @return {proto.api.DeviceActivation}
+ * @return {?proto.api.DeviceActivation}
  */
 proto.api.GetDeviceActivationResponse.prototype.getDeviceActivation = function() {
-  return /** @type{proto.api.DeviceActivation} */ (
+  return /** @type{?proto.api.DeviceActivation} */ (
     jspb.Message.getWrapperField(this, proto.api.DeviceActivation, 1));
 };
 
 
-/** @param {proto.api.DeviceActivation|undefined} value  */
+/** @param {?proto.api.DeviceActivation|undefined} value */
 proto.api.GetDeviceActivationResponse.prototype.setDeviceActivation = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -4556,7 +4240,7 @@ proto.api.GetDeviceActivationResponse.prototype.clearDeviceActivation = function
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceActivationResponse.prototype.hasDeviceActivation = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -4606,10 +4290,11 @@ proto.api.GetRandomDevAddrRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetRandomDevAddrRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetRandomDevAddrRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -4660,35 +4345,26 @@ proto.api.GetRandomDevAddrRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetRandomDevAddrRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetRandomDevAddrRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetRandomDevAddrRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetRandomDevAddrRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetRandomDevAddrRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetRandomDevAddrRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetRandomDevAddrRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -4699,26 +4375,17 @@ proto.api.GetRandomDevAddrRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetRandomDevAddrRequest} The clone.
- */
-proto.api.GetRandomDevAddrRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetRandomDevAddrRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.GetRandomDevAddrRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetRandomDevAddrRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4765,10 +4432,11 @@ proto.api.GetRandomDevAddrResponse.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetRandomDevAddrResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetRandomDevAddrResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devAddr: msg.getDevAddr()
+    devAddr: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -4819,35 +4487,26 @@ proto.api.GetRandomDevAddrResponse.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetRandomDevAddrResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetRandomDevAddrResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetRandomDevAddrResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetRandomDevAddrResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetRandomDevAddrResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetRandomDevAddrResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetRandomDevAddrResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevAddr();
+  f = message.getDevAddr();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -4858,26 +4517,17 @@ proto.api.GetRandomDevAddrResponse.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetRandomDevAddrResponse} The clone.
- */
-proto.api.GetRandomDevAddrResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetRandomDevAddrResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_addr = 1;
  * @return {string}
  */
 proto.api.GetRandomDevAddrResponse.prototype.getDevAddr = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetRandomDevAddrResponse.prototype.setDevAddr = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4924,16 +4574,17 @@ proto.api.DeviceStats.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeviceStats} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeviceStats.toObject = function(includeInstance, msg) {
   var f, obj = {
     timestamp: (f = msg.getTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    rxPackets: msg.getRxPackets(),
-    gwRssi: msg.getGwRssi(),
-    gwSnr: msg.getGwSnr(),
-    rxPacketsPerFrequencyMap: (f = msg.getRxPacketsPerFrequencyMap(true)) ? f.toArray() : [],
-    rxPacketsPerDrMap: (f = msg.getRxPacketsPerDrMap(true)) ? f.toArray() : [],
-    errorsMap: (f = msg.getErrorsMap(true)) ? f.toArray() : []
+    rxPackets: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    gwRssi: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    gwSnr: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
+    rxPacketsPerFrequencyMap: (f = msg.getRxPacketsPerFrequencyMap()) ? f.toObject(includeInstance, undefined) : [],
+    rxPacketsPerDrMap: (f = msg.getRxPacketsPerDrMap()) ? f.toObject(includeInstance, undefined) : [],
+    errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -4990,19 +4641,19 @@ proto.api.DeviceStats.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = msg.getRxPacketsPerFrequencyMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32, null, 0);
          });
       break;
     case 6:
       var value = msg.getRxPacketsPerDrMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32, null, 0);
          });
       break;
     case 7:
       var value = msg.getErrorsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readUint32, null, "");
          });
       break;
     default:
@@ -5015,35 +4666,26 @@ proto.api.DeviceStats.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeviceStats} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeviceStats.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeviceStats.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeviceStats.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeviceStats} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeviceStats.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeviceStats.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTimestamp();
+  f = message.getTimestamp();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -5051,36 +4693,36 @@ proto.api.DeviceStats.prototype.serializeBinaryToWriter = function (writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getRxPackets();
+  f = message.getRxPackets();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getGwRssi();
+  f = message.getGwRssi();
   if (f !== 0.0) {
     writer.writeFloat(
       3,
       f
     );
   }
-  f = this.getGwSnr();
+  f = message.getGwSnr();
   if (f !== 0.0) {
     writer.writeFloat(
       4,
       f
     );
   }
-  f = this.getRxPacketsPerFrequencyMap(true);
+  f = message.getRxPacketsPerFrequencyMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeUint32, jspb.BinaryWriter.prototype.writeUint32);
   }
-  f = this.getRxPacketsPerDrMap(true);
+  f = message.getRxPacketsPerDrMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeUint32, jspb.BinaryWriter.prototype.writeUint32);
   }
-  f = this.getErrorsMap(true);
+  f = message.getErrorsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(7, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeUint32);
   }
@@ -5088,25 +4730,16 @@ proto.api.DeviceStats.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeviceStats} The clone.
- */
-proto.api.DeviceStats.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeviceStats} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional google.protobuf.Timestamp timestamp = 1;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.DeviceStats.prototype.getTimestamp = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 1));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.DeviceStats.prototype.setTimestamp = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -5119,7 +4752,7 @@ proto.api.DeviceStats.prototype.clearTimestamp = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.DeviceStats.prototype.hasTimestamp = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -5131,13 +4764,13 @@ proto.api.DeviceStats.prototype.hasTimestamp = function() {
  * @return {number}
  */
 proto.api.DeviceStats.prototype.getRxPackets = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceStats.prototype.setRxPackets = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -5146,13 +4779,13 @@ proto.api.DeviceStats.prototype.setRxPackets = function(value) {
  * @return {number}
  */
 proto.api.DeviceStats.prototype.getGwRssi = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceStats.prototype.setGwRssi = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -5161,13 +4794,13 @@ proto.api.DeviceStats.prototype.setGwRssi = function(value) {
  * @return {number}
  */
 proto.api.DeviceStats.prototype.getGwSnr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeviceStats.prototype.setGwSnr = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3FloatField(this, 4, value);
 };
 
 
@@ -5184,6 +4817,11 @@ proto.api.DeviceStats.prototype.getRxPacketsPerFrequencyMap = function(opt_noLaz
 };
 
 
+proto.api.DeviceStats.prototype.clearRxPacketsPerFrequencyMap = function() {
+  this.getRxPacketsPerFrequencyMap().clear();
+};
+
+
 /**
  * map<uint32, uint32> rx_packets_per_dr = 6;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
@@ -5197,6 +4835,11 @@ proto.api.DeviceStats.prototype.getRxPacketsPerDrMap = function(opt_noLazyCreate
 };
 
 
+proto.api.DeviceStats.prototype.clearRxPacketsPerDrMap = function() {
+  this.getRxPacketsPerDrMap().clear();
+};
+
+
 /**
  * map<string, uint32> errors = 7;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
@@ -5207,6 +4850,11 @@ proto.api.DeviceStats.prototype.getErrorsMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,number>} */ (
       jspb.Message.getMapField(this, 7, opt_noLazyCreate,
       null));
+};
+
+
+proto.api.DeviceStats.prototype.clearErrorsMap = function() {
+  this.getErrorsMap().clear();
 };
 
 
@@ -5253,11 +4901,12 @@ proto.api.GetDeviceStatsRequest.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceStatsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceStatsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui(),
-    interval: msg.getInterval(),
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    interval: jspb.Message.getFieldWithDefault(msg, 2, ""),
     startTimestamp: (f = msg.getStartTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     endTimestamp: (f = msg.getEndTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
@@ -5324,49 +4973,40 @@ proto.api.GetDeviceStatsRequest.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceStatsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceStatsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceStatsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceStatsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceStatsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceStatsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceStatsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getInterval();
+  f = message.getInterval();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getStartTimestamp();
+  f = message.getStartTimestamp();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -5374,7 +5014,7 @@ proto.api.GetDeviceStatsRequest.prototype.serializeBinaryToWriter = function (wr
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getEndTimestamp();
+  f = message.getEndTimestamp();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -5386,26 +5026,17 @@ proto.api.GetDeviceStatsRequest.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceStatsRequest} The clone.
- */
-proto.api.GetDeviceStatsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceStatsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.GetDeviceStatsRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetDeviceStatsRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5414,27 +5045,27 @@ proto.api.GetDeviceStatsRequest.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.GetDeviceStatsRequest.prototype.getInterval = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetDeviceStatsRequest.prototype.setInterval = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp start_timestamp = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetDeviceStatsRequest.prototype.getStartTimestamp = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetDeviceStatsRequest.prototype.setStartTimestamp = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -5447,7 +5078,7 @@ proto.api.GetDeviceStatsRequest.prototype.clearStartTimestamp = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceStatsRequest.prototype.hasStartTimestamp = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -5456,15 +5087,15 @@ proto.api.GetDeviceStatsRequest.prototype.hasStartTimestamp = function() {
 
 /**
  * optional google.protobuf.Timestamp end_timestamp = 4;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetDeviceStatsRequest.prototype.getEndTimestamp = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetDeviceStatsRequest.prototype.setEndTimestamp = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -5477,7 +5108,7 @@ proto.api.GetDeviceStatsRequest.prototype.clearEndTimestamp = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetDeviceStatsRequest.prototype.hasEndTimestamp = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -5534,6 +5165,7 @@ proto.api.GetDeviceStatsResponse.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetDeviceStatsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetDeviceStatsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5578,8 +5210,7 @@ proto.api.GetDeviceStatsResponse.deserializeBinaryFromReader = function(msg, rea
     case 1:
       var value = new proto.api.DeviceStats;
       reader.readMessage(value,proto.api.DeviceStats.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -5591,35 +5222,26 @@ proto.api.GetDeviceStatsResponse.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetDeviceStatsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetDeviceStatsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetDeviceStatsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetDeviceStatsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetDeviceStatsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetDeviceStatsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetDeviceStatsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -5631,29 +5253,28 @@ proto.api.GetDeviceStatsResponse.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetDeviceStatsResponse} The clone.
- */
-proto.api.GetDeviceStatsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetDeviceStatsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated DeviceStats result = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.DeviceStats>}
+ * @return {!Array<!proto.api.DeviceStats>}
  */
 proto.api.GetDeviceStatsResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.DeviceStats>} */ (
+  return /** @type{!Array<!proto.api.DeviceStats>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.DeviceStats, 1));
 };
 
 
-/** @param {Array.<!proto.api.DeviceStats>} value  */
+/** @param {!Array<!proto.api.DeviceStats>} value */
 proto.api.GetDeviceStatsResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.api.DeviceStats=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.DeviceStats}
+ */
+proto.api.GetDeviceStatsResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.api.DeviceStats, opt_index);
 };
 
 
@@ -5705,10 +5326,11 @@ proto.api.StreamDeviceFrameLogsRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.StreamDeviceFrameLogsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.StreamDeviceFrameLogsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -5759,35 +5381,26 @@ proto.api.StreamDeviceFrameLogsRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.StreamDeviceFrameLogsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.StreamDeviceFrameLogsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.StreamDeviceFrameLogsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.StreamDeviceFrameLogsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.StreamDeviceFrameLogsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.StreamDeviceFrameLogsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.StreamDeviceFrameLogsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -5798,26 +5411,17 @@ proto.api.StreamDeviceFrameLogsRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.StreamDeviceFrameLogsRequest} The clone.
- */
-proto.api.StreamDeviceFrameLogsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.StreamDeviceFrameLogsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.StreamDeviceFrameLogsRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.StreamDeviceFrameLogsRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5890,6 +5494,7 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.toObject = function(opt_includ
  *     http://goto/soy-param-migration
  * @param {!proto.api.StreamDeviceFrameLogsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.StreamDeviceFrameLogsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5951,35 +5556,26 @@ proto.api.StreamDeviceFrameLogsResponse.deserializeBinaryFromReader = function(m
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.StreamDeviceFrameLogsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.StreamDeviceFrameLogsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.StreamDeviceFrameLogsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.StreamDeviceFrameLogsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.StreamDeviceFrameLogsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.StreamDeviceFrameLogsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.StreamDeviceFrameLogsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getUplinkFrame();
+  f = message.getUplinkFrame();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -5987,7 +5583,7 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.serializeBinaryToWriter = func
       as_external_api_frameLog_pb.UplinkFrameLog.serializeBinaryToWriter
     );
   }
-  f = this.getDownlinkFrame();
+  f = message.getDownlinkFrame();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -5999,25 +5595,16 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.serializeBinaryToWriter = func
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.StreamDeviceFrameLogsResponse} The clone.
- */
-proto.api.StreamDeviceFrameLogsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.StreamDeviceFrameLogsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional UplinkFrameLog uplink_frame = 1;
- * @return {proto.api.UplinkFrameLog}
+ * @return {?proto.api.UplinkFrameLog}
  */
 proto.api.StreamDeviceFrameLogsResponse.prototype.getUplinkFrame = function() {
-  return /** @type{proto.api.UplinkFrameLog} */ (
+  return /** @type{?proto.api.UplinkFrameLog} */ (
     jspb.Message.getWrapperField(this, as_external_api_frameLog_pb.UplinkFrameLog, 1));
 };
 
 
-/** @param {proto.api.UplinkFrameLog|undefined} value  */
+/** @param {?proto.api.UplinkFrameLog|undefined} value */
 proto.api.StreamDeviceFrameLogsResponse.prototype.setUplinkFrame = function(value) {
   jspb.Message.setOneofWrapperField(this, 1, proto.api.StreamDeviceFrameLogsResponse.oneofGroups_[0], value);
 };
@@ -6030,7 +5617,7 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.clearUplinkFrame = function() 
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.StreamDeviceFrameLogsResponse.prototype.hasUplinkFrame = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -6039,15 +5626,15 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.hasUplinkFrame = function() {
 
 /**
  * optional DownlinkFrameLog downlink_frame = 2;
- * @return {proto.api.DownlinkFrameLog}
+ * @return {?proto.api.DownlinkFrameLog}
  */
 proto.api.StreamDeviceFrameLogsResponse.prototype.getDownlinkFrame = function() {
-  return /** @type{proto.api.DownlinkFrameLog} */ (
+  return /** @type{?proto.api.DownlinkFrameLog} */ (
     jspb.Message.getWrapperField(this, as_external_api_frameLog_pb.DownlinkFrameLog, 2));
 };
 
 
-/** @param {proto.api.DownlinkFrameLog|undefined} value  */
+/** @param {?proto.api.DownlinkFrameLog|undefined} value */
 proto.api.StreamDeviceFrameLogsResponse.prototype.setDownlinkFrame = function(value) {
   jspb.Message.setOneofWrapperField(this, 2, proto.api.StreamDeviceFrameLogsResponse.oneofGroups_[0], value);
 };
@@ -6060,7 +5647,7 @@ proto.api.StreamDeviceFrameLogsResponse.prototype.clearDownlinkFrame = function(
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.StreamDeviceFrameLogsResponse.prototype.hasDownlinkFrame = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -6110,10 +5697,11 @@ proto.api.StreamDeviceEventLogsRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.StreamDeviceEventLogsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.StreamDeviceEventLogsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -6164,35 +5752,26 @@ proto.api.StreamDeviceEventLogsRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.StreamDeviceEventLogsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.StreamDeviceEventLogsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.StreamDeviceEventLogsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.StreamDeviceEventLogsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.StreamDeviceEventLogsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.StreamDeviceEventLogsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.StreamDeviceEventLogsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -6203,26 +5782,17 @@ proto.api.StreamDeviceEventLogsRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.StreamDeviceEventLogsRequest} The clone.
- */
-proto.api.StreamDeviceEventLogsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.StreamDeviceEventLogsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.StreamDeviceEventLogsRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.StreamDeviceEventLogsRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -6269,13 +5839,14 @@ proto.api.StreamDeviceEventLogsResponse.prototype.toObject = function(opt_includ
  *     http://goto/soy-param-migration
  * @param {!proto.api.StreamDeviceEventLogsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.StreamDeviceEventLogsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    type: msg.getType(),
-    payloadJson: msg.getPayloadJson(),
+    type: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    payloadJson: jspb.Message.getFieldWithDefault(msg, 2, ""),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    streamId: msg.getStreamId()
+    streamId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -6339,49 +5910,40 @@ proto.api.StreamDeviceEventLogsResponse.deserializeBinaryFromReader = function(m
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.StreamDeviceEventLogsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.StreamDeviceEventLogsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.StreamDeviceEventLogsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.StreamDeviceEventLogsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.StreamDeviceEventLogsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.StreamDeviceEventLogsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getType();
+  f = message.getType();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getPayloadJson();
+  f = message.getPayloadJson();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -6389,7 +5951,7 @@ proto.api.StreamDeviceEventLogsResponse.prototype.serializeBinaryToWriter = func
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getStreamId();
+  f = message.getStreamId();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -6400,26 +5962,17 @@ proto.api.StreamDeviceEventLogsResponse.prototype.serializeBinaryToWriter = func
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.StreamDeviceEventLogsResponse} The clone.
- */
-proto.api.StreamDeviceEventLogsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.StreamDeviceEventLogsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string type = 1;
  * @return {string}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.getType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.StreamDeviceEventLogsResponse.prototype.setType = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -6428,27 +5981,27 @@ proto.api.StreamDeviceEventLogsResponse.prototype.setType = function(value) {
  * @return {string}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.getPayloadJson = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.StreamDeviceEventLogsResponse.prototype.setPayloadJson = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.StreamDeviceEventLogsResponse.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -6461,7 +6014,7 @@ proto.api.StreamDeviceEventLogsResponse.prototype.clearPublishedAt = function() 
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -6473,13 +6026,13 @@ proto.api.StreamDeviceEventLogsResponse.prototype.hasPublishedAt = function() {
  * @return {string}
  */
 proto.api.StreamDeviceEventLogsResponse.prototype.getStreamId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.StreamDeviceEventLogsResponse.prototype.setStreamId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -6526,10 +6079,11 @@ proto.api.ClearDeviceNoncesRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.ClearDeviceNoncesRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ClearDeviceNoncesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    devEui: msg.getDevEui()
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -6580,35 +6134,26 @@ proto.api.ClearDeviceNoncesRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ClearDeviceNoncesRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ClearDeviceNoncesRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ClearDeviceNoncesRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ClearDeviceNoncesRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ClearDeviceNoncesRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ClearDeviceNoncesRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ClearDeviceNoncesRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -6619,26 +6164,17 @@ proto.api.ClearDeviceNoncesRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ClearDeviceNoncesRequest} The clone.
- */
-proto.api.ClearDeviceNoncesRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ClearDeviceNoncesRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string dev_eui = 1;
  * @return {string}
  */
 proto.api.ClearDeviceNoncesRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ClearDeviceNoncesRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

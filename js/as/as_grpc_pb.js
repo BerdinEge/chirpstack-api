@@ -19,6 +19,17 @@ function deserialize_as_HandleDownlinkACKRequest(buffer_arg) {
   return as_as_pb.HandleDownlinkACKRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_as_HandleDownlinkDataRequest(arg) {
+  if (!(arg instanceof as_as_pb.HandleDownlinkDataRequest)) {
+    throw new Error('Expected argument of type as.HandleDownlinkDataRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_as_HandleDownlinkDataRequest(buffer_arg) {
+  return as_as_pb.HandleDownlinkDataRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_as_HandleErrorRequest(arg) {
   if (!(arg instanceof as_as_pb.HandleErrorRequest)) {
     throw new Error('Expected argument of type as.HandleErrorRequest');
@@ -141,6 +152,18 @@ handleUplinkData: {
     responseType: google_protobuf_empty_pb.Empty,
     requestSerialize: serialize_as_HandleUplinkDataRequest,
     requestDeserialize: deserialize_as_HandleUplinkDataRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
+  },
+  // HandleDownlinkData handles downlink data sent to an end-device.
+handleDownlinkData: {
+    path: '/as.ApplicationServerService/HandleDownlinkData',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_as_pb.HandleDownlinkDataRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_as_HandleDownlinkDataRequest,
+    requestDeserialize: deserialize_as_HandleDownlinkDataRequest,
     responseSerialize: serialize_google_protobuf_Empty,
     responseDeserialize: deserialize_google_protobuf_Empty,
   },

@@ -81,6 +81,11 @@ export class HandleUplinkDataRequest extends jspb.Message {
   getConfirmedUplink(): boolean;
   setConfirmedUplink(value: boolean): void;
 
+  getMacdata(): Uint8Array | string;
+  getMacdata_asU8(): Uint8Array;
+  getMacdata_asB64(): string;
+  setMacdata(value: Uint8Array | string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandleUplinkDataRequest.AsObject;
   static toObject(includeInstance: boolean, msg: HandleUplinkDataRequest): HandleUplinkDataRequest.AsObject;
@@ -104,6 +109,73 @@ export namespace HandleUplinkDataRequest {
     data: Uint8Array | string,
     deviceActivationContext?: DeviceActivationContext.AsObject,
     confirmedUplink: boolean,
+    macdata: Uint8Array | string,
+  }
+}
+
+export class HandleDownlinkDataRequest extends jspb.Message {
+  getDevEui(): Uint8Array | string;
+  getDevEui_asU8(): Uint8Array;
+  getDevEui_asB64(): string;
+  setDevEui(value: Uint8Array | string): void;
+
+  getJoinEui(): Uint8Array | string;
+  getJoinEui_asU8(): Uint8Array;
+  getJoinEui_asB64(): string;
+  setJoinEui(value: Uint8Array | string): void;
+
+  getFCnt(): number;
+  setFCnt(value: number): void;
+
+  getFPort(): number;
+  setFPort(value: number): void;
+
+  getAdr(): boolean;
+  setAdr(value: boolean): void;
+
+  getDr(): number;
+  setDr(value: number): void;
+
+  hasTxInfo(): boolean;
+  clearTxInfo(): void;
+  getTxInfo(): gw_gw_pb.DownlinkTXInfo | undefined;
+  setTxInfo(value?: gw_gw_pb.DownlinkTXInfo): void;
+
+  getData(): Uint8Array | string;
+  getData_asU8(): Uint8Array;
+  getData_asB64(): string;
+  setData(value: Uint8Array | string): void;
+
+  hasSentAt(): boolean;
+  clearSentAt(): void;
+  getSentAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setSentAt(value?: google_protobuf_timestamp_pb.Timestamp): void;
+
+  getConfirmedDownlink(): boolean;
+  setConfirmedDownlink(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): HandleDownlinkDataRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: HandleDownlinkDataRequest): HandleDownlinkDataRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: HandleDownlinkDataRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HandleDownlinkDataRequest;
+  static deserializeBinaryFromReader(message: HandleDownlinkDataRequest, reader: jspb.BinaryReader): HandleDownlinkDataRequest;
+}
+
+export namespace HandleDownlinkDataRequest {
+  export type AsObject = {
+    devEui: Uint8Array | string,
+    joinEui: Uint8Array | string,
+    fCnt: number,
+    fPort: number,
+    adr: boolean,
+    dr: number,
+    txInfo?: gw_gw_pb.DownlinkTXInfo.AsObject,
+    data: Uint8Array | string,
+    sentAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    confirmedDownlink: boolean,
   }
 }
 

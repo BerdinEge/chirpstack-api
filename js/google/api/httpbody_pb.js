@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -61,10 +63,11 @@ proto.google.api.HttpBody.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.google.api.HttpBody} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.google.api.HttpBody.toObject = function(includeInstance, msg) {
   var f, obj = {
-    contentType: msg.getContentType(),
+    contentType: jspb.Message.getFieldWithDefault(msg, 1, ""),
     data: msg.getData_asB64(),
     extensionsList: jspb.Message.toObjectList(msg.getExtensionsList(),
     google_protobuf_any_pb.Any.toObject, includeInstance)
@@ -115,8 +118,7 @@ proto.google.api.HttpBody.deserializeBinaryFromReader = function(msg, reader) {
     case 3:
       var value = new google_protobuf_any_pb.Any;
       reader.readMessage(value,google_protobuf_any_pb.Any.deserializeBinaryFromReader);
-      msg.getExtensionsList().push(value);
-      msg.setExtensionsList(msg.getExtensionsList());
+      msg.addExtensions(value);
       break;
     default:
       reader.skipField();
@@ -128,49 +130,40 @@ proto.google.api.HttpBody.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.google.api.HttpBody} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.google.api.HttpBody.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.google.api.HttpBody.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.google.api.HttpBody.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.google.api.HttpBody} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.google.api.HttpBody.prototype.serializeBinaryToWriter = function (writer) {
+proto.google.api.HttpBody.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getContentType();
+  f = message.getContentType();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getData_asU8();
+  f = message.getData_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getExtensionsList();
+  f = message.getExtensionsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       3,
@@ -182,26 +175,17 @@ proto.google.api.HttpBody.prototype.serializeBinaryToWriter = function (writer) 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.google.api.HttpBody} The clone.
- */
-proto.google.api.HttpBody.prototype.cloneMessage = function() {
-  return /** @type {!proto.google.api.HttpBody} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string content_type = 1;
  * @return {string}
  */
 proto.google.api.HttpBody.prototype.getContentType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.google.api.HttpBody.prototype.setContentType = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -210,7 +194,7 @@ proto.google.api.HttpBody.prototype.setContentType = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.google.api.HttpBody.prototype.getData = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -238,27 +222,35 @@ proto.google.api.HttpBody.prototype.getData_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.google.api.HttpBody.prototype.setData = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
 /**
  * repeated google.protobuf.Any extensions = 3;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.google.protobuf.Any>}
+ * @return {!Array<!proto.google.protobuf.Any>}
  */
 proto.google.api.HttpBody.prototype.getExtensionsList = function() {
-  return /** @type{!Array.<!proto.google.protobuf.Any>} */ (
+  return /** @type{!Array<!proto.google.protobuf.Any>} */ (
     jspb.Message.getRepeatedWrapperField(this, google_protobuf_any_pb.Any, 3));
 };
 
 
-/** @param {Array.<!proto.google.protobuf.Any>} value  */
+/** @param {!Array<!proto.google.protobuf.Any>} value */
 proto.google.api.HttpBody.prototype.setExtensionsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.google.protobuf.Any=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.Any}
+ */
+proto.google.api.HttpBody.prototype.addExtensions = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.google.protobuf.Any, opt_index);
 };
 
 

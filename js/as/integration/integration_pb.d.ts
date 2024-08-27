@@ -72,6 +72,11 @@ export class UplinkEvent extends jspb.Message {
   getDeviceProfileName(): string;
   setDeviceProfileName(value: string): void;
 
+  getMacdata(): Uint8Array | string;
+  getMacdata_asU8(): Uint8Array;
+  getMacdata_asB64(): string;
+  setMacdata(value: Uint8Array | string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UplinkEvent.AsObject;
   static toObject(includeInstance: boolean, msg: UplinkEvent): UplinkEvent.AsObject;
@@ -102,6 +107,92 @@ export namespace UplinkEvent {
     publishedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     deviceProfileId: string,
     deviceProfileName: string,
+    macdata: Uint8Array | string,
+  }
+}
+
+export class DownlinkEvent extends jspb.Message {
+  getApplicationId(): number;
+  setApplicationId(value: number): void;
+
+  getApplicationName(): string;
+  setApplicationName(value: string): void;
+
+  getDeviceName(): string;
+  setDeviceName(value: string): void;
+
+  getDevEui(): Uint8Array | string;
+  getDevEui_asU8(): Uint8Array;
+  getDevEui_asB64(): string;
+  setDevEui(value: Uint8Array | string): void;
+
+  hasTxInfo(): boolean;
+  clearTxInfo(): void;
+  getTxInfo(): gw_gw_pb.DownlinkTXInfo | undefined;
+  setTxInfo(value?: gw_gw_pb.DownlinkTXInfo): void;
+
+  getAdr(): boolean;
+  setAdr(value: boolean): void;
+
+  getDr(): number;
+  setDr(value: number): void;
+
+  getFCnt(): number;
+  setFCnt(value: number): void;
+
+  getFPort(): number;
+  setFPort(value: number): void;
+
+  getData(): Uint8Array | string;
+  getData_asU8(): Uint8Array;
+  getData_asB64(): string;
+  setData(value: Uint8Array | string): void;
+
+  getObjectJson(): string;
+  setObjectJson(value: string): void;
+
+  getTagsMap(): jspb.Map<string, string>;
+  clearTagsMap(): void;
+  getConfirmedDownlink(): boolean;
+  setConfirmedDownlink(value: boolean): void;
+
+  getDevAddr(): Uint8Array | string;
+  getDevAddr_asU8(): Uint8Array;
+  getDevAddr_asB64(): string;
+  setDevAddr(value: Uint8Array | string): void;
+
+  hasPublishedAt(): boolean;
+  clearPublishedAt(): void;
+  getPublishedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setPublishedAt(value?: google_protobuf_timestamp_pb.Timestamp): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DownlinkEvent.AsObject;
+  static toObject(includeInstance: boolean, msg: DownlinkEvent): DownlinkEvent.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DownlinkEvent, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DownlinkEvent;
+  static deserializeBinaryFromReader(message: DownlinkEvent, reader: jspb.BinaryReader): DownlinkEvent;
+}
+
+export namespace DownlinkEvent {
+  export type AsObject = {
+    applicationId: number,
+    applicationName: string,
+    deviceName: string,
+    devEui: Uint8Array | string,
+    txInfo?: gw_gw_pb.DownlinkTXInfo.AsObject,
+    adr: boolean,
+    dr: number,
+    fCnt: number,
+    fPort: number,
+    data: Uint8Array | string,
+    objectJson: string,
+    tagsMap: Array<[string, string]>,
+    confirmedDownlink: boolean,
+    devAddr: Uint8Array | string,
+    publishedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
   }
 }
 

@@ -10,7 +10,7 @@ RUN make requirements
 
 RUN cp -r $(go list -f '{{ .Dir }}' github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway)/../third_party/googleapis /googleapis
 
-FROM node:12
+FROM node:14
 
 ENV PROJECT_PATH=/chirpstack-api
 RUN apt update && apt install -y protobuf-compiler libprotobuf-dev

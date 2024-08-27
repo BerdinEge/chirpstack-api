@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -116,6 +118,7 @@ proto.gw.Modulation.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.Modulation} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.Modulation.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -183,35 +186,26 @@ proto.gw.Modulation.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.Modulation} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.Modulation.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.Modulation.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.Modulation.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.Modulation} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.Modulation.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.Modulation.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLora();
+  f = message.getLora();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -219,7 +213,7 @@ proto.gw.Modulation.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.LoRaModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getFsk();
+  f = message.getFsk();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -227,7 +221,7 @@ proto.gw.Modulation.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.FSKModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getLrFhss();
+  f = message.getLrFhss();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -239,25 +233,16 @@ proto.gw.Modulation.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.Modulation} The clone.
- */
-proto.gw.Modulation.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.Modulation} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional LoRaModulationInfo lora = 3;
- * @return {proto.gw.LoRaModulationInfo}
+ * @return {?proto.gw.LoRaModulationInfo}
  */
 proto.gw.Modulation.prototype.getLora = function() {
-  return /** @type{proto.gw.LoRaModulationInfo} */ (
+  return /** @type{?proto.gw.LoRaModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.LoRaModulationInfo, 3));
 };
 
 
-/** @param {proto.gw.LoRaModulationInfo|undefined} value  */
+/** @param {?proto.gw.LoRaModulationInfo|undefined} value */
 proto.gw.Modulation.prototype.setLora = function(value) {
   jspb.Message.setOneofWrapperField(this, 3, proto.gw.Modulation.oneofGroups_[0], value);
 };
@@ -270,7 +255,7 @@ proto.gw.Modulation.prototype.clearLora = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.Modulation.prototype.hasLora = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -279,15 +264,15 @@ proto.gw.Modulation.prototype.hasLora = function() {
 
 /**
  * optional FSKModulationInfo fsk = 4;
- * @return {proto.gw.FSKModulationInfo}
+ * @return {?proto.gw.FSKModulationInfo}
  */
 proto.gw.Modulation.prototype.getFsk = function() {
-  return /** @type{proto.gw.FSKModulationInfo} */ (
+  return /** @type{?proto.gw.FSKModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.FSKModulationInfo, 4));
 };
 
 
-/** @param {proto.gw.FSKModulationInfo|undefined} value  */
+/** @param {?proto.gw.FSKModulationInfo|undefined} value */
 proto.gw.Modulation.prototype.setFsk = function(value) {
   jspb.Message.setOneofWrapperField(this, 4, proto.gw.Modulation.oneofGroups_[0], value);
 };
@@ -300,7 +285,7 @@ proto.gw.Modulation.prototype.clearFsk = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.Modulation.prototype.hasFsk = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -309,15 +294,15 @@ proto.gw.Modulation.prototype.hasFsk = function() {
 
 /**
  * optional LRFHSSModulationInfo lr_fhss = 5;
- * @return {proto.gw.LRFHSSModulationInfo}
+ * @return {?proto.gw.LRFHSSModulationInfo}
  */
 proto.gw.Modulation.prototype.getLrFhss = function() {
-  return /** @type{proto.gw.LRFHSSModulationInfo} */ (
+  return /** @type{?proto.gw.LRFHSSModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.LRFHSSModulationInfo, 5));
 };
 
 
-/** @param {proto.gw.LRFHSSModulationInfo|undefined} value  */
+/** @param {?proto.gw.LRFHSSModulationInfo|undefined} value */
 proto.gw.Modulation.prototype.setLrFhss = function(value) {
   jspb.Message.setOneofWrapperField(this, 5, proto.gw.Modulation.oneofGroups_[0], value);
 };
@@ -330,7 +315,7 @@ proto.gw.Modulation.prototype.clearLrFhss = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.Modulation.prototype.hasLrFhss = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -407,11 +392,12 @@ proto.gw.UplinkTXInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.UplinkTXInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.UplinkTXInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    frequency: msg.getFrequency(),
-    modulation: msg.getModulation(),
+    frequency: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    modulation: jspb.Message.getFieldWithDefault(msg, 2, 0),
     loraModulationInfo: (f = msg.getLoraModulationInfo()) && proto.gw.LoRaModulationInfo.toObject(includeInstance, f),
     fskModulationInfo: (f = msg.getFskModulationInfo()) && proto.gw.FSKModulationInfo.toObject(includeInstance, f),
     lrFhssModulationInfo: (f = msg.getLrFhssModulationInfo()) && proto.gw.LRFHSSModulationInfo.toObject(includeInstance, f)
@@ -484,49 +470,40 @@ proto.gw.UplinkTXInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.UplinkTXInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.UplinkTXInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.UplinkTXInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.UplinkTXInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.UplinkTXInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.UplinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.UplinkTXInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFrequency();
+  f = message.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getModulation();
+  f = message.getModulation();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
       f
     );
   }
-  f = this.getLoraModulationInfo();
+  f = message.getLoraModulationInfo();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -534,7 +511,7 @@ proto.gw.UplinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.LoRaModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getFskModulationInfo();
+  f = message.getFskModulationInfo();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -542,7 +519,7 @@ proto.gw.UplinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.FSKModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getLrFhssModulationInfo();
+  f = message.getLrFhssModulationInfo();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -554,26 +531,17 @@ proto.gw.UplinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.UplinkTXInfo} The clone.
- */
-proto.gw.UplinkTXInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.UplinkTXInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 frequency = 1;
  * @return {number}
  */
 proto.gw.UplinkTXInfo.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkTXInfo.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -582,27 +550,27 @@ proto.gw.UplinkTXInfo.prototype.setFrequency = function(value) {
  * @return {!proto.common.Modulation}
  */
 proto.gw.UplinkTXInfo.prototype.getModulation = function() {
-  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.common.Modulation} value  */
+/** @param {!proto.common.Modulation} value */
 proto.gw.UplinkTXInfo.prototype.setModulation = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
 /**
  * optional LoRaModulationInfo lora_modulation_info = 3;
- * @return {proto.gw.LoRaModulationInfo}
+ * @return {?proto.gw.LoRaModulationInfo}
  */
 proto.gw.UplinkTXInfo.prototype.getLoraModulationInfo = function() {
-  return /** @type{proto.gw.LoRaModulationInfo} */ (
+  return /** @type{?proto.gw.LoRaModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.LoRaModulationInfo, 3));
 };
 
 
-/** @param {proto.gw.LoRaModulationInfo|undefined} value  */
+/** @param {?proto.gw.LoRaModulationInfo|undefined} value */
 proto.gw.UplinkTXInfo.prototype.setLoraModulationInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 3, proto.gw.UplinkTXInfo.oneofGroups_[0], value);
 };
@@ -615,7 +583,7 @@ proto.gw.UplinkTXInfo.prototype.clearLoraModulationInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkTXInfo.prototype.hasLoraModulationInfo = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -624,15 +592,15 @@ proto.gw.UplinkTXInfo.prototype.hasLoraModulationInfo = function() {
 
 /**
  * optional FSKModulationInfo fsk_modulation_info = 4;
- * @return {proto.gw.FSKModulationInfo}
+ * @return {?proto.gw.FSKModulationInfo}
  */
 proto.gw.UplinkTXInfo.prototype.getFskModulationInfo = function() {
-  return /** @type{proto.gw.FSKModulationInfo} */ (
+  return /** @type{?proto.gw.FSKModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.FSKModulationInfo, 4));
 };
 
 
-/** @param {proto.gw.FSKModulationInfo|undefined} value  */
+/** @param {?proto.gw.FSKModulationInfo|undefined} value */
 proto.gw.UplinkTXInfo.prototype.setFskModulationInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 4, proto.gw.UplinkTXInfo.oneofGroups_[0], value);
 };
@@ -645,7 +613,7 @@ proto.gw.UplinkTXInfo.prototype.clearFskModulationInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkTXInfo.prototype.hasFskModulationInfo = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -654,15 +622,15 @@ proto.gw.UplinkTXInfo.prototype.hasFskModulationInfo = function() {
 
 /**
  * optional LRFHSSModulationInfo lr_fhss_modulation_info = 5;
- * @return {proto.gw.LRFHSSModulationInfo}
+ * @return {?proto.gw.LRFHSSModulationInfo}
  */
 proto.gw.UplinkTXInfo.prototype.getLrFhssModulationInfo = function() {
-  return /** @type{proto.gw.LRFHSSModulationInfo} */ (
+  return /** @type{?proto.gw.LRFHSSModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.LRFHSSModulationInfo, 5));
 };
 
 
-/** @param {proto.gw.LRFHSSModulationInfo|undefined} value  */
+/** @param {?proto.gw.LRFHSSModulationInfo|undefined} value */
 proto.gw.UplinkTXInfo.prototype.setLrFhssModulationInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 5, proto.gw.UplinkTXInfo.oneofGroups_[0], value);
 };
@@ -675,7 +643,7 @@ proto.gw.UplinkTXInfo.prototype.clearLrFhssModulationInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkTXInfo.prototype.hasLrFhssModulationInfo = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -725,13 +693,14 @@ proto.gw.LoRaModulationInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.LoRaModulationInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.LoRaModulationInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bandwidth: msg.getBandwidth(),
-    spreadingFactor: msg.getSpreadingFactor(),
-    codeRate: msg.getCodeRate(),
-    polarizationInversion: msg.getPolarizationInversion()
+    bandwidth: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    spreadingFactor: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    codeRate: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    polarizationInversion: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -794,56 +763,47 @@ proto.gw.LoRaModulationInfo.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.LoRaModulationInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.LoRaModulationInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.LoRaModulationInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.LoRaModulationInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.LoRaModulationInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.LoRaModulationInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.LoRaModulationInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getBandwidth();
+  f = message.getBandwidth();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getSpreadingFactor();
+  f = message.getSpreadingFactor();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getCodeRate();
+  f = message.getCodeRate();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getPolarizationInversion();
+  f = message.getPolarizationInversion();
   if (f) {
     writer.writeBool(
       4,
@@ -854,26 +814,17 @@ proto.gw.LoRaModulationInfo.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.LoRaModulationInfo} The clone.
- */
-proto.gw.LoRaModulationInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.LoRaModulationInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 bandwidth = 1;
  * @return {number}
  */
 proto.gw.LoRaModulationInfo.prototype.getBandwidth = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.LoRaModulationInfo.prototype.setBandwidth = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -882,13 +833,13 @@ proto.gw.LoRaModulationInfo.prototype.setBandwidth = function(value) {
  * @return {number}
  */
 proto.gw.LoRaModulationInfo.prototype.getSpreadingFactor = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.LoRaModulationInfo.prototype.setSpreadingFactor = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -897,13 +848,13 @@ proto.gw.LoRaModulationInfo.prototype.setSpreadingFactor = function(value) {
  * @return {string}
  */
 proto.gw.LoRaModulationInfo.prototype.getCodeRate = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.LoRaModulationInfo.prototype.setCodeRate = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -914,13 +865,13 @@ proto.gw.LoRaModulationInfo.prototype.setCodeRate = function(value) {
  * @return {boolean}
  */
 proto.gw.LoRaModulationInfo.prototype.getPolarizationInversion = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 4, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.gw.LoRaModulationInfo.prototype.setPolarizationInversion = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 
@@ -967,11 +918,12 @@ proto.gw.FSKModulationInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.FSKModulationInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.FSKModulationInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    frequencyDeviation: msg.getFrequencyDeviation(),
-    datarate: msg.getDatarate()
+    frequencyDeviation: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    datarate: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1026,42 +978,33 @@ proto.gw.FSKModulationInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.FSKModulationInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.FSKModulationInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.FSKModulationInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.FSKModulationInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.FSKModulationInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.FSKModulationInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.FSKModulationInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFrequencyDeviation();
+  f = message.getFrequencyDeviation();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getDatarate();
+  f = message.getDatarate();
   if (f !== 0) {
     writer.writeUint32(
       2,
@@ -1072,26 +1015,17 @@ proto.gw.FSKModulationInfo.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.FSKModulationInfo} The clone.
- */
-proto.gw.FSKModulationInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.FSKModulationInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 frequency_deviation = 1;
  * @return {number}
  */
 proto.gw.FSKModulationInfo.prototype.getFrequencyDeviation = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.FSKModulationInfo.prototype.setFrequencyDeviation = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1100,13 +1034,13 @@ proto.gw.FSKModulationInfo.prototype.setFrequencyDeviation = function(value) {
  * @return {number}
  */
 proto.gw.FSKModulationInfo.prototype.getDatarate = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.FSKModulationInfo.prototype.setDatarate = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1153,12 +1087,13 @@ proto.gw.LRFHSSModulationInfo.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.gw.LRFHSSModulationInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.LRFHSSModulationInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    operatingChannelWidth: msg.getOperatingChannelWidth(),
-    codeRate: msg.getCodeRate(),
-    gridSteps: msg.getGridSteps()
+    operatingChannelWidth: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    codeRate: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    gridSteps: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -1217,49 +1152,40 @@ proto.gw.LRFHSSModulationInfo.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.LRFHSSModulationInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.LRFHSSModulationInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.LRFHSSModulationInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.LRFHSSModulationInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.LRFHSSModulationInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.LRFHSSModulationInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.LRFHSSModulationInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getOperatingChannelWidth();
+  f = message.getOperatingChannelWidth();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getCodeRate();
+  f = message.getCodeRate();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getGridSteps();
+  f = message.getGridSteps();
   if (f !== 0) {
     writer.writeUint32(
       3,
@@ -1270,26 +1196,17 @@ proto.gw.LRFHSSModulationInfo.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.LRFHSSModulationInfo} The clone.
- */
-proto.gw.LRFHSSModulationInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.LRFHSSModulationInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 operating_channel_width = 1;
  * @return {number}
  */
 proto.gw.LRFHSSModulationInfo.prototype.getOperatingChannelWidth = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.LRFHSSModulationInfo.prototype.setOperatingChannelWidth = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1298,13 +1215,13 @@ proto.gw.LRFHSSModulationInfo.prototype.setOperatingChannelWidth = function(valu
  * @return {string}
  */
 proto.gw.LRFHSSModulationInfo.prototype.getCodeRate = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.LRFHSSModulationInfo.prototype.setCodeRate = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1313,13 +1230,13 @@ proto.gw.LRFHSSModulationInfo.prototype.setCodeRate = function(value) {
  * @return {number}
  */
 proto.gw.LRFHSSModulationInfo.prototype.getGridSteps = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.LRFHSSModulationInfo.prototype.setGridSteps = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1366,10 +1283,11 @@ proto.gw.EncryptedFineTimestamp.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.gw.EncryptedFineTimestamp} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.EncryptedFineTimestamp.toObject = function(includeInstance, msg) {
   var f, obj = {
-    aesKeyIndex: msg.getAesKeyIndex(),
+    aesKeyIndex: jspb.Message.getFieldWithDefault(msg, 1, 0),
     encryptedNs: msg.getEncryptedNs_asB64(),
     fpgaId: msg.getFpgaId_asB64()
   };
@@ -1430,49 +1348,40 @@ proto.gw.EncryptedFineTimestamp.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.EncryptedFineTimestamp} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.EncryptedFineTimestamp.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.EncryptedFineTimestamp.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.EncryptedFineTimestamp.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.EncryptedFineTimestamp} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.EncryptedFineTimestamp.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.EncryptedFineTimestamp.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getAesKeyIndex();
+  f = message.getAesKeyIndex();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getEncryptedNs_asU8();
+  f = message.getEncryptedNs_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getFpgaId_asU8();
+  f = message.getFpgaId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       3,
@@ -1483,26 +1392,17 @@ proto.gw.EncryptedFineTimestamp.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.EncryptedFineTimestamp} The clone.
- */
-proto.gw.EncryptedFineTimestamp.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.EncryptedFineTimestamp} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 aes_key_index = 1;
  * @return {number}
  */
 proto.gw.EncryptedFineTimestamp.prototype.getAesKeyIndex = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.EncryptedFineTimestamp.prototype.setAesKeyIndex = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1511,7 +1411,7 @@ proto.gw.EncryptedFineTimestamp.prototype.setAesKeyIndex = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.EncryptedFineTimestamp.prototype.getEncryptedNs = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -1539,9 +1439,9 @@ proto.gw.EncryptedFineTimestamp.prototype.getEncryptedNs_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.EncryptedFineTimestamp.prototype.setEncryptedNs = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -1550,7 +1450,7 @@ proto.gw.EncryptedFineTimestamp.prototype.setEncryptedNs = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.EncryptedFineTimestamp.prototype.getFpgaId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -1578,9 +1478,9 @@ proto.gw.EncryptedFineTimestamp.prototype.getFpgaId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.EncryptedFineTimestamp.prototype.setFpgaId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -1627,6 +1527,7 @@ proto.gw.PlainFineTimestamp.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.PlainFineTimestamp} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.PlainFineTimestamp.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1682,35 +1583,26 @@ proto.gw.PlainFineTimestamp.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.PlainFineTimestamp} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.PlainFineTimestamp.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.PlainFineTimestamp.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.PlainFineTimestamp.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.PlainFineTimestamp} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.PlainFineTimestamp.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.PlainFineTimestamp.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTime();
+  f = message.getTime();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1722,25 +1614,16 @@ proto.gw.PlainFineTimestamp.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.PlainFineTimestamp} The clone.
- */
-proto.gw.PlainFineTimestamp.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.PlainFineTimestamp} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional google.protobuf.Timestamp time = 1;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.gw.PlainFineTimestamp.prototype.getTime = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 1));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.gw.PlainFineTimestamp.prototype.setTime = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1753,7 +1636,7 @@ proto.gw.PlainFineTimestamp.prototype.clearTime = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.PlainFineTimestamp.prototype.hasTime = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1810,27 +1693,28 @@ proto.gw.GatewayStats.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.GatewayStats} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.GatewayStats.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    ip: msg.getIp(),
+    ip: jspb.Message.getFieldWithDefault(msg, 9, ""),
     time: (f = msg.getTime()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     location: (f = msg.getLocation()) && common_common_pb.Location.toObject(includeInstance, f),
-    configVersion: msg.getConfigVersion(),
-    rxPacketsReceived: msg.getRxPacketsReceived(),
-    rxPacketsReceivedOk: msg.getRxPacketsReceivedOk(),
-    txPacketsReceived: msg.getTxPacketsReceived(),
-    txPacketsEmitted: msg.getTxPacketsEmitted(),
-    metaDataMap: (f = msg.getMetaDataMap(true)) ? f.toArray() : [],
+    configVersion: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    rxPacketsReceived: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    rxPacketsReceivedOk: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    txPacketsReceived: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    txPacketsEmitted: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    metaDataMap: (f = msg.getMetaDataMap()) ? f.toObject(includeInstance, undefined) : [],
     statsId: msg.getStatsId_asB64(),
-    txPacketsPerFrequencyMap: (f = msg.getTxPacketsPerFrequencyMap(true)) ? f.toArray() : [],
-    rxPacketsPerFrequencyMap: (f = msg.getRxPacketsPerFrequencyMap(true)) ? f.toArray() : [],
+    txPacketsPerFrequencyMap: (f = msg.getTxPacketsPerFrequencyMap()) ? f.toObject(includeInstance, undefined) : [],
+    rxPacketsPerFrequencyMap: (f = msg.getRxPacketsPerFrequencyMap()) ? f.toObject(includeInstance, undefined) : [],
     txPacketsPerModulationList: jspb.Message.toObjectList(msg.getTxPacketsPerModulationList(),
     proto.gw.PerModulationCount.toObject, includeInstance),
     rxPacketsPerModulationList: jspb.Message.toObjectList(msg.getRxPacketsPerModulationList(),
     proto.gw.PerModulationCount.toObject, includeInstance),
-    txPacketsPerStatusMap: (f = msg.getTxPacketsPerStatusMap(true)) ? f.toArray() : []
+    txPacketsPerStatusMap: (f = msg.getTxPacketsPerStatusMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1908,7 +1792,7 @@ proto.gw.GatewayStats.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = msg.getMetaDataMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 11:
@@ -1918,31 +1802,29 @@ proto.gw.GatewayStats.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = msg.getTxPacketsPerFrequencyMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32, null, 0);
          });
       break;
     case 13:
       var value = msg.getRxPacketsPerFrequencyMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readUint32, jspb.BinaryReader.prototype.readUint32, null, 0);
          });
       break;
     case 14:
       var value = new proto.gw.PerModulationCount;
       reader.readMessage(value,proto.gw.PerModulationCount.deserializeBinaryFromReader);
-      msg.getTxPacketsPerModulationList().push(value);
-      msg.setTxPacketsPerModulationList(msg.getTxPacketsPerModulationList());
+      msg.addTxPacketsPerModulation(value);
       break;
     case 15:
       var value = new proto.gw.PerModulationCount;
       reader.readMessage(value,proto.gw.PerModulationCount.deserializeBinaryFromReader);
-      msg.getRxPacketsPerModulationList().push(value);
-      msg.setRxPacketsPerModulationList(msg.getRxPacketsPerModulationList());
+      msg.addRxPacketsPerModulation(value);
       break;
     case 16:
       var value = msg.getTxPacketsPerStatusMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readUint32);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readUint32, null, "");
          });
       break;
     default:
@@ -1955,49 +1837,40 @@ proto.gw.GatewayStats.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.GatewayStats} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.GatewayStats.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.GatewayStats.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.GatewayStats.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.GatewayStats} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.GatewayStats.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.GatewayStats.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getIp();
+  f = message.getIp();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getTime();
+  f = message.getTime();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -2005,7 +1878,7 @@ proto.gw.GatewayStats.prototype.serializeBinaryToWriter = function (writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getLocation();
+  f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -2013,61 +1886,61 @@ proto.gw.GatewayStats.prototype.serializeBinaryToWriter = function (writer) {
       common_common_pb.Location.serializeBinaryToWriter
     );
   }
-  f = this.getConfigVersion();
+  f = message.getConfigVersion();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getRxPacketsReceived();
+  f = message.getRxPacketsReceived();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getRxPacketsReceivedOk();
+  f = message.getRxPacketsReceivedOk();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getTxPacketsReceived();
+  f = message.getTxPacketsReceived();
   if (f !== 0) {
     writer.writeUint32(
       7,
       f
     );
   }
-  f = this.getTxPacketsEmitted();
+  f = message.getTxPacketsEmitted();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getMetaDataMap(true);
+  f = message.getMetaDataMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getStatsId_asU8();
+  f = message.getStatsId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       11,
       f
     );
   }
-  f = this.getTxPacketsPerFrequencyMap(true);
+  f = message.getTxPacketsPerFrequencyMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(12, writer, jspb.BinaryWriter.prototype.writeUint32, jspb.BinaryWriter.prototype.writeUint32);
   }
-  f = this.getRxPacketsPerFrequencyMap(true);
+  f = message.getRxPacketsPerFrequencyMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(13, writer, jspb.BinaryWriter.prototype.writeUint32, jspb.BinaryWriter.prototype.writeUint32);
   }
-  f = this.getTxPacketsPerModulationList();
+  f = message.getTxPacketsPerModulationList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       14,
@@ -2075,7 +1948,7 @@ proto.gw.GatewayStats.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.PerModulationCount.serializeBinaryToWriter
     );
   }
-  f = this.getRxPacketsPerModulationList();
+  f = message.getRxPacketsPerModulationList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       15,
@@ -2083,19 +1956,10 @@ proto.gw.GatewayStats.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.PerModulationCount.serializeBinaryToWriter
     );
   }
-  f = this.getTxPacketsPerStatusMap(true);
+  f = message.getTxPacketsPerStatusMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(16, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeUint32);
   }
-};
-
-
-/**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.GatewayStats} The clone.
- */
-proto.gw.GatewayStats.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.GatewayStats} */ (jspb.Message.cloneMessage(this));
 };
 
 
@@ -2104,7 +1968,7 @@ proto.gw.GatewayStats.prototype.cloneMessage = function() {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayStats.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -2132,9 +1996,9 @@ proto.gw.GatewayStats.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayStats.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -2143,27 +2007,27 @@ proto.gw.GatewayStats.prototype.setGatewayId = function(value) {
  * @return {string}
  */
 proto.gw.GatewayStats.prototype.getIp = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.GatewayStats.prototype.setIp = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp time = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.gw.GatewayStats.prototype.getTime = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.gw.GatewayStats.prototype.setTime = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -2176,7 +2040,7 @@ proto.gw.GatewayStats.prototype.clearTime = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.GatewayStats.prototype.hasTime = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -2185,15 +2049,15 @@ proto.gw.GatewayStats.prototype.hasTime = function() {
 
 /**
  * optional common.Location location = 3;
- * @return {proto.common.Location}
+ * @return {?proto.common.Location}
  */
 proto.gw.GatewayStats.prototype.getLocation = function() {
-  return /** @type{proto.common.Location} */ (
+  return /** @type{?proto.common.Location} */ (
     jspb.Message.getWrapperField(this, common_common_pb.Location, 3));
 };
 
 
-/** @param {proto.common.Location|undefined} value  */
+/** @param {?proto.common.Location|undefined} value */
 proto.gw.GatewayStats.prototype.setLocation = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -2206,7 +2070,7 @@ proto.gw.GatewayStats.prototype.clearLocation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.GatewayStats.prototype.hasLocation = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -2218,13 +2082,13 @@ proto.gw.GatewayStats.prototype.hasLocation = function() {
  * @return {string}
  */
 proto.gw.GatewayStats.prototype.getConfigVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.GatewayStats.prototype.setConfigVersion = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2233,13 +2097,13 @@ proto.gw.GatewayStats.prototype.setConfigVersion = function(value) {
  * @return {number}
  */
 proto.gw.GatewayStats.prototype.getRxPacketsReceived = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.GatewayStats.prototype.setRxPacketsReceived = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -2248,13 +2112,13 @@ proto.gw.GatewayStats.prototype.setRxPacketsReceived = function(value) {
  * @return {number}
  */
 proto.gw.GatewayStats.prototype.getRxPacketsReceivedOk = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.GatewayStats.prototype.setRxPacketsReceivedOk = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -2263,13 +2127,13 @@ proto.gw.GatewayStats.prototype.setRxPacketsReceivedOk = function(value) {
  * @return {number}
  */
 proto.gw.GatewayStats.prototype.getTxPacketsReceived = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.GatewayStats.prototype.setTxPacketsReceived = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -2278,13 +2142,13 @@ proto.gw.GatewayStats.prototype.setTxPacketsReceived = function(value) {
  * @return {number}
  */
 proto.gw.GatewayStats.prototype.getTxPacketsEmitted = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.GatewayStats.prototype.setTxPacketsEmitted = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -2301,12 +2165,17 @@ proto.gw.GatewayStats.prototype.getMetaDataMap = function(opt_noLazyCreate) {
 };
 
 
+proto.gw.GatewayStats.prototype.clearMetaDataMap = function() {
+  this.getMetaDataMap().clear();
+};
+
+
 /**
  * optional bytes stats_id = 11;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayStats.prototype.getStatsId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
 
@@ -2334,9 +2203,9 @@ proto.gw.GatewayStats.prototype.getStatsId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayStats.prototype.setStatsId = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3BytesField(this, 11, value);
 };
 
 
@@ -2353,6 +2222,11 @@ proto.gw.GatewayStats.prototype.getTxPacketsPerFrequencyMap = function(opt_noLaz
 };
 
 
+proto.gw.GatewayStats.prototype.clearTxPacketsPerFrequencyMap = function() {
+  this.getTxPacketsPerFrequencyMap().clear();
+};
+
+
 /**
  * map<uint32, uint32> rx_packets_per_frequency = 13;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
@@ -2366,21 +2240,34 @@ proto.gw.GatewayStats.prototype.getRxPacketsPerFrequencyMap = function(opt_noLaz
 };
 
 
+proto.gw.GatewayStats.prototype.clearRxPacketsPerFrequencyMap = function() {
+  this.getRxPacketsPerFrequencyMap().clear();
+};
+
+
 /**
  * repeated PerModulationCount tx_packets_per_modulation = 14;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.PerModulationCount>}
+ * @return {!Array<!proto.gw.PerModulationCount>}
  */
 proto.gw.GatewayStats.prototype.getTxPacketsPerModulationList = function() {
-  return /** @type{!Array.<!proto.gw.PerModulationCount>} */ (
+  return /** @type{!Array<!proto.gw.PerModulationCount>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.PerModulationCount, 14));
 };
 
 
-/** @param {Array.<!proto.gw.PerModulationCount>} value  */
+/** @param {!Array<!proto.gw.PerModulationCount>} value */
 proto.gw.GatewayStats.prototype.setTxPacketsPerModulationList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 14, value);
+};
+
+
+/**
+ * @param {!proto.gw.PerModulationCount=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.PerModulationCount}
+ */
+proto.gw.GatewayStats.prototype.addTxPacketsPerModulation = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 14, opt_value, proto.gw.PerModulationCount, opt_index);
 };
 
 
@@ -2391,19 +2278,27 @@ proto.gw.GatewayStats.prototype.clearTxPacketsPerModulationList = function() {
 
 /**
  * repeated PerModulationCount rx_packets_per_modulation = 15;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.PerModulationCount>}
+ * @return {!Array<!proto.gw.PerModulationCount>}
  */
 proto.gw.GatewayStats.prototype.getRxPacketsPerModulationList = function() {
-  return /** @type{!Array.<!proto.gw.PerModulationCount>} */ (
+  return /** @type{!Array<!proto.gw.PerModulationCount>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.PerModulationCount, 15));
 };
 
 
-/** @param {Array.<!proto.gw.PerModulationCount>} value  */
+/** @param {!Array<!proto.gw.PerModulationCount>} value */
 proto.gw.GatewayStats.prototype.setRxPacketsPerModulationList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 15, value);
+};
+
+
+/**
+ * @param {!proto.gw.PerModulationCount=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.PerModulationCount}
+ */
+proto.gw.GatewayStats.prototype.addRxPacketsPerModulation = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 15, opt_value, proto.gw.PerModulationCount, opt_index);
 };
 
 
@@ -2422,6 +2317,11 @@ proto.gw.GatewayStats.prototype.getTxPacketsPerStatusMap = function(opt_noLazyCr
   return /** @type {!jspb.Map<string,number>} */ (
       jspb.Message.getMapField(this, 16, opt_noLazyCreate,
       null));
+};
+
+
+proto.gw.GatewayStats.prototype.clearTxPacketsPerStatusMap = function() {
+  this.getTxPacketsPerStatusMap().clear();
 };
 
 
@@ -2468,11 +2368,12 @@ proto.gw.PerModulationCount.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.PerModulationCount} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.PerModulationCount.toObject = function(includeInstance, msg) {
   var f, obj = {
     modulation: (f = msg.getModulation()) && proto.gw.Modulation.toObject(includeInstance, f),
-    count: msg.getCount()
+    count: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -2528,35 +2429,26 @@ proto.gw.PerModulationCount.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.PerModulationCount} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.PerModulationCount.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.PerModulationCount.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.PerModulationCount.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.PerModulationCount} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.PerModulationCount.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.PerModulationCount.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getModulation();
+  f = message.getModulation();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2564,7 +2456,7 @@ proto.gw.PerModulationCount.prototype.serializeBinaryToWriter = function (writer
       proto.gw.Modulation.serializeBinaryToWriter
     );
   }
-  f = this.getCount();
+  f = message.getCount();
   if (f !== 0) {
     writer.writeUint32(
       2,
@@ -2575,25 +2467,16 @@ proto.gw.PerModulationCount.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.PerModulationCount} The clone.
- */
-proto.gw.PerModulationCount.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.PerModulationCount} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Modulation modulation = 1;
- * @return {proto.gw.Modulation}
+ * @return {?proto.gw.Modulation}
  */
 proto.gw.PerModulationCount.prototype.getModulation = function() {
-  return /** @type{proto.gw.Modulation} */ (
+  return /** @type{?proto.gw.Modulation} */ (
     jspb.Message.getWrapperField(this, proto.gw.Modulation, 1));
 };
 
 
-/** @param {proto.gw.Modulation|undefined} value  */
+/** @param {?proto.gw.Modulation|undefined} value */
 proto.gw.PerModulationCount.prototype.setModulation = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -2606,7 +2489,7 @@ proto.gw.PerModulationCount.prototype.clearModulation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.PerModulationCount.prototype.hasModulation = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -2618,13 +2501,13 @@ proto.gw.PerModulationCount.prototype.hasModulation = function() {
  * @return {number}
  */
 proto.gw.PerModulationCount.prototype.getCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.PerModulationCount.prototype.setCount = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2697,25 +2580,26 @@ proto.gw.UplinkRXInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.UplinkRXInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.UplinkRXInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
     time: (f = msg.getTime()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     timeSinceGpsEpoch: (f = msg.getTimeSinceGpsEpoch()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
-    rssi: msg.getRssi(),
-    loraSnr: msg.getLoraSnr(),
-    channel: msg.getChannel(),
-    rfChain: msg.getRfChain(),
-    board: msg.getBoard(),
-    antenna: msg.getAntenna(),
+    rssi: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    loraSnr: +jspb.Message.getFieldWithDefault(msg, 6, 0.0),
+    channel: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    rfChain: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    board: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    antenna: jspb.Message.getFieldWithDefault(msg, 10, 0),
     location: (f = msg.getLocation()) && common_common_pb.Location.toObject(includeInstance, f),
-    fineTimestampType: msg.getFineTimestampType(),
+    fineTimestampType: jspb.Message.getFieldWithDefault(msg, 12, 0),
     encryptedFineTimestamp: (f = msg.getEncryptedFineTimestamp()) && proto.gw.EncryptedFineTimestamp.toObject(includeInstance, f),
     plainFineTimestamp: (f = msg.getPlainFineTimestamp()) && proto.gw.PlainFineTimestamp.toObject(includeInstance, f),
     context: msg.getContext_asB64(),
     uplinkId: msg.getUplinkId_asB64(),
-    crcStatus: msg.getCrcStatus()
+    crcStatus: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -2831,42 +2715,33 @@ proto.gw.UplinkRXInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.UplinkRXInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.UplinkRXInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.UplinkRXInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.UplinkRXInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.UplinkRXInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.UplinkRXInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTime();
+  f = message.getTime();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -2874,7 +2749,7 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getTimeSinceGpsEpoch();
+  f = message.getTimeSinceGpsEpoch();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -2882,49 +2757,49 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
       google_protobuf_duration_pb.Duration.serializeBinaryToWriter
     );
   }
-  f = this.getRssi();
+  f = message.getRssi();
   if (f !== 0) {
     writer.writeInt32(
       5,
       f
     );
   }
-  f = this.getLoraSnr();
+  f = message.getLoraSnr();
   if (f !== 0.0) {
     writer.writeDouble(
       6,
       f
     );
   }
-  f = this.getChannel();
+  f = message.getChannel();
   if (f !== 0) {
     writer.writeUint32(
       7,
       f
     );
   }
-  f = this.getRfChain();
+  f = message.getRfChain();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getBoard();
+  f = message.getBoard();
   if (f !== 0) {
     writer.writeUint32(
       9,
       f
     );
   }
-  f = this.getAntenna();
+  f = message.getAntenna();
   if (f !== 0) {
     writer.writeUint32(
       10,
       f
     );
   }
-  f = this.getLocation();
+  f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
       11,
@@ -2932,14 +2807,14 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
       common_common_pb.Location.serializeBinaryToWriter
     );
   }
-  f = this.getFineTimestampType();
+  f = message.getFineTimestampType();
   if (f !== 0.0) {
     writer.writeEnum(
       12,
       f
     );
   }
-  f = this.getEncryptedFineTimestamp();
+  f = message.getEncryptedFineTimestamp();
   if (f != null) {
     writer.writeMessage(
       13,
@@ -2947,7 +2822,7 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.EncryptedFineTimestamp.serializeBinaryToWriter
     );
   }
-  f = this.getPlainFineTimestamp();
+  f = message.getPlainFineTimestamp();
   if (f != null) {
     writer.writeMessage(
       14,
@@ -2955,21 +2830,21 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.PlainFineTimestamp.serializeBinaryToWriter
     );
   }
-  f = this.getContext_asU8();
+  f = message.getContext_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       15,
       f
     );
   }
-  f = this.getUplinkId_asU8();
+  f = message.getUplinkId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       16,
       f
     );
   }
-  f = this.getCrcStatus();
+  f = message.getCrcStatus();
   if (f !== 0.0) {
     writer.writeEnum(
       17,
@@ -2980,20 +2855,11 @@ proto.gw.UplinkRXInfo.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.UplinkRXInfo} The clone.
- */
-proto.gw.UplinkRXInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.UplinkRXInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.UplinkRXInfo.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -3021,23 +2887,23 @@ proto.gw.UplinkRXInfo.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.UplinkRXInfo.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp time = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.gw.UplinkRXInfo.prototype.getTime = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.gw.UplinkRXInfo.prototype.setTime = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -3050,7 +2916,7 @@ proto.gw.UplinkRXInfo.prototype.clearTime = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkRXInfo.prototype.hasTime = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -3059,15 +2925,15 @@ proto.gw.UplinkRXInfo.prototype.hasTime = function() {
 
 /**
  * optional google.protobuf.Duration time_since_gps_epoch = 3;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.gw.UplinkRXInfo.prototype.getTimeSinceGpsEpoch = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 3));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.gw.UplinkRXInfo.prototype.setTimeSinceGpsEpoch = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -3080,7 +2946,7 @@ proto.gw.UplinkRXInfo.prototype.clearTimeSinceGpsEpoch = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkRXInfo.prototype.hasTimeSinceGpsEpoch = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -3092,13 +2958,13 @@ proto.gw.UplinkRXInfo.prototype.hasTimeSinceGpsEpoch = function() {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getRssi = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setRssi = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -3107,13 +2973,13 @@ proto.gw.UplinkRXInfo.prototype.setRssi = function(value) {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getLoraSnr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 6, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setLoraSnr = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3FloatField(this, 6, value);
 };
 
 
@@ -3122,13 +2988,13 @@ proto.gw.UplinkRXInfo.prototype.setLoraSnr = function(value) {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getChannel = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setChannel = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -3137,13 +3003,13 @@ proto.gw.UplinkRXInfo.prototype.setChannel = function(value) {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getRfChain = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setRfChain = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -3152,13 +3018,13 @@ proto.gw.UplinkRXInfo.prototype.setRfChain = function(value) {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getBoard = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setBoard = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -3167,27 +3033,27 @@ proto.gw.UplinkRXInfo.prototype.setBoard = function(value) {
  * @return {number}
  */
 proto.gw.UplinkRXInfo.prototype.getAntenna = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.UplinkRXInfo.prototype.setAntenna = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
 /**
  * optional common.Location location = 11;
- * @return {proto.common.Location}
+ * @return {?proto.common.Location}
  */
 proto.gw.UplinkRXInfo.prototype.getLocation = function() {
-  return /** @type{proto.common.Location} */ (
+  return /** @type{?proto.common.Location} */ (
     jspb.Message.getWrapperField(this, common_common_pb.Location, 11));
 };
 
 
-/** @param {proto.common.Location|undefined} value  */
+/** @param {?proto.common.Location|undefined} value */
 proto.gw.UplinkRXInfo.prototype.setLocation = function(value) {
   jspb.Message.setWrapperField(this, 11, value);
 };
@@ -3200,7 +3066,7 @@ proto.gw.UplinkRXInfo.prototype.clearLocation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkRXInfo.prototype.hasLocation = function() {
   return jspb.Message.getField(this, 11) != null;
@@ -3212,27 +3078,27 @@ proto.gw.UplinkRXInfo.prototype.hasLocation = function() {
  * @return {!proto.gw.FineTimestampType}
  */
 proto.gw.UplinkRXInfo.prototype.getFineTimestampType = function() {
-  return /** @type {!proto.gw.FineTimestampType} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {!proto.gw.FineTimestampType} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {!proto.gw.FineTimestampType} value  */
+/** @param {!proto.gw.FineTimestampType} value */
 proto.gw.UplinkRXInfo.prototype.setFineTimestampType = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3EnumField(this, 12, value);
 };
 
 
 /**
  * optional EncryptedFineTimestamp encrypted_fine_timestamp = 13;
- * @return {proto.gw.EncryptedFineTimestamp}
+ * @return {?proto.gw.EncryptedFineTimestamp}
  */
 proto.gw.UplinkRXInfo.prototype.getEncryptedFineTimestamp = function() {
-  return /** @type{proto.gw.EncryptedFineTimestamp} */ (
+  return /** @type{?proto.gw.EncryptedFineTimestamp} */ (
     jspb.Message.getWrapperField(this, proto.gw.EncryptedFineTimestamp, 13));
 };
 
 
-/** @param {proto.gw.EncryptedFineTimestamp|undefined} value  */
+/** @param {?proto.gw.EncryptedFineTimestamp|undefined} value */
 proto.gw.UplinkRXInfo.prototype.setEncryptedFineTimestamp = function(value) {
   jspb.Message.setOneofWrapperField(this, 13, proto.gw.UplinkRXInfo.oneofGroups_[0], value);
 };
@@ -3245,7 +3111,7 @@ proto.gw.UplinkRXInfo.prototype.clearEncryptedFineTimestamp = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkRXInfo.prototype.hasEncryptedFineTimestamp = function() {
   return jspb.Message.getField(this, 13) != null;
@@ -3254,15 +3120,15 @@ proto.gw.UplinkRXInfo.prototype.hasEncryptedFineTimestamp = function() {
 
 /**
  * optional PlainFineTimestamp plain_fine_timestamp = 14;
- * @return {proto.gw.PlainFineTimestamp}
+ * @return {?proto.gw.PlainFineTimestamp}
  */
 proto.gw.UplinkRXInfo.prototype.getPlainFineTimestamp = function() {
-  return /** @type{proto.gw.PlainFineTimestamp} */ (
+  return /** @type{?proto.gw.PlainFineTimestamp} */ (
     jspb.Message.getWrapperField(this, proto.gw.PlainFineTimestamp, 14));
 };
 
 
-/** @param {proto.gw.PlainFineTimestamp|undefined} value  */
+/** @param {?proto.gw.PlainFineTimestamp|undefined} value */
 proto.gw.UplinkRXInfo.prototype.setPlainFineTimestamp = function(value) {
   jspb.Message.setOneofWrapperField(this, 14, proto.gw.UplinkRXInfo.oneofGroups_[0], value);
 };
@@ -3275,7 +3141,7 @@ proto.gw.UplinkRXInfo.prototype.clearPlainFineTimestamp = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkRXInfo.prototype.hasPlainFineTimestamp = function() {
   return jspb.Message.getField(this, 14) != null;
@@ -3287,7 +3153,7 @@ proto.gw.UplinkRXInfo.prototype.hasPlainFineTimestamp = function() {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.UplinkRXInfo.prototype.getContext = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 15, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
 };
 
 
@@ -3315,9 +3181,9 @@ proto.gw.UplinkRXInfo.prototype.getContext_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.UplinkRXInfo.prototype.setContext = function(value) {
-  jspb.Message.setField(this, 15, value);
+  jspb.Message.setProto3BytesField(this, 15, value);
 };
 
 
@@ -3326,7 +3192,7 @@ proto.gw.UplinkRXInfo.prototype.setContext = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.UplinkRXInfo.prototype.getUplinkId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 16, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
@@ -3354,9 +3220,9 @@ proto.gw.UplinkRXInfo.prototype.getUplinkId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.UplinkRXInfo.prototype.setUplinkId = function(value) {
-  jspb.Message.setField(this, 16, value);
+  jspb.Message.setProto3BytesField(this, 16, value);
 };
 
 
@@ -3365,13 +3231,13 @@ proto.gw.UplinkRXInfo.prototype.setUplinkId = function(value) {
  * @return {!proto.gw.CRCStatus}
  */
 proto.gw.UplinkRXInfo.prototype.getCrcStatus = function() {
-  return /** @type {!proto.gw.CRCStatus} */ (jspb.Message.getFieldProto3(this, 17, 0));
+  return /** @type {!proto.gw.CRCStatus} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
 };
 
 
-/** @param {!proto.gw.CRCStatus} value  */
+/** @param {!proto.gw.CRCStatus} value */
 proto.gw.UplinkRXInfo.prototype.setCrcStatus = function(value) {
-  jspb.Message.setField(this, 17, value);
+  jspb.Message.setProto3EnumField(this, 17, value);
 };
 
 
@@ -3461,18 +3327,19 @@ proto.gw.DownlinkTXInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DownlinkTXInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DownlinkTXInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    frequency: msg.getFrequency(),
-    power: msg.getPower(),
-    modulation: msg.getModulation(),
+    frequency: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    power: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    modulation: jspb.Message.getFieldWithDefault(msg, 7, 0),
     loraModulationInfo: (f = msg.getLoraModulationInfo()) && proto.gw.LoRaModulationInfo.toObject(includeInstance, f),
     fskModulationInfo: (f = msg.getFskModulationInfo()) && proto.gw.FSKModulationInfo.toObject(includeInstance, f),
-    board: msg.getBoard(),
-    antenna: msg.getAntenna(),
-    timing: msg.getTiming(),
+    board: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    antenna: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    timing: jspb.Message.getFieldWithDefault(msg, 12, 0),
     immediatelyTimingInfo: (f = msg.getImmediatelyTimingInfo()) && proto.gw.ImmediatelyTimingInfo.toObject(includeInstance, f),
     delayTimingInfo: (f = msg.getDelayTimingInfo()) && proto.gw.DelayTimingInfo.toObject(includeInstance, f),
     gpsEpochTimingInfo: (f = msg.getGpsEpochTimingInfo()) && proto.gw.GPSEpochTimingInfo.toObject(includeInstance, f),
@@ -3580,63 +3447,54 @@ proto.gw.DownlinkTXInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DownlinkTXInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DownlinkTXInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DownlinkTXInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DownlinkTXInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DownlinkTXInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DownlinkTXInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getFrequency();
+  f = message.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getPower();
+  f = message.getPower();
   if (f !== 0) {
     writer.writeInt32(
       6,
       f
     );
   }
-  f = this.getModulation();
+  f = message.getModulation();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
       f
     );
   }
-  f = this.getLoraModulationInfo();
+  f = message.getLoraModulationInfo();
   if (f != null) {
     writer.writeMessage(
       8,
@@ -3644,7 +3502,7 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.LoRaModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getFskModulationInfo();
+  f = message.getFskModulationInfo();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -3652,28 +3510,28 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.FSKModulationInfo.serializeBinaryToWriter
     );
   }
-  f = this.getBoard();
+  f = message.getBoard();
   if (f !== 0) {
     writer.writeUint32(
       10,
       f
     );
   }
-  f = this.getAntenna();
+  f = message.getAntenna();
   if (f !== 0) {
     writer.writeUint32(
       11,
       f
     );
   }
-  f = this.getTiming();
+  f = message.getTiming();
   if (f !== 0.0) {
     writer.writeEnum(
       12,
       f
     );
   }
-  f = this.getImmediatelyTimingInfo();
+  f = message.getImmediatelyTimingInfo();
   if (f != null) {
     writer.writeMessage(
       13,
@@ -3681,7 +3539,7 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.ImmediatelyTimingInfo.serializeBinaryToWriter
     );
   }
-  f = this.getDelayTimingInfo();
+  f = message.getDelayTimingInfo();
   if (f != null) {
     writer.writeMessage(
       14,
@@ -3689,7 +3547,7 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.DelayTimingInfo.serializeBinaryToWriter
     );
   }
-  f = this.getGpsEpochTimingInfo();
+  f = message.getGpsEpochTimingInfo();
   if (f != null) {
     writer.writeMessage(
       15,
@@ -3697,7 +3555,7 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.GPSEpochTimingInfo.serializeBinaryToWriter
     );
   }
-  f = this.getContext_asU8();
+  f = message.getContext_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       16,
@@ -3708,20 +3566,11 @@ proto.gw.DownlinkTXInfo.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DownlinkTXInfo} The clone.
- */
-proto.gw.DownlinkTXInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DownlinkTXInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkTXInfo.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -3749,9 +3598,9 @@ proto.gw.DownlinkTXInfo.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkTXInfo.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -3760,13 +3609,13 @@ proto.gw.DownlinkTXInfo.prototype.setGatewayId = function(value) {
  * @return {number}
  */
 proto.gw.DownlinkTXInfo.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkTXInfo.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -3775,13 +3624,13 @@ proto.gw.DownlinkTXInfo.prototype.setFrequency = function(value) {
  * @return {number}
  */
 proto.gw.DownlinkTXInfo.prototype.getPower = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkTXInfo.prototype.setPower = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -3790,27 +3639,27 @@ proto.gw.DownlinkTXInfo.prototype.setPower = function(value) {
  * @return {!proto.common.Modulation}
  */
 proto.gw.DownlinkTXInfo.prototype.getModulation = function() {
-  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.common.Modulation} value  */
+/** @param {!proto.common.Modulation} value */
 proto.gw.DownlinkTXInfo.prototype.setModulation = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
 /**
  * optional LoRaModulationInfo lora_modulation_info = 8;
- * @return {proto.gw.LoRaModulationInfo}
+ * @return {?proto.gw.LoRaModulationInfo}
  */
 proto.gw.DownlinkTXInfo.prototype.getLoraModulationInfo = function() {
-  return /** @type{proto.gw.LoRaModulationInfo} */ (
+  return /** @type{?proto.gw.LoRaModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.LoRaModulationInfo, 8));
 };
 
 
-/** @param {proto.gw.LoRaModulationInfo|undefined} value  */
+/** @param {?proto.gw.LoRaModulationInfo|undefined} value */
 proto.gw.DownlinkTXInfo.prototype.setLoraModulationInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 8, proto.gw.DownlinkTXInfo.oneofGroups_[0], value);
 };
@@ -3823,7 +3672,7 @@ proto.gw.DownlinkTXInfo.prototype.clearLoraModulationInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkTXInfo.prototype.hasLoraModulationInfo = function() {
   return jspb.Message.getField(this, 8) != null;
@@ -3832,15 +3681,15 @@ proto.gw.DownlinkTXInfo.prototype.hasLoraModulationInfo = function() {
 
 /**
  * optional FSKModulationInfo fsk_modulation_info = 9;
- * @return {proto.gw.FSKModulationInfo}
+ * @return {?proto.gw.FSKModulationInfo}
  */
 proto.gw.DownlinkTXInfo.prototype.getFskModulationInfo = function() {
-  return /** @type{proto.gw.FSKModulationInfo} */ (
+  return /** @type{?proto.gw.FSKModulationInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.FSKModulationInfo, 9));
 };
 
 
-/** @param {proto.gw.FSKModulationInfo|undefined} value  */
+/** @param {?proto.gw.FSKModulationInfo|undefined} value */
 proto.gw.DownlinkTXInfo.prototype.setFskModulationInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 9, proto.gw.DownlinkTXInfo.oneofGroups_[0], value);
 };
@@ -3853,7 +3702,7 @@ proto.gw.DownlinkTXInfo.prototype.clearFskModulationInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkTXInfo.prototype.hasFskModulationInfo = function() {
   return jspb.Message.getField(this, 9) != null;
@@ -3865,13 +3714,13 @@ proto.gw.DownlinkTXInfo.prototype.hasFskModulationInfo = function() {
  * @return {number}
  */
 proto.gw.DownlinkTXInfo.prototype.getBoard = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkTXInfo.prototype.setBoard = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -3880,13 +3729,13 @@ proto.gw.DownlinkTXInfo.prototype.setBoard = function(value) {
  * @return {number}
  */
 proto.gw.DownlinkTXInfo.prototype.getAntenna = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 11, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkTXInfo.prototype.setAntenna = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -3895,27 +3744,27 @@ proto.gw.DownlinkTXInfo.prototype.setAntenna = function(value) {
  * @return {!proto.gw.DownlinkTiming}
  */
 proto.gw.DownlinkTXInfo.prototype.getTiming = function() {
-  return /** @type {!proto.gw.DownlinkTiming} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {!proto.gw.DownlinkTiming} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {!proto.gw.DownlinkTiming} value  */
+/** @param {!proto.gw.DownlinkTiming} value */
 proto.gw.DownlinkTXInfo.prototype.setTiming = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3EnumField(this, 12, value);
 };
 
 
 /**
  * optional ImmediatelyTimingInfo immediately_timing_info = 13;
- * @return {proto.gw.ImmediatelyTimingInfo}
+ * @return {?proto.gw.ImmediatelyTimingInfo}
  */
 proto.gw.DownlinkTXInfo.prototype.getImmediatelyTimingInfo = function() {
-  return /** @type{proto.gw.ImmediatelyTimingInfo} */ (
+  return /** @type{?proto.gw.ImmediatelyTimingInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.ImmediatelyTimingInfo, 13));
 };
 
 
-/** @param {proto.gw.ImmediatelyTimingInfo|undefined} value  */
+/** @param {?proto.gw.ImmediatelyTimingInfo|undefined} value */
 proto.gw.DownlinkTXInfo.prototype.setImmediatelyTimingInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 13, proto.gw.DownlinkTXInfo.oneofGroups_[1], value);
 };
@@ -3928,7 +3777,7 @@ proto.gw.DownlinkTXInfo.prototype.clearImmediatelyTimingInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkTXInfo.prototype.hasImmediatelyTimingInfo = function() {
   return jspb.Message.getField(this, 13) != null;
@@ -3937,15 +3786,15 @@ proto.gw.DownlinkTXInfo.prototype.hasImmediatelyTimingInfo = function() {
 
 /**
  * optional DelayTimingInfo delay_timing_info = 14;
- * @return {proto.gw.DelayTimingInfo}
+ * @return {?proto.gw.DelayTimingInfo}
  */
 proto.gw.DownlinkTXInfo.prototype.getDelayTimingInfo = function() {
-  return /** @type{proto.gw.DelayTimingInfo} */ (
+  return /** @type{?proto.gw.DelayTimingInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.DelayTimingInfo, 14));
 };
 
 
-/** @param {proto.gw.DelayTimingInfo|undefined} value  */
+/** @param {?proto.gw.DelayTimingInfo|undefined} value */
 proto.gw.DownlinkTXInfo.prototype.setDelayTimingInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 14, proto.gw.DownlinkTXInfo.oneofGroups_[1], value);
 };
@@ -3958,7 +3807,7 @@ proto.gw.DownlinkTXInfo.prototype.clearDelayTimingInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkTXInfo.prototype.hasDelayTimingInfo = function() {
   return jspb.Message.getField(this, 14) != null;
@@ -3967,15 +3816,15 @@ proto.gw.DownlinkTXInfo.prototype.hasDelayTimingInfo = function() {
 
 /**
  * optional GPSEpochTimingInfo gps_epoch_timing_info = 15;
- * @return {proto.gw.GPSEpochTimingInfo}
+ * @return {?proto.gw.GPSEpochTimingInfo}
  */
 proto.gw.DownlinkTXInfo.prototype.getGpsEpochTimingInfo = function() {
-  return /** @type{proto.gw.GPSEpochTimingInfo} */ (
+  return /** @type{?proto.gw.GPSEpochTimingInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.GPSEpochTimingInfo, 15));
 };
 
 
-/** @param {proto.gw.GPSEpochTimingInfo|undefined} value  */
+/** @param {?proto.gw.GPSEpochTimingInfo|undefined} value */
 proto.gw.DownlinkTXInfo.prototype.setGpsEpochTimingInfo = function(value) {
   jspb.Message.setOneofWrapperField(this, 15, proto.gw.DownlinkTXInfo.oneofGroups_[1], value);
 };
@@ -3988,7 +3837,7 @@ proto.gw.DownlinkTXInfo.prototype.clearGpsEpochTimingInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkTXInfo.prototype.hasGpsEpochTimingInfo = function() {
   return jspb.Message.getField(this, 15) != null;
@@ -4000,7 +3849,7 @@ proto.gw.DownlinkTXInfo.prototype.hasGpsEpochTimingInfo = function() {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkTXInfo.prototype.getContext = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 16, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
@@ -4028,9 +3877,9 @@ proto.gw.DownlinkTXInfo.prototype.getContext_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkTXInfo.prototype.setContext = function(value) {
-  jspb.Message.setField(this, 16, value);
+  jspb.Message.setProto3BytesField(this, 16, value);
 };
 
 
@@ -4077,6 +3926,7 @@ proto.gw.ImmediatelyTimingInfo.prototype.toObject = function(opt_includeInstance
  *     http://goto/soy-param-migration
  * @param {!proto.gw.ImmediatelyTimingInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.ImmediatelyTimingInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4127,43 +3977,25 @@ proto.gw.ImmediatelyTimingInfo.deserializeBinaryFromReader = function(msg, reade
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.ImmediatelyTimingInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.ImmediatelyTimingInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.ImmediatelyTimingInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.ImmediatelyTimingInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.ImmediatelyTimingInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.ImmediatelyTimingInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.ImmediatelyTimingInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-};
-
-
-/**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.ImmediatelyTimingInfo} The clone.
- */
-proto.gw.ImmediatelyTimingInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.ImmediatelyTimingInfo} */ (jspb.Message.cloneMessage(this));
 };
 
 
@@ -4210,6 +4042,7 @@ proto.gw.DelayTimingInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DelayTimingInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DelayTimingInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4265,35 +4098,26 @@ proto.gw.DelayTimingInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DelayTimingInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DelayTimingInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DelayTimingInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DelayTimingInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DelayTimingInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DelayTimingInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DelayTimingInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDelay();
+  f = message.getDelay();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -4305,25 +4129,16 @@ proto.gw.DelayTimingInfo.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DelayTimingInfo} The clone.
- */
-proto.gw.DelayTimingInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DelayTimingInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional google.protobuf.Duration delay = 1;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.gw.DelayTimingInfo.prototype.getDelay = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 1));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.gw.DelayTimingInfo.prototype.setDelay = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -4336,7 +4151,7 @@ proto.gw.DelayTimingInfo.prototype.clearDelay = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DelayTimingInfo.prototype.hasDelay = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -4386,6 +4201,7 @@ proto.gw.GPSEpochTimingInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.GPSEpochTimingInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.GPSEpochTimingInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4441,35 +4257,26 @@ proto.gw.GPSEpochTimingInfo.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.GPSEpochTimingInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.GPSEpochTimingInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.GPSEpochTimingInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.GPSEpochTimingInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.GPSEpochTimingInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.GPSEpochTimingInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.GPSEpochTimingInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTimeSinceGpsEpoch();
+  f = message.getTimeSinceGpsEpoch();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -4481,25 +4288,16 @@ proto.gw.GPSEpochTimingInfo.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.GPSEpochTimingInfo} The clone.
- */
-proto.gw.GPSEpochTimingInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.GPSEpochTimingInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional google.protobuf.Duration time_since_gps_epoch = 1;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.gw.GPSEpochTimingInfo.prototype.getTimeSinceGpsEpoch = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 1));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.gw.GPSEpochTimingInfo.prototype.setTimeSinceGpsEpoch = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -4512,7 +4310,7 @@ proto.gw.GPSEpochTimingInfo.prototype.clearTimeSinceGpsEpoch = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.GPSEpochTimingInfo.prototype.hasTimeSinceGpsEpoch = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -4562,6 +4360,7 @@ proto.gw.UplinkFrame.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.UplinkFrame} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.UplinkFrame.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4628,42 +4427,33 @@ proto.gw.UplinkFrame.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.UplinkFrame} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.UplinkFrame.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.UplinkFrame.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.UplinkFrame.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.UplinkFrame} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.UplinkFrame.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.UplinkFrame.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getPhyPayload_asU8();
+  f = message.getPhyPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -4671,7 +4461,7 @@ proto.gw.UplinkFrame.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getRxInfo();
+  f = message.getRxInfo();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -4683,20 +4473,11 @@ proto.gw.UplinkFrame.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.UplinkFrame} The clone.
- */
-proto.gw.UplinkFrame.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.UplinkFrame} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes phy_payload = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.UplinkFrame.prototype.getPhyPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -4724,23 +4505,23 @@ proto.gw.UplinkFrame.prototype.getPhyPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.UplinkFrame.prototype.setPhyPayload = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional UplinkTXInfo tx_info = 2;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.gw.UplinkFrame.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.UplinkTXInfo, 2));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.gw.UplinkFrame.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -4753,7 +4534,7 @@ proto.gw.UplinkFrame.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkFrame.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -4762,15 +4543,15 @@ proto.gw.UplinkFrame.prototype.hasTxInfo = function() {
 
 /**
  * optional UplinkRXInfo rx_info = 3;
- * @return {proto.gw.UplinkRXInfo}
+ * @return {?proto.gw.UplinkRXInfo}
  */
 proto.gw.UplinkFrame.prototype.getRxInfo = function() {
-  return /** @type{proto.gw.UplinkRXInfo} */ (
+  return /** @type{?proto.gw.UplinkRXInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.UplinkRXInfo, 3));
 };
 
 
-/** @param {proto.gw.UplinkRXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkRXInfo|undefined} value */
 proto.gw.UplinkFrame.prototype.setRxInfo = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -4783,7 +4564,7 @@ proto.gw.UplinkFrame.prototype.clearRxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkFrame.prototype.hasRxInfo = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -4840,6 +4621,7 @@ proto.gw.UplinkFrameSet.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.UplinkFrameSet} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.UplinkFrameSet.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4895,8 +4677,7 @@ proto.gw.UplinkFrameSet.deserializeBinaryFromReader = function(msg, reader) {
     case 3:
       var value = new proto.gw.UplinkRXInfo;
       reader.readMessage(value,proto.gw.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     default:
       reader.skipField();
@@ -4908,42 +4689,33 @@ proto.gw.UplinkFrameSet.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.UplinkFrameSet} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.UplinkFrameSet.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.UplinkFrameSet.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.UplinkFrameSet.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.UplinkFrameSet} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.UplinkFrameSet.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.UplinkFrameSet.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getPhyPayload_asU8();
+  f = message.getPhyPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -4951,7 +4723,7 @@ proto.gw.UplinkFrameSet.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       3,
@@ -4963,20 +4735,11 @@ proto.gw.UplinkFrameSet.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.UplinkFrameSet} The clone.
- */
-proto.gw.UplinkFrameSet.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.UplinkFrameSet} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes phy_payload = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.UplinkFrameSet.prototype.getPhyPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -5004,23 +4767,23 @@ proto.gw.UplinkFrameSet.prototype.getPhyPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.UplinkFrameSet.prototype.setPhyPayload = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional UplinkTXInfo tx_info = 2;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.gw.UplinkFrameSet.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.UplinkTXInfo, 2));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.gw.UplinkFrameSet.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -5033,7 +4796,7 @@ proto.gw.UplinkFrameSet.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.UplinkFrameSet.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -5042,19 +4805,27 @@ proto.gw.UplinkFrameSet.prototype.hasTxInfo = function() {
 
 /**
  * repeated UplinkRXInfo rx_info = 3;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.gw.UplinkFrameSet.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.UplinkRXInfo, 3));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.gw.UplinkFrameSet.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.gw.UplinkFrameSet.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -5113,12 +4884,13 @@ proto.gw.DownlinkFrame.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DownlinkFrame} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DownlinkFrame.toObject = function(includeInstance, msg) {
   var f, obj = {
     phyPayload: msg.getPhyPayload_asB64(),
     txInfo: (f = msg.getTxInfo()) && proto.gw.DownlinkTXInfo.toObject(includeInstance, f),
-    token: msg.getToken(),
+    token: jspb.Message.getFieldWithDefault(msg, 3, 0),
     downlinkId: msg.getDownlinkId_asB64(),
     itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.gw.DownlinkFrameItem.toObject, includeInstance),
@@ -5179,8 +4951,7 @@ proto.gw.DownlinkFrame.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = new proto.gw.DownlinkFrameItem;
       reader.readMessage(value,proto.gw.DownlinkFrameItem.deserializeBinaryFromReader);
-      msg.getItemsList().push(value);
-      msg.setItemsList(msg.getItemsList());
+      msg.addItems(value);
       break;
     case 6:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
@@ -5196,42 +4967,33 @@ proto.gw.DownlinkFrame.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DownlinkFrame} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DownlinkFrame.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DownlinkFrame.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DownlinkFrame.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DownlinkFrame} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DownlinkFrame.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DownlinkFrame.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getPhyPayload_asU8();
+  f = message.getPhyPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -5239,21 +5001,21 @@ proto.gw.DownlinkFrame.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.DownlinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getToken();
+  f = message.getToken();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getDownlinkId_asU8();
+  f = message.getDownlinkId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getItemsList();
+  f = message.getItemsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -5261,7 +5023,7 @@ proto.gw.DownlinkFrame.prototype.serializeBinaryToWriter = function (writer) {
       proto.gw.DownlinkFrameItem.serializeBinaryToWriter
     );
   }
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       6,
@@ -5272,20 +5034,11 @@ proto.gw.DownlinkFrame.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DownlinkFrame} The clone.
- */
-proto.gw.DownlinkFrame.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DownlinkFrame} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes phy_payload = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkFrame.prototype.getPhyPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -5313,23 +5066,23 @@ proto.gw.DownlinkFrame.prototype.getPhyPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkFrame.prototype.setPhyPayload = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional DownlinkTXInfo tx_info = 2;
- * @return {proto.gw.DownlinkTXInfo}
+ * @return {?proto.gw.DownlinkTXInfo}
  */
 proto.gw.DownlinkFrame.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.DownlinkTXInfo} */ (
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.DownlinkTXInfo, 2));
 };
 
 
-/** @param {proto.gw.DownlinkTXInfo|undefined} value  */
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
 proto.gw.DownlinkFrame.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -5342,7 +5095,7 @@ proto.gw.DownlinkFrame.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkFrame.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -5354,13 +5107,13 @@ proto.gw.DownlinkFrame.prototype.hasTxInfo = function() {
  * @return {number}
  */
 proto.gw.DownlinkFrame.prototype.getToken = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkFrame.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -5369,7 +5122,7 @@ proto.gw.DownlinkFrame.prototype.setToken = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkFrame.prototype.getDownlinkId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -5397,27 +5150,35 @@ proto.gw.DownlinkFrame.prototype.getDownlinkId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkFrame.prototype.setDownlinkId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
 /**
  * repeated DownlinkFrameItem items = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.DownlinkFrameItem>}
+ * @return {!Array<!proto.gw.DownlinkFrameItem>}
  */
 proto.gw.DownlinkFrame.prototype.getItemsList = function() {
-  return /** @type{!Array.<!proto.gw.DownlinkFrameItem>} */ (
+  return /** @type{!Array<!proto.gw.DownlinkFrameItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.DownlinkFrameItem, 5));
 };
 
 
-/** @param {Array.<!proto.gw.DownlinkFrameItem>} value  */
+/** @param {!Array<!proto.gw.DownlinkFrameItem>} value */
 proto.gw.DownlinkFrame.prototype.setItemsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.gw.DownlinkFrameItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.DownlinkFrameItem}
+ */
+proto.gw.DownlinkFrame.prototype.addItems = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.gw.DownlinkFrameItem, opt_index);
 };
 
 
@@ -5431,7 +5192,7 @@ proto.gw.DownlinkFrame.prototype.clearItemsList = function() {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkFrame.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
@@ -5459,9 +5220,9 @@ proto.gw.DownlinkFrame.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkFrame.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3BytesField(this, 6, value);
 };
 
 
@@ -5508,6 +5269,7 @@ proto.gw.DownlinkFrameItem.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DownlinkFrameItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DownlinkFrameItem.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5568,42 +5330,33 @@ proto.gw.DownlinkFrameItem.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DownlinkFrameItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DownlinkFrameItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DownlinkFrameItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DownlinkFrameItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DownlinkFrameItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DownlinkFrameItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DownlinkFrameItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getPhyPayload_asU8();
+  f = message.getPhyPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -5615,20 +5368,11 @@ proto.gw.DownlinkFrameItem.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DownlinkFrameItem} The clone.
- */
-proto.gw.DownlinkFrameItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DownlinkFrameItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes phy_payload = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkFrameItem.prototype.getPhyPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -5656,23 +5400,23 @@ proto.gw.DownlinkFrameItem.prototype.getPhyPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkFrameItem.prototype.setPhyPayload = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional DownlinkTXInfo tx_info = 2;
- * @return {proto.gw.DownlinkTXInfo}
+ * @return {?proto.gw.DownlinkTXInfo}
  */
 proto.gw.DownlinkFrameItem.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.DownlinkTXInfo} */ (
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
     jspb.Message.getWrapperField(this, proto.gw.DownlinkTXInfo, 2));
 };
 
 
-/** @param {proto.gw.DownlinkTXInfo|undefined} value  */
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
 proto.gw.DownlinkFrameItem.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -5685,7 +5429,7 @@ proto.gw.DownlinkFrameItem.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.DownlinkFrameItem.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -5742,12 +5486,13 @@ proto.gw.DownlinkTXAck.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DownlinkTXAck} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DownlinkTXAck.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    token: msg.getToken(),
-    error: msg.getError(),
+    token: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    error: jspb.Message.getFieldWithDefault(msg, 3, ""),
     downlinkId: msg.getDownlinkId_asB64(),
     itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.gw.DownlinkTXAckItem.toObject, includeInstance)
@@ -5806,8 +5551,7 @@ proto.gw.DownlinkTXAck.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = new proto.gw.DownlinkTXAckItem;
       reader.readMessage(value,proto.gw.DownlinkTXAckItem.deserializeBinaryFromReader);
-      msg.getItemsList().push(value);
-      msg.setItemsList(msg.getItemsList());
+      msg.addItems(value);
       break;
     default:
       reader.skipField();
@@ -5819,63 +5563,54 @@ proto.gw.DownlinkTXAck.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DownlinkTXAck} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DownlinkTXAck.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DownlinkTXAck.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DownlinkTXAck.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DownlinkTXAck} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DownlinkTXAck.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DownlinkTXAck.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getToken();
+  f = message.getToken();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getError();
+  f = message.getError();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDownlinkId_asU8();
+  f = message.getDownlinkId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getItemsList();
+  f = message.getItemsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -5887,20 +5622,11 @@ proto.gw.DownlinkTXAck.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DownlinkTXAck} The clone.
- */
-proto.gw.DownlinkTXAck.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DownlinkTXAck} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkTXAck.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -5928,9 +5654,9 @@ proto.gw.DownlinkTXAck.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkTXAck.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -5939,13 +5665,13 @@ proto.gw.DownlinkTXAck.prototype.setGatewayId = function(value) {
  * @return {number}
  */
 proto.gw.DownlinkTXAck.prototype.getToken = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.DownlinkTXAck.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -5954,13 +5680,13 @@ proto.gw.DownlinkTXAck.prototype.setToken = function(value) {
  * @return {string}
  */
 proto.gw.DownlinkTXAck.prototype.getError = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.DownlinkTXAck.prototype.setError = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -5969,7 +5695,7 @@ proto.gw.DownlinkTXAck.prototype.setError = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.DownlinkTXAck.prototype.getDownlinkId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -5997,27 +5723,35 @@ proto.gw.DownlinkTXAck.prototype.getDownlinkId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.DownlinkTXAck.prototype.setDownlinkId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
 /**
  * repeated DownlinkTXAckItem items = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.DownlinkTXAckItem>}
+ * @return {!Array<!proto.gw.DownlinkTXAckItem>}
  */
 proto.gw.DownlinkTXAck.prototype.getItemsList = function() {
-  return /** @type{!Array.<!proto.gw.DownlinkTXAckItem>} */ (
+  return /** @type{!Array<!proto.gw.DownlinkTXAckItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.DownlinkTXAckItem, 5));
 };
 
 
-/** @param {Array.<!proto.gw.DownlinkTXAckItem>} value  */
+/** @param {!Array<!proto.gw.DownlinkTXAckItem>} value */
 proto.gw.DownlinkTXAck.prototype.setItemsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.gw.DownlinkTXAckItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.DownlinkTXAckItem}
+ */
+proto.gw.DownlinkTXAck.prototype.addItems = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.gw.DownlinkTXAckItem, opt_index);
 };
 
 
@@ -6069,10 +5803,11 @@ proto.gw.DownlinkTXAckItem.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.DownlinkTXAckItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.DownlinkTXAckItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    status: msg.getStatus()
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -6123,35 +5858,26 @@ proto.gw.DownlinkTXAckItem.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.DownlinkTXAckItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.DownlinkTXAckItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.DownlinkTXAckItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.DownlinkTXAckItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.DownlinkTXAckItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.DownlinkTXAckItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.DownlinkTXAckItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getStatus();
+  f = message.getStatus();
   if (f !== 0.0) {
     writer.writeEnum(
       1,
@@ -6162,26 +5888,17 @@ proto.gw.DownlinkTXAckItem.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.DownlinkTXAckItem} The clone.
- */
-proto.gw.DownlinkTXAckItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.DownlinkTXAckItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional TxAckStatus status = 1;
  * @return {!proto.gw.TxAckStatus}
  */
 proto.gw.DownlinkTXAckItem.prototype.getStatus = function() {
-  return /** @type {!proto.gw.TxAckStatus} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {!proto.gw.TxAckStatus} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {!proto.gw.TxAckStatus} value  */
+/** @param {!proto.gw.TxAckStatus} value */
 proto.gw.DownlinkTXAckItem.prototype.setStatus = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -6235,11 +5952,12 @@ proto.gw.GatewayConfiguration.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.gw.GatewayConfiguration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.GatewayConfiguration.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    version: msg.getVersion(),
+    version: jspb.Message.getFieldWithDefault(msg, 2, ""),
     channelsList: jspb.Message.toObjectList(msg.getChannelsList(),
     proto.gw.ChannelConfiguration.toObject, includeInstance),
     statsInterval: (f = msg.getStatsInterval()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f)
@@ -6290,8 +6008,7 @@ proto.gw.GatewayConfiguration.deserializeBinaryFromReader = function(msg, reader
     case 3:
       var value = new proto.gw.ChannelConfiguration;
       reader.readMessage(value,proto.gw.ChannelConfiguration.deserializeBinaryFromReader);
-      msg.getChannelsList().push(value);
-      msg.setChannelsList(msg.getChannelsList());
+      msg.addChannels(value);
       break;
     case 4:
       var value = new google_protobuf_duration_pb.Duration;
@@ -6308,49 +6025,40 @@ proto.gw.GatewayConfiguration.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.GatewayConfiguration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.GatewayConfiguration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.GatewayConfiguration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.GatewayConfiguration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.GatewayConfiguration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.GatewayConfiguration.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.GatewayConfiguration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getVersion();
+  f = message.getVersion();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getChannelsList();
+  f = message.getChannelsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       3,
@@ -6358,7 +6066,7 @@ proto.gw.GatewayConfiguration.prototype.serializeBinaryToWriter = function (writ
       proto.gw.ChannelConfiguration.serializeBinaryToWriter
     );
   }
-  f = this.getStatsInterval();
+  f = message.getStatsInterval();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -6370,20 +6078,11 @@ proto.gw.GatewayConfiguration.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.GatewayConfiguration} The clone.
- */
-proto.gw.GatewayConfiguration.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.GatewayConfiguration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayConfiguration.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -6411,9 +6110,9 @@ proto.gw.GatewayConfiguration.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayConfiguration.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -6422,31 +6121,39 @@ proto.gw.GatewayConfiguration.prototype.setGatewayId = function(value) {
  * @return {string}
  */
 proto.gw.GatewayConfiguration.prototype.getVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.GatewayConfiguration.prototype.setVersion = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
  * repeated ChannelConfiguration channels = 3;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.ChannelConfiguration>}
+ * @return {!Array<!proto.gw.ChannelConfiguration>}
  */
 proto.gw.GatewayConfiguration.prototype.getChannelsList = function() {
-  return /** @type{!Array.<!proto.gw.ChannelConfiguration>} */ (
+  return /** @type{!Array<!proto.gw.ChannelConfiguration>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.gw.ChannelConfiguration, 3));
 };
 
 
-/** @param {Array.<!proto.gw.ChannelConfiguration>} value  */
+/** @param {!Array<!proto.gw.ChannelConfiguration>} value */
 proto.gw.GatewayConfiguration.prototype.setChannelsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.gw.ChannelConfiguration=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.ChannelConfiguration}
+ */
+proto.gw.GatewayConfiguration.prototype.addChannels = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.gw.ChannelConfiguration, opt_index);
 };
 
 
@@ -6457,15 +6164,15 @@ proto.gw.GatewayConfiguration.prototype.clearChannelsList = function() {
 
 /**
  * optional google.protobuf.Duration stats_interval = 4;
- * @return {proto.google.protobuf.Duration}
+ * @return {?proto.google.protobuf.Duration}
  */
 proto.gw.GatewayConfiguration.prototype.getStatsInterval = function() {
-  return /** @type{proto.google.protobuf.Duration} */ (
+  return /** @type{?proto.google.protobuf.Duration} */ (
     jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 4));
 };
 
 
-/** @param {proto.google.protobuf.Duration|undefined} value  */
+/** @param {?proto.google.protobuf.Duration|undefined} value */
 proto.gw.GatewayConfiguration.prototype.setStatsInterval = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -6478,7 +6185,7 @@ proto.gw.GatewayConfiguration.prototype.clearStatsInterval = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.GatewayConfiguration.prototype.hasStatsInterval = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -6554,15 +6261,16 @@ proto.gw.ChannelConfiguration.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.gw.ChannelConfiguration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.ChannelConfiguration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    frequency: msg.getFrequency(),
-    modulation: msg.getModulation(),
+    frequency: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    modulation: jspb.Message.getFieldWithDefault(msg, 2, 0),
     loraModulationConfig: (f = msg.getLoraModulationConfig()) && proto.gw.LoRaModulationConfig.toObject(includeInstance, f),
     fskModulationConfig: (f = msg.getFskModulationConfig()) && proto.gw.FSKModulationConfig.toObject(includeInstance, f),
-    board: msg.getBoard(),
-    demodulator: msg.getDemodulator()
+    board: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    demodulator: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -6635,49 +6343,40 @@ proto.gw.ChannelConfiguration.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.ChannelConfiguration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.ChannelConfiguration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.ChannelConfiguration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.ChannelConfiguration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.ChannelConfiguration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.ChannelConfiguration.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.ChannelConfiguration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFrequency();
+  f = message.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getModulation();
+  f = message.getModulation();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
       f
     );
   }
-  f = this.getLoraModulationConfig();
+  f = message.getLoraModulationConfig();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -6685,7 +6384,7 @@ proto.gw.ChannelConfiguration.prototype.serializeBinaryToWriter = function (writ
       proto.gw.LoRaModulationConfig.serializeBinaryToWriter
     );
   }
-  f = this.getFskModulationConfig();
+  f = message.getFskModulationConfig();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -6693,14 +6392,14 @@ proto.gw.ChannelConfiguration.prototype.serializeBinaryToWriter = function (writ
       proto.gw.FSKModulationConfig.serializeBinaryToWriter
     );
   }
-  f = this.getBoard();
+  f = message.getBoard();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getDemodulator();
+  f = message.getDemodulator();
   if (f !== 0) {
     writer.writeUint32(
       6,
@@ -6711,26 +6410,17 @@ proto.gw.ChannelConfiguration.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.ChannelConfiguration} The clone.
- */
-proto.gw.ChannelConfiguration.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.ChannelConfiguration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 frequency = 1;
  * @return {number}
  */
 proto.gw.ChannelConfiguration.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.ChannelConfiguration.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -6739,27 +6429,27 @@ proto.gw.ChannelConfiguration.prototype.setFrequency = function(value) {
  * @return {!proto.common.Modulation}
  */
 proto.gw.ChannelConfiguration.prototype.getModulation = function() {
-  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.common.Modulation} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.common.Modulation} value  */
+/** @param {!proto.common.Modulation} value */
 proto.gw.ChannelConfiguration.prototype.setModulation = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
 /**
  * optional LoRaModulationConfig lora_modulation_config = 3;
- * @return {proto.gw.LoRaModulationConfig}
+ * @return {?proto.gw.LoRaModulationConfig}
  */
 proto.gw.ChannelConfiguration.prototype.getLoraModulationConfig = function() {
-  return /** @type{proto.gw.LoRaModulationConfig} */ (
+  return /** @type{?proto.gw.LoRaModulationConfig} */ (
     jspb.Message.getWrapperField(this, proto.gw.LoRaModulationConfig, 3));
 };
 
 
-/** @param {proto.gw.LoRaModulationConfig|undefined} value  */
+/** @param {?proto.gw.LoRaModulationConfig|undefined} value */
 proto.gw.ChannelConfiguration.prototype.setLoraModulationConfig = function(value) {
   jspb.Message.setOneofWrapperField(this, 3, proto.gw.ChannelConfiguration.oneofGroups_[0], value);
 };
@@ -6772,7 +6462,7 @@ proto.gw.ChannelConfiguration.prototype.clearLoraModulationConfig = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.ChannelConfiguration.prototype.hasLoraModulationConfig = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -6781,15 +6471,15 @@ proto.gw.ChannelConfiguration.prototype.hasLoraModulationConfig = function() {
 
 /**
  * optional FSKModulationConfig fsk_modulation_config = 4;
- * @return {proto.gw.FSKModulationConfig}
+ * @return {?proto.gw.FSKModulationConfig}
  */
 proto.gw.ChannelConfiguration.prototype.getFskModulationConfig = function() {
-  return /** @type{proto.gw.FSKModulationConfig} */ (
+  return /** @type{?proto.gw.FSKModulationConfig} */ (
     jspb.Message.getWrapperField(this, proto.gw.FSKModulationConfig, 4));
 };
 
 
-/** @param {proto.gw.FSKModulationConfig|undefined} value  */
+/** @param {?proto.gw.FSKModulationConfig|undefined} value */
 proto.gw.ChannelConfiguration.prototype.setFskModulationConfig = function(value) {
   jspb.Message.setOneofWrapperField(this, 4, proto.gw.ChannelConfiguration.oneofGroups_[0], value);
 };
@@ -6802,7 +6492,7 @@ proto.gw.ChannelConfiguration.prototype.clearFskModulationConfig = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.gw.ChannelConfiguration.prototype.hasFskModulationConfig = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -6814,13 +6504,13 @@ proto.gw.ChannelConfiguration.prototype.hasFskModulationConfig = function() {
  * @return {number}
  */
 proto.gw.ChannelConfiguration.prototype.getBoard = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.ChannelConfiguration.prototype.setBoard = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -6829,13 +6519,13 @@ proto.gw.ChannelConfiguration.prototype.setBoard = function(value) {
  * @return {number}
  */
 proto.gw.ChannelConfiguration.prototype.getDemodulator = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.ChannelConfiguration.prototype.setDemodulator = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -6889,11 +6579,12 @@ proto.gw.LoRaModulationConfig.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.gw.LoRaModulationConfig} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.LoRaModulationConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bandwidth: msg.getBandwidth(),
-    spreadingFactorsList: jspb.Message.getField(msg, 2)
+    bandwidth: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    spreadingFactorsList: jspb.Message.getRepeatedField(msg, 2)
   };
 
   if (includeInstance) {
@@ -6935,7 +6626,7 @@ proto.gw.LoRaModulationConfig.deserializeBinaryFromReader = function(msg, reader
       msg.setBandwidth(value);
       break;
     case 2:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setSpreadingFactorsList(value);
       break;
     default:
@@ -6948,42 +6639,33 @@ proto.gw.LoRaModulationConfig.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.LoRaModulationConfig} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.LoRaModulationConfig.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.LoRaModulationConfig.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.LoRaModulationConfig.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.LoRaModulationConfig} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.LoRaModulationConfig.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.LoRaModulationConfig.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getBandwidth();
+  f = message.getBandwidth();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getSpreadingFactorsList();
+  f = message.getSpreadingFactorsList();
   if (f.length > 0) {
     writer.writePackedUint32(
       2,
@@ -6994,48 +6676,46 @@ proto.gw.LoRaModulationConfig.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.LoRaModulationConfig} The clone.
- */
-proto.gw.LoRaModulationConfig.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.LoRaModulationConfig} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 bandwidth = 1;
  * @return {number}
  */
 proto.gw.LoRaModulationConfig.prototype.getBandwidth = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.LoRaModulationConfig.prototype.setBandwidth = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated uint32 spreading_factors = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<number>}
+ * @return {!Array<number>}
  */
 proto.gw.LoRaModulationConfig.prototype.getSpreadingFactorsList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getField(this, 2));
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
-/** @param {Array.<number>} value  */
+/** @param {!Array<number>} value */
 proto.gw.LoRaModulationConfig.prototype.setSpreadingFactorsList = function(value) {
   jspb.Message.setField(this, 2, value || []);
 };
 
 
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.gw.LoRaModulationConfig.prototype.addSpreadingFactors = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
 proto.gw.LoRaModulationConfig.prototype.clearSpreadingFactorsList = function() {
-  jspb.Message.setField(this, 2, []);
+  this.setSpreadingFactorsList([]);
 };
 
 
@@ -7082,11 +6762,12 @@ proto.gw.FSKModulationConfig.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.gw.FSKModulationConfig} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.FSKModulationConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bandwidth: msg.getBandwidth(),
-    bitrate: msg.getBitrate()
+    bandwidth: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    bitrate: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -7141,42 +6822,33 @@ proto.gw.FSKModulationConfig.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.FSKModulationConfig} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.FSKModulationConfig.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.FSKModulationConfig.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.FSKModulationConfig.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.FSKModulationConfig} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.FSKModulationConfig.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.FSKModulationConfig.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getBandwidth();
+  f = message.getBandwidth();
   if (f !== 0) {
     writer.writeUint32(
       1,
       f
     );
   }
-  f = this.getBitrate();
+  f = message.getBitrate();
   if (f !== 0) {
     writer.writeUint32(
       2,
@@ -7187,26 +6859,17 @@ proto.gw.FSKModulationConfig.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.FSKModulationConfig} The clone.
- */
-proto.gw.FSKModulationConfig.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.FSKModulationConfig} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 bandwidth = 1;
  * @return {number}
  */
 proto.gw.FSKModulationConfig.prototype.getBandwidth = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.FSKModulationConfig.prototype.setBandwidth = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -7215,13 +6878,13 @@ proto.gw.FSKModulationConfig.prototype.setBandwidth = function(value) {
  * @return {number}
  */
 proto.gw.FSKModulationConfig.prototype.getBitrate = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.gw.FSKModulationConfig.prototype.setBitrate = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -7268,14 +6931,15 @@ proto.gw.GatewayCommandExecRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.gw.GatewayCommandExecRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.GatewayCommandExecRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    command: msg.getCommand(),
+    command: jspb.Message.getFieldWithDefault(msg, 2, ""),
     execid: msg.getExecid_asB64(),
     stdin: msg.getStdin_asB64(),
-    environmentMap: (f = msg.getEnvironmentMap(true)) ? f.toArray() : []
+    environmentMap: (f = msg.getEnvironmentMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -7331,7 +6995,7 @@ proto.gw.GatewayCommandExecRequest.deserializeBinaryFromReader = function(msg, r
     case 5:
       var value = msg.getEnvironmentMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     default:
@@ -7344,75 +7008,57 @@ proto.gw.GatewayCommandExecRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.GatewayCommandExecRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.GatewayCommandExecRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.GatewayCommandExecRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.GatewayCommandExecRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.GatewayCommandExecRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.GatewayCommandExecRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.GatewayCommandExecRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getCommand();
+  f = message.getCommand();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getExecid_asU8();
+  f = message.getExecid_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       3,
       f
     );
   }
-  f = this.getStdin_asU8();
+  f = message.getStdin_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getEnvironmentMap(true);
+  f = message.getEnvironmentMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-};
-
-
-/**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.GatewayCommandExecRequest} The clone.
- */
-proto.gw.GatewayCommandExecRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.GatewayCommandExecRequest} */ (jspb.Message.cloneMessage(this));
 };
 
 
@@ -7421,7 +7067,7 @@ proto.gw.GatewayCommandExecRequest.prototype.cloneMessage = function() {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecRequest.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -7449,9 +7095,9 @@ proto.gw.GatewayCommandExecRequest.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecRequest.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -7460,13 +7106,13 @@ proto.gw.GatewayCommandExecRequest.prototype.setGatewayId = function(value) {
  * @return {string}
  */
 proto.gw.GatewayCommandExecRequest.prototype.getCommand = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.GatewayCommandExecRequest.prototype.setCommand = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -7475,7 +7121,7 @@ proto.gw.GatewayCommandExecRequest.prototype.setCommand = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecRequest.prototype.getExecid = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -7503,9 +7149,9 @@ proto.gw.GatewayCommandExecRequest.prototype.getExecid_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecRequest.prototype.setExecid = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -7514,7 +7160,7 @@ proto.gw.GatewayCommandExecRequest.prototype.setExecid = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecRequest.prototype.getStdin = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -7542,9 +7188,9 @@ proto.gw.GatewayCommandExecRequest.prototype.getStdin_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecRequest.prototype.setStdin = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -7558,6 +7204,11 @@ proto.gw.GatewayCommandExecRequest.prototype.getEnvironmentMap = function(opt_no
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 5, opt_noLazyCreate,
       null));
+};
+
+
+proto.gw.GatewayCommandExecRequest.prototype.clearEnvironmentMap = function() {
+  this.getEnvironmentMap().clear();
 };
 
 
@@ -7604,6 +7255,7 @@ proto.gw.GatewayCommandExecResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.gw.GatewayCommandExecResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.GatewayCommandExecResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -7611,7 +7263,7 @@ proto.gw.GatewayCommandExecResponse.toObject = function(includeInstance, msg) {
     execId: msg.getExecId_asB64(),
     stdout: msg.getStdout_asB64(),
     stderr: msg.getStderr_asB64(),
-    error: msg.getError()
+    error: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -7678,63 +7330,54 @@ proto.gw.GatewayCommandExecResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.GatewayCommandExecResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.GatewayCommandExecResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.GatewayCommandExecResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.GatewayCommandExecResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.GatewayCommandExecResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.GatewayCommandExecResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.GatewayCommandExecResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getExecId_asU8();
+  f = message.getExecId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getStdout_asU8();
+  f = message.getStdout_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       3,
       f
     );
   }
-  f = this.getStderr_asU8();
+  f = message.getStderr_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getError();
+  f = message.getError();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -7745,20 +7388,11 @@ proto.gw.GatewayCommandExecResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.GatewayCommandExecResponse} The clone.
- */
-proto.gw.GatewayCommandExecResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.GatewayCommandExecResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecResponse.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -7786,9 +7420,9 @@ proto.gw.GatewayCommandExecResponse.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecResponse.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -7797,7 +7431,7 @@ proto.gw.GatewayCommandExecResponse.prototype.setGatewayId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecResponse.prototype.getExecId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -7825,9 +7459,9 @@ proto.gw.GatewayCommandExecResponse.prototype.getExecId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecResponse.prototype.setExecId = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -7836,7 +7470,7 @@ proto.gw.GatewayCommandExecResponse.prototype.setExecId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecResponse.prototype.getStdout = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -7864,9 +7498,9 @@ proto.gw.GatewayCommandExecResponse.prototype.getStdout_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecResponse.prototype.setStdout = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -7875,7 +7509,7 @@ proto.gw.GatewayCommandExecResponse.prototype.setStdout = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.GatewayCommandExecResponse.prototype.getStderr = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -7903,9 +7537,9 @@ proto.gw.GatewayCommandExecResponse.prototype.getStderr_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.GatewayCommandExecResponse.prototype.setStderr = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -7914,13 +7548,13 @@ proto.gw.GatewayCommandExecResponse.prototype.setStderr = function(value) {
  * @return {string}
  */
 proto.gw.GatewayCommandExecResponse.prototype.getError = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.gw.GatewayCommandExecResponse.prototype.setError = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -7967,6 +7601,7 @@ proto.gw.RawPacketForwarderEvent.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.gw.RawPacketForwarderEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.RawPacketForwarderEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -8031,49 +7666,40 @@ proto.gw.RawPacketForwarderEvent.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.RawPacketForwarderEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.RawPacketForwarderEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.RawPacketForwarderEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.RawPacketForwarderEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.RawPacketForwarderEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.RawPacketForwarderEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.RawPacketForwarderEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getRawId_asU8();
+  f = message.getRawId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getPayload_asU8();
+  f = message.getPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       3,
@@ -8084,20 +7710,11 @@ proto.gw.RawPacketForwarderEvent.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.RawPacketForwarderEvent} The clone.
- */
-proto.gw.RawPacketForwarderEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.RawPacketForwarderEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderEvent.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -8125,9 +7742,9 @@ proto.gw.RawPacketForwarderEvent.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderEvent.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -8136,7 +7753,7 @@ proto.gw.RawPacketForwarderEvent.prototype.setGatewayId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderEvent.prototype.getRawId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -8164,9 +7781,9 @@ proto.gw.RawPacketForwarderEvent.prototype.getRawId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderEvent.prototype.setRawId = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -8175,7 +7792,7 @@ proto.gw.RawPacketForwarderEvent.prototype.setRawId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderEvent.prototype.getPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -8203,9 +7820,9 @@ proto.gw.RawPacketForwarderEvent.prototype.getPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderEvent.prototype.setPayload = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -8252,6 +7869,7 @@ proto.gw.RawPacketForwarderCommand.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.gw.RawPacketForwarderCommand} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.RawPacketForwarderCommand.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -8316,49 +7934,40 @@ proto.gw.RawPacketForwarderCommand.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.RawPacketForwarderCommand} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.RawPacketForwarderCommand.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.RawPacketForwarderCommand.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.RawPacketForwarderCommand.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.RawPacketForwarderCommand} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.RawPacketForwarderCommand.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.RawPacketForwarderCommand.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getRawId_asU8();
+  f = message.getRawId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getPayload_asU8();
+  f = message.getPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       3,
@@ -8369,20 +7978,11 @@ proto.gw.RawPacketForwarderCommand.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.RawPacketForwarderCommand} The clone.
- */
-proto.gw.RawPacketForwarderCommand.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.RawPacketForwarderCommand} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderCommand.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -8410,9 +8010,9 @@ proto.gw.RawPacketForwarderCommand.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderCommand.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -8421,7 +8021,7 @@ proto.gw.RawPacketForwarderCommand.prototype.setGatewayId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderCommand.prototype.getRawId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -8449,9 +8049,9 @@ proto.gw.RawPacketForwarderCommand.prototype.getRawId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderCommand.prototype.setRawId = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -8460,7 +8060,7 @@ proto.gw.RawPacketForwarderCommand.prototype.setRawId = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.gw.RawPacketForwarderCommand.prototype.getPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -8488,9 +8088,9 @@ proto.gw.RawPacketForwarderCommand.prototype.getPayload_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.RawPacketForwarderCommand.prototype.setPayload = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -8537,11 +8137,12 @@ proto.gw.ConnState.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.gw.ConnState} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.gw.ConnState.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewayId: msg.getGatewayId_asB64(),
-    state: msg.getState()
+    state: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -8596,42 +8197,33 @@ proto.gw.ConnState.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.gw.ConnState} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.gw.ConnState.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.gw.ConnState.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.gw.ConnState.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.gw.ConnState} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.gw.ConnState.prototype.serializeBinaryToWriter = function (writer) {
+proto.gw.ConnState.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getState();
+  f = message.getState();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
@@ -8642,20 +8234,19 @@ proto.gw.ConnState.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.gw.ConnState} The clone.
+ * @enum {number}
  */
-proto.gw.ConnState.prototype.cloneMessage = function() {
-  return /** @type {!proto.gw.ConnState} */ (jspb.Message.cloneMessage(this));
+proto.gw.ConnState.State = {
+  OFFLINE: 0,
+  ONLINE: 1
 };
-
 
 /**
  * optional bytes gateway_id = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.gw.ConnState.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -8683,9 +8274,9 @@ proto.gw.ConnState.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.gw.ConnState.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -8694,23 +8285,15 @@ proto.gw.ConnState.prototype.setGatewayId = function(value) {
  * @return {!proto.gw.ConnState.State}
  */
 proto.gw.ConnState.prototype.getState = function() {
-  return /** @type {!proto.gw.ConnState.State} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.gw.ConnState.State} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.gw.ConnState.State} value  */
+/** @param {!proto.gw.ConnState.State} value */
 proto.gw.ConnState.prototype.setState = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
-
-/**
- * @enum {number}
- */
-proto.gw.ConnState.State = {
-  OFFLINE: 0,
-  ONLINE: 1
-};
 
 /**
  * @enum {number}

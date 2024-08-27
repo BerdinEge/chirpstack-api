@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -60,6 +62,7 @@ proto.geo.ResolveResult.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.geo.ResolveResult} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.ResolveResult.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -115,35 +118,26 @@ proto.geo.ResolveResult.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.ResolveResult} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.ResolveResult.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.ResolveResult.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.ResolveResult.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.ResolveResult} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.ResolveResult.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.ResolveResult.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLocation();
+  f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -155,25 +149,16 @@ proto.geo.ResolveResult.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.ResolveResult} The clone.
- */
-proto.geo.ResolveResult.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.ResolveResult} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional common.Location location = 1;
- * @return {proto.common.Location}
+ * @return {?proto.common.Location}
  */
 proto.geo.ResolveResult.prototype.getLocation = function() {
-  return /** @type{proto.common.Location} */ (
+  return /** @type{?proto.common.Location} */ (
     jspb.Message.getWrapperField(this, common_common_pb.Location, 1));
 };
 
 
-/** @param {proto.common.Location|undefined} value  */
+/** @param {?proto.common.Location|undefined} value */
 proto.geo.ResolveResult.prototype.setLocation = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -186,7 +171,7 @@ proto.geo.ResolveResult.prototype.clearLocation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.geo.ResolveResult.prototype.hasLocation = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -243,6 +228,7 @@ proto.geo.FrameRXInfo.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.geo.FrameRXInfo} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.FrameRXInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -287,8 +273,7 @@ proto.geo.FrameRXInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new gw_gw_pb.UplinkRXInfo;
       reader.readMessage(value,gw_gw_pb.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     default:
       reader.skipField();
@@ -300,35 +285,26 @@ proto.geo.FrameRXInfo.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.FrameRXInfo} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.FrameRXInfo.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.FrameRXInfo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.FrameRXInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.FrameRXInfo} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.FrameRXInfo.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.FrameRXInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -340,29 +316,28 @@ proto.geo.FrameRXInfo.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.FrameRXInfo} The clone.
- */
-proto.geo.FrameRXInfo.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.FrameRXInfo} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated gw.UplinkRXInfo rx_info = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.geo.FrameRXInfo.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, gw_gw_pb.UplinkRXInfo, 1));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.geo.FrameRXInfo.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.geo.FrameRXInfo.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -414,12 +389,13 @@ proto.geo.ResolveTDOARequest.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.geo.ResolveTDOARequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.ResolveTDOARequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     devEui: msg.getDevEui_asB64(),
     frameRxInfo: (f = msg.getFrameRxInfo()) && proto.geo.FrameRXInfo.toObject(includeInstance, f),
-    deviceReferenceAltitude: msg.getDeviceReferenceAltitude()
+    deviceReferenceAltitude: +jspb.Message.getFieldWithDefault(msg, 3, 0.0)
   };
 
   if (includeInstance) {
@@ -479,42 +455,33 @@ proto.geo.ResolveTDOARequest.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.ResolveTDOARequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.ResolveTDOARequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.ResolveTDOARequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.ResolveTDOARequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.ResolveTDOARequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.ResolveTDOARequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.ResolveTDOARequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getFrameRxInfo();
+  f = message.getFrameRxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -522,7 +489,7 @@ proto.geo.ResolveTDOARequest.prototype.serializeBinaryToWriter = function (write
       proto.geo.FrameRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getDeviceReferenceAltitude();
+  f = message.getDeviceReferenceAltitude();
   if (f !== 0.0) {
     writer.writeDouble(
       3,
@@ -533,20 +500,11 @@ proto.geo.ResolveTDOARequest.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.ResolveTDOARequest} The clone.
- */
-proto.geo.ResolveTDOARequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.ResolveTDOARequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes dev_eui = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.geo.ResolveTDOARequest.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -574,23 +532,23 @@ proto.geo.ResolveTDOARequest.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.geo.ResolveTDOARequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional FrameRXInfo frame_rx_info = 2;
- * @return {proto.geo.FrameRXInfo}
+ * @return {?proto.geo.FrameRXInfo}
  */
 proto.geo.ResolveTDOARequest.prototype.getFrameRxInfo = function() {
-  return /** @type{proto.geo.FrameRXInfo} */ (
+  return /** @type{?proto.geo.FrameRXInfo} */ (
     jspb.Message.getWrapperField(this, proto.geo.FrameRXInfo, 2));
 };
 
 
-/** @param {proto.geo.FrameRXInfo|undefined} value  */
+/** @param {?proto.geo.FrameRXInfo|undefined} value */
 proto.geo.ResolveTDOARequest.prototype.setFrameRxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -603,7 +561,7 @@ proto.geo.ResolveTDOARequest.prototype.clearFrameRxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.geo.ResolveTDOARequest.prototype.hasFrameRxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -615,13 +573,13 @@ proto.geo.ResolveTDOARequest.prototype.hasFrameRxInfo = function() {
  * @return {number}
  */
 proto.geo.ResolveTDOARequest.prototype.getDeviceReferenceAltitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.geo.ResolveTDOARequest.prototype.setDeviceReferenceAltitude = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -675,13 +633,14 @@ proto.geo.ResolveMultiFrameTDOARequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.geo.ResolveMultiFrameTDOARequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.ResolveMultiFrameTDOARequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     devEui: msg.getDevEui_asB64(),
     frameRxInfoSetList: jspb.Message.toObjectList(msg.getFrameRxInfoSetList(),
     proto.geo.FrameRXInfo.toObject, includeInstance),
-    deviceReferenceAltitude: msg.getDeviceReferenceAltitude()
+    deviceReferenceAltitude: +jspb.Message.getFieldWithDefault(msg, 3, 0.0)
   };
 
   if (includeInstance) {
@@ -725,8 +684,7 @@ proto.geo.ResolveMultiFrameTDOARequest.deserializeBinaryFromReader = function(ms
     case 2:
       var value = new proto.geo.FrameRXInfo;
       reader.readMessage(value,proto.geo.FrameRXInfo.deserializeBinaryFromReader);
-      msg.getFrameRxInfoSetList().push(value);
-      msg.setFrameRxInfoSetList(msg.getFrameRxInfoSetList());
+      msg.addFrameRxInfoSet(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readDouble());
@@ -742,42 +700,33 @@ proto.geo.ResolveMultiFrameTDOARequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.ResolveMultiFrameTDOARequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.ResolveMultiFrameTDOARequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.ResolveMultiFrameTDOARequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.ResolveMultiFrameTDOARequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.ResolveMultiFrameTDOARequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.ResolveMultiFrameTDOARequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getFrameRxInfoSetList();
+  f = message.getFrameRxInfoSetList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -785,7 +734,7 @@ proto.geo.ResolveMultiFrameTDOARequest.prototype.serializeBinaryToWriter = funct
       proto.geo.FrameRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getDeviceReferenceAltitude();
+  f = message.getDeviceReferenceAltitude();
   if (f !== 0.0) {
     writer.writeDouble(
       3,
@@ -796,20 +745,11 @@ proto.geo.ResolveMultiFrameTDOARequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.ResolveMultiFrameTDOARequest} The clone.
- */
-proto.geo.ResolveMultiFrameTDOARequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.ResolveMultiFrameTDOARequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes dev_eui = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -837,27 +777,35 @@ proto.geo.ResolveMultiFrameTDOARequest.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * repeated FrameRXInfo frame_rx_info_set = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.geo.FrameRXInfo>}
+ * @return {!Array<!proto.geo.FrameRXInfo>}
  */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.getFrameRxInfoSetList = function() {
-  return /** @type{!Array.<!proto.geo.FrameRXInfo>} */ (
+  return /** @type{!Array<!proto.geo.FrameRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.geo.FrameRXInfo, 2));
 };
 
 
-/** @param {Array.<!proto.geo.FrameRXInfo>} value  */
+/** @param {!Array<!proto.geo.FrameRXInfo>} value */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.setFrameRxInfoSetList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.geo.FrameRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.geo.FrameRXInfo}
+ */
+proto.geo.ResolveMultiFrameTDOARequest.prototype.addFrameRxInfoSet = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.geo.FrameRXInfo, opt_index);
 };
 
 
@@ -871,13 +819,13 @@ proto.geo.ResolveMultiFrameTDOARequest.prototype.clearFrameRxInfoSetList = funct
  * @return {number}
  */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.getDeviceReferenceAltitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.geo.ResolveMultiFrameTDOARequest.prototype.setDeviceReferenceAltitude = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -924,6 +872,7 @@ proto.geo.ResolveTDOAResponse.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.geo.ResolveTDOAResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.ResolveTDOAResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -979,35 +928,26 @@ proto.geo.ResolveTDOAResponse.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.ResolveTDOAResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.ResolveTDOAResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.ResolveTDOAResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.ResolveTDOAResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.ResolveTDOAResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.ResolveTDOAResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.ResolveTDOAResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getResult();
+  f = message.getResult();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1019,25 +959,16 @@ proto.geo.ResolveTDOAResponse.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.ResolveTDOAResponse} The clone.
- */
-proto.geo.ResolveTDOAResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.ResolveTDOAResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ResolveResult result = 1;
- * @return {proto.geo.ResolveResult}
+ * @return {?proto.geo.ResolveResult}
  */
 proto.geo.ResolveTDOAResponse.prototype.getResult = function() {
-  return /** @type{proto.geo.ResolveResult} */ (
+  return /** @type{?proto.geo.ResolveResult} */ (
     jspb.Message.getWrapperField(this, proto.geo.ResolveResult, 1));
 };
 
 
-/** @param {proto.geo.ResolveResult|undefined} value  */
+/** @param {?proto.geo.ResolveResult|undefined} value */
 proto.geo.ResolveTDOAResponse.prototype.setResult = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1050,7 +981,7 @@ proto.geo.ResolveTDOAResponse.prototype.clearResult = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.geo.ResolveTDOAResponse.prototype.hasResult = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1100,6 +1031,7 @@ proto.geo.ResolveMultiFrameTDOAResponse.prototype.toObject = function(opt_includ
  *     http://goto/soy-param-migration
  * @param {!proto.geo.ResolveMultiFrameTDOAResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.geo.ResolveMultiFrameTDOAResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1155,35 +1087,26 @@ proto.geo.ResolveMultiFrameTDOAResponse.deserializeBinaryFromReader = function(m
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.geo.ResolveMultiFrameTDOAResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.geo.ResolveMultiFrameTDOAResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.geo.ResolveMultiFrameTDOAResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.geo.ResolveMultiFrameTDOAResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.geo.ResolveMultiFrameTDOAResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.geo.ResolveMultiFrameTDOAResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.geo.ResolveMultiFrameTDOAResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getResult();
+  f = message.getResult();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1195,25 +1118,16 @@ proto.geo.ResolveMultiFrameTDOAResponse.prototype.serializeBinaryToWriter = func
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.geo.ResolveMultiFrameTDOAResponse} The clone.
- */
-proto.geo.ResolveMultiFrameTDOAResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.geo.ResolveMultiFrameTDOAResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ResolveResult result = 1;
- * @return {proto.geo.ResolveResult}
+ * @return {?proto.geo.ResolveResult}
  */
 proto.geo.ResolveMultiFrameTDOAResponse.prototype.getResult = function() {
-  return /** @type{proto.geo.ResolveResult} */ (
+  return /** @type{?proto.geo.ResolveResult} */ (
     jspb.Message.getWrapperField(this, proto.geo.ResolveResult, 1));
 };
 
 
-/** @param {proto.geo.ResolveResult|undefined} value  */
+/** @param {?proto.geo.ResolveResult|undefined} value */
 proto.geo.ResolveMultiFrameTDOAResponse.prototype.setResult = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1226,7 +1140,7 @@ proto.geo.ResolveMultiFrameTDOAResponse.prototype.clearResult = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.geo.ResolveMultiFrameTDOAResponse.prototype.hasResult = function() {
   return jspb.Message.getField(this, 1) != null;

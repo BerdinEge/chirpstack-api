@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -68,22 +70,23 @@ proto.api.NetworkServer.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.NetworkServer} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.NetworkServer.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    server: msg.getServer(),
-    caCert: msg.getCaCert(),
-    tlsCert: msg.getTlsCert(),
-    tlsKey: msg.getTlsKey(),
-    routingProfileCaCert: msg.getRoutingProfileCaCert(),
-    routingProfileTlsCert: msg.getRoutingProfileTlsCert(),
-    routingProfileTlsKey: msg.getRoutingProfileTlsKey(),
-    gatewayDiscoveryEnabled: msg.getGatewayDiscoveryEnabled(),
-    gatewayDiscoveryInterval: msg.getGatewayDiscoveryInterval(),
-    gatewayDiscoveryTxFrequency: msg.getGatewayDiscoveryTxFrequency(),
-    gatewayDiscoveryDr: msg.getGatewayDiscoveryDr()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    server: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    caCert: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    tlsCert: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    tlsKey: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    routingProfileCaCert: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    routingProfileTlsCert: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    routingProfileTlsKey: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    gatewayDiscoveryEnabled: jspb.Message.getFieldWithDefault(msg, 10, false),
+    gatewayDiscoveryInterval: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    gatewayDiscoveryTxFrequency: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    gatewayDiscoveryDr: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -182,119 +185,110 @@ proto.api.NetworkServer.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.NetworkServer} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.NetworkServer.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.NetworkServer.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.NetworkServer.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.NetworkServer} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.NetworkServer.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.NetworkServer.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getServer();
+  f = message.getServer();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getCaCert();
+  f = message.getCaCert();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getTlsCert();
+  f = message.getTlsCert();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getTlsKey();
+  f = message.getTlsKey();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getRoutingProfileCaCert();
+  f = message.getRoutingProfileCaCert();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getRoutingProfileTlsCert();
+  f = message.getRoutingProfileTlsCert();
   if (f.length > 0) {
     writer.writeString(
       8,
       f
     );
   }
-  f = this.getRoutingProfileTlsKey();
+  f = message.getRoutingProfileTlsKey();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getGatewayDiscoveryEnabled();
+  f = message.getGatewayDiscoveryEnabled();
   if (f) {
     writer.writeBool(
       10,
       f
     );
   }
-  f = this.getGatewayDiscoveryInterval();
+  f = message.getGatewayDiscoveryInterval();
   if (f !== 0) {
     writer.writeUint32(
       11,
       f
     );
   }
-  f = this.getGatewayDiscoveryTxFrequency();
+  f = message.getGatewayDiscoveryTxFrequency();
   if (f !== 0) {
     writer.writeUint32(
       12,
       f
     );
   }
-  f = this.getGatewayDiscoveryDr();
+  f = message.getGatewayDiscoveryDr();
   if (f !== 0) {
     writer.writeUint32(
       13,
@@ -305,26 +299,17 @@ proto.api.NetworkServer.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.NetworkServer} The clone.
- */
-proto.api.NetworkServer.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.NetworkServer} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.NetworkServer.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.NetworkServer.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -333,13 +318,13 @@ proto.api.NetworkServer.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -348,13 +333,13 @@ proto.api.NetworkServer.prototype.setName = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getServer = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setServer = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -363,13 +348,13 @@ proto.api.NetworkServer.prototype.setServer = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getCaCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setCaCert = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -378,13 +363,13 @@ proto.api.NetworkServer.prototype.setCaCert = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getTlsCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setTlsCert = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -393,13 +378,13 @@ proto.api.NetworkServer.prototype.setTlsCert = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getTlsKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setTlsKey = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -408,13 +393,13 @@ proto.api.NetworkServer.prototype.setTlsKey = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getRoutingProfileCaCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setRoutingProfileCaCert = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -423,13 +408,13 @@ proto.api.NetworkServer.prototype.setRoutingProfileCaCert = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getRoutingProfileTlsCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setRoutingProfileTlsCert = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -438,13 +423,13 @@ proto.api.NetworkServer.prototype.setRoutingProfileTlsCert = function(value) {
  * @return {string}
  */
 proto.api.NetworkServer.prototype.getRoutingProfileTlsKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServer.prototype.setRoutingProfileTlsKey = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -455,13 +440,13 @@ proto.api.NetworkServer.prototype.setRoutingProfileTlsKey = function(value) {
  * @return {boolean}
  */
 proto.api.NetworkServer.prototype.getGatewayDiscoveryEnabled = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.NetworkServer.prototype.setGatewayDiscoveryEnabled = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -470,13 +455,13 @@ proto.api.NetworkServer.prototype.setGatewayDiscoveryEnabled = function(value) {
  * @return {number}
  */
 proto.api.NetworkServer.prototype.getGatewayDiscoveryInterval = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 11, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.NetworkServer.prototype.setGatewayDiscoveryInterval = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -485,13 +470,13 @@ proto.api.NetworkServer.prototype.setGatewayDiscoveryInterval = function(value) 
  * @return {number}
  */
 proto.api.NetworkServer.prototype.getGatewayDiscoveryTxFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.NetworkServer.prototype.setGatewayDiscoveryTxFrequency = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -500,13 +485,13 @@ proto.api.NetworkServer.prototype.setGatewayDiscoveryTxFrequency = function(valu
  * @return {number}
  */
 proto.api.NetworkServer.prototype.getGatewayDiscoveryDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 13, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.NetworkServer.prototype.setGatewayDiscoveryDr = function(value) {
-  jspb.Message.setField(this, 13, value);
+  jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -553,12 +538,13 @@ proto.api.NetworkServerListItem.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.NetworkServerListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.NetworkServerListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    server: msg.getServer(),
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    server: jspb.Message.getFieldWithDefault(msg, 3, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
@@ -629,56 +615,47 @@ proto.api.NetworkServerListItem.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.NetworkServerListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.NetworkServerListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.NetworkServerListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.NetworkServerListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.NetworkServerListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.NetworkServerListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.NetworkServerListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getServer();
+  f = message.getServer();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -686,7 +663,7 @@ proto.api.NetworkServerListItem.prototype.serializeBinaryToWriter = function (wr
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -698,26 +675,17 @@ proto.api.NetworkServerListItem.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.NetworkServerListItem} The clone.
- */
-proto.api.NetworkServerListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.NetworkServerListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.NetworkServerListItem.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.NetworkServerListItem.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -726,13 +694,13 @@ proto.api.NetworkServerListItem.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.NetworkServerListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServerListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -741,27 +709,27 @@ proto.api.NetworkServerListItem.prototype.setName = function(value) {
  * @return {string}
  */
 proto.api.NetworkServerListItem.prototype.getServer = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.NetworkServerListItem.prototype.setServer = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp created_at = 4;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.NetworkServerListItem.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.NetworkServerListItem.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -774,7 +742,7 @@ proto.api.NetworkServerListItem.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.NetworkServerListItem.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 4) != null;
@@ -783,15 +751,15 @@ proto.api.NetworkServerListItem.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 5;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.NetworkServerListItem.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.NetworkServerListItem.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 5, value);
 };
@@ -804,7 +772,7 @@ proto.api.NetworkServerListItem.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.NetworkServerListItem.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -854,6 +822,7 @@ proto.api.CreateNetworkServerRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateNetworkServerRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateNetworkServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -909,35 +878,26 @@ proto.api.CreateNetworkServerRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateNetworkServerRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateNetworkServerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateNetworkServerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateNetworkServerRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateNetworkServerRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getNetworkServer();
+  f = message.getNetworkServer();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -949,25 +909,16 @@ proto.api.CreateNetworkServerRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateNetworkServerRequest} The clone.
- */
-proto.api.CreateNetworkServerRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateNetworkServerRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional NetworkServer network_server = 1;
- * @return {proto.api.NetworkServer}
+ * @return {?proto.api.NetworkServer}
  */
 proto.api.CreateNetworkServerRequest.prototype.getNetworkServer = function() {
-  return /** @type{proto.api.NetworkServer} */ (
+  return /** @type{?proto.api.NetworkServer} */ (
     jspb.Message.getWrapperField(this, proto.api.NetworkServer, 1));
 };
 
 
-/** @param {proto.api.NetworkServer|undefined} value  */
+/** @param {?proto.api.NetworkServer|undefined} value */
 proto.api.CreateNetworkServerRequest.prototype.setNetworkServer = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -980,7 +931,7 @@ proto.api.CreateNetworkServerRequest.prototype.clearNetworkServer = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateNetworkServerRequest.prototype.hasNetworkServer = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1030,10 +981,11 @@ proto.api.CreateNetworkServerResponse.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateNetworkServerResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateNetworkServerResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1084,35 +1036,26 @@ proto.api.CreateNetworkServerResponse.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateNetworkServerResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateNetworkServerResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateNetworkServerResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateNetworkServerResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateNetworkServerResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1123,26 +1066,17 @@ proto.api.CreateNetworkServerResponse.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateNetworkServerResponse} The clone.
- */
-proto.api.CreateNetworkServerResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateNetworkServerResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.CreateNetworkServerResponse.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.CreateNetworkServerResponse.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1189,10 +1123,11 @@ proto.api.GetNetworkServerRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetNetworkServerRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetNetworkServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1243,35 +1178,26 @@ proto.api.GetNetworkServerRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetNetworkServerRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetNetworkServerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetNetworkServerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetNetworkServerRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetNetworkServerRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1282,26 +1208,17 @@ proto.api.GetNetworkServerRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetNetworkServerRequest} The clone.
- */
-proto.api.GetNetworkServerRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetNetworkServerRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.GetNetworkServerRequest.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetNetworkServerRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1348,14 +1265,15 @@ proto.api.GetNetworkServerResponse.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetNetworkServerResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetNetworkServerResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     networkServer: (f = msg.getNetworkServer()) && proto.api.NetworkServer.toObject(includeInstance, f),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    version: msg.getVersion(),
-    region: msg.getRegion()
+    version: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    region: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -1425,35 +1343,26 @@ proto.api.GetNetworkServerResponse.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetNetworkServerResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetNetworkServerResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetNetworkServerResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetNetworkServerResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetNetworkServerResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getNetworkServer();
+  f = message.getNetworkServer();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1461,7 +1370,7 @@ proto.api.GetNetworkServerResponse.prototype.serializeBinaryToWriter = function 
       proto.api.NetworkServer.serializeBinaryToWriter
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -1469,7 +1378,7 @@ proto.api.GetNetworkServerResponse.prototype.serializeBinaryToWriter = function 
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -1477,14 +1386,14 @@ proto.api.GetNetworkServerResponse.prototype.serializeBinaryToWriter = function 
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getVersion();
+  f = message.getVersion();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getRegion();
+  f = message.getRegion();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -1495,25 +1404,16 @@ proto.api.GetNetworkServerResponse.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetNetworkServerResponse} The clone.
- */
-proto.api.GetNetworkServerResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetNetworkServerResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional NetworkServer network_server = 1;
- * @return {proto.api.NetworkServer}
+ * @return {?proto.api.NetworkServer}
  */
 proto.api.GetNetworkServerResponse.prototype.getNetworkServer = function() {
-  return /** @type{proto.api.NetworkServer} */ (
+  return /** @type{?proto.api.NetworkServer} */ (
     jspb.Message.getWrapperField(this, proto.api.NetworkServer, 1));
 };
 
 
-/** @param {proto.api.NetworkServer|undefined} value  */
+/** @param {?proto.api.NetworkServer|undefined} value */
 proto.api.GetNetworkServerResponse.prototype.setNetworkServer = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1526,7 +1426,7 @@ proto.api.GetNetworkServerResponse.prototype.clearNetworkServer = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetNetworkServerResponse.prototype.hasNetworkServer = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1535,15 +1435,15 @@ proto.api.GetNetworkServerResponse.prototype.hasNetworkServer = function() {
 
 /**
  * optional google.protobuf.Timestamp created_at = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetNetworkServerResponse.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetNetworkServerResponse.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -1556,7 +1456,7 @@ proto.api.GetNetworkServerResponse.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetNetworkServerResponse.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -1565,15 +1465,15 @@ proto.api.GetNetworkServerResponse.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetNetworkServerResponse.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetNetworkServerResponse.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -1586,7 +1486,7 @@ proto.api.GetNetworkServerResponse.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetNetworkServerResponse.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -1598,13 +1498,13 @@ proto.api.GetNetworkServerResponse.prototype.hasUpdatedAt = function() {
  * @return {string}
  */
 proto.api.GetNetworkServerResponse.prototype.getVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetNetworkServerResponse.prototype.setVersion = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -1613,13 +1513,13 @@ proto.api.GetNetworkServerResponse.prototype.setVersion = function(value) {
  * @return {string}
  */
 proto.api.GetNetworkServerResponse.prototype.getRegion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetNetworkServerResponse.prototype.setRegion = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1666,6 +1566,7 @@ proto.api.UpdateNetworkServerRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateNetworkServerRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateNetworkServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1721,35 +1622,26 @@ proto.api.UpdateNetworkServerRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateNetworkServerRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateNetworkServerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateNetworkServerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateNetworkServerRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateNetworkServerRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getNetworkServer();
+  f = message.getNetworkServer();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1761,25 +1653,16 @@ proto.api.UpdateNetworkServerRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateNetworkServerRequest} The clone.
- */
-proto.api.UpdateNetworkServerRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateNetworkServerRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional NetworkServer network_server = 1;
- * @return {proto.api.NetworkServer}
+ * @return {?proto.api.NetworkServer}
  */
 proto.api.UpdateNetworkServerRequest.prototype.getNetworkServer = function() {
-  return /** @type{proto.api.NetworkServer} */ (
+  return /** @type{?proto.api.NetworkServer} */ (
     jspb.Message.getWrapperField(this, proto.api.NetworkServer, 1));
 };
 
 
-/** @param {proto.api.NetworkServer|undefined} value  */
+/** @param {?proto.api.NetworkServer|undefined} value */
 proto.api.UpdateNetworkServerRequest.prototype.setNetworkServer = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1792,7 +1675,7 @@ proto.api.UpdateNetworkServerRequest.prototype.clearNetworkServer = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateNetworkServerRequest.prototype.hasNetworkServer = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1842,10 +1725,11 @@ proto.api.DeleteNetworkServerRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteNetworkServerRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteNetworkServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1896,35 +1780,26 @@ proto.api.DeleteNetworkServerRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteNetworkServerRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteNetworkServerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteNetworkServerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteNetworkServerRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteNetworkServerRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1935,26 +1810,17 @@ proto.api.DeleteNetworkServerRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteNetworkServerRequest} The clone.
- */
-proto.api.DeleteNetworkServerRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteNetworkServerRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.DeleteNetworkServerRequest.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteNetworkServerRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2001,12 +1867,13 @@ proto.api.ListNetworkServerRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListNetworkServerRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListNetworkServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    organizationId: msg.getOrganizationId()
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2065,49 +1932,40 @@ proto.api.ListNetworkServerRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListNetworkServerRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListNetworkServerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListNetworkServerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListNetworkServerRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListNetworkServerRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListNetworkServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
@@ -2118,26 +1976,17 @@ proto.api.ListNetworkServerRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListNetworkServerRequest} The clone.
- */
-proto.api.ListNetworkServerRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListNetworkServerRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 limit = 1;
  * @return {number}
  */
 proto.api.ListNetworkServerRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListNetworkServerRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2146,13 +1995,13 @@ proto.api.ListNetworkServerRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListNetworkServerRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListNetworkServerRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2161,13 +2010,13 @@ proto.api.ListNetworkServerRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListNetworkServerRequest.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListNetworkServerRequest.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2221,10 +2070,11 @@ proto.api.ListNetworkServerResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListNetworkServerResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListNetworkServerResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.NetworkServerListItem.toObject, includeInstance)
   };
@@ -2270,8 +2120,7 @@ proto.api.ListNetworkServerResponse.deserializeBinaryFromReader = function(msg, 
     case 2:
       var value = new proto.api.NetworkServerListItem;
       reader.readMessage(value,proto.api.NetworkServerListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -2283,42 +2132,33 @@ proto.api.ListNetworkServerResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListNetworkServerResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListNetworkServerResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListNetworkServerResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListNetworkServerResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListNetworkServerResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListNetworkServerResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2330,44 +2170,43 @@ proto.api.ListNetworkServerResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListNetworkServerResponse} The clone.
- */
-proto.api.ListNetworkServerResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListNetworkServerResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListNetworkServerResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListNetworkServerResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated NetworkServerListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.NetworkServerListItem>}
+ * @return {!Array<!proto.api.NetworkServerListItem>}
  */
 proto.api.ListNetworkServerResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.NetworkServerListItem>} */ (
+  return /** @type{!Array<!proto.api.NetworkServerListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.NetworkServerListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.NetworkServerListItem>} value  */
+/** @param {!Array<!proto.api.NetworkServerListItem>} value */
 proto.api.ListNetworkServerResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.NetworkServerListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.NetworkServerListItem}
+ */
+proto.api.ListNetworkServerResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.NetworkServerListItem, opt_index);
 };
 
 
@@ -2419,10 +2258,11 @@ proto.api.GetADRAlgorithmsRequest.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetADRAlgorithmsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetADRAlgorithmsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    networkServerId: msg.getNetworkServerId()
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -2473,35 +2313,26 @@ proto.api.GetADRAlgorithmsRequest.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetADRAlgorithmsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetADRAlgorithmsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetADRAlgorithmsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetADRAlgorithmsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetADRAlgorithmsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetADRAlgorithmsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetADRAlgorithmsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -2512,26 +2343,17 @@ proto.api.GetADRAlgorithmsRequest.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetADRAlgorithmsRequest} The clone.
- */
-proto.api.GetADRAlgorithmsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetADRAlgorithmsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 network_server_id = 1;
  * @return {number}
  */
 proto.api.GetADRAlgorithmsRequest.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetADRAlgorithmsRequest.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2585,6 +2407,7 @@ proto.api.GetADRAlgorithmsResponse.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetADRAlgorithmsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetADRAlgorithmsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -2629,8 +2452,7 @@ proto.api.GetADRAlgorithmsResponse.deserializeBinaryFromReader = function(msg, r
     case 1:
       var value = new proto.api.ADRAlgorithm;
       reader.readMessage(value,proto.api.ADRAlgorithm.deserializeBinaryFromReader);
-      msg.getAdrAlgorithmsList().push(value);
-      msg.setAdrAlgorithmsList(msg.getAdrAlgorithmsList());
+      msg.addAdrAlgorithms(value);
       break;
     default:
       reader.skipField();
@@ -2642,35 +2464,26 @@ proto.api.GetADRAlgorithmsResponse.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetADRAlgorithmsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetADRAlgorithmsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetADRAlgorithmsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetADRAlgorithmsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetADRAlgorithmsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetADRAlgorithmsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetADRAlgorithmsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getAdrAlgorithmsList();
+  f = message.getAdrAlgorithmsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -2682,29 +2495,28 @@ proto.api.GetADRAlgorithmsResponse.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetADRAlgorithmsResponse} The clone.
- */
-proto.api.GetADRAlgorithmsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetADRAlgorithmsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated ADRAlgorithm adr_algorithms = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.ADRAlgorithm>}
+ * @return {!Array<!proto.api.ADRAlgorithm>}
  */
 proto.api.GetADRAlgorithmsResponse.prototype.getAdrAlgorithmsList = function() {
-  return /** @type{!Array.<!proto.api.ADRAlgorithm>} */ (
+  return /** @type{!Array<!proto.api.ADRAlgorithm>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.ADRAlgorithm, 1));
 };
 
 
-/** @param {Array.<!proto.api.ADRAlgorithm>} value  */
+/** @param {!Array<!proto.api.ADRAlgorithm>} value */
 proto.api.GetADRAlgorithmsResponse.prototype.setAdrAlgorithmsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.api.ADRAlgorithm=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.ADRAlgorithm}
+ */
+proto.api.GetADRAlgorithmsResponse.prototype.addAdrAlgorithms = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.api.ADRAlgorithm, opt_index);
 };
 
 
@@ -2756,11 +2568,12 @@ proto.api.ADRAlgorithm.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.ADRAlgorithm} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ADRAlgorithm.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName()
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2815,42 +2628,33 @@ proto.api.ADRAlgorithm.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ADRAlgorithm} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ADRAlgorithm.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ADRAlgorithm.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ADRAlgorithm.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ADRAlgorithm} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ADRAlgorithm.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ADRAlgorithm.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -2861,26 +2665,17 @@ proto.api.ADRAlgorithm.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ADRAlgorithm} The clone.
- */
-proto.api.ADRAlgorithm.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ADRAlgorithm} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.ADRAlgorithm.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ADRAlgorithm.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2889,13 +2684,13 @@ proto.api.ADRAlgorithm.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.ADRAlgorithm.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ADRAlgorithm.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

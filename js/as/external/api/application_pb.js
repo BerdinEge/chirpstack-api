@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -129,17 +131,18 @@ proto.api.Application.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.Application} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.Application.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    description: msg.getDescription(),
-    organizationId: msg.getOrganizationId(),
-    serviceProfileId: msg.getServiceProfileId(),
-    payloadCodec: msg.getPayloadCodec(),
-    payloadEncoderScript: msg.getPayloadEncoderScript(),
-    payloadDecoderScript: msg.getPayloadDecoderScript()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    serviceProfileId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    payloadCodec: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    payloadEncoderScript: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    payloadDecoderScript: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -218,84 +221,75 @@ proto.api.Application.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.Application} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.Application.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.Application.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.Application.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.Application} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.Application.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.Application.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDescription();
+  f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = this.getServiceProfileId();
+  f = message.getServiceProfileId();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getPayloadCodec();
+  f = message.getPayloadCodec();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getPayloadEncoderScript();
+  f = message.getPayloadEncoderScript();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getPayloadDecoderScript();
+  f = message.getPayloadDecoderScript();
   if (f.length > 0) {
     writer.writeString(
       8,
@@ -306,26 +300,17 @@ proto.api.Application.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.Application} The clone.
- */
-proto.api.Application.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.Application} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.Application.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.Application.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -334,13 +319,13 @@ proto.api.Application.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -349,13 +334,13 @@ proto.api.Application.prototype.setName = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getDescription = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setDescription = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -364,13 +349,13 @@ proto.api.Application.prototype.setDescription = function(value) {
  * @return {number}
  */
 proto.api.Application.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.Application.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -379,13 +364,13 @@ proto.api.Application.prototype.setOrganizationId = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getServiceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setServiceProfileId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -394,13 +379,13 @@ proto.api.Application.prototype.setServiceProfileId = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getPayloadCodec = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setPayloadCodec = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -409,13 +394,13 @@ proto.api.Application.prototype.setPayloadCodec = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getPayloadEncoderScript = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setPayloadEncoderScript = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -424,13 +409,13 @@ proto.api.Application.prototype.setPayloadEncoderScript = function(value) {
  * @return {string}
  */
 proto.api.Application.prototype.getPayloadDecoderScript = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.Application.prototype.setPayloadDecoderScript = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -477,15 +462,16 @@ proto.api.ApplicationListItem.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.ApplicationListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ApplicationListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    description: msg.getDescription(),
-    organizationId: msg.getOrganizationId(),
-    serviceProfileId: msg.getServiceProfileId(),
-    serviceProfileName: msg.getServiceProfileName()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    serviceProfileId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    serviceProfileName: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -556,70 +542,61 @@ proto.api.ApplicationListItem.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ApplicationListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ApplicationListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ApplicationListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ApplicationListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ApplicationListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ApplicationListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ApplicationListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDescription();
+  f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = this.getServiceProfileId();
+  f = message.getServiceProfileId();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getServiceProfileName();
+  f = message.getServiceProfileName();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -630,26 +607,17 @@ proto.api.ApplicationListItem.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ApplicationListItem} The clone.
- */
-proto.api.ApplicationListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ApplicationListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.ApplicationListItem.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ApplicationListItem.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -658,13 +626,13 @@ proto.api.ApplicationListItem.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.ApplicationListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ApplicationListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -673,13 +641,13 @@ proto.api.ApplicationListItem.prototype.setName = function(value) {
  * @return {string}
  */
 proto.api.ApplicationListItem.prototype.getDescription = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ApplicationListItem.prototype.setDescription = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -688,13 +656,13 @@ proto.api.ApplicationListItem.prototype.setDescription = function(value) {
  * @return {number}
  */
 proto.api.ApplicationListItem.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ApplicationListItem.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -703,13 +671,13 @@ proto.api.ApplicationListItem.prototype.setOrganizationId = function(value) {
  * @return {string}
  */
 proto.api.ApplicationListItem.prototype.getServiceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ApplicationListItem.prototype.setServiceProfileId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -718,13 +686,13 @@ proto.api.ApplicationListItem.prototype.setServiceProfileId = function(value) {
  * @return {string}
  */
 proto.api.ApplicationListItem.prototype.getServiceProfileName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ApplicationListItem.prototype.setServiceProfileName = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -771,6 +739,7 @@ proto.api.CreateApplicationRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateApplicationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateApplicationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -826,35 +795,26 @@ proto.api.CreateApplicationRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateApplicationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateApplicationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateApplicationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateApplicationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateApplicationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateApplicationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateApplicationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplication();
+  f = message.getApplication();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -866,25 +826,16 @@ proto.api.CreateApplicationRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateApplicationRequest} The clone.
- */
-proto.api.CreateApplicationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateApplicationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Application application = 1;
- * @return {proto.api.Application}
+ * @return {?proto.api.Application}
  */
 proto.api.CreateApplicationRequest.prototype.getApplication = function() {
-  return /** @type{proto.api.Application} */ (
+  return /** @type{?proto.api.Application} */ (
     jspb.Message.getWrapperField(this, proto.api.Application, 1));
 };
 
 
-/** @param {proto.api.Application|undefined} value  */
+/** @param {?proto.api.Application|undefined} value */
 proto.api.CreateApplicationRequest.prototype.setApplication = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -897,7 +848,7 @@ proto.api.CreateApplicationRequest.prototype.clearApplication = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateApplicationRequest.prototype.hasApplication = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -947,10 +898,11 @@ proto.api.CreateApplicationResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateApplicationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateApplicationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1001,35 +953,26 @@ proto.api.CreateApplicationResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateApplicationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateApplicationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateApplicationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateApplicationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateApplicationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateApplicationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateApplicationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1040,26 +983,17 @@ proto.api.CreateApplicationResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateApplicationResponse} The clone.
- */
-proto.api.CreateApplicationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateApplicationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.CreateApplicationResponse.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.CreateApplicationResponse.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1106,10 +1040,11 @@ proto.api.GetApplicationRequest.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetApplicationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetApplicationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1160,35 +1095,26 @@ proto.api.GetApplicationRequest.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetApplicationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetApplicationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetApplicationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetApplicationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetApplicationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetApplicationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetApplicationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1199,26 +1125,17 @@ proto.api.GetApplicationRequest.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetApplicationRequest} The clone.
- */
-proto.api.GetApplicationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetApplicationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.GetApplicationRequest.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetApplicationRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1265,6 +1182,7 @@ proto.api.GetApplicationResponse.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetApplicationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetApplicationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1320,35 +1238,26 @@ proto.api.GetApplicationResponse.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetApplicationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetApplicationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetApplicationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetApplicationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetApplicationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetApplicationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetApplicationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplication();
+  f = message.getApplication();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1360,25 +1269,16 @@ proto.api.GetApplicationResponse.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetApplicationResponse} The clone.
- */
-proto.api.GetApplicationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetApplicationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Application application = 1;
- * @return {proto.api.Application}
+ * @return {?proto.api.Application}
  */
 proto.api.GetApplicationResponse.prototype.getApplication = function() {
-  return /** @type{proto.api.Application} */ (
+  return /** @type{?proto.api.Application} */ (
     jspb.Message.getWrapperField(this, proto.api.Application, 1));
 };
 
 
-/** @param {proto.api.Application|undefined} value  */
+/** @param {?proto.api.Application|undefined} value */
 proto.api.GetApplicationResponse.prototype.setApplication = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1391,7 +1291,7 @@ proto.api.GetApplicationResponse.prototype.clearApplication = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetApplicationResponse.prototype.hasApplication = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1441,6 +1341,7 @@ proto.api.UpdateApplicationRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateApplicationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateApplicationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1496,35 +1397,26 @@ proto.api.UpdateApplicationRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateApplicationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateApplicationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateApplicationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateApplicationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateApplicationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateApplicationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateApplicationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplication();
+  f = message.getApplication();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1536,25 +1428,16 @@ proto.api.UpdateApplicationRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateApplicationRequest} The clone.
- */
-proto.api.UpdateApplicationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateApplicationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional Application application = 1;
- * @return {proto.api.Application}
+ * @return {?proto.api.Application}
  */
 proto.api.UpdateApplicationRequest.prototype.getApplication = function() {
-  return /** @type{proto.api.Application} */ (
+  return /** @type{?proto.api.Application} */ (
     jspb.Message.getWrapperField(this, proto.api.Application, 1));
 };
 
 
-/** @param {proto.api.Application|undefined} value  */
+/** @param {?proto.api.Application|undefined} value */
 proto.api.UpdateApplicationRequest.prototype.setApplication = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1567,7 +1450,7 @@ proto.api.UpdateApplicationRequest.prototype.clearApplication = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateApplicationRequest.prototype.hasApplication = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1617,10 +1500,11 @@ proto.api.DeleteApplicationRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteApplicationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteApplicationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1671,35 +1555,26 @@ proto.api.DeleteApplicationRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteApplicationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteApplicationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteApplicationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteApplicationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteApplicationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteApplicationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteApplicationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -1710,26 +1585,17 @@ proto.api.DeleteApplicationRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteApplicationRequest} The clone.
- */
-proto.api.DeleteApplicationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteApplicationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 id = 1;
  * @return {number}
  */
 proto.api.DeleteApplicationRequest.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteApplicationRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1776,13 +1642,14 @@ proto.api.ListApplicationRequest.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListApplicationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListApplicationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    organizationId: msg.getOrganizationId(),
-    search: msg.getSearch()
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    search: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -1845,56 +1712,47 @@ proto.api.ListApplicationRequest.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListApplicationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListApplicationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListApplicationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListApplicationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListApplicationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListApplicationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListApplicationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getSearch();
+  f = message.getSearch();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -1905,26 +1763,17 @@ proto.api.ListApplicationRequest.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListApplicationRequest} The clone.
- */
-proto.api.ListApplicationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListApplicationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 limit = 1;
  * @return {number}
  */
 proto.api.ListApplicationRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListApplicationRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1933,13 +1782,13 @@ proto.api.ListApplicationRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListApplicationRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListApplicationRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1948,13 +1797,13 @@ proto.api.ListApplicationRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListApplicationRequest.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListApplicationRequest.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1963,13 +1812,13 @@ proto.api.ListApplicationRequest.prototype.setOrganizationId = function(value) {
  * @return {string}
  */
 proto.api.ListApplicationRequest.prototype.getSearch = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListApplicationRequest.prototype.setSearch = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2023,10 +1872,11 @@ proto.api.ListApplicationResponse.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListApplicationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListApplicationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.ApplicationListItem.toObject, includeInstance)
   };
@@ -2072,8 +1922,7 @@ proto.api.ListApplicationResponse.deserializeBinaryFromReader = function(msg, re
     case 2:
       var value = new proto.api.ApplicationListItem;
       reader.readMessage(value,proto.api.ApplicationListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -2085,42 +1934,33 @@ proto.api.ListApplicationResponse.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListApplicationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListApplicationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListApplicationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListApplicationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListApplicationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListApplicationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListApplicationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2132,44 +1972,43 @@ proto.api.ListApplicationResponse.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListApplicationResponse} The clone.
- */
-proto.api.ListApplicationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListApplicationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListApplicationResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListApplicationResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated ApplicationListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.ApplicationListItem>}
+ * @return {!Array<!proto.api.ApplicationListItem>}
  */
 proto.api.ListApplicationResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.ApplicationListItem>} */ (
+  return /** @type{!Array<!proto.api.ApplicationListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.ApplicationListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.ApplicationListItem>} value  */
+/** @param {!Array<!proto.api.ApplicationListItem>} value */
 proto.api.ListApplicationResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.ApplicationListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.ApplicationListItem}
+ */
+proto.api.ListApplicationResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.ApplicationListItem, opt_index);
 };
 
 
@@ -2221,11 +2060,12 @@ proto.api.HTTPIntegrationHeader.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.api.HTTPIntegrationHeader} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.HTTPIntegrationHeader.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey(),
-    value: msg.getValue()
+    key: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    value: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2280,42 +2120,33 @@ proto.api.HTTPIntegrationHeader.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.HTTPIntegrationHeader} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.HTTPIntegrationHeader.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.HTTPIntegrationHeader.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.HTTPIntegrationHeader.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.HTTPIntegrationHeader} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.HTTPIntegrationHeader.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.HTTPIntegrationHeader.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getKey();
+  f = message.getKey();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getValue();
+  f = message.getValue();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -2326,26 +2157,17 @@ proto.api.HTTPIntegrationHeader.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.HTTPIntegrationHeader} The clone.
- */
-proto.api.HTTPIntegrationHeader.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.HTTPIntegrationHeader} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string key = 1;
  * @return {string}
  */
 proto.api.HTTPIntegrationHeader.prototype.getKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegrationHeader.prototype.setKey = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2354,13 +2176,13 @@ proto.api.HTTPIntegrationHeader.prototype.setKey = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegrationHeader.prototype.getValue = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegrationHeader.prototype.setValue = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2414,22 +2236,23 @@ proto.api.HTTPIntegration.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.HTTPIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.HTTPIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     headersList: jspb.Message.toObjectList(msg.getHeadersList(),
     proto.api.HTTPIntegrationHeader.toObject, includeInstance),
-    uplinkDataUrl: msg.getUplinkDataUrl(),
-    joinNotificationUrl: msg.getJoinNotificationUrl(),
-    ackNotificationUrl: msg.getAckNotificationUrl(),
-    errorNotificationUrl: msg.getErrorNotificationUrl(),
-    statusNotificationUrl: msg.getStatusNotificationUrl(),
-    locationNotificationUrl: msg.getLocationNotificationUrl(),
-    txAckNotificationUrl: msg.getTxAckNotificationUrl(),
-    integrationNotificationUrl: msg.getIntegrationNotificationUrl(),
-    marshaler: msg.getMarshaler(),
-    eventEndpointUrl: msg.getEventEndpointUrl()
+    uplinkDataUrl: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    joinNotificationUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    ackNotificationUrl: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    errorNotificationUrl: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    statusNotificationUrl: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    locationNotificationUrl: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    txAckNotificationUrl: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    integrationNotificationUrl: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    marshaler: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    eventEndpointUrl: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -2473,8 +2296,7 @@ proto.api.HTTPIntegration.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = new proto.api.HTTPIntegrationHeader;
       reader.readMessage(value,proto.api.HTTPIntegrationHeader.deserializeBinaryFromReader);
-      msg.getHeadersList().push(value);
-      msg.setHeadersList(msg.getHeadersList());
+      msg.addHeaders(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -2526,42 +2348,33 @@ proto.api.HTTPIntegration.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.HTTPIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.HTTPIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.HTTPIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.HTTPIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.HTTPIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.HTTPIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.HTTPIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getHeadersList();
+  f = message.getHeadersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2569,70 +2382,70 @@ proto.api.HTTPIntegration.prototype.serializeBinaryToWriter = function (writer) 
       proto.api.HTTPIntegrationHeader.serializeBinaryToWriter
     );
   }
-  f = this.getUplinkDataUrl();
+  f = message.getUplinkDataUrl();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getJoinNotificationUrl();
+  f = message.getJoinNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getAckNotificationUrl();
+  f = message.getAckNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getErrorNotificationUrl();
+  f = message.getErrorNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getStatusNotificationUrl();
+  f = message.getStatusNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getLocationNotificationUrl();
+  f = message.getLocationNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       8,
       f
     );
   }
-  f = this.getTxAckNotificationUrl();
+  f = message.getTxAckNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getIntegrationNotificationUrl();
+  f = message.getIntegrationNotificationUrl();
   if (f.length > 0) {
     writer.writeString(
       10,
       f
     );
   }
-  f = this.getMarshaler();
+  f = message.getMarshaler();
   if (f !== 0.0) {
     writer.writeEnum(
       11,
       f
     );
   }
-  f = this.getEventEndpointUrl();
+  f = message.getEventEndpointUrl();
   if (f.length > 0) {
     writer.writeString(
       12,
@@ -2643,44 +2456,43 @@ proto.api.HTTPIntegration.prototype.serializeBinaryToWriter = function (writer) 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.HTTPIntegration} The clone.
- */
-proto.api.HTTPIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.HTTPIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.HTTPIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.HTTPIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated HTTPIntegrationHeader headers = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.HTTPIntegrationHeader>}
+ * @return {!Array<!proto.api.HTTPIntegrationHeader>}
  */
 proto.api.HTTPIntegration.prototype.getHeadersList = function() {
-  return /** @type{!Array.<!proto.api.HTTPIntegrationHeader>} */ (
+  return /** @type{!Array<!proto.api.HTTPIntegrationHeader>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.HTTPIntegrationHeader, 2));
 };
 
 
-/** @param {Array.<!proto.api.HTTPIntegrationHeader>} value  */
+/** @param {!Array<!proto.api.HTTPIntegrationHeader>} value */
 proto.api.HTTPIntegration.prototype.setHeadersList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.HTTPIntegrationHeader=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.HTTPIntegrationHeader}
+ */
+proto.api.HTTPIntegration.prototype.addHeaders = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.HTTPIntegrationHeader, opt_index);
 };
 
 
@@ -2694,13 +2506,13 @@ proto.api.HTTPIntegration.prototype.clearHeadersList = function() {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getUplinkDataUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setUplinkDataUrl = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -2709,13 +2521,13 @@ proto.api.HTTPIntegration.prototype.setUplinkDataUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getJoinNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setJoinNotificationUrl = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2724,13 +2536,13 @@ proto.api.HTTPIntegration.prototype.setJoinNotificationUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getAckNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setAckNotificationUrl = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -2739,13 +2551,13 @@ proto.api.HTTPIntegration.prototype.setAckNotificationUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getErrorNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setErrorNotificationUrl = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -2754,13 +2566,13 @@ proto.api.HTTPIntegration.prototype.setErrorNotificationUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getStatusNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setStatusNotificationUrl = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -2769,13 +2581,13 @@ proto.api.HTTPIntegration.prototype.setStatusNotificationUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getLocationNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setLocationNotificationUrl = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -2784,13 +2596,13 @@ proto.api.HTTPIntegration.prototype.setLocationNotificationUrl = function(value)
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getTxAckNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setTxAckNotificationUrl = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -2799,13 +2611,13 @@ proto.api.HTTPIntegration.prototype.setTxAckNotificationUrl = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getIntegrationNotificationUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setIntegrationNotificationUrl = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -2814,13 +2626,13 @@ proto.api.HTTPIntegration.prototype.setIntegrationNotificationUrl = function(val
  * @return {!proto.api.Marshaler}
  */
 proto.api.HTTPIntegration.prototype.getMarshaler = function() {
-  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldProto3(this, 11, 0));
+  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
-/** @param {!proto.api.Marshaler} value  */
+/** @param {!proto.api.Marshaler} value */
 proto.api.HTTPIntegration.prototype.setMarshaler = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3EnumField(this, 11, value);
 };
 
 
@@ -2829,13 +2641,13 @@ proto.api.HTTPIntegration.prototype.setMarshaler = function(value) {
  * @return {string}
  */
 proto.api.HTTPIntegration.prototype.getEventEndpointUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 12, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.HTTPIntegration.prototype.setEventEndpointUrl = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -2882,6 +2694,7 @@ proto.api.CreateHTTPIntegrationRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateHTTPIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateHTTPIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -2937,35 +2750,26 @@ proto.api.CreateHTTPIntegrationRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateHTTPIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateHTTPIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateHTTPIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateHTTPIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateHTTPIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2977,25 +2781,16 @@ proto.api.CreateHTTPIntegrationRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateHTTPIntegrationRequest} The clone.
- */
-proto.api.CreateHTTPIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateHTTPIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional HTTPIntegration integration = 1;
- * @return {proto.api.HTTPIntegration}
+ * @return {?proto.api.HTTPIntegration}
  */
 proto.api.CreateHTTPIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.HTTPIntegration} */ (
+  return /** @type{?proto.api.HTTPIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.HTTPIntegration, 1));
 };
 
 
-/** @param {proto.api.HTTPIntegration|undefined} value  */
+/** @param {?proto.api.HTTPIntegration|undefined} value */
 proto.api.CreateHTTPIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3008,7 +2803,7 @@ proto.api.CreateHTTPIntegrationRequest.prototype.clearIntegration = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateHTTPIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3058,10 +2853,11 @@ proto.api.GetHTTPIntegrationRequest.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetHTTPIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetHTTPIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -3112,35 +2908,26 @@ proto.api.GetHTTPIntegrationRequest.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetHTTPIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetHTTPIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetHTTPIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetHTTPIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetHTTPIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -3151,26 +2938,17 @@ proto.api.GetHTTPIntegrationRequest.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetHTTPIntegrationRequest} The clone.
- */
-proto.api.GetHTTPIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetHTTPIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetHTTPIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetHTTPIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3217,6 +2995,7 @@ proto.api.GetHTTPIntegrationResponse.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetHTTPIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetHTTPIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3272,35 +3051,26 @@ proto.api.GetHTTPIntegrationResponse.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetHTTPIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetHTTPIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetHTTPIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetHTTPIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetHTTPIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetHTTPIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetHTTPIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -3312,25 +3082,16 @@ proto.api.GetHTTPIntegrationResponse.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetHTTPIntegrationResponse} The clone.
- */
-proto.api.GetHTTPIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetHTTPIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional HTTPIntegration integration = 1;
- * @return {proto.api.HTTPIntegration}
+ * @return {?proto.api.HTTPIntegration}
  */
 proto.api.GetHTTPIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.HTTPIntegration} */ (
+  return /** @type{?proto.api.HTTPIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.HTTPIntegration, 1));
 };
 
 
-/** @param {proto.api.HTTPIntegration|undefined} value  */
+/** @param {?proto.api.HTTPIntegration|undefined} value */
 proto.api.GetHTTPIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3343,7 +3104,7 @@ proto.api.GetHTTPIntegrationResponse.prototype.clearIntegration = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetHTTPIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3393,6 +3154,7 @@ proto.api.UpdateHTTPIntegrationRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateHTTPIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateHTTPIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3448,35 +3210,26 @@ proto.api.UpdateHTTPIntegrationRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateHTTPIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateHTTPIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateHTTPIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateHTTPIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateHTTPIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -3488,25 +3241,16 @@ proto.api.UpdateHTTPIntegrationRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateHTTPIntegrationRequest} The clone.
- */
-proto.api.UpdateHTTPIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateHTTPIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional HTTPIntegration integration = 1;
- * @return {proto.api.HTTPIntegration}
+ * @return {?proto.api.HTTPIntegration}
  */
 proto.api.UpdateHTTPIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.HTTPIntegration} */ (
+  return /** @type{?proto.api.HTTPIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.HTTPIntegration, 1));
 };
 
 
-/** @param {proto.api.HTTPIntegration|undefined} value  */
+/** @param {?proto.api.HTTPIntegration|undefined} value */
 proto.api.UpdateHTTPIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3519,7 +3263,7 @@ proto.api.UpdateHTTPIntegrationRequest.prototype.clearIntegration = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateHTTPIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3569,10 +3313,11 @@ proto.api.DeleteHTTPIntegrationRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteHTTPIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteHTTPIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -3623,35 +3368,26 @@ proto.api.DeleteHTTPIntegrationRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteHTTPIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteHTTPIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteHTTPIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteHTTPIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteHTTPIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteHTTPIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -3662,26 +3398,17 @@ proto.api.DeleteHTTPIntegrationRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteHTTPIntegrationRequest} The clone.
- */
-proto.api.DeleteHTTPIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteHTTPIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteHTTPIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteHTTPIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3728,10 +3455,11 @@ proto.api.ListIntegrationRequest.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -3782,35 +3510,26 @@ proto.api.ListIntegrationRequest.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -3821,26 +3540,17 @@ proto.api.ListIntegrationRequest.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListIntegrationRequest} The clone.
- */
-proto.api.ListIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.ListIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3887,10 +3597,11 @@ proto.api.IntegrationListItem.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.IntegrationListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.IntegrationListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kind: msg.getKind()
+    kind: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -3941,35 +3652,26 @@ proto.api.IntegrationListItem.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.IntegrationListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.IntegrationListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.IntegrationListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.IntegrationListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.IntegrationListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.IntegrationListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.IntegrationListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getKind();
+  f = message.getKind();
   if (f !== 0.0) {
     writer.writeEnum(
       1,
@@ -3980,26 +3682,17 @@ proto.api.IntegrationListItem.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.IntegrationListItem} The clone.
- */
-proto.api.IntegrationListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.IntegrationListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional IntegrationKind kind = 1;
  * @return {!proto.api.IntegrationKind}
  */
 proto.api.IntegrationListItem.prototype.getKind = function() {
-  return /** @type {!proto.api.IntegrationKind} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {!proto.api.IntegrationKind} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {!proto.api.IntegrationKind} value  */
+/** @param {!proto.api.IntegrationKind} value */
 proto.api.IntegrationListItem.prototype.setKind = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -4053,10 +3746,11 @@ proto.api.ListIntegrationResponse.prototype.toObject = function(opt_includeInsta
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.IntegrationListItem.toObject, includeInstance)
   };
@@ -4102,8 +3796,7 @@ proto.api.ListIntegrationResponse.deserializeBinaryFromReader = function(msg, re
     case 2:
       var value = new proto.api.IntegrationListItem;
       reader.readMessage(value,proto.api.IntegrationListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -4115,42 +3808,33 @@ proto.api.ListIntegrationResponse.deserializeBinaryFromReader = function(msg, re
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -4162,44 +3846,43 @@ proto.api.ListIntegrationResponse.prototype.serializeBinaryToWriter = function (
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListIntegrationResponse} The clone.
- */
-proto.api.ListIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListIntegrationResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListIntegrationResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated IntegrationListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.IntegrationListItem>}
+ * @return {!Array<!proto.api.IntegrationListItem>}
  */
 proto.api.ListIntegrationResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.IntegrationListItem>} */ (
+  return /** @type{!Array<!proto.api.IntegrationListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.IntegrationListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.IntegrationListItem>} value  */
+/** @param {!Array<!proto.api.IntegrationListItem>} value */
 proto.api.ListIntegrationResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.IntegrationListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.IntegrationListItem}
+ */
+proto.api.ListIntegrationResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.IntegrationListItem, opt_index);
 };
 
 
@@ -4251,20 +3934,21 @@ proto.api.InfluxDBIntegration.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.api.InfluxDBIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.InfluxDBIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    endpoint: msg.getEndpoint(),
-    db: msg.getDb(),
-    username: msg.getUsername(),
-    password: msg.getPassword(),
-    retentionPolicyName: msg.getRetentionPolicyName(),
-    precision: msg.getPrecision(),
-    version: msg.getVersion(),
-    token: msg.getToken(),
-    organization: msg.getOrganization(),
-    bucket: msg.getBucket()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    endpoint: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    db: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    username: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    retentionPolicyName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    precision: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    version: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    token: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    organization: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    bucket: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -4355,105 +4039,96 @@ proto.api.InfluxDBIntegration.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.InfluxDBIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.InfluxDBIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.InfluxDBIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.InfluxDBIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.InfluxDBIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.InfluxDBIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.InfluxDBIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getEndpoint();
+  f = message.getEndpoint();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDb();
+  f = message.getDb();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getUsername();
+  f = message.getUsername();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getPassword();
+  f = message.getPassword();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getRetentionPolicyName();
+  f = message.getRetentionPolicyName();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getPrecision();
+  f = message.getPrecision();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
       f
     );
   }
-  f = this.getVersion();
+  f = message.getVersion();
   if (f !== 0.0) {
     writer.writeEnum(
       8,
       f
     );
   }
-  f = this.getToken();
+  f = message.getToken();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getOrganization();
+  f = message.getOrganization();
   if (f.length > 0) {
     writer.writeString(
       10,
       f
     );
   }
-  f = this.getBucket();
+  f = message.getBucket();
   if (f.length > 0) {
     writer.writeString(
       11,
@@ -4464,26 +4139,17 @@ proto.api.InfluxDBIntegration.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.InfluxDBIntegration} The clone.
- */
-proto.api.InfluxDBIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.InfluxDBIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.InfluxDBIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.InfluxDBIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -4492,13 +4158,13 @@ proto.api.InfluxDBIntegration.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getEndpoint = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setEndpoint = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4507,13 +4173,13 @@ proto.api.InfluxDBIntegration.prototype.setEndpoint = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getDb = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setDb = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -4522,13 +4188,13 @@ proto.api.InfluxDBIntegration.prototype.setDb = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getUsername = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setUsername = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -4537,13 +4203,13 @@ proto.api.InfluxDBIntegration.prototype.setUsername = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getPassword = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setPassword = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -4552,13 +4218,13 @@ proto.api.InfluxDBIntegration.prototype.setPassword = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getRetentionPolicyName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setRetentionPolicyName = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -4567,13 +4233,13 @@ proto.api.InfluxDBIntegration.prototype.setRetentionPolicyName = function(value)
  * @return {!proto.api.InfluxDBPrecision}
  */
 proto.api.InfluxDBIntegration.prototype.getPrecision = function() {
-  return /** @type {!proto.api.InfluxDBPrecision} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.api.InfluxDBPrecision} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.api.InfluxDBPrecision} value  */
+/** @param {!proto.api.InfluxDBPrecision} value */
 proto.api.InfluxDBIntegration.prototype.setPrecision = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -4582,13 +4248,13 @@ proto.api.InfluxDBIntegration.prototype.setPrecision = function(value) {
  * @return {!proto.api.InfluxDBVersion}
  */
 proto.api.InfluxDBIntegration.prototype.getVersion = function() {
-  return /** @type {!proto.api.InfluxDBVersion} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {!proto.api.InfluxDBVersion} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {!proto.api.InfluxDBVersion} value  */
+/** @param {!proto.api.InfluxDBVersion} value */
 proto.api.InfluxDBIntegration.prototype.setVersion = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3EnumField(this, 8, value);
 };
 
 
@@ -4597,13 +4263,13 @@ proto.api.InfluxDBIntegration.prototype.setVersion = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getToken = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -4612,13 +4278,13 @@ proto.api.InfluxDBIntegration.prototype.setToken = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getOrganization = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setOrganization = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -4627,13 +4293,13 @@ proto.api.InfluxDBIntegration.prototype.setOrganization = function(value) {
  * @return {string}
  */
 proto.api.InfluxDBIntegration.prototype.getBucket = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.InfluxDBIntegration.prototype.setBucket = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -4680,6 +4346,7 @@ proto.api.CreateInfluxDBIntegrationRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateInfluxDBIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateInfluxDBIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -4735,35 +4402,26 @@ proto.api.CreateInfluxDBIntegrationRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateInfluxDBIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateInfluxDBIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateInfluxDBIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateInfluxDBIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -4775,25 +4433,16 @@ proto.api.CreateInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateInfluxDBIntegrationRequest} The clone.
- */
-proto.api.CreateInfluxDBIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateInfluxDBIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional InfluxDBIntegration integration = 1;
- * @return {proto.api.InfluxDBIntegration}
+ * @return {?proto.api.InfluxDBIntegration}
  */
 proto.api.CreateInfluxDBIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.InfluxDBIntegration} */ (
+  return /** @type{?proto.api.InfluxDBIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.InfluxDBIntegration, 1));
 };
 
 
-/** @param {proto.api.InfluxDBIntegration|undefined} value  */
+/** @param {?proto.api.InfluxDBIntegration|undefined} value */
 proto.api.CreateInfluxDBIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -4806,7 +4455,7 @@ proto.api.CreateInfluxDBIntegrationRequest.prototype.clearIntegration = function
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateInfluxDBIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -4856,10 +4505,11 @@ proto.api.GetInfluxDBIntegrationRequest.prototype.toObject = function(opt_includ
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetInfluxDBIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetInfluxDBIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -4910,35 +4560,26 @@ proto.api.GetInfluxDBIntegrationRequest.deserializeBinaryFromReader = function(m
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetInfluxDBIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetInfluxDBIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetInfluxDBIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetInfluxDBIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -4949,26 +4590,17 @@ proto.api.GetInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = func
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetInfluxDBIntegrationRequest} The clone.
- */
-proto.api.GetInfluxDBIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetInfluxDBIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetInfluxDBIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetInfluxDBIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5015,6 +4647,7 @@ proto.api.GetInfluxDBIntegrationResponse.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetInfluxDBIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetInfluxDBIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5070,35 +4703,26 @@ proto.api.GetInfluxDBIntegrationResponse.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetInfluxDBIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetInfluxDBIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetInfluxDBIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetInfluxDBIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetInfluxDBIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetInfluxDBIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetInfluxDBIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -5110,25 +4734,16 @@ proto.api.GetInfluxDBIntegrationResponse.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetInfluxDBIntegrationResponse} The clone.
- */
-proto.api.GetInfluxDBIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetInfluxDBIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional InfluxDBIntegration integration = 1;
- * @return {proto.api.InfluxDBIntegration}
+ * @return {?proto.api.InfluxDBIntegration}
  */
 proto.api.GetInfluxDBIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.InfluxDBIntegration} */ (
+  return /** @type{?proto.api.InfluxDBIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.InfluxDBIntegration, 1));
 };
 
 
-/** @param {proto.api.InfluxDBIntegration|undefined} value  */
+/** @param {?proto.api.InfluxDBIntegration|undefined} value */
 proto.api.GetInfluxDBIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -5141,7 +4756,7 @@ proto.api.GetInfluxDBIntegrationResponse.prototype.clearIntegration = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetInfluxDBIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -5191,6 +4806,7 @@ proto.api.UpdateInfluxDBIntegrationRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateInfluxDBIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateInfluxDBIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5246,35 +4862,26 @@ proto.api.UpdateInfluxDBIntegrationRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateInfluxDBIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateInfluxDBIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateInfluxDBIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateInfluxDBIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -5286,25 +4893,16 @@ proto.api.UpdateInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateInfluxDBIntegrationRequest} The clone.
- */
-proto.api.UpdateInfluxDBIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateInfluxDBIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional InfluxDBIntegration integration = 1;
- * @return {proto.api.InfluxDBIntegration}
+ * @return {?proto.api.InfluxDBIntegration}
  */
 proto.api.UpdateInfluxDBIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.InfluxDBIntegration} */ (
+  return /** @type{?proto.api.InfluxDBIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.InfluxDBIntegration, 1));
 };
 
 
-/** @param {proto.api.InfluxDBIntegration|undefined} value  */
+/** @param {?proto.api.InfluxDBIntegration|undefined} value */
 proto.api.UpdateInfluxDBIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -5317,7 +4915,7 @@ proto.api.UpdateInfluxDBIntegrationRequest.prototype.clearIntegration = function
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateInfluxDBIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -5367,10 +4965,11 @@ proto.api.DeleteInfluxDBIntegrationRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteInfluxDBIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteInfluxDBIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -5421,35 +5020,26 @@ proto.api.DeleteInfluxDBIntegrationRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteInfluxDBIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteInfluxDBIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteInfluxDBIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteInfluxDBIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteInfluxDBIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -5460,26 +5050,17 @@ proto.api.DeleteInfluxDBIntegrationRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteInfluxDBIntegrationRequest} The clone.
- */
-proto.api.DeleteInfluxDBIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteInfluxDBIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteInfluxDBIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteInfluxDBIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5526,11 +5107,12 @@ proto.api.ThingsBoardIntegration.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.ThingsBoardIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ThingsBoardIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    server: msg.getServer()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    server: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -5585,42 +5167,33 @@ proto.api.ThingsBoardIntegration.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ThingsBoardIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ThingsBoardIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ThingsBoardIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ThingsBoardIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ThingsBoardIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ThingsBoardIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ThingsBoardIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getServer();
+  f = message.getServer();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -5631,26 +5204,17 @@ proto.api.ThingsBoardIntegration.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ThingsBoardIntegration} The clone.
- */
-proto.api.ThingsBoardIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ThingsBoardIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.ThingsBoardIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ThingsBoardIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5659,13 +5223,13 @@ proto.api.ThingsBoardIntegration.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.ThingsBoardIntegration.prototype.getServer = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ThingsBoardIntegration.prototype.setServer = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5712,6 +5276,7 @@ proto.api.CreateThingsBoardIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateThingsBoardIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateThingsBoardIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -5767,35 +5332,26 @@ proto.api.CreateThingsBoardIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateThingsBoardIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateThingsBoardIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateThingsBoardIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateThingsBoardIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -5807,25 +5363,16 @@ proto.api.CreateThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateThingsBoardIntegrationRequest} The clone.
- */
-proto.api.CreateThingsBoardIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateThingsBoardIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ThingsBoardIntegration integration = 1;
- * @return {proto.api.ThingsBoardIntegration}
+ * @return {?proto.api.ThingsBoardIntegration}
  */
 proto.api.CreateThingsBoardIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.ThingsBoardIntegration} */ (
+  return /** @type{?proto.api.ThingsBoardIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.ThingsBoardIntegration, 1));
 };
 
 
-/** @param {proto.api.ThingsBoardIntegration|undefined} value  */
+/** @param {?proto.api.ThingsBoardIntegration|undefined} value */
 proto.api.CreateThingsBoardIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -5838,7 +5385,7 @@ proto.api.CreateThingsBoardIntegrationRequest.prototype.clearIntegration = funct
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateThingsBoardIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -5888,10 +5435,11 @@ proto.api.GetThingsBoardIntegrationRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetThingsBoardIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetThingsBoardIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -5942,35 +5490,26 @@ proto.api.GetThingsBoardIntegrationRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetThingsBoardIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetThingsBoardIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetThingsBoardIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetThingsBoardIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -5981,26 +5520,17 @@ proto.api.GetThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetThingsBoardIntegrationRequest} The clone.
- */
-proto.api.GetThingsBoardIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetThingsBoardIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetThingsBoardIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetThingsBoardIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -6047,6 +5577,7 @@ proto.api.GetThingsBoardIntegrationResponse.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetThingsBoardIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetThingsBoardIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -6102,35 +5633,26 @@ proto.api.GetThingsBoardIntegrationResponse.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetThingsBoardIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetThingsBoardIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetThingsBoardIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetThingsBoardIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetThingsBoardIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetThingsBoardIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetThingsBoardIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -6142,25 +5664,16 @@ proto.api.GetThingsBoardIntegrationResponse.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetThingsBoardIntegrationResponse} The clone.
- */
-proto.api.GetThingsBoardIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetThingsBoardIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ThingsBoardIntegration integration = 1;
- * @return {proto.api.ThingsBoardIntegration}
+ * @return {?proto.api.ThingsBoardIntegration}
  */
 proto.api.GetThingsBoardIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.ThingsBoardIntegration} */ (
+  return /** @type{?proto.api.ThingsBoardIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.ThingsBoardIntegration, 1));
 };
 
 
-/** @param {proto.api.ThingsBoardIntegration|undefined} value  */
+/** @param {?proto.api.ThingsBoardIntegration|undefined} value */
 proto.api.GetThingsBoardIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -6173,7 +5686,7 @@ proto.api.GetThingsBoardIntegrationResponse.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetThingsBoardIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -6223,6 +5736,7 @@ proto.api.UpdateThingsBoardIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateThingsBoardIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateThingsBoardIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -6278,35 +5792,26 @@ proto.api.UpdateThingsBoardIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateThingsBoardIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateThingsBoardIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateThingsBoardIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateThingsBoardIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -6318,25 +5823,16 @@ proto.api.UpdateThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateThingsBoardIntegrationRequest} The clone.
- */
-proto.api.UpdateThingsBoardIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateThingsBoardIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ThingsBoardIntegration integration = 1;
- * @return {proto.api.ThingsBoardIntegration}
+ * @return {?proto.api.ThingsBoardIntegration}
  */
 proto.api.UpdateThingsBoardIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.ThingsBoardIntegration} */ (
+  return /** @type{?proto.api.ThingsBoardIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.ThingsBoardIntegration, 1));
 };
 
 
-/** @param {proto.api.ThingsBoardIntegration|undefined} value  */
+/** @param {?proto.api.ThingsBoardIntegration|undefined} value */
 proto.api.UpdateThingsBoardIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -6349,7 +5845,7 @@ proto.api.UpdateThingsBoardIntegrationRequest.prototype.clearIntegration = funct
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateThingsBoardIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -6399,10 +5895,11 @@ proto.api.DeleteThingsBoardIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteThingsBoardIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteThingsBoardIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -6453,35 +5950,26 @@ proto.api.DeleteThingsBoardIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteThingsBoardIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteThingsBoardIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteThingsBoardIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteThingsBoardIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteThingsBoardIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -6492,26 +5980,17 @@ proto.api.DeleteThingsBoardIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteThingsBoardIntegrationRequest} The clone.
- */
-proto.api.DeleteThingsBoardIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteThingsBoardIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteThingsBoardIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteThingsBoardIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -6558,11 +6037,12 @@ proto.api.MyDevicesIntegration.prototype.toObject = function(opt_includeInstance
  *     http://goto/soy-param-migration
  * @param {!proto.api.MyDevicesIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.MyDevicesIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    endpoint: msg.getEndpoint()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    endpoint: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -6617,42 +6097,33 @@ proto.api.MyDevicesIntegration.deserializeBinaryFromReader = function(msg, reade
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.MyDevicesIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.MyDevicesIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.MyDevicesIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.MyDevicesIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.MyDevicesIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.MyDevicesIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.MyDevicesIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getEndpoint();
+  f = message.getEndpoint();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -6663,26 +6134,17 @@ proto.api.MyDevicesIntegration.prototype.serializeBinaryToWriter = function (wri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.MyDevicesIntegration} The clone.
- */
-proto.api.MyDevicesIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.MyDevicesIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.MyDevicesIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MyDevicesIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -6691,13 +6153,13 @@ proto.api.MyDevicesIntegration.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.MyDevicesIntegration.prototype.getEndpoint = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MyDevicesIntegration.prototype.setEndpoint = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6744,6 +6206,7 @@ proto.api.CreateMyDevicesIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateMyDevicesIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateMyDevicesIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -6799,35 +6262,26 @@ proto.api.CreateMyDevicesIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateMyDevicesIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateMyDevicesIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateMyDevicesIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateMyDevicesIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -6839,25 +6293,16 @@ proto.api.CreateMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateMyDevicesIntegrationRequest} The clone.
- */
-proto.api.CreateMyDevicesIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateMyDevicesIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MyDevicesIntegration integration = 1;
- * @return {proto.api.MyDevicesIntegration}
+ * @return {?proto.api.MyDevicesIntegration}
  */
 proto.api.CreateMyDevicesIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.MyDevicesIntegration} */ (
+  return /** @type{?proto.api.MyDevicesIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.MyDevicesIntegration, 1));
 };
 
 
-/** @param {proto.api.MyDevicesIntegration|undefined} value  */
+/** @param {?proto.api.MyDevicesIntegration|undefined} value */
 proto.api.CreateMyDevicesIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -6870,7 +6315,7 @@ proto.api.CreateMyDevicesIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateMyDevicesIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -6920,10 +6365,11 @@ proto.api.GetMyDevicesIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetMyDevicesIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetMyDevicesIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -6974,35 +6420,26 @@ proto.api.GetMyDevicesIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetMyDevicesIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetMyDevicesIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetMyDevicesIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetMyDevicesIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -7013,26 +6450,17 @@ proto.api.GetMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetMyDevicesIntegrationRequest} The clone.
- */
-proto.api.GetMyDevicesIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetMyDevicesIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetMyDevicesIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetMyDevicesIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -7079,6 +6507,7 @@ proto.api.GetMyDevicesIntegrationResponse.prototype.toObject = function(opt_incl
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetMyDevicesIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetMyDevicesIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -7134,35 +6563,26 @@ proto.api.GetMyDevicesIntegrationResponse.deserializeBinaryFromReader = function
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetMyDevicesIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetMyDevicesIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetMyDevicesIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetMyDevicesIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetMyDevicesIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetMyDevicesIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetMyDevicesIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -7174,25 +6594,16 @@ proto.api.GetMyDevicesIntegrationResponse.prototype.serializeBinaryToWriter = fu
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetMyDevicesIntegrationResponse} The clone.
- */
-proto.api.GetMyDevicesIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetMyDevicesIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MyDevicesIntegration integration = 1;
- * @return {proto.api.MyDevicesIntegration}
+ * @return {?proto.api.MyDevicesIntegration}
  */
 proto.api.GetMyDevicesIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.MyDevicesIntegration} */ (
+  return /** @type{?proto.api.MyDevicesIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.MyDevicesIntegration, 1));
 };
 
 
-/** @param {proto.api.MyDevicesIntegration|undefined} value  */
+/** @param {?proto.api.MyDevicesIntegration|undefined} value */
 proto.api.GetMyDevicesIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -7205,7 +6616,7 @@ proto.api.GetMyDevicesIntegrationResponse.prototype.clearIntegration = function(
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetMyDevicesIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -7255,6 +6666,7 @@ proto.api.UpdateMyDevicesIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateMyDevicesIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateMyDevicesIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -7310,35 +6722,26 @@ proto.api.UpdateMyDevicesIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateMyDevicesIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateMyDevicesIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateMyDevicesIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateMyDevicesIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -7350,25 +6753,16 @@ proto.api.UpdateMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateMyDevicesIntegrationRequest} The clone.
- */
-proto.api.UpdateMyDevicesIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateMyDevicesIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MyDevicesIntegration integration = 1;
- * @return {proto.api.MyDevicesIntegration}
+ * @return {?proto.api.MyDevicesIntegration}
  */
 proto.api.UpdateMyDevicesIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.MyDevicesIntegration} */ (
+  return /** @type{?proto.api.MyDevicesIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.MyDevicesIntegration, 1));
 };
 
 
-/** @param {proto.api.MyDevicesIntegration|undefined} value  */
+/** @param {?proto.api.MyDevicesIntegration|undefined} value */
 proto.api.UpdateMyDevicesIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -7381,7 +6775,7 @@ proto.api.UpdateMyDevicesIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateMyDevicesIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -7431,10 +6825,11 @@ proto.api.DeleteMyDevicesIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteMyDevicesIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteMyDevicesIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -7485,35 +6880,26 @@ proto.api.DeleteMyDevicesIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteMyDevicesIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteMyDevicesIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteMyDevicesIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteMyDevicesIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteMyDevicesIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -7524,26 +6910,17 @@ proto.api.DeleteMyDevicesIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteMyDevicesIntegrationRequest} The clone.
- */
-proto.api.DeleteMyDevicesIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteMyDevicesIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteMyDevicesIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteMyDevicesIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -7590,27 +6967,28 @@ proto.api.LoRaCloudIntegration.prototype.toObject = function(opt_includeInstance
  *     http://goto/soy-param-migration
  * @param {!proto.api.LoRaCloudIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.LoRaCloudIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    geolocation: msg.getGeolocation(),
-    geolocationToken: msg.getGeolocationToken(),
-    geolocationBufferTtl: msg.getGeolocationBufferTtl(),
-    geolocationMinBufferSize: msg.getGeolocationMinBufferSize(),
-    geolocationTdoa: msg.getGeolocationTdoa(),
-    geolocationRssi: msg.getGeolocationRssi(),
-    geolocationGnss: msg.getGeolocationGnss(),
-    geolocationGnssPayloadField: msg.getGeolocationGnssPayloadField(),
-    geolocationGnssUseRxTime: msg.getGeolocationGnssUseRxTime(),
-    geolocationWifi: msg.getGeolocationWifi(),
-    geolocationWifiPayloadField: msg.getGeolocationWifiPayloadField(),
-    das: msg.getDas(),
-    dasToken: msg.getDasToken(),
-    dasModemPort: msg.getDasModemPort(),
-    dasGnssPort: msg.getDasGnssPort(),
-    dasGnssUseRxTime: msg.getDasGnssUseRxTime(),
-    dasStreamingGeolocWorkaround: msg.getDasStreamingGeolocWorkaround()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    geolocation: jspb.Message.getFieldWithDefault(msg, 2, false),
+    geolocationToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    geolocationBufferTtl: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    geolocationMinBufferSize: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    geolocationTdoa: jspb.Message.getFieldWithDefault(msg, 6, false),
+    geolocationRssi: jspb.Message.getFieldWithDefault(msg, 7, false),
+    geolocationGnss: jspb.Message.getFieldWithDefault(msg, 8, false),
+    geolocationGnssPayloadField: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    geolocationGnssUseRxTime: jspb.Message.getFieldWithDefault(msg, 10, false),
+    geolocationWifi: jspb.Message.getFieldWithDefault(msg, 11, false),
+    geolocationWifiPayloadField: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    das: jspb.Message.getFieldWithDefault(msg, 13, false),
+    dasToken: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    dasModemPort: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    dasGnssPort: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    dasGnssUseRxTime: jspb.Message.getFieldWithDefault(msg, 17, false),
+    dasStreamingGeolocWorkaround: jspb.Message.getFieldWithDefault(msg, 18, false)
   };
 
   if (includeInstance) {
@@ -7729,154 +7107,145 @@ proto.api.LoRaCloudIntegration.deserializeBinaryFromReader = function(msg, reade
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.LoRaCloudIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.LoRaCloudIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.LoRaCloudIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.LoRaCloudIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.LoRaCloudIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.LoRaCloudIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.LoRaCloudIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getGeolocation();
+  f = message.getGeolocation();
   if (f) {
     writer.writeBool(
       2,
       f
     );
   }
-  f = this.getGeolocationToken();
+  f = message.getGeolocationToken();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getGeolocationBufferTtl();
+  f = message.getGeolocationBufferTtl();
   if (f !== 0) {
     writer.writeUint32(
       4,
       f
     );
   }
-  f = this.getGeolocationMinBufferSize();
+  f = message.getGeolocationMinBufferSize();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getGeolocationTdoa();
+  f = message.getGeolocationTdoa();
   if (f) {
     writer.writeBool(
       6,
       f
     );
   }
-  f = this.getGeolocationRssi();
+  f = message.getGeolocationRssi();
   if (f) {
     writer.writeBool(
       7,
       f
     );
   }
-  f = this.getGeolocationGnss();
+  f = message.getGeolocationGnss();
   if (f) {
     writer.writeBool(
       8,
       f
     );
   }
-  f = this.getGeolocationGnssPayloadField();
+  f = message.getGeolocationGnssPayloadField();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getGeolocationGnssUseRxTime();
+  f = message.getGeolocationGnssUseRxTime();
   if (f) {
     writer.writeBool(
       10,
       f
     );
   }
-  f = this.getGeolocationWifi();
+  f = message.getGeolocationWifi();
   if (f) {
     writer.writeBool(
       11,
       f
     );
   }
-  f = this.getGeolocationWifiPayloadField();
+  f = message.getGeolocationWifiPayloadField();
   if (f.length > 0) {
     writer.writeString(
       12,
       f
     );
   }
-  f = this.getDas();
+  f = message.getDas();
   if (f) {
     writer.writeBool(
       13,
       f
     );
   }
-  f = this.getDasToken();
+  f = message.getDasToken();
   if (f.length > 0) {
     writer.writeString(
       14,
       f
     );
   }
-  f = this.getDasModemPort();
+  f = message.getDasModemPort();
   if (f !== 0) {
     writer.writeUint32(
       15,
       f
     );
   }
-  f = this.getDasGnssPort();
+  f = message.getDasGnssPort();
   if (f !== 0) {
     writer.writeUint32(
       16,
       f
     );
   }
-  f = this.getDasGnssUseRxTime();
+  f = message.getDasGnssUseRxTime();
   if (f) {
     writer.writeBool(
       17,
       f
     );
   }
-  f = this.getDasStreamingGeolocWorkaround();
+  f = message.getDasStreamingGeolocWorkaround();
   if (f) {
     writer.writeBool(
       18,
@@ -7887,26 +7256,17 @@ proto.api.LoRaCloudIntegration.prototype.serializeBinaryToWriter = function (wri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.LoRaCloudIntegration} The clone.
- */
-proto.api.LoRaCloudIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.LoRaCloudIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.LoRaCloudIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.LoRaCloudIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -7917,13 +7277,13 @@ proto.api.LoRaCloudIntegration.prototype.setApplicationId = function(value) {
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocation = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocation = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -7932,13 +7292,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocation = function(value) {
  * @return {string}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationToken = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationToken = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -7947,13 +7307,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationToken = function(value) {
  * @return {number}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationBufferTtl = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationBufferTtl = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -7962,13 +7322,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationBufferTtl = function(valu
  * @return {number}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationMinBufferSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationMinBufferSize = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -7979,13 +7339,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationMinBufferSize = function(
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationTdoa = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 6, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationTdoa = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
@@ -7996,13 +7356,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationTdoa = function(value) {
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationRssi = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 7, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationRssi = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -8013,13 +7373,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationRssi = function(value) {
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationGnss = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 8, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationGnss = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
 
@@ -8028,13 +7388,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationGnss = function(value) {
  * @return {string}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationGnssPayloadField = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationGnssPayloadField = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -8045,13 +7405,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationGnssPayloadField = functi
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationGnssUseRxTime = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationGnssUseRxTime = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -8062,13 +7422,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationGnssUseRxTime = function(
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationWifi = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationWifi = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -8077,13 +7437,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationWifi = function(value) {
  * @return {string}
  */
 proto.api.LoRaCloudIntegration.prototype.getGeolocationWifiPayloadField = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 12, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.LoRaCloudIntegration.prototype.setGeolocationWifiPayloadField = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -8094,13 +7454,13 @@ proto.api.LoRaCloudIntegration.prototype.setGeolocationWifiPayloadField = functi
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getDas = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 13, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 13, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setDas = function(value) {
-  jspb.Message.setField(this, 13, value);
+  jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 
@@ -8109,13 +7469,13 @@ proto.api.LoRaCloudIntegration.prototype.setDas = function(value) {
  * @return {string}
  */
 proto.api.LoRaCloudIntegration.prototype.getDasToken = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 14, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.LoRaCloudIntegration.prototype.setDasToken = function(value) {
-  jspb.Message.setField(this, 14, value);
+  jspb.Message.setProto3StringField(this, 14, value);
 };
 
 
@@ -8124,13 +7484,13 @@ proto.api.LoRaCloudIntegration.prototype.setDasToken = function(value) {
  * @return {number}
  */
 proto.api.LoRaCloudIntegration.prototype.getDasModemPort = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 15, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.LoRaCloudIntegration.prototype.setDasModemPort = function(value) {
-  jspb.Message.setField(this, 15, value);
+  jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -8139,13 +7499,13 @@ proto.api.LoRaCloudIntegration.prototype.setDasModemPort = function(value) {
  * @return {number}
  */
 proto.api.LoRaCloudIntegration.prototype.getDasGnssPort = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 16, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.LoRaCloudIntegration.prototype.setDasGnssPort = function(value) {
-  jspb.Message.setField(this, 16, value);
+  jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
@@ -8156,13 +7516,13 @@ proto.api.LoRaCloudIntegration.prototype.setDasGnssPort = function(value) {
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getDasGnssUseRxTime = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 17, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 17, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setDasGnssUseRxTime = function(value) {
-  jspb.Message.setField(this, 17, value);
+  jspb.Message.setProto3BooleanField(this, 17, value);
 };
 
 
@@ -8173,13 +7533,13 @@ proto.api.LoRaCloudIntegration.prototype.setDasGnssUseRxTime = function(value) {
  * @return {boolean}
  */
 proto.api.LoRaCloudIntegration.prototype.getDasStreamingGeolocWorkaround = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 18, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 18, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.api.LoRaCloudIntegration.prototype.setDasStreamingGeolocWorkaround = function(value) {
-  jspb.Message.setField(this, 18, value);
+  jspb.Message.setProto3BooleanField(this, 18, value);
 };
 
 
@@ -8226,6 +7586,7 @@ proto.api.CreateLoRaCloudIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateLoRaCloudIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateLoRaCloudIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -8281,35 +7642,26 @@ proto.api.CreateLoRaCloudIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateLoRaCloudIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateLoRaCloudIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateLoRaCloudIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateLoRaCloudIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -8321,25 +7673,16 @@ proto.api.CreateLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateLoRaCloudIntegrationRequest} The clone.
- */
-proto.api.CreateLoRaCloudIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateLoRaCloudIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional LoRaCloudIntegration integration = 1;
- * @return {proto.api.LoRaCloudIntegration}
+ * @return {?proto.api.LoRaCloudIntegration}
  */
 proto.api.CreateLoRaCloudIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.LoRaCloudIntegration} */ (
+  return /** @type{?proto.api.LoRaCloudIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.LoRaCloudIntegration, 1));
 };
 
 
-/** @param {proto.api.LoRaCloudIntegration|undefined} value  */
+/** @param {?proto.api.LoRaCloudIntegration|undefined} value */
 proto.api.CreateLoRaCloudIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -8352,7 +7695,7 @@ proto.api.CreateLoRaCloudIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateLoRaCloudIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -8402,10 +7745,11 @@ proto.api.GetLoRaCloudIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetLoRaCloudIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetLoRaCloudIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -8456,35 +7800,26 @@ proto.api.GetLoRaCloudIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetLoRaCloudIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetLoRaCloudIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetLoRaCloudIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetLoRaCloudIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -8495,26 +7830,17 @@ proto.api.GetLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetLoRaCloudIntegrationRequest} The clone.
- */
-proto.api.GetLoRaCloudIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetLoRaCloudIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetLoRaCloudIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetLoRaCloudIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -8561,6 +7887,7 @@ proto.api.GetLoRaCloudIntegrationResponse.prototype.toObject = function(opt_incl
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetLoRaCloudIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetLoRaCloudIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -8616,35 +7943,26 @@ proto.api.GetLoRaCloudIntegrationResponse.deserializeBinaryFromReader = function
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetLoRaCloudIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetLoRaCloudIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetLoRaCloudIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetLoRaCloudIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetLoRaCloudIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetLoRaCloudIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetLoRaCloudIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -8656,25 +7974,16 @@ proto.api.GetLoRaCloudIntegrationResponse.prototype.serializeBinaryToWriter = fu
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetLoRaCloudIntegrationResponse} The clone.
- */
-proto.api.GetLoRaCloudIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetLoRaCloudIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional LoRaCloudIntegration integration = 1;
- * @return {proto.api.LoRaCloudIntegration}
+ * @return {?proto.api.LoRaCloudIntegration}
  */
 proto.api.GetLoRaCloudIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.LoRaCloudIntegration} */ (
+  return /** @type{?proto.api.LoRaCloudIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.LoRaCloudIntegration, 1));
 };
 
 
-/** @param {proto.api.LoRaCloudIntegration|undefined} value  */
+/** @param {?proto.api.LoRaCloudIntegration|undefined} value */
 proto.api.GetLoRaCloudIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -8687,7 +7996,7 @@ proto.api.GetLoRaCloudIntegrationResponse.prototype.clearIntegration = function(
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetLoRaCloudIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -8737,6 +8046,7 @@ proto.api.UpdateLoRaCloudIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateLoRaCloudIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateLoRaCloudIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -8792,35 +8102,26 @@ proto.api.UpdateLoRaCloudIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateLoRaCloudIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateLoRaCloudIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateLoRaCloudIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateLoRaCloudIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -8832,25 +8133,16 @@ proto.api.UpdateLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateLoRaCloudIntegrationRequest} The clone.
- */
-proto.api.UpdateLoRaCloudIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateLoRaCloudIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional LoRaCloudIntegration integration = 1;
- * @return {proto.api.LoRaCloudIntegration}
+ * @return {?proto.api.LoRaCloudIntegration}
  */
 proto.api.UpdateLoRaCloudIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.LoRaCloudIntegration} */ (
+  return /** @type{?proto.api.LoRaCloudIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.LoRaCloudIntegration, 1));
 };
 
 
-/** @param {proto.api.LoRaCloudIntegration|undefined} value  */
+/** @param {?proto.api.LoRaCloudIntegration|undefined} value */
 proto.api.UpdateLoRaCloudIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -8863,7 +8155,7 @@ proto.api.UpdateLoRaCloudIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateLoRaCloudIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -8913,10 +8205,11 @@ proto.api.DeleteLoRaCloudIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteLoRaCloudIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteLoRaCloudIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -8967,35 +8260,26 @@ proto.api.DeleteLoRaCloudIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteLoRaCloudIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteLoRaCloudIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteLoRaCloudIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteLoRaCloudIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteLoRaCloudIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -9006,26 +8290,17 @@ proto.api.DeleteLoRaCloudIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteLoRaCloudIntegrationRequest} The clone.
- */
-proto.api.DeleteLoRaCloudIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteLoRaCloudIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteLoRaCloudIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteLoRaCloudIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -9072,14 +8347,15 @@ proto.api.GCPPubSubIntegration.prototype.toObject = function(opt_includeInstance
  *     http://goto/soy-param-migration
  * @param {!proto.api.GCPPubSubIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GCPPubSubIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    marshaler: msg.getMarshaler(),
-    credentialsFile: msg.getCredentialsFile(),
-    projectId: msg.getProjectId(),
-    topicName: msg.getTopicName()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    marshaler: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    credentialsFile: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    projectId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    topicName: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -9146,63 +8422,54 @@ proto.api.GCPPubSubIntegration.deserializeBinaryFromReader = function(msg, reade
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GCPPubSubIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GCPPubSubIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GCPPubSubIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GCPPubSubIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GCPPubSubIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GCPPubSubIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GCPPubSubIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getMarshaler();
+  f = message.getMarshaler();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
       f
     );
   }
-  f = this.getCredentialsFile();
+  f = message.getCredentialsFile();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getProjectId();
+  f = message.getProjectId();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getTopicName();
+  f = message.getTopicName();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -9213,26 +8480,17 @@ proto.api.GCPPubSubIntegration.prototype.serializeBinaryToWriter = function (wri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GCPPubSubIntegration} The clone.
- */
-proto.api.GCPPubSubIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GCPPubSubIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GCPPubSubIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GCPPubSubIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -9241,13 +8499,13 @@ proto.api.GCPPubSubIntegration.prototype.setApplicationId = function(value) {
  * @return {!proto.api.Marshaler}
  */
 proto.api.GCPPubSubIntegration.prototype.getMarshaler = function() {
-  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.api.Marshaler} value  */
+/** @param {!proto.api.Marshaler} value */
 proto.api.GCPPubSubIntegration.prototype.setMarshaler = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
@@ -9256,13 +8514,13 @@ proto.api.GCPPubSubIntegration.prototype.setMarshaler = function(value) {
  * @return {string}
  */
 proto.api.GCPPubSubIntegration.prototype.getCredentialsFile = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GCPPubSubIntegration.prototype.setCredentialsFile = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -9271,13 +8529,13 @@ proto.api.GCPPubSubIntegration.prototype.setCredentialsFile = function(value) {
  * @return {string}
  */
 proto.api.GCPPubSubIntegration.prototype.getProjectId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GCPPubSubIntegration.prototype.setProjectId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -9286,13 +8544,13 @@ proto.api.GCPPubSubIntegration.prototype.setProjectId = function(value) {
  * @return {string}
  */
 proto.api.GCPPubSubIntegration.prototype.getTopicName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GCPPubSubIntegration.prototype.setTopicName = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -9339,6 +8597,7 @@ proto.api.CreateGCPPubSubIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateGCPPubSubIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateGCPPubSubIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -9394,35 +8653,26 @@ proto.api.CreateGCPPubSubIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateGCPPubSubIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateGCPPubSubIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateGCPPubSubIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateGCPPubSubIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -9434,25 +8684,16 @@ proto.api.CreateGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateGCPPubSubIntegrationRequest} The clone.
- */
-proto.api.CreateGCPPubSubIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateGCPPubSubIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GCPPubSubIntegration integration = 1;
- * @return {proto.api.GCPPubSubIntegration}
+ * @return {?proto.api.GCPPubSubIntegration}
  */
 proto.api.CreateGCPPubSubIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.GCPPubSubIntegration} */ (
+  return /** @type{?proto.api.GCPPubSubIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.GCPPubSubIntegration, 1));
 };
 
 
-/** @param {proto.api.GCPPubSubIntegration|undefined} value  */
+/** @param {?proto.api.GCPPubSubIntegration|undefined} value */
 proto.api.CreateGCPPubSubIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -9465,7 +8706,7 @@ proto.api.CreateGCPPubSubIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateGCPPubSubIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -9515,10 +8756,11 @@ proto.api.GetGCPPubSubIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetGCPPubSubIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetGCPPubSubIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -9569,35 +8811,26 @@ proto.api.GetGCPPubSubIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetGCPPubSubIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetGCPPubSubIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetGCPPubSubIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetGCPPubSubIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -9608,26 +8841,17 @@ proto.api.GetGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetGCPPubSubIntegrationRequest} The clone.
- */
-proto.api.GetGCPPubSubIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetGCPPubSubIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetGCPPubSubIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetGCPPubSubIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -9674,6 +8898,7 @@ proto.api.GetGCPPubSubIntegrationResponse.prototype.toObject = function(opt_incl
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetGCPPubSubIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetGCPPubSubIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -9729,35 +8954,26 @@ proto.api.GetGCPPubSubIntegrationResponse.deserializeBinaryFromReader = function
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetGCPPubSubIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetGCPPubSubIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetGCPPubSubIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetGCPPubSubIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetGCPPubSubIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetGCPPubSubIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetGCPPubSubIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -9769,25 +8985,16 @@ proto.api.GetGCPPubSubIntegrationResponse.prototype.serializeBinaryToWriter = fu
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetGCPPubSubIntegrationResponse} The clone.
- */
-proto.api.GetGCPPubSubIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetGCPPubSubIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GCPPubSubIntegration integration = 1;
- * @return {proto.api.GCPPubSubIntegration}
+ * @return {?proto.api.GCPPubSubIntegration}
  */
 proto.api.GetGCPPubSubIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.GCPPubSubIntegration} */ (
+  return /** @type{?proto.api.GCPPubSubIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.GCPPubSubIntegration, 1));
 };
 
 
-/** @param {proto.api.GCPPubSubIntegration|undefined} value  */
+/** @param {?proto.api.GCPPubSubIntegration|undefined} value */
 proto.api.GetGCPPubSubIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -9800,7 +9007,7 @@ proto.api.GetGCPPubSubIntegrationResponse.prototype.clearIntegration = function(
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetGCPPubSubIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -9850,6 +9057,7 @@ proto.api.UpdateGCPPubSubIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateGCPPubSubIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateGCPPubSubIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -9905,35 +9113,26 @@ proto.api.UpdateGCPPubSubIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateGCPPubSubIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateGCPPubSubIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateGCPPubSubIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateGCPPubSubIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -9945,25 +9144,16 @@ proto.api.UpdateGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateGCPPubSubIntegrationRequest} The clone.
- */
-proto.api.UpdateGCPPubSubIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateGCPPubSubIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional GCPPubSubIntegration integration = 1;
- * @return {proto.api.GCPPubSubIntegration}
+ * @return {?proto.api.GCPPubSubIntegration}
  */
 proto.api.UpdateGCPPubSubIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.GCPPubSubIntegration} */ (
+  return /** @type{?proto.api.GCPPubSubIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.GCPPubSubIntegration, 1));
 };
 
 
-/** @param {proto.api.GCPPubSubIntegration|undefined} value  */
+/** @param {?proto.api.GCPPubSubIntegration|undefined} value */
 proto.api.UpdateGCPPubSubIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -9976,7 +9166,7 @@ proto.api.UpdateGCPPubSubIntegrationRequest.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateGCPPubSubIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -10026,10 +9216,11 @@ proto.api.DeleteGCPPubSubIntegrationRequest.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteGCPPubSubIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteGCPPubSubIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -10080,35 +9271,26 @@ proto.api.DeleteGCPPubSubIntegrationRequest.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteGCPPubSubIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteGCPPubSubIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteGCPPubSubIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteGCPPubSubIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteGCPPubSubIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -10119,26 +9301,17 @@ proto.api.DeleteGCPPubSubIntegrationRequest.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteGCPPubSubIntegrationRequest} The clone.
- */
-proto.api.DeleteGCPPubSubIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteGCPPubSubIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteGCPPubSubIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteGCPPubSubIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -10185,15 +9358,16 @@ proto.api.AWSSNSIntegration.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.AWSSNSIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.AWSSNSIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    marshaler: msg.getMarshaler(),
-    region: msg.getRegion(),
-    accessKeyId: msg.getAccessKeyId(),
-    secretAccessKey: msg.getSecretAccessKey(),
-    topicArn: msg.getTopicArn()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    marshaler: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    region: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    accessKeyId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    secretAccessKey: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    topicArn: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -10264,70 +9438,61 @@ proto.api.AWSSNSIntegration.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.AWSSNSIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.AWSSNSIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.AWSSNSIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.AWSSNSIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.AWSSNSIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.AWSSNSIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.AWSSNSIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getMarshaler();
+  f = message.getMarshaler();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
       f
     );
   }
-  f = this.getRegion();
+  f = message.getRegion();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getAccessKeyId();
+  f = message.getAccessKeyId();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getSecretAccessKey();
+  f = message.getSecretAccessKey();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getTopicArn();
+  f = message.getTopicArn();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -10338,26 +9503,17 @@ proto.api.AWSSNSIntegration.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.AWSSNSIntegration} The clone.
- */
-proto.api.AWSSNSIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.AWSSNSIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.AWSSNSIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.AWSSNSIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -10366,13 +9522,13 @@ proto.api.AWSSNSIntegration.prototype.setApplicationId = function(value) {
  * @return {!proto.api.Marshaler}
  */
 proto.api.AWSSNSIntegration.prototype.getMarshaler = function() {
-  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.api.Marshaler} value  */
+/** @param {!proto.api.Marshaler} value */
 proto.api.AWSSNSIntegration.prototype.setMarshaler = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
@@ -10381,13 +9537,13 @@ proto.api.AWSSNSIntegration.prototype.setMarshaler = function(value) {
  * @return {string}
  */
 proto.api.AWSSNSIntegration.prototype.getRegion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AWSSNSIntegration.prototype.setRegion = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -10396,13 +9552,13 @@ proto.api.AWSSNSIntegration.prototype.setRegion = function(value) {
  * @return {string}
  */
 proto.api.AWSSNSIntegration.prototype.getAccessKeyId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AWSSNSIntegration.prototype.setAccessKeyId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -10411,13 +9567,13 @@ proto.api.AWSSNSIntegration.prototype.setAccessKeyId = function(value) {
  * @return {string}
  */
 proto.api.AWSSNSIntegration.prototype.getSecretAccessKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AWSSNSIntegration.prototype.setSecretAccessKey = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -10426,13 +9582,13 @@ proto.api.AWSSNSIntegration.prototype.setSecretAccessKey = function(value) {
  * @return {string}
  */
 proto.api.AWSSNSIntegration.prototype.getTopicArn = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AWSSNSIntegration.prototype.setTopicArn = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -10479,6 +9635,7 @@ proto.api.CreateAWSSNSIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateAWSSNSIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateAWSSNSIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -10534,35 +9691,26 @@ proto.api.CreateAWSSNSIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateAWSSNSIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateAWSSNSIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateAWSSNSIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateAWSSNSIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -10574,25 +9722,16 @@ proto.api.CreateAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateAWSSNSIntegrationRequest} The clone.
- */
-proto.api.CreateAWSSNSIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateAWSSNSIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AWSSNSIntegration integration = 1;
- * @return {proto.api.AWSSNSIntegration}
+ * @return {?proto.api.AWSSNSIntegration}
  */
 proto.api.CreateAWSSNSIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.AWSSNSIntegration} */ (
+  return /** @type{?proto.api.AWSSNSIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AWSSNSIntegration, 1));
 };
 
 
-/** @param {proto.api.AWSSNSIntegration|undefined} value  */
+/** @param {?proto.api.AWSSNSIntegration|undefined} value */
 proto.api.CreateAWSSNSIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -10605,7 +9744,7 @@ proto.api.CreateAWSSNSIntegrationRequest.prototype.clearIntegration = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateAWSSNSIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -10655,10 +9794,11 @@ proto.api.GetAWSSNSIntegrationRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetAWSSNSIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetAWSSNSIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -10709,35 +9849,26 @@ proto.api.GetAWSSNSIntegrationRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetAWSSNSIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetAWSSNSIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetAWSSNSIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetAWSSNSIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -10748,26 +9879,17 @@ proto.api.GetAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetAWSSNSIntegrationRequest} The clone.
- */
-proto.api.GetAWSSNSIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetAWSSNSIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetAWSSNSIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetAWSSNSIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -10814,6 +9936,7 @@ proto.api.GetAWSSNSIntegrationResponse.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetAWSSNSIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetAWSSNSIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -10869,35 +9992,26 @@ proto.api.GetAWSSNSIntegrationResponse.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetAWSSNSIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetAWSSNSIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetAWSSNSIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetAWSSNSIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetAWSSNSIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetAWSSNSIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetAWSSNSIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -10909,25 +10023,16 @@ proto.api.GetAWSSNSIntegrationResponse.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetAWSSNSIntegrationResponse} The clone.
- */
-proto.api.GetAWSSNSIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetAWSSNSIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AWSSNSIntegration integration = 1;
- * @return {proto.api.AWSSNSIntegration}
+ * @return {?proto.api.AWSSNSIntegration}
  */
 proto.api.GetAWSSNSIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.AWSSNSIntegration} */ (
+  return /** @type{?proto.api.AWSSNSIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AWSSNSIntegration, 1));
 };
 
 
-/** @param {proto.api.AWSSNSIntegration|undefined} value  */
+/** @param {?proto.api.AWSSNSIntegration|undefined} value */
 proto.api.GetAWSSNSIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -10940,7 +10045,7 @@ proto.api.GetAWSSNSIntegrationResponse.prototype.clearIntegration = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetAWSSNSIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -10990,6 +10095,7 @@ proto.api.UpdateAWSSNSIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateAWSSNSIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateAWSSNSIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -11045,35 +10151,26 @@ proto.api.UpdateAWSSNSIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateAWSSNSIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateAWSSNSIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateAWSSNSIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateAWSSNSIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -11085,25 +10182,16 @@ proto.api.UpdateAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateAWSSNSIntegrationRequest} The clone.
- */
-proto.api.UpdateAWSSNSIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateAWSSNSIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AWSSNSIntegration integration = 1;
- * @return {proto.api.AWSSNSIntegration}
+ * @return {?proto.api.AWSSNSIntegration}
  */
 proto.api.UpdateAWSSNSIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.AWSSNSIntegration} */ (
+  return /** @type{?proto.api.AWSSNSIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AWSSNSIntegration, 1));
 };
 
 
-/** @param {proto.api.AWSSNSIntegration|undefined} value  */
+/** @param {?proto.api.AWSSNSIntegration|undefined} value */
 proto.api.UpdateAWSSNSIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -11116,7 +10204,7 @@ proto.api.UpdateAWSSNSIntegrationRequest.prototype.clearIntegration = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateAWSSNSIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -11166,10 +10254,11 @@ proto.api.DeleteAWSSNSIntegrationRequest.prototype.toObject = function(opt_inclu
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteAWSSNSIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteAWSSNSIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -11220,35 +10309,26 @@ proto.api.DeleteAWSSNSIntegrationRequest.deserializeBinaryFromReader = function(
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteAWSSNSIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteAWSSNSIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteAWSSNSIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteAWSSNSIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteAWSSNSIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -11259,26 +10339,17 @@ proto.api.DeleteAWSSNSIntegrationRequest.prototype.serializeBinaryToWriter = fun
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteAWSSNSIntegrationRequest} The clone.
- */
-proto.api.DeleteAWSSNSIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteAWSSNSIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteAWSSNSIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteAWSSNSIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11325,13 +10396,14 @@ proto.api.AzureServiceBusIntegration.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.AzureServiceBusIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.AzureServiceBusIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    marshaler: msg.getMarshaler(),
-    connectionString: msg.getConnectionString(),
-    publishName: msg.getPublishName()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    marshaler: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    connectionString: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    publishName: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -11394,56 +10466,47 @@ proto.api.AzureServiceBusIntegration.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.AzureServiceBusIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.AzureServiceBusIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.AzureServiceBusIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.AzureServiceBusIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.AzureServiceBusIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.AzureServiceBusIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.AzureServiceBusIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getMarshaler();
+  f = message.getMarshaler();
   if (f !== 0.0) {
     writer.writeEnum(
       2,
       f
     );
   }
-  f = this.getConnectionString();
+  f = message.getConnectionString();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getPublishName();
+  f = message.getPublishName();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -11454,26 +10517,17 @@ proto.api.AzureServiceBusIntegration.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.AzureServiceBusIntegration} The clone.
- */
-proto.api.AzureServiceBusIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.AzureServiceBusIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.AzureServiceBusIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.AzureServiceBusIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11482,13 +10536,13 @@ proto.api.AzureServiceBusIntegration.prototype.setApplicationId = function(value
  * @return {!proto.api.Marshaler}
  */
 proto.api.AzureServiceBusIntegration.prototype.getMarshaler = function() {
-  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {!proto.api.Marshaler} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!proto.api.Marshaler} value  */
+/** @param {!proto.api.Marshaler} value */
 proto.api.AzureServiceBusIntegration.prototype.setMarshaler = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
@@ -11497,13 +10551,13 @@ proto.api.AzureServiceBusIntegration.prototype.setMarshaler = function(value) {
  * @return {string}
  */
 proto.api.AzureServiceBusIntegration.prototype.getConnectionString = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AzureServiceBusIntegration.prototype.setConnectionString = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -11512,13 +10566,13 @@ proto.api.AzureServiceBusIntegration.prototype.setConnectionString = function(va
  * @return {string}
  */
 proto.api.AzureServiceBusIntegration.prototype.getPublishName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AzureServiceBusIntegration.prototype.setPublishName = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -11565,6 +10619,7 @@ proto.api.CreateAzureServiceBusIntegrationRequest.prototype.toObject = function(
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateAzureServiceBusIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateAzureServiceBusIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -11620,35 +10675,26 @@ proto.api.CreateAzureServiceBusIntegrationRequest.deserializeBinaryFromReader = 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateAzureServiceBusIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateAzureServiceBusIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateAzureServiceBusIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateAzureServiceBusIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -11660,25 +10706,16 @@ proto.api.CreateAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateAzureServiceBusIntegrationRequest} The clone.
- */
-proto.api.CreateAzureServiceBusIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateAzureServiceBusIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AzureServiceBusIntegration integration = 1;
- * @return {proto.api.AzureServiceBusIntegration}
+ * @return {?proto.api.AzureServiceBusIntegration}
  */
 proto.api.CreateAzureServiceBusIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.AzureServiceBusIntegration} */ (
+  return /** @type{?proto.api.AzureServiceBusIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AzureServiceBusIntegration, 1));
 };
 
 
-/** @param {proto.api.AzureServiceBusIntegration|undefined} value  */
+/** @param {?proto.api.AzureServiceBusIntegration|undefined} value */
 proto.api.CreateAzureServiceBusIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -11691,7 +10728,7 @@ proto.api.CreateAzureServiceBusIntegrationRequest.prototype.clearIntegration = f
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateAzureServiceBusIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -11741,10 +10778,11 @@ proto.api.GetAzureServiceBusIntegrationRequest.prototype.toObject = function(opt
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetAzureServiceBusIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetAzureServiceBusIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -11795,35 +10833,26 @@ proto.api.GetAzureServiceBusIntegrationRequest.deserializeBinaryFromReader = fun
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetAzureServiceBusIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetAzureServiceBusIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetAzureServiceBusIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetAzureServiceBusIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -11834,26 +10863,17 @@ proto.api.GetAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWriter
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetAzureServiceBusIntegrationRequest} The clone.
- */
-proto.api.GetAzureServiceBusIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetAzureServiceBusIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetAzureServiceBusIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetAzureServiceBusIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11900,6 +10920,7 @@ proto.api.GetAzureServiceBusIntegrationResponse.prototype.toObject = function(op
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetAzureServiceBusIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetAzureServiceBusIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -11955,35 +10976,26 @@ proto.api.GetAzureServiceBusIntegrationResponse.deserializeBinaryFromReader = fu
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetAzureServiceBusIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetAzureServiceBusIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetAzureServiceBusIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetAzureServiceBusIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetAzureServiceBusIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetAzureServiceBusIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetAzureServiceBusIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -11995,25 +11007,16 @@ proto.api.GetAzureServiceBusIntegrationResponse.prototype.serializeBinaryToWrite
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetAzureServiceBusIntegrationResponse} The clone.
- */
-proto.api.GetAzureServiceBusIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetAzureServiceBusIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AzureServiceBusIntegration integration = 1;
- * @return {proto.api.AzureServiceBusIntegration}
+ * @return {?proto.api.AzureServiceBusIntegration}
  */
 proto.api.GetAzureServiceBusIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.AzureServiceBusIntegration} */ (
+  return /** @type{?proto.api.AzureServiceBusIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AzureServiceBusIntegration, 1));
 };
 
 
-/** @param {proto.api.AzureServiceBusIntegration|undefined} value  */
+/** @param {?proto.api.AzureServiceBusIntegration|undefined} value */
 proto.api.GetAzureServiceBusIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -12026,7 +11029,7 @@ proto.api.GetAzureServiceBusIntegrationResponse.prototype.clearIntegration = fun
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetAzureServiceBusIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -12076,6 +11079,7 @@ proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.toObject = function(
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateAzureServiceBusIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateAzureServiceBusIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -12131,35 +11135,26 @@ proto.api.UpdateAzureServiceBusIntegrationRequest.deserializeBinaryFromReader = 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateAzureServiceBusIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateAzureServiceBusIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateAzureServiceBusIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -12171,25 +11166,16 @@ proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateAzureServiceBusIntegrationRequest} The clone.
- */
-proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateAzureServiceBusIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional AzureServiceBusIntegration integration = 1;
- * @return {proto.api.AzureServiceBusIntegration}
+ * @return {?proto.api.AzureServiceBusIntegration}
  */
 proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.AzureServiceBusIntegration} */ (
+  return /** @type{?proto.api.AzureServiceBusIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.AzureServiceBusIntegration, 1));
 };
 
 
-/** @param {proto.api.AzureServiceBusIntegration|undefined} value  */
+/** @param {?proto.api.AzureServiceBusIntegration|undefined} value */
 proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -12202,7 +11188,7 @@ proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.clearIntegration = f
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateAzureServiceBusIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -12252,10 +11238,11 @@ proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.toObject = function(
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteAzureServiceBusIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteAzureServiceBusIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -12306,35 +11293,26 @@ proto.api.DeleteAzureServiceBusIntegrationRequest.deserializeBinaryFromReader = 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteAzureServiceBusIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteAzureServiceBusIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteAzureServiceBusIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteAzureServiceBusIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -12345,26 +11323,17 @@ proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.serializeBinaryToWri
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteAzureServiceBusIntegrationRequest} The clone.
- */
-proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteAzureServiceBusIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeleteAzureServiceBusIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -12411,12 +11380,13 @@ proto.api.PilotThingsIntegration.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.PilotThingsIntegration} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.PilotThingsIntegration.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    server: msg.getServer(),
-    token: msg.getToken()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    server: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    token: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -12475,49 +11445,40 @@ proto.api.PilotThingsIntegration.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.PilotThingsIntegration} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.PilotThingsIntegration.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.PilotThingsIntegration.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.PilotThingsIntegration.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.PilotThingsIntegration} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.PilotThingsIntegration.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.PilotThingsIntegration.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getServer();
+  f = message.getServer();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getToken();
+  f = message.getToken();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -12528,26 +11489,17 @@ proto.api.PilotThingsIntegration.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.PilotThingsIntegration} The clone.
- */
-proto.api.PilotThingsIntegration.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.PilotThingsIntegration} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.PilotThingsIntegration.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.PilotThingsIntegration.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -12556,13 +11508,13 @@ proto.api.PilotThingsIntegration.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.PilotThingsIntegration.prototype.getServer = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.PilotThingsIntegration.prototype.setServer = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -12571,13 +11523,13 @@ proto.api.PilotThingsIntegration.prototype.setServer = function(value) {
  * @return {string}
  */
 proto.api.PilotThingsIntegration.prototype.getToken = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.PilotThingsIntegration.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -12624,6 +11576,7 @@ proto.api.CreatePilotThingsIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreatePilotThingsIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreatePilotThingsIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -12679,35 +11632,26 @@ proto.api.CreatePilotThingsIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreatePilotThingsIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreatePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreatePilotThingsIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreatePilotThingsIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreatePilotThingsIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreatePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreatePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -12719,25 +11663,16 @@ proto.api.CreatePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreatePilotThingsIntegrationRequest} The clone.
- */
-proto.api.CreatePilotThingsIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreatePilotThingsIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional PilotThingsIntegration integration = 1;
- * @return {proto.api.PilotThingsIntegration}
+ * @return {?proto.api.PilotThingsIntegration}
  */
 proto.api.CreatePilotThingsIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.PilotThingsIntegration} */ (
+  return /** @type{?proto.api.PilotThingsIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.PilotThingsIntegration, 1));
 };
 
 
-/** @param {proto.api.PilotThingsIntegration|undefined} value  */
+/** @param {?proto.api.PilotThingsIntegration|undefined} value */
 proto.api.CreatePilotThingsIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -12750,7 +11685,7 @@ proto.api.CreatePilotThingsIntegrationRequest.prototype.clearIntegration = funct
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreatePilotThingsIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -12800,10 +11735,11 @@ proto.api.GetPilotThingsIntegrationRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetPilotThingsIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetPilotThingsIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -12854,35 +11790,26 @@ proto.api.GetPilotThingsIntegrationRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetPilotThingsIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetPilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetPilotThingsIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetPilotThingsIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetPilotThingsIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetPilotThingsIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetPilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -12893,26 +11820,17 @@ proto.api.GetPilotThingsIntegrationRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetPilotThingsIntegrationRequest} The clone.
- */
-proto.api.GetPilotThingsIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetPilotThingsIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GetPilotThingsIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GetPilotThingsIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -12959,6 +11877,7 @@ proto.api.GetPilotThingsIntegrationResponse.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetPilotThingsIntegrationResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetPilotThingsIntegrationResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -13014,35 +11933,26 @@ proto.api.GetPilotThingsIntegrationResponse.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetPilotThingsIntegrationResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetPilotThingsIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetPilotThingsIntegrationResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetPilotThingsIntegrationResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetPilotThingsIntegrationResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetPilotThingsIntegrationResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetPilotThingsIntegrationResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -13054,25 +11964,16 @@ proto.api.GetPilotThingsIntegrationResponse.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetPilotThingsIntegrationResponse} The clone.
- */
-proto.api.GetPilotThingsIntegrationResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetPilotThingsIntegrationResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional PilotThingsIntegration integration = 1;
- * @return {proto.api.PilotThingsIntegration}
+ * @return {?proto.api.PilotThingsIntegration}
  */
 proto.api.GetPilotThingsIntegrationResponse.prototype.getIntegration = function() {
-  return /** @type{proto.api.PilotThingsIntegration} */ (
+  return /** @type{?proto.api.PilotThingsIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.PilotThingsIntegration, 1));
 };
 
 
-/** @param {proto.api.PilotThingsIntegration|undefined} value  */
+/** @param {?proto.api.PilotThingsIntegration|undefined} value */
 proto.api.GetPilotThingsIntegrationResponse.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -13085,7 +11986,7 @@ proto.api.GetPilotThingsIntegrationResponse.prototype.clearIntegration = functio
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetPilotThingsIntegrationResponse.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -13135,6 +12036,7 @@ proto.api.UpdatePilotThingsIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdatePilotThingsIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdatePilotThingsIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -13190,35 +12092,26 @@ proto.api.UpdatePilotThingsIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdatePilotThingsIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdatePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdatePilotThingsIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdatePilotThingsIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdatePilotThingsIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdatePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdatePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getIntegration();
+  f = message.getIntegration();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -13230,25 +12123,16 @@ proto.api.UpdatePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdatePilotThingsIntegrationRequest} The clone.
- */
-proto.api.UpdatePilotThingsIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdatePilotThingsIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional PilotThingsIntegration integration = 1;
- * @return {proto.api.PilotThingsIntegration}
+ * @return {?proto.api.PilotThingsIntegration}
  */
 proto.api.UpdatePilotThingsIntegrationRequest.prototype.getIntegration = function() {
-  return /** @type{proto.api.PilotThingsIntegration} */ (
+  return /** @type{?proto.api.PilotThingsIntegration} */ (
     jspb.Message.getWrapperField(this, proto.api.PilotThingsIntegration, 1));
 };
 
 
-/** @param {proto.api.PilotThingsIntegration|undefined} value  */
+/** @param {?proto.api.PilotThingsIntegration|undefined} value */
 proto.api.UpdatePilotThingsIntegrationRequest.prototype.setIntegration = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -13261,7 +12145,7 @@ proto.api.UpdatePilotThingsIntegrationRequest.prototype.clearIntegration = funct
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdatePilotThingsIntegrationRequest.prototype.hasIntegration = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -13311,10 +12195,11 @@ proto.api.DeletePilotThingsIntegrationRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeletePilotThingsIntegrationRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeletePilotThingsIntegrationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -13365,35 +12250,26 @@ proto.api.DeletePilotThingsIntegrationRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeletePilotThingsIntegrationRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeletePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeletePilotThingsIntegrationRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeletePilotThingsIntegrationRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeletePilotThingsIntegrationRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeletePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeletePilotThingsIntegrationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -13404,26 +12280,17 @@ proto.api.DeletePilotThingsIntegrationRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeletePilotThingsIntegrationRequest} The clone.
- */
-proto.api.DeletePilotThingsIntegrationRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeletePilotThingsIntegrationRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.DeletePilotThingsIntegrationRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.DeletePilotThingsIntegrationRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -13470,10 +12337,11 @@ proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.toObject = f
  *     http://goto/soy-param-migration
  * @param {!proto.api.GenerateMQTTIntegrationClientCertificateRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GenerateMQTTIntegrationClientCertificateRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId()
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -13524,35 +12392,26 @@ proto.api.GenerateMQTTIntegrationClientCertificateRequest.deserializeBinaryFromR
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GenerateMQTTIntegrationClientCertificateRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GenerateMQTTIntegrationClientCertificateRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GenerateMQTTIntegrationClientCertificateRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GenerateMQTTIntegrationClientCertificateRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GenerateMQTTIntegrationClientCertificateRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -13563,26 +12422,17 @@ proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.serializeBin
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GenerateMQTTIntegrationClientCertificateRequest} The clone.
- */
-proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GenerateMQTTIntegrationClientCertificateRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 application_id = 1;
  * @return {number}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.GenerateMQTTIntegrationClientCertificateRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -13629,12 +12479,13 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.toObject = 
  *     http://goto/soy-param-migration
  * @param {!proto.api.GenerateMQTTIntegrationClientCertificateResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    tlsCert: msg.getTlsCert(),
-    tlsKey: msg.getTlsKey(),
-    caCert: msg.getCaCert(),
+    tlsCert: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    tlsKey: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    caCert: jspb.Message.getFieldWithDefault(msg, 3, ""),
     expiresAt: (f = msg.getExpiresAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -13699,56 +12550,47 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.deserializeBinaryFrom
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GenerateMQTTIntegrationClientCertificateResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GenerateMQTTIntegrationClientCertificateResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GenerateMQTTIntegrationClientCertificateResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GenerateMQTTIntegrationClientCertificateResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GenerateMQTTIntegrationClientCertificateResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTlsCert();
+  f = message.getTlsCert();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getTlsKey();
+  f = message.getTlsKey();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getCaCert();
+  f = message.getCaCert();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getExpiresAt();
+  f = message.getExpiresAt();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -13760,26 +12602,17 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.serializeBi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GenerateMQTTIntegrationClientCertificateResponse} The clone.
- */
-proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GenerateMQTTIntegrationClientCertificateResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string tls_cert = 1;
  * @return {string}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.getTlsCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setTlsCert = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -13788,13 +12621,13 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setTlsCert 
  * @return {string}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.getTlsKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setTlsKey = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -13803,27 +12636,27 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setTlsKey =
  * @return {string}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.getCaCert = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setCaCert = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp expires_at = 4;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.getExpiresAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.setExpiresAt = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
@@ -13836,7 +12669,7 @@ proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.clearExpire
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GenerateMQTTIntegrationClientCertificateResponse.prototype.hasExpiresAt = function() {
   return jspb.Message.getField(this, 4) != null;

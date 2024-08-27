@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -58,10 +60,11 @@ proto.common.KeyEnvelope.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.common.KeyEnvelope} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.common.KeyEnvelope.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kekLabel: msg.getKekLabel(),
+    kekLabel: jspb.Message.getFieldWithDefault(msg, 1, ""),
     aesKey: msg.getAesKey_asB64()
   };
 
@@ -117,42 +120,33 @@ proto.common.KeyEnvelope.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.common.KeyEnvelope} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.common.KeyEnvelope.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.common.KeyEnvelope.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.common.KeyEnvelope.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.common.KeyEnvelope} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.common.KeyEnvelope.prototype.serializeBinaryToWriter = function (writer) {
+proto.common.KeyEnvelope.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getKekLabel();
+  f = message.getKekLabel();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getAesKey_asU8();
+  f = message.getAesKey_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
@@ -163,26 +157,17 @@ proto.common.KeyEnvelope.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.common.KeyEnvelope} The clone.
- */
-proto.common.KeyEnvelope.prototype.cloneMessage = function() {
-  return /** @type {!proto.common.KeyEnvelope} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string kek_label = 1;
  * @return {string}
  */
 proto.common.KeyEnvelope.prototype.getKekLabel = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.common.KeyEnvelope.prototype.setKekLabel = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -191,7 +176,7 @@ proto.common.KeyEnvelope.prototype.setKekLabel = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.common.KeyEnvelope.prototype.getAesKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -219,9 +204,9 @@ proto.common.KeyEnvelope.prototype.getAesKey_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.common.KeyEnvelope.prototype.setAesKey = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -268,14 +253,15 @@ proto.common.Location.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.common.Location} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.common.Location.toObject = function(includeInstance, msg) {
   var f, obj = {
-    latitude: msg.getLatitude(),
-    longitude: msg.getLongitude(),
-    altitude: msg.getAltitude(),
-    source: msg.getSource(),
-    accuracy: msg.getAccuracy()
+    latitude: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+    longitude: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    altitude: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    source: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    accuracy: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -342,63 +328,54 @@ proto.common.Location.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.common.Location} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.common.Location.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.common.Location.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.common.Location.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.common.Location} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.common.Location.prototype.serializeBinaryToWriter = function (writer) {
+proto.common.Location.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLatitude();
+  f = message.getLatitude();
   if (f !== 0.0) {
     writer.writeDouble(
       1,
       f
     );
   }
-  f = this.getLongitude();
+  f = message.getLongitude();
   if (f !== 0.0) {
     writer.writeDouble(
       2,
       f
     );
   }
-  f = this.getAltitude();
+  f = message.getAltitude();
   if (f !== 0.0) {
     writer.writeDouble(
       3,
       f
     );
   }
-  f = this.getSource();
+  f = message.getSource();
   if (f !== 0.0) {
     writer.writeEnum(
       4,
       f
     );
   }
-  f = this.getAccuracy();
+  f = message.getAccuracy();
   if (f !== 0) {
     writer.writeUint32(
       5,
@@ -409,26 +386,17 @@ proto.common.Location.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.common.Location} The clone.
- */
-proto.common.Location.prototype.cloneMessage = function() {
-  return /** @type {!proto.common.Location} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional double latitude = 1;
  * @return {number}
  */
 proto.common.Location.prototype.getLatitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.common.Location.prototype.setLatitude = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3FloatField(this, 1, value);
 };
 
 
@@ -437,13 +405,13 @@ proto.common.Location.prototype.setLatitude = function(value) {
  * @return {number}
  */
 proto.common.Location.prototype.getLongitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.common.Location.prototype.setLongitude = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 
@@ -452,13 +420,13 @@ proto.common.Location.prototype.setLongitude = function(value) {
  * @return {number}
  */
 proto.common.Location.prototype.getAltitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.common.Location.prototype.setAltitude = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -467,13 +435,13 @@ proto.common.Location.prototype.setAltitude = function(value) {
  * @return {!proto.common.LocationSource}
  */
 proto.common.Location.prototype.getSource = function() {
-  return /** @type {!proto.common.LocationSource} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {!proto.common.LocationSource} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {!proto.common.LocationSource} value  */
+/** @param {!proto.common.LocationSource} value */
 proto.common.Location.prototype.setSource = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
@@ -482,13 +450,13 @@ proto.common.Location.prototype.setSource = function(value) {
  * @return {number}
  */
 proto.common.Location.prototype.getAccuracy = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.common.Location.prototype.setAccuracy = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 

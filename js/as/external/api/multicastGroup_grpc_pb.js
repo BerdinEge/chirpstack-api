@@ -6,6 +6,7 @@ var as_external_api_multicastGroup_pb = require('../../../as/external/api/multic
 var google_api_annotations_pb = require('../../../google/api/annotations_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
+var google_protobuf_duration_pb = require('google-protobuf/google/protobuf/duration_pb.js');
 
 function serialize_api_AddDeviceToMulticastGroupRequest(arg) {
   if (!(arg instanceof as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest)) {
@@ -16,6 +17,28 @@ function serialize_api_AddDeviceToMulticastGroupRequest(arg) {
 
 function deserialize_api_AddDeviceToMulticastGroupRequest(buffer_arg) {
   return as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_BulkMulticastDeploymentRequest(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest)) {
+    throw new Error('Expected argument of type api.BulkMulticastDeploymentRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_BulkMulticastDeploymentRequest(buffer_arg) {
+  return as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_BulkMulticastDeploymentResponse(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse)) {
+    throw new Error('Expected argument of type api.BulkMulticastDeploymentResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_BulkMulticastDeploymentResponse(buffer_arg) {
+  return as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_api_CreateMulticastGroupRequest(arg) {
@@ -159,6 +182,28 @@ function serialize_api_RemoveDeviceFromMulticastGroupRequest(arg) {
 
 function deserialize_api_RemoveDeviceFromMulticastGroupRequest(buffer_arg) {
   return as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_ResetMulticastSetupRequest(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.ResetMulticastSetupRequest)) {
+    throw new Error('Expected argument of type api.ResetMulticastSetupRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_ResetMulticastSetupRequest(buffer_arg) {
+  return as_external_api_multicastGroup_pb.ResetMulticastSetupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_ResetMulticastSetupResponse(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.ResetMulticastSetupResponse)) {
+    throw new Error('Expected argument of type api.ResetMulticastSetupResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_ResetMulticastSetupResponse(buffer_arg) {
+  return as_external_api_multicastGroup_pb.ResetMulticastSetupResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_api_UpdateMulticastGroupRequest(arg) {
@@ -305,6 +350,30 @@ listQueue: {
     requestDeserialize: deserialize_api_ListMulticastGroupQueueItemsRequest,
     responseSerialize: serialize_api_ListMulticastGroupQueueItemsResponse,
     responseDeserialize: deserialize_api_ListMulticastGroupQueueItemsResponse,
+  },
+  // BulkMulticastDeployment creates the given multicast-deployment.
+bulkMulticastDeployment: {
+    path: '/api.MulticastGroupService/BulkMulticastDeployment',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest,
+    responseType: as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse,
+    requestSerialize: serialize_api_BulkMulticastDeploymentRequest,
+    requestDeserialize: deserialize_api_BulkMulticastDeploymentRequest,
+    responseSerialize: serialize_api_BulkMulticastDeploymentResponse,
+    responseDeserialize: deserialize_api_BulkMulticastDeploymentResponse,
+  },
+  // ResetMulticastSetup creates the given multicast-deployment.
+resetMulticastSetup: {
+    path: '/api.MulticastGroupService/ResetMulticastSetup',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest,
+    responseType: as_external_api_multicastGroup_pb.ResetMulticastSetupResponse,
+    requestSerialize: serialize_api_ResetMulticastSetupRequest,
+    requestDeserialize: deserialize_api_ResetMulticastSetupRequest,
+    responseSerialize: serialize_api_ResetMulticastSetupResponse,
+    responseDeserialize: deserialize_api_ResetMulticastSetupResponse,
   },
 };
 

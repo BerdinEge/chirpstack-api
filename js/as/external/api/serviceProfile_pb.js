@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -65,6 +67,7 @@ proto.api.CreateServiceProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateServiceProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateServiceProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -120,35 +123,26 @@ proto.api.CreateServiceProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateServiceProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateServiceProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateServiceProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateServiceProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateServiceProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getServiceProfile();
+  f = message.getServiceProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -160,25 +154,16 @@ proto.api.CreateServiceProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateServiceProfileRequest} The clone.
- */
-proto.api.CreateServiceProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateServiceProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ServiceProfile service_profile = 1;
- * @return {proto.api.ServiceProfile}
+ * @return {?proto.api.ServiceProfile}
  */
 proto.api.CreateServiceProfileRequest.prototype.getServiceProfile = function() {
-  return /** @type{proto.api.ServiceProfile} */ (
+  return /** @type{?proto.api.ServiceProfile} */ (
     jspb.Message.getWrapperField(this, as_external_api_profiles_pb.ServiceProfile, 1));
 };
 
 
-/** @param {proto.api.ServiceProfile|undefined} value  */
+/** @param {?proto.api.ServiceProfile|undefined} value */
 proto.api.CreateServiceProfileRequest.prototype.setServiceProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -191,7 +176,7 @@ proto.api.CreateServiceProfileRequest.prototype.clearServiceProfile = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateServiceProfileRequest.prototype.hasServiceProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -241,10 +226,11 @@ proto.api.CreateServiceProfileResponse.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateServiceProfileResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateServiceProfileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -295,35 +281,26 @@ proto.api.CreateServiceProfileResponse.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateServiceProfileResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateServiceProfileResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateServiceProfileResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateServiceProfileResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateServiceProfileResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -334,26 +311,17 @@ proto.api.CreateServiceProfileResponse.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateServiceProfileResponse} The clone.
- */
-proto.api.CreateServiceProfileResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateServiceProfileResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.CreateServiceProfileResponse.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.CreateServiceProfileResponse.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -400,10 +368,11 @@ proto.api.GetServiceProfileRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetServiceProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetServiceProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -454,35 +423,26 @@ proto.api.GetServiceProfileRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetServiceProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetServiceProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetServiceProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetServiceProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetServiceProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -493,26 +453,17 @@ proto.api.GetServiceProfileRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetServiceProfileRequest} The clone.
- */
-proto.api.GetServiceProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetServiceProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.GetServiceProfileRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetServiceProfileRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -559,6 +510,7 @@ proto.api.GetServiceProfileResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetServiceProfileResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetServiceProfileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -626,35 +578,26 @@ proto.api.GetServiceProfileResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetServiceProfileResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetServiceProfileResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetServiceProfileResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetServiceProfileResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetServiceProfileResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getServiceProfile();
+  f = message.getServiceProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -662,7 +605,7 @@ proto.api.GetServiceProfileResponse.prototype.serializeBinaryToWriter = function
       as_external_api_profiles_pb.ServiceProfile.serializeBinaryToWriter
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -670,7 +613,7 @@ proto.api.GetServiceProfileResponse.prototype.serializeBinaryToWriter = function
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -682,25 +625,16 @@ proto.api.GetServiceProfileResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetServiceProfileResponse} The clone.
- */
-proto.api.GetServiceProfileResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetServiceProfileResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ServiceProfile service_profile = 1;
- * @return {proto.api.ServiceProfile}
+ * @return {?proto.api.ServiceProfile}
  */
 proto.api.GetServiceProfileResponse.prototype.getServiceProfile = function() {
-  return /** @type{proto.api.ServiceProfile} */ (
+  return /** @type{?proto.api.ServiceProfile} */ (
     jspb.Message.getWrapperField(this, as_external_api_profiles_pb.ServiceProfile, 1));
 };
 
 
-/** @param {proto.api.ServiceProfile|undefined} value  */
+/** @param {?proto.api.ServiceProfile|undefined} value */
 proto.api.GetServiceProfileResponse.prototype.setServiceProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -713,7 +647,7 @@ proto.api.GetServiceProfileResponse.prototype.clearServiceProfile = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetServiceProfileResponse.prototype.hasServiceProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -722,15 +656,15 @@ proto.api.GetServiceProfileResponse.prototype.hasServiceProfile = function() {
 
 /**
  * optional google.protobuf.Timestamp created_at = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetServiceProfileResponse.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetServiceProfileResponse.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -743,7 +677,7 @@ proto.api.GetServiceProfileResponse.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetServiceProfileResponse.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -752,15 +686,15 @@ proto.api.GetServiceProfileResponse.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetServiceProfileResponse.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetServiceProfileResponse.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -773,7 +707,7 @@ proto.api.GetServiceProfileResponse.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetServiceProfileResponse.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -823,6 +757,7 @@ proto.api.UpdateServiceProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateServiceProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateServiceProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -878,35 +813,26 @@ proto.api.UpdateServiceProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateServiceProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateServiceProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateServiceProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateServiceProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateServiceProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getServiceProfile();
+  f = message.getServiceProfile();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -918,25 +844,16 @@ proto.api.UpdateServiceProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateServiceProfileRequest} The clone.
- */
-proto.api.UpdateServiceProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateServiceProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional ServiceProfile service_profile = 1;
- * @return {proto.api.ServiceProfile}
+ * @return {?proto.api.ServiceProfile}
  */
 proto.api.UpdateServiceProfileRequest.prototype.getServiceProfile = function() {
-  return /** @type{proto.api.ServiceProfile} */ (
+  return /** @type{?proto.api.ServiceProfile} */ (
     jspb.Message.getWrapperField(this, as_external_api_profiles_pb.ServiceProfile, 1));
 };
 
 
-/** @param {proto.api.ServiceProfile|undefined} value  */
+/** @param {?proto.api.ServiceProfile|undefined} value */
 proto.api.UpdateServiceProfileRequest.prototype.setServiceProfile = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -949,7 +866,7 @@ proto.api.UpdateServiceProfileRequest.prototype.clearServiceProfile = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateServiceProfileRequest.prototype.hasServiceProfile = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -999,10 +916,11 @@ proto.api.DeleteServiceProfileRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteServiceProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteServiceProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1053,35 +971,26 @@ proto.api.DeleteServiceProfileRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteServiceProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteServiceProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteServiceProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteServiceProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteServiceProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1092,26 +1001,17 @@ proto.api.DeleteServiceProfileRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteServiceProfileRequest} The clone.
- */
-proto.api.DeleteServiceProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteServiceProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.DeleteServiceProfileRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeleteServiceProfileRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1158,13 +1058,14 @@ proto.api.ListServiceProfileRequest.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListServiceProfileRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListServiceProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    organizationId: msg.getOrganizationId(),
-    networkServerId: msg.getNetworkServerId()
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -1227,56 +1128,47 @@ proto.api.ListServiceProfileRequest.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListServiceProfileRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListServiceProfileRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListServiceProfileRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListServiceProfileRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListServiceProfileRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListServiceProfileRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       4,
@@ -1287,26 +1179,17 @@ proto.api.ListServiceProfileRequest.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListServiceProfileRequest} The clone.
- */
-proto.api.ListServiceProfileRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListServiceProfileRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 limit = 1;
  * @return {number}
  */
 proto.api.ListServiceProfileRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListServiceProfileRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1315,13 +1198,13 @@ proto.api.ListServiceProfileRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListServiceProfileRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListServiceProfileRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1330,13 +1213,13 @@ proto.api.ListServiceProfileRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListServiceProfileRequest.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListServiceProfileRequest.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1345,13 +1228,13 @@ proto.api.ListServiceProfileRequest.prototype.setOrganizationId = function(value
  * @return {number}
  */
 proto.api.ListServiceProfileRequest.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListServiceProfileRequest.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -1398,16 +1281,17 @@ proto.api.ServiceProfileListItem.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.ServiceProfileListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ServiceProfileListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    organizationId: msg.getOrganizationId(),
-    networkServerId: msg.getNetworkServerId(),
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    networkServerId: jspb.Message.getFieldWithDefault(msg, 4, 0),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    networkServerName: msg.getNetworkServerName()
+    networkServerName: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -1484,63 +1368,54 @@ proto.api.ServiceProfileListItem.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ServiceProfileListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ServiceProfileListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ServiceProfileListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ServiceProfileListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ServiceProfileListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ServiceProfileListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ServiceProfileListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getNetworkServerId();
+  f = message.getNetworkServerId();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -1548,7 +1423,7 @@ proto.api.ServiceProfileListItem.prototype.serializeBinaryToWriter = function (w
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -1556,7 +1431,7 @@ proto.api.ServiceProfileListItem.prototype.serializeBinaryToWriter = function (w
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getNetworkServerName();
+  f = message.getNetworkServerName();
   if (f.length > 0) {
     writer.writeString(
       7,
@@ -1567,26 +1442,17 @@ proto.api.ServiceProfileListItem.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ServiceProfileListItem} The clone.
- */
-proto.api.ServiceProfileListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ServiceProfileListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.ServiceProfileListItem.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ServiceProfileListItem.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1595,13 +1461,13 @@ proto.api.ServiceProfileListItem.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.ServiceProfileListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ServiceProfileListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1610,13 +1476,13 @@ proto.api.ServiceProfileListItem.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfileListItem.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfileListItem.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1625,27 +1491,27 @@ proto.api.ServiceProfileListItem.prototype.setOrganizationId = function(value) {
  * @return {number}
  */
 proto.api.ServiceProfileListItem.prototype.getNetworkServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ServiceProfileListItem.prototype.setNetworkServerId = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp created_at = 5;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.ServiceProfileListItem.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.ServiceProfileListItem.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 5, value);
 };
@@ -1658,7 +1524,7 @@ proto.api.ServiceProfileListItem.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.ServiceProfileListItem.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -1667,15 +1533,15 @@ proto.api.ServiceProfileListItem.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 6;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.ServiceProfileListItem.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 6));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.ServiceProfileListItem.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
 };
@@ -1688,7 +1554,7 @@ proto.api.ServiceProfileListItem.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.ServiceProfileListItem.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 6) != null;
@@ -1700,13 +1566,13 @@ proto.api.ServiceProfileListItem.prototype.hasUpdatedAt = function() {
  * @return {string}
  */
 proto.api.ServiceProfileListItem.prototype.getNetworkServerName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ServiceProfileListItem.prototype.setNetworkServerName = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -1760,10 +1626,11 @@ proto.api.ListServiceProfileResponse.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListServiceProfileResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListServiceProfileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.ServiceProfileListItem.toObject, includeInstance)
   };
@@ -1809,8 +1676,7 @@ proto.api.ListServiceProfileResponse.deserializeBinaryFromReader = function(msg,
     case 2:
       var value = new proto.api.ServiceProfileListItem;
       reader.readMessage(value,proto.api.ServiceProfileListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -1822,42 +1688,33 @@ proto.api.ListServiceProfileResponse.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListServiceProfileResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListServiceProfileResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListServiceProfileResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListServiceProfileResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListServiceProfileResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListServiceProfileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -1869,44 +1726,43 @@ proto.api.ListServiceProfileResponse.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListServiceProfileResponse} The clone.
- */
-proto.api.ListServiceProfileResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListServiceProfileResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListServiceProfileResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListServiceProfileResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated ServiceProfileListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.ServiceProfileListItem>}
+ * @return {!Array<!proto.api.ServiceProfileListItem>}
  */
 proto.api.ListServiceProfileResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.ServiceProfileListItem>} */ (
+  return /** @type{!Array<!proto.api.ServiceProfileListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.ServiceProfileListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.ServiceProfileListItem>} value  */
+/** @param {!Array<!proto.api.ServiceProfileListItem>} value */
 proto.api.ListServiceProfileResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.ServiceProfileListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.ServiceProfileListItem}
+ */
+proto.api.ListServiceProfileResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.ServiceProfileListItem, opt_index);
 };
 
 

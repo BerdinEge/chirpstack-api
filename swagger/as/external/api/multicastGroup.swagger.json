@@ -132,6 +132,33 @@
         ]
       }
     },
+    "/api/multicast-groups/reset-multicast-setup": {
+      "post": {
+        "summary": "ResetMulticastSetup creates the given multicast-deployment.",
+        "operationId": "ResetMulticastSetup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiResetMulticastSetupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiResetMulticastSetupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MulticastGroupService"
+        ]
+      }
+    },
     "/api/multicast-groups/{id}": {
       "get": {
         "summary": "Get returns a multicast-group given an ID.",
@@ -661,6 +688,29 @@
           "type": "string",
           "format": "byte",
           "description": "Base64 encoded data."
+        }
+      }
+    },
+    "apiResetMulticastSetupRequest": {
+      "type": "object",
+      "properties": {
+        "deploymentId": {
+          "type": "string",
+          "title": "Deployment id of the fuota server deployment object"
+        },
+        "devEui": {
+          "type": "string",
+          "description": "DevEUI."
+        }
+      }
+    },
+    "apiResetMulticastSetupResponse": {
+      "type": "object",
+      "properties": {
+        "isSucceed": {
+          "type": "boolean",
+          "format": "boolean",
+          "description": "ID of the created deployment."
         }
       }
     },

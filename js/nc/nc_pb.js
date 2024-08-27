@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -66,6 +68,7 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.nc.HandleUplinkMetaDataRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.nc.HandleUplinkMetaDataRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -73,10 +76,10 @@ proto.nc.HandleUplinkMetaDataRequest.toObject = function(includeInstance, msg) {
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.UplinkTXInfo.toObject(includeInstance, f),
     rxInfoList: jspb.Message.toObjectList(msg.getRxInfoList(),
     gw_gw_pb.UplinkRXInfo.toObject, includeInstance),
-    phyPayloadByteCount: msg.getPhyPayloadByteCount(),
-    macCommandByteCount: msg.getMacCommandByteCount(),
-    applicationPayloadByteCount: msg.getApplicationPayloadByteCount(),
-    messageType: msg.getMessageType()
+    phyPayloadByteCount: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    macCommandByteCount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    applicationPayloadByteCount: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    messageType: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -125,8 +128,7 @@ proto.nc.HandleUplinkMetaDataRequest.deserializeBinaryFromReader = function(msg,
     case 3:
       var value = new gw_gw_pb.UplinkRXInfo;
       reader.readMessage(value,gw_gw_pb.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readUint32());
@@ -154,42 +156,33 @@ proto.nc.HandleUplinkMetaDataRequest.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.nc.HandleUplinkMetaDataRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.nc.HandleUplinkMetaDataRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.nc.HandleUplinkMetaDataRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.nc.HandleUplinkMetaDataRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.nc.HandleUplinkMetaDataRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.nc.HandleUplinkMetaDataRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -197,7 +190,7 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.serializeBinaryToWriter = functio
       gw_gw_pb.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       3,
@@ -205,28 +198,28 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.serializeBinaryToWriter = functio
       gw_gw_pb.UplinkRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getPhyPayloadByteCount();
+  f = message.getPhyPayloadByteCount();
   if (f !== 0) {
     writer.writeUint32(
       4,
       f
     );
   }
-  f = this.getMacCommandByteCount();
+  f = message.getMacCommandByteCount();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getApplicationPayloadByteCount();
+  f = message.getApplicationPayloadByteCount();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getMessageType();
+  f = message.getMessageType();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
@@ -237,20 +230,11 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.nc.HandleUplinkMetaDataRequest} The clone.
- */
-proto.nc.HandleUplinkMetaDataRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.nc.HandleUplinkMetaDataRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes dev_eui = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -278,23 +262,23 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
 /**
  * optional gw.UplinkTXInfo tx_info = 2;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.UplinkTXInfo, 2));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -307,7 +291,7 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -316,19 +300,27 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.hasTxInfo = function() {
 
 /**
  * repeated gw.UplinkRXInfo rx_info = 3;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, gw_gw_pb.UplinkRXInfo, 3));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.nc.HandleUplinkMetaDataRequest.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -342,13 +334,13 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.clearRxInfoList = function() {
  * @return {number}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getPhyPayloadByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setPhyPayloadByteCount = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -357,13 +349,13 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.setPhyPayloadByteCount = function
  * @return {number}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getMacCommandByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setMacCommandByteCount = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -372,13 +364,13 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.setMacCommandByteCount = function
  * @return {number}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getApplicationPayloadByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setApplicationPayloadByteCount = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -387,13 +379,13 @@ proto.nc.HandleUplinkMetaDataRequest.prototype.setApplicationPayloadByteCount = 
  * @return {!proto.nc.MType}
  */
 proto.nc.HandleUplinkMetaDataRequest.prototype.getMessageType = function() {
-  return /** @type {!proto.nc.MType} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.nc.MType} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.nc.MType} value  */
+/** @param {!proto.nc.MType} value */
 proto.nc.HandleUplinkMetaDataRequest.prototype.setMessageType = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -440,16 +432,17 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.nc.HandleDownlinkMetaDataRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.nc.HandleDownlinkMetaDataRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     devEui: msg.getDevEui_asB64(),
     multicastGroupId: msg.getMulticastGroupId_asB64(),
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.DownlinkTXInfo.toObject(includeInstance, f),
-    phyPayloadByteCount: msg.getPhyPayloadByteCount(),
-    macCommandByteCount: msg.getMacCommandByteCount(),
-    applicationPayloadByteCount: msg.getApplicationPayloadByteCount(),
-    messageType: msg.getMessageType(),
+    phyPayloadByteCount: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    macCommandByteCount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    applicationPayloadByteCount: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    messageType: jspb.Message.getFieldWithDefault(msg, 7, 0),
     gatewayId: msg.getGatewayId_asB64()
   };
 
@@ -530,49 +523,40 @@ proto.nc.HandleDownlinkMetaDataRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.nc.HandleDownlinkMetaDataRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.nc.HandleDownlinkMetaDataRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.nc.HandleDownlinkMetaDataRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.nc.HandleDownlinkMetaDataRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.nc.HandleDownlinkMetaDataRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.nc.HandleDownlinkMetaDataRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getMulticastGroupId_asU8();
+  f = message.getMulticastGroupId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       2,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -580,35 +564,35 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.serializeBinaryToWriter = funct
       gw_gw_pb.DownlinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getPhyPayloadByteCount();
+  f = message.getPhyPayloadByteCount();
   if (f !== 0) {
     writer.writeUint32(
       4,
       f
     );
   }
-  f = this.getMacCommandByteCount();
+  f = message.getMacCommandByteCount();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getApplicationPayloadByteCount();
+  f = message.getApplicationPayloadByteCount();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getMessageType();
+  f = message.getMessageType();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
       f
     );
   }
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       8,
@@ -619,20 +603,11 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.nc.HandleDownlinkMetaDataRequest} The clone.
- */
-proto.nc.HandleDownlinkMetaDataRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.nc.HandleDownlinkMetaDataRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes dev_eui = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -660,9 +635,9 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -671,7 +646,7 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.setDevEui = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -699,23 +674,23 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.getMulticastGroupId_asU8 = func
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
 /**
  * optional gw.DownlinkTXInfo tx_info = 3;
- * @return {proto.gw.DownlinkTXInfo}
+ * @return {?proto.gw.DownlinkTXInfo}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.DownlinkTXInfo} */ (
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.DownlinkTXInfo, 3));
 };
 
 
-/** @param {proto.gw.DownlinkTXInfo|undefined} value  */
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -728,7 +703,7 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -740,13 +715,13 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.hasTxInfo = function() {
  * @return {number}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getPhyPayloadByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setPhyPayloadByteCount = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -755,13 +730,13 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.setPhyPayloadByteCount = functi
  * @return {number}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getMacCommandByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setMacCommandByteCount = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -770,13 +745,13 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.setMacCommandByteCount = functi
  * @return {number}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getApplicationPayloadByteCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setApplicationPayloadByteCount = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -785,13 +760,13 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.setApplicationPayloadByteCount 
  * @return {!proto.nc.MType}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getMessageType = function() {
-  return /** @type {!proto.nc.MType} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.nc.MType} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.nc.MType} value  */
+/** @param {!proto.nc.MType} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setMessageType = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -800,7 +775,7 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.setMessageType = function(value
  * @return {!(string|Uint8Array)}
  */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
@@ -828,9 +803,9 @@ proto.nc.HandleDownlinkMetaDataRequest.prototype.getGatewayId_asU8 = function() 
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.nc.HandleDownlinkMetaDataRequest.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3BytesField(this, 8, value);
 };
 
 
@@ -884,11 +859,12 @@ proto.nc.HandleUplinkMACCommandRequest.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.nc.HandleUplinkMACCommandRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.nc.HandleUplinkMACCommandRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     devEui: msg.getDevEui_asB64(),
-    cid: msg.getCid(),
+    cid: jspb.Message.getFieldWithDefault(msg, 2, 0),
     commandsList: msg.getCommandsList_asB64()
   };
 
@@ -936,8 +912,7 @@ proto.nc.HandleUplinkMACCommandRequest.deserializeBinaryFromReader = function(ms
       break;
     case 6:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.getCommandsList().push(value);
-      msg.setCommandsList(msg.getCommandsList());
+      msg.addCommands(value);
       break;
     default:
       reader.skipField();
@@ -949,49 +924,40 @@ proto.nc.HandleUplinkMACCommandRequest.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.nc.HandleUplinkMACCommandRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.nc.HandleUplinkMACCommandRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.nc.HandleUplinkMACCommandRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.nc.HandleUplinkMACCommandRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.nc.HandleUplinkMACCommandRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.nc.HandleUplinkMACCommandRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       1,
       f
     );
   }
-  f = this.getCid();
+  f = message.getCid();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getCommandsList_asU8();
+  f = message.getCommandsList_asU8();
   if (f.length > 0) {
     writer.writeRepeatedBytes(
       6,
@@ -1002,20 +968,11 @@ proto.nc.HandleUplinkMACCommandRequest.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.nc.HandleUplinkMACCommandRequest} The clone.
- */
-proto.nc.HandleUplinkMACCommandRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.nc.HandleUplinkMACCommandRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional bytes dev_eui = 1;
  * @return {!(string|Uint8Array)}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -1043,9 +1000,9 @@ proto.nc.HandleUplinkMACCommandRequest.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.nc.HandleUplinkMACCommandRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3BytesField(this, 1, value);
 };
 
 
@@ -1054,63 +1011,66 @@ proto.nc.HandleUplinkMACCommandRequest.prototype.setDevEui = function(value) {
  * @return {number}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.getCid = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.nc.HandleUplinkMACCommandRequest.prototype.setCid = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
  * repeated bytes commands = 6;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * @return {!(Array<!Uint8Array>|Array<string>)}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.getCommandsList = function() {
-  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getField(this, 6));
+  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 6));
 };
 
 
 /**
  * repeated bytes commands = 6;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * This is a type-conversion wrapper around `getCommandsList()`
- * @return {!Array.<string>}
+ * @return {!Array<string>}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.getCommandsList_asB64 = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
+  return /** @type {!Array<string>} */ (jspb.Message.bytesListAsB64(
       this.getCommandsList()));
 };
 
 
 /**
  * repeated bytes commands = 6;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
  * This is a type-conversion wrapper around `getCommandsList()`
- * @return {!Array.<!Uint8Array>}
+ * @return {!Array<!Uint8Array>}
  */
 proto.nc.HandleUplinkMACCommandRequest.prototype.getCommandsList_asU8 = function() {
-  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+  return /** @type {!Array<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
       this.getCommandsList()));
 };
 
 
-/** @param {!(Array<!Uint8Array>|Array<string>)} value  */
+/** @param {!(Array<!Uint8Array>|Array<string>)} value */
 proto.nc.HandleUplinkMACCommandRequest.prototype.setCommandsList = function(value) {
   jspb.Message.setField(this, 6, value || []);
 };
 
 
+/**
+ * @param {!(string|Uint8Array)} value
+ * @param {number=} opt_index
+ */
+proto.nc.HandleUplinkMACCommandRequest.prototype.addCommands = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
 proto.nc.HandleUplinkMACCommandRequest.prototype.clearCommandsList = function() {
-  jspb.Message.setField(this, 6, []);
+  this.setCommandsList([]);
 };
 
 
@@ -1157,6 +1117,7 @@ proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.toObject = function(opt_i
  *     http://goto/soy-param-migration
  * @param {!proto.nc.HandleRejectedUplinkFrameSetRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.nc.HandleRejectedUplinkFrameSetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1212,35 +1173,26 @@ proto.nc.HandleRejectedUplinkFrameSetRequest.deserializeBinaryFromReader = funct
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.nc.HandleRejectedUplinkFrameSetRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.nc.HandleRejectedUplinkFrameSetRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.nc.HandleRejectedUplinkFrameSetRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.nc.HandleRejectedUplinkFrameSetRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.nc.HandleRejectedUplinkFrameSetRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFrameSet();
+  f = message.getFrameSet();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1252,25 +1204,16 @@ proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.serializeBinaryToWriter =
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.nc.HandleRejectedUplinkFrameSetRequest} The clone.
- */
-proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.nc.HandleRejectedUplinkFrameSetRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional gw.UplinkFrameSet frame_set = 1;
- * @return {proto.gw.UplinkFrameSet}
+ * @return {?proto.gw.UplinkFrameSet}
  */
 proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.getFrameSet = function() {
-  return /** @type{proto.gw.UplinkFrameSet} */ (
+  return /** @type{?proto.gw.UplinkFrameSet} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.UplinkFrameSet, 1));
 };
 
 
-/** @param {proto.gw.UplinkFrameSet|undefined} value  */
+/** @param {?proto.gw.UplinkFrameSet|undefined} value */
 proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.setFrameSet = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1283,7 +1226,7 @@ proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.clearFrameSet = function(
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.nc.HandleRejectedUplinkFrameSetRequest.prototype.hasFrameSet = function() {
   return jspb.Message.getField(this, 1) != null;

@@ -26,6 +26,9 @@ service FUOTAServerService {
 
     // GetDeploymentDeviceLogs returns the FUOTA logs given a deployment ID and DevEUI.
     rpc GetDeploymentDeviceLogs(GetDeploymentDeviceLogsRequest) returns (GetDeploymentDeviceLogsResponse) {}
+
+    // ResetMulticastSetup flushes setup state of the device.
+    rpc ResetMulticastSetup(ResetMulticastSetupRequest) returns (ResetMulticastSetupResponse) {}
 }
 
 
@@ -338,4 +341,16 @@ message DeploymentDeviceLog {
 
 message GetDeploymentDeviceLogsResponse {
     repeated DeploymentDeviceLog logs = 1;
+}
+
+message ResetMulticastSetupRequest {
+    // Deployment id of the fuota server deployment object
+    string deployment_id = 1;
+    // DevEUI.
+    string dev_eui = 2;
+}
+
+message ResetMulticastSetupResponse {
+    // Is succeed.
+    bool isSucceed = 1;
 }

@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -13,6 +15,7 @@ var common_common_pb = require('../../common/common_pb.js');
 var gw_gw_pb = require('../../gw/gw_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.exportSymbol('proto.integration.AckEvent', null, global);
+goog.exportSymbol('proto.integration.DownlinkEvent', null, global);
 goog.exportSymbol('proto.integration.ErrorEvent', null, global);
 goog.exportSymbol('proto.integration.ErrorType', null, global);
 goog.exportSymbol('proto.integration.IntegrationEvent', null, global);
@@ -71,28 +74,30 @@ proto.integration.UplinkEvent.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.integration.UplinkEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.UplinkEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
     rxInfoList: jspb.Message.toObjectList(msg.getRxInfoList(),
     gw_gw_pb.UplinkRXInfo.toObject, includeInstance),
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.UplinkTXInfo.toObject(includeInstance, f),
-    adr: msg.getAdr(),
-    dr: msg.getDr(),
-    fCnt: msg.getFCnt(),
-    fPort: msg.getFPort(),
+    adr: jspb.Message.getFieldWithDefault(msg, 7, false),
+    dr: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    fPort: jspb.Message.getFieldWithDefault(msg, 10, 0),
     data: msg.getData_asB64(),
-    objectJson: msg.getObjectJson(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
-    confirmedUplink: msg.getConfirmedUplink(),
+    objectJson: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
+    confirmedUplink: jspb.Message.getFieldWithDefault(msg, 14, false),
     devAddr: msg.getDevAddr_asB64(),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    deviceProfileId: msg.getDeviceProfileId(),
-    deviceProfileName: msg.getDeviceProfileName()
+    deviceProfileId: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    deviceProfileName: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    macdata: msg.getMacdata_asB64()
   };
 
   if (includeInstance) {
@@ -148,8 +153,7 @@ proto.integration.UplinkEvent.deserializeBinaryFromReader = function(msg, reader
     case 5:
       var value = new gw_gw_pb.UplinkRXInfo;
       reader.readMessage(value,gw_gw_pb.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     case 6:
       var value = new gw_gw_pb.UplinkTXInfo;
@@ -183,7 +187,7 @@ proto.integration.UplinkEvent.deserializeBinaryFromReader = function(msg, reader
     case 13:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 14:
@@ -207,6 +211,10 @@ proto.integration.UplinkEvent.deserializeBinaryFromReader = function(msg, reader
       var value = /** @type {string} */ (reader.readString());
       msg.setDeviceProfileName(value);
       break;
+    case 19:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setMacdata(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -217,63 +225,54 @@ proto.integration.UplinkEvent.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.UplinkEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.UplinkEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.UplinkEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.UplinkEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.UplinkEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.UplinkEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.UplinkEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -281,7 +280,7 @@ proto.integration.UplinkEvent.prototype.serializeBinaryToWriter = function (writ
       gw_gw_pb.UplinkRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -289,67 +288,67 @@ proto.integration.UplinkEvent.prototype.serializeBinaryToWriter = function (writ
       gw_gw_pb.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getAdr();
+  f = message.getAdr();
   if (f) {
     writer.writeBool(
       7,
       f
     );
   }
-  f = this.getDr();
+  f = message.getDr();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       9,
       f
     );
   }
-  f = this.getFPort();
+  f = message.getFPort();
   if (f !== 0) {
     writer.writeUint32(
       10,
       f
     );
   }
-  f = this.getData_asU8();
+  f = message.getData_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       11,
       f
     );
   }
-  f = this.getObjectJson();
+  f = message.getObjectJson();
   if (f.length > 0) {
     writer.writeString(
       12,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(13, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getConfirmedUplink();
+  f = message.getConfirmedUplink();
   if (f) {
     writer.writeBool(
       14,
       f
     );
   }
-  f = this.getDevAddr_asU8();
+  f = message.getDevAddr_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       15,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       16,
@@ -357,29 +356,27 @@ proto.integration.UplinkEvent.prototype.serializeBinaryToWriter = function (writ
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getDeviceProfileId();
+  f = message.getDeviceProfileId();
   if (f.length > 0) {
     writer.writeString(
       17,
       f
     );
   }
-  f = this.getDeviceProfileName();
+  f = message.getDeviceProfileName();
   if (f.length > 0) {
     writer.writeString(
       18,
       f
     );
   }
-};
-
-
-/**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.UplinkEvent} The clone.
- */
-proto.integration.UplinkEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.UplinkEvent} */ (jspb.Message.cloneMessage(this));
+  f = message.getMacdata_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      19,
+      f
+    );
+  }
 };
 
 
@@ -388,13 +385,13 @@ proto.integration.UplinkEvent.prototype.cloneMessage = function() {
  * @return {number}
  */
 proto.integration.UplinkEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.UplinkEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -403,13 +400,13 @@ proto.integration.UplinkEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.UplinkEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.UplinkEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -418,13 +415,13 @@ proto.integration.UplinkEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.UplinkEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.UplinkEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -433,7 +430,7 @@ proto.integration.UplinkEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.UplinkEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -461,27 +458,35 @@ proto.integration.UplinkEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.UplinkEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
 /**
  * repeated gw.UplinkRXInfo rx_info = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.integration.UplinkEvent.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, gw_gw_pb.UplinkRXInfo, 5));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.integration.UplinkEvent.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.integration.UplinkEvent.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -492,15 +497,15 @@ proto.integration.UplinkEvent.prototype.clearRxInfoList = function() {
 
 /**
  * optional gw.UplinkTXInfo tx_info = 6;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.integration.UplinkEvent.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.UplinkTXInfo, 6));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.integration.UplinkEvent.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
 };
@@ -513,7 +518,7 @@ proto.integration.UplinkEvent.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.UplinkEvent.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 6) != null;
@@ -527,13 +532,13 @@ proto.integration.UplinkEvent.prototype.hasTxInfo = function() {
  * @return {boolean}
  */
 proto.integration.UplinkEvent.prototype.getAdr = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 7, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.integration.UplinkEvent.prototype.setAdr = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -542,13 +547,13 @@ proto.integration.UplinkEvent.prototype.setAdr = function(value) {
  * @return {number}
  */
 proto.integration.UplinkEvent.prototype.getDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.UplinkEvent.prototype.setDr = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -557,13 +562,13 @@ proto.integration.UplinkEvent.prototype.setDr = function(value) {
  * @return {number}
  */
 proto.integration.UplinkEvent.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.UplinkEvent.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -572,13 +577,13 @@ proto.integration.UplinkEvent.prototype.setFCnt = function(value) {
  * @return {number}
  */
 proto.integration.UplinkEvent.prototype.getFPort = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.UplinkEvent.prototype.setFPort = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -587,7 +592,7 @@ proto.integration.UplinkEvent.prototype.setFPort = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.UplinkEvent.prototype.getData = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
 
@@ -615,9 +620,9 @@ proto.integration.UplinkEvent.prototype.getData_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.UplinkEvent.prototype.setData = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3BytesField(this, 11, value);
 };
 
 
@@ -626,13 +631,13 @@ proto.integration.UplinkEvent.prototype.setData = function(value) {
  * @return {string}
  */
 proto.integration.UplinkEvent.prototype.getObjectJson = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 12, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.UplinkEvent.prototype.setObjectJson = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -649,6 +654,11 @@ proto.integration.UplinkEvent.prototype.getTagsMap = function(opt_noLazyCreate) 
 };
 
 
+proto.integration.UplinkEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional bool confirmed_uplink = 14;
  * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
@@ -656,13 +666,13 @@ proto.integration.UplinkEvent.prototype.getTagsMap = function(opt_noLazyCreate) 
  * @return {boolean}
  */
 proto.integration.UplinkEvent.prototype.getConfirmedUplink = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 14, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 14, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.integration.UplinkEvent.prototype.setConfirmedUplink = function(value) {
-  jspb.Message.setField(this, 14, value);
+  jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
@@ -671,7 +681,7 @@ proto.integration.UplinkEvent.prototype.setConfirmedUplink = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.UplinkEvent.prototype.getDevAddr = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 15, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
 };
 
 
@@ -699,23 +709,23 @@ proto.integration.UplinkEvent.prototype.getDevAddr_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.UplinkEvent.prototype.setDevAddr = function(value) {
-  jspb.Message.setField(this, 15, value);
+  jspb.Message.setProto3BytesField(this, 15, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 16;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.UplinkEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 16));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.UplinkEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 16, value);
 };
@@ -728,7 +738,7 @@ proto.integration.UplinkEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.UplinkEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 16) != null;
@@ -740,13 +750,13 @@ proto.integration.UplinkEvent.prototype.hasPublishedAt = function() {
  * @return {string}
  */
 proto.integration.UplinkEvent.prototype.getDeviceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 17, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.UplinkEvent.prototype.setDeviceProfileId = function(value) {
-  jspb.Message.setField(this, 17, value);
+  jspb.Message.setProto3StringField(this, 17, value);
 };
 
 
@@ -755,13 +765,684 @@ proto.integration.UplinkEvent.prototype.setDeviceProfileId = function(value) {
  * @return {string}
  */
 proto.integration.UplinkEvent.prototype.getDeviceProfileName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 18, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.UplinkEvent.prototype.setDeviceProfileName = function(value) {
-  jspb.Message.setField(this, 18, value);
+  jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
+/**
+ * optional bytes macdata = 19;
+ * @return {!(string|Uint8Array)}
+ */
+proto.integration.UplinkEvent.prototype.getMacdata = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
+};
+
+
+/**
+ * optional bytes macdata = 19;
+ * This is a type-conversion wrapper around `getMacdata()`
+ * @return {string}
+ */
+proto.integration.UplinkEvent.prototype.getMacdata_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getMacdata()));
+};
+
+
+/**
+ * optional bytes macdata = 19;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getMacdata()`
+ * @return {!Uint8Array}
+ */
+proto.integration.UplinkEvent.prototype.getMacdata_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getMacdata()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.integration.UplinkEvent.prototype.setMacdata = function(value) {
+  jspb.Message.setProto3BytesField(this, 19, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.integration.DownlinkEvent = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.integration.DownlinkEvent, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.integration.DownlinkEvent.displayName = 'proto.integration.DownlinkEvent';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.integration.DownlinkEvent.prototype.toObject = function(opt_includeInstance) {
+  return proto.integration.DownlinkEvent.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.integration.DownlinkEvent} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.integration.DownlinkEvent.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    devEui: msg.getDevEui_asB64(),
+    txInfo: (f = msg.getTxInfo()) && gw_gw_pb.DownlinkTXInfo.toObject(includeInstance, f),
+    adr: jspb.Message.getFieldWithDefault(msg, 6, false),
+    dr: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    fPort: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    data: msg.getData_asB64(),
+    objectJson: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
+    confirmedDownlink: jspb.Message.getFieldWithDefault(msg, 13, false),
+    devAddr: msg.getDevAddr_asB64(),
+    publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.integration.DownlinkEvent}
+ */
+proto.integration.DownlinkEvent.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.integration.DownlinkEvent;
+  return proto.integration.DownlinkEvent.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.integration.DownlinkEvent} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.integration.DownlinkEvent}
+ */
+proto.integration.DownlinkEvent.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setApplicationId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setApplicationName(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDeviceName(value);
+      break;
+    case 4:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setDevEui(value);
+      break;
+    case 5:
+      var value = new gw_gw_pb.DownlinkTXInfo;
+      reader.readMessage(value,gw_gw_pb.DownlinkTXInfo.deserializeBinaryFromReader);
+      msg.setTxInfo(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAdr(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDr(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFCnt(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFPort(value);
+      break;
+    case 10:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setData(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setObjectJson(value);
+      break;
+    case 12:
+      var value = msg.getTagsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
+         });
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setConfirmedDownlink(value);
+      break;
+    case 14:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setDevAddr(value);
+      break;
+    case 15:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setPublishedAt(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.integration.DownlinkEvent.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.integration.DownlinkEvent.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.DownlinkEvent} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.integration.DownlinkEvent.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getApplicationId();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getApplicationName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getDeviceName();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getDevEui_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      4,
+      f
+    );
+  }
+  f = message.getTxInfo();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      gw_gw_pb.DownlinkTXInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getAdr();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getDr();
+  if (f !== 0) {
+    writer.writeUint32(
+      7,
+      f
+    );
+  }
+  f = message.getFCnt();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getFPort();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
+    );
+  }
+  f = message.getData_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      10,
+      f
+    );
+  }
+  f = message.getObjectJson();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
+      f
+    );
+  }
+  f = message.getTagsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(12, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getConfirmedDownlink();
+  if (f) {
+    writer.writeBool(
+      13,
+      f
+    );
+  }
+  f = message.getDevAddr_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      14,
+      f
+    );
+  }
+  f = message.getPublishedAt();
+  if (f != null) {
+    writer.writeMessage(
+      15,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional uint64 application_id = 1;
+ * @return {number}
+ */
+proto.integration.DownlinkEvent.prototype.getApplicationId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.integration.DownlinkEvent.prototype.setApplicationId = function(value) {
+  jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * optional string application_name = 2;
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getApplicationName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.integration.DownlinkEvent.prototype.setApplicationName = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string device_name = 3;
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getDeviceName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.integration.DownlinkEvent.prototype.setDeviceName = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional bytes dev_eui = 4;
+ * @return {!(string|Uint8Array)}
+ */
+proto.integration.DownlinkEvent.prototype.getDevEui = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * optional bytes dev_eui = 4;
+ * This is a type-conversion wrapper around `getDevEui()`
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getDevEui_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getDevEui()));
+};
+
+
+/**
+ * optional bytes dev_eui = 4;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getDevEui()`
+ * @return {!Uint8Array}
+ */
+proto.integration.DownlinkEvent.prototype.getDevEui_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getDevEui()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.integration.DownlinkEvent.prototype.setDevEui = function(value) {
+  jspb.Message.setProto3BytesField(this, 4, value);
+};
+
+
+/**
+ * optional gw.DownlinkTXInfo tx_info = 5;
+ * @return {?proto.gw.DownlinkTXInfo}
+ */
+proto.integration.DownlinkEvent.prototype.getTxInfo = function() {
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
+    jspb.Message.getWrapperField(this, gw_gw_pb.DownlinkTXInfo, 5));
+};
+
+
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
+proto.integration.DownlinkEvent.prototype.setTxInfo = function(value) {
+  jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+proto.integration.DownlinkEvent.prototype.clearTxInfo = function() {
+  this.setTxInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.integration.DownlinkEvent.prototype.hasTxInfo = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional bool adr = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.integration.DownlinkEvent.prototype.getAdr = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
+};
+
+
+/** @param {boolean} value */
+proto.integration.DownlinkEvent.prototype.setAdr = function(value) {
+  jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
+/**
+ * optional uint32 dr = 7;
+ * @return {number}
+ */
+proto.integration.DownlinkEvent.prototype.getDr = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.integration.DownlinkEvent.prototype.setDr = function(value) {
+  jspb.Message.setProto3IntField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 f_cnt = 8;
+ * @return {number}
+ */
+proto.integration.DownlinkEvent.prototype.getFCnt = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.integration.DownlinkEvent.prototype.setFCnt = function(value) {
+  jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional uint32 f_port = 9;
+ * @return {number}
+ */
+proto.integration.DownlinkEvent.prototype.getFPort = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.integration.DownlinkEvent.prototype.setFPort = function(value) {
+  jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional bytes data = 10;
+ * @return {!(string|Uint8Array)}
+ */
+proto.integration.DownlinkEvent.prototype.getData = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * optional bytes data = 10;
+ * This is a type-conversion wrapper around `getData()`
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getData_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getData()));
+};
+
+
+/**
+ * optional bytes data = 10;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getData()`
+ * @return {!Uint8Array}
+ */
+proto.integration.DownlinkEvent.prototype.getData_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getData()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.integration.DownlinkEvent.prototype.setData = function(value) {
+  jspb.Message.setProto3BytesField(this, 10, value);
+};
+
+
+/**
+ * optional string object_json = 11;
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getObjectJson = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/** @param {string} value */
+proto.integration.DownlinkEvent.prototype.setObjectJson = function(value) {
+  jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * map<string, string> tags = 12;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.integration.DownlinkEvent.prototype.getTagsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 12, opt_noLazyCreate,
+      null));
+};
+
+
+proto.integration.DownlinkEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
+/**
+ * optional bool confirmed_downlink = 13;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.integration.DownlinkEvent.prototype.getConfirmedDownlink = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 13, false));
+};
+
+
+/** @param {boolean} value */
+proto.integration.DownlinkEvent.prototype.setConfirmedDownlink = function(value) {
+  jspb.Message.setProto3BooleanField(this, 13, value);
+};
+
+
+/**
+ * optional bytes dev_addr = 14;
+ * @return {!(string|Uint8Array)}
+ */
+proto.integration.DownlinkEvent.prototype.getDevAddr = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * optional bytes dev_addr = 14;
+ * This is a type-conversion wrapper around `getDevAddr()`
+ * @return {string}
+ */
+proto.integration.DownlinkEvent.prototype.getDevAddr_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getDevAddr()));
+};
+
+
+/**
+ * optional bytes dev_addr = 14;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getDevAddr()`
+ * @return {!Uint8Array}
+ */
+proto.integration.DownlinkEvent.prototype.getDevAddr_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getDevAddr()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.integration.DownlinkEvent.prototype.setDevAddr = function(value) {
+  jspb.Message.setProto3BytesField(this, 14, value);
+};
+
+
+/**
+ * optional google.protobuf.Timestamp published_at = 15;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.integration.DownlinkEvent.prototype.getPublishedAt = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 15));
+};
+
+
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
+proto.integration.DownlinkEvent.prototype.setPublishedAt = function(value) {
+  jspb.Message.setWrapperField(this, 15, value);
+};
+
+
+proto.integration.DownlinkEvent.prototype.clearPublishedAt = function() {
+  this.setPublishedAt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.integration.DownlinkEvent.prototype.hasPublishedAt = function() {
+  return jspb.Message.getField(this, 15) != null;
 };
 
 
@@ -815,19 +1496,20 @@ proto.integration.JoinEvent.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.integration.JoinEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.JoinEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
     devAddr: msg.getDevAddr_asB64(),
     rxInfoList: jspb.Message.toObjectList(msg.getRxInfoList(),
     gw_gw_pb.UplinkRXInfo.toObject, includeInstance),
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.UplinkTXInfo.toObject(includeInstance, f),
-    dr: msg.getDr(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    dr: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -888,8 +1570,7 @@ proto.integration.JoinEvent.deserializeBinaryFromReader = function(msg, reader) 
     case 6:
       var value = new gw_gw_pb.UplinkRXInfo;
       reader.readMessage(value,gw_gw_pb.UplinkRXInfo.deserializeBinaryFromReader);
-      msg.getRxInfoList().push(value);
-      msg.setRxInfoList(msg.getRxInfoList());
+      msg.addRxInfo(value);
       break;
     case 7:
       var value = new gw_gw_pb.UplinkTXInfo;
@@ -903,7 +1584,7 @@ proto.integration.JoinEvent.deserializeBinaryFromReader = function(msg, reader) 
     case 9:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 10:
@@ -921,70 +1602,61 @@ proto.integration.JoinEvent.deserializeBinaryFromReader = function(msg, reader) 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.JoinEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.JoinEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.JoinEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.JoinEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.JoinEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.JoinEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.JoinEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getDevAddr_asU8();
+  f = message.getDevAddr_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       5,
       f
     );
   }
-  f = this.getRxInfoList();
+  f = message.getRxInfoList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       6,
@@ -992,7 +1664,7 @@ proto.integration.JoinEvent.prototype.serializeBinaryToWriter = function (writer
       gw_gw_pb.UplinkRXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       7,
@@ -1000,18 +1672,18 @@ proto.integration.JoinEvent.prototype.serializeBinaryToWriter = function (writer
       gw_gw_pb.UplinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getDr();
+  f = message.getDr();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       10,
@@ -1023,26 +1695,17 @@ proto.integration.JoinEvent.prototype.serializeBinaryToWriter = function (writer
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.JoinEvent} The clone.
- */
-proto.integration.JoinEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.JoinEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.JoinEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.JoinEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1051,13 +1714,13 @@ proto.integration.JoinEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.JoinEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.JoinEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1066,13 +1729,13 @@ proto.integration.JoinEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.JoinEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.JoinEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1081,7 +1744,7 @@ proto.integration.JoinEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.JoinEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -1109,9 +1772,9 @@ proto.integration.JoinEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.JoinEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -1120,7 +1783,7 @@ proto.integration.JoinEvent.prototype.setDevEui = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.JoinEvent.prototype.getDevAddr = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
@@ -1148,27 +1811,35 @@ proto.integration.JoinEvent.prototype.getDevAddr_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.JoinEvent.prototype.setDevAddr = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3BytesField(this, 5, value);
 };
 
 
 /**
  * repeated gw.UplinkRXInfo rx_info = 6;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.gw.UplinkRXInfo>}
+ * @return {!Array<!proto.gw.UplinkRXInfo>}
  */
 proto.integration.JoinEvent.prototype.getRxInfoList = function() {
-  return /** @type{!Array.<!proto.gw.UplinkRXInfo>} */ (
+  return /** @type{!Array<!proto.gw.UplinkRXInfo>} */ (
     jspb.Message.getRepeatedWrapperField(this, gw_gw_pb.UplinkRXInfo, 6));
 };
 
 
-/** @param {Array.<!proto.gw.UplinkRXInfo>} value  */
+/** @param {!Array<!proto.gw.UplinkRXInfo>} value */
 proto.integration.JoinEvent.prototype.setRxInfoList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 6, value);
+};
+
+
+/**
+ * @param {!proto.gw.UplinkRXInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.gw.UplinkRXInfo}
+ */
+proto.integration.JoinEvent.prototype.addRxInfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.gw.UplinkRXInfo, opt_index);
 };
 
 
@@ -1179,15 +1850,15 @@ proto.integration.JoinEvent.prototype.clearRxInfoList = function() {
 
 /**
  * optional gw.UplinkTXInfo tx_info = 7;
- * @return {proto.gw.UplinkTXInfo}
+ * @return {?proto.gw.UplinkTXInfo}
  */
 proto.integration.JoinEvent.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.UplinkTXInfo} */ (
+  return /** @type{?proto.gw.UplinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.UplinkTXInfo, 7));
 };
 
 
-/** @param {proto.gw.UplinkTXInfo|undefined} value  */
+/** @param {?proto.gw.UplinkTXInfo|undefined} value */
 proto.integration.JoinEvent.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 7, value);
 };
@@ -1200,7 +1871,7 @@ proto.integration.JoinEvent.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.JoinEvent.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 7) != null;
@@ -1212,13 +1883,13 @@ proto.integration.JoinEvent.prototype.hasTxInfo = function() {
  * @return {number}
  */
 proto.integration.JoinEvent.prototype.getDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.JoinEvent.prototype.setDr = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -1235,17 +1906,22 @@ proto.integration.JoinEvent.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.integration.JoinEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional google.protobuf.Timestamp published_at = 10;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.JoinEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 10));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.JoinEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 10, value);
 };
@@ -1258,7 +1934,7 @@ proto.integration.JoinEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.JoinEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 10) != null;
@@ -1308,16 +1984,17 @@ proto.integration.AckEvent.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.integration.AckEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.AckEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
-    acknowledged: msg.getAcknowledged(),
-    fCnt: msg.getFCnt(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    acknowledged: jspb.Message.getFieldWithDefault(msg, 5, false),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -1382,7 +2059,7 @@ proto.integration.AckEvent.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 8:
@@ -1400,81 +2077,72 @@ proto.integration.AckEvent.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.AckEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.AckEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.AckEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.AckEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.AckEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.AckEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.AckEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getAcknowledged();
+  f = message.getAcknowledged();
   if (f) {
     writer.writeBool(
       5,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(7, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       8,
@@ -1486,26 +2154,17 @@ proto.integration.AckEvent.prototype.serializeBinaryToWriter = function (writer)
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.AckEvent} The clone.
- */
-proto.integration.AckEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.AckEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.AckEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.AckEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1514,13 +2173,13 @@ proto.integration.AckEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.AckEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.AckEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1529,13 +2188,13 @@ proto.integration.AckEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.AckEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.AckEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1544,7 +2203,7 @@ proto.integration.AckEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.AckEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -1572,9 +2231,9 @@ proto.integration.AckEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.AckEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -1585,13 +2244,13 @@ proto.integration.AckEvent.prototype.setDevEui = function(value) {
  * @return {boolean}
  */
 proto.integration.AckEvent.prototype.getAcknowledged = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 5, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 5, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.integration.AckEvent.prototype.setAcknowledged = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3BooleanField(this, 5, value);
 };
 
 
@@ -1600,13 +2259,13 @@ proto.integration.AckEvent.prototype.setAcknowledged = function(value) {
  * @return {number}
  */
 proto.integration.AckEvent.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.AckEvent.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1623,17 +2282,22 @@ proto.integration.AckEvent.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.integration.AckEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional google.protobuf.Timestamp published_at = 8;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.AckEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.AckEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 8, value);
 };
@@ -1646,7 +2310,7 @@ proto.integration.AckEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.AckEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 8) != null;
@@ -1696,15 +2360,16 @@ proto.integration.TxAckEvent.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.integration.TxAckEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.TxAckEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
-    fCnt: msg.getFCnt(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    fCnt: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     gatewayId: msg.getGatewayId_asB64(),
     txInfo: (f = msg.getTxInfo()) && gw_gw_pb.DownlinkTXInfo.toObject(includeInstance, f),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
@@ -1767,7 +2432,7 @@ proto.integration.TxAckEvent.deserializeBinaryFromReader = function(msg, reader)
     case 6:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 7:
@@ -1794,81 +2459,72 @@ proto.integration.TxAckEvent.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.TxAckEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.TxAckEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.TxAckEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.TxAckEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.TxAckEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.TxAckEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.TxAckEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getGatewayId_asU8();
+  f = message.getGatewayId_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       7,
       f
     );
   }
-  f = this.getTxInfo();
+  f = message.getTxInfo();
   if (f != null) {
     writer.writeMessage(
       8,
@@ -1876,7 +2532,7 @@ proto.integration.TxAckEvent.prototype.serializeBinaryToWriter = function (write
       gw_gw_pb.DownlinkTXInfo.serializeBinaryToWriter
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -1888,26 +2544,17 @@ proto.integration.TxAckEvent.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.TxAckEvent} The clone.
- */
-proto.integration.TxAckEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.TxAckEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.TxAckEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.TxAckEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1916,13 +2563,13 @@ proto.integration.TxAckEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.TxAckEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.TxAckEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1931,13 +2578,13 @@ proto.integration.TxAckEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.TxAckEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.TxAckEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1946,7 +2593,7 @@ proto.integration.TxAckEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.TxAckEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -1974,9 +2621,9 @@ proto.integration.TxAckEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.TxAckEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -1985,13 +2632,13 @@ proto.integration.TxAckEvent.prototype.setDevEui = function(value) {
  * @return {number}
  */
 proto.integration.TxAckEvent.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.TxAckEvent.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -2008,12 +2655,17 @@ proto.integration.TxAckEvent.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.integration.TxAckEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional bytes gateway_id = 7;
  * @return {!(string|Uint8Array)}
  */
 proto.integration.TxAckEvent.prototype.getGatewayId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
@@ -2041,23 +2693,23 @@ proto.integration.TxAckEvent.prototype.getGatewayId_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.TxAckEvent.prototype.setGatewayId = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3BytesField(this, 7, value);
 };
 
 
 /**
  * optional gw.DownlinkTXInfo tx_info = 8;
- * @return {proto.gw.DownlinkTXInfo}
+ * @return {?proto.gw.DownlinkTXInfo}
  */
 proto.integration.TxAckEvent.prototype.getTxInfo = function() {
-  return /** @type{proto.gw.DownlinkTXInfo} */ (
+  return /** @type{?proto.gw.DownlinkTXInfo} */ (
     jspb.Message.getWrapperField(this, gw_gw_pb.DownlinkTXInfo, 8));
 };
 
 
-/** @param {proto.gw.DownlinkTXInfo|undefined} value  */
+/** @param {?proto.gw.DownlinkTXInfo|undefined} value */
 proto.integration.TxAckEvent.prototype.setTxInfo = function(value) {
   jspb.Message.setWrapperField(this, 8, value);
 };
@@ -2070,7 +2722,7 @@ proto.integration.TxAckEvent.prototype.clearTxInfo = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.TxAckEvent.prototype.hasTxInfo = function() {
   return jspb.Message.getField(this, 8) != null;
@@ -2079,15 +2731,15 @@ proto.integration.TxAckEvent.prototype.hasTxInfo = function() {
 
 /**
  * optional google.protobuf.Timestamp published_at = 9;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.TxAckEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.TxAckEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
@@ -2100,7 +2752,7 @@ proto.integration.TxAckEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.TxAckEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 9) != null;
@@ -2150,17 +2802,18 @@ proto.integration.ErrorEvent.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.integration.ErrorEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.ErrorEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
-    type: msg.getType(),
-    error: msg.getError(),
-    fCnt: msg.getFCnt(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    type: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    error: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -2229,7 +2882,7 @@ proto.integration.ErrorEvent.deserializeBinaryFromReader = function(msg, reader)
     case 8:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 9:
@@ -2247,88 +2900,79 @@ proto.integration.ErrorEvent.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.ErrorEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.ErrorEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.ErrorEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.ErrorEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.ErrorEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.ErrorEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.ErrorEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getType();
+  f = message.getType();
   if (f !== 0.0) {
     writer.writeEnum(
       5,
       f
     );
   }
-  f = this.getError();
+  f = message.getError();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       7,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(8, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -2340,26 +2984,17 @@ proto.integration.ErrorEvent.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.ErrorEvent} The clone.
- */
-proto.integration.ErrorEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.ErrorEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.ErrorEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.ErrorEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2368,13 +3003,13 @@ proto.integration.ErrorEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.ErrorEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.ErrorEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2383,13 +3018,13 @@ proto.integration.ErrorEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.ErrorEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.ErrorEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -2398,7 +3033,7 @@ proto.integration.ErrorEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.ErrorEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -2426,9 +3061,9 @@ proto.integration.ErrorEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.ErrorEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -2437,13 +3072,13 @@ proto.integration.ErrorEvent.prototype.setDevEui = function(value) {
  * @return {!proto.integration.ErrorType}
  */
 proto.integration.ErrorEvent.prototype.getType = function() {
-  return /** @type {!proto.integration.ErrorType} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {!proto.integration.ErrorType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {!proto.integration.ErrorType} value  */
+/** @param {!proto.integration.ErrorType} value */
 proto.integration.ErrorEvent.prototype.setType = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3EnumField(this, 5, value);
 };
 
 
@@ -2452,13 +3087,13 @@ proto.integration.ErrorEvent.prototype.setType = function(value) {
  * @return {string}
  */
 proto.integration.ErrorEvent.prototype.getError = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.ErrorEvent.prototype.setError = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -2467,13 +3102,13 @@ proto.integration.ErrorEvent.prototype.setError = function(value) {
  * @return {number}
  */
 proto.integration.ErrorEvent.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.ErrorEvent.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -2490,17 +3125,22 @@ proto.integration.ErrorEvent.prototype.getTagsMap = function(opt_noLazyCreate) {
 };
 
 
+proto.integration.ErrorEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional google.protobuf.Timestamp published_at = 9;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.ErrorEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.ErrorEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
@@ -2513,7 +3153,7 @@ proto.integration.ErrorEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.ErrorEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 9) != null;
@@ -2563,18 +3203,19 @@ proto.integration.StatusEvent.prototype.toObject = function(opt_includeInstance)
  *     http://goto/soy-param-migration
  * @param {!proto.integration.StatusEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.StatusEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
-    margin: msg.getMargin(),
-    externalPowerSource: msg.getExternalPowerSource(),
-    batteryLevelUnavailable: msg.getBatteryLevelUnavailable(),
-    batteryLevel: msg.getBatteryLevel(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    margin: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    externalPowerSource: jspb.Message.getFieldWithDefault(msg, 6, false),
+    batteryLevelUnavailable: jspb.Message.getFieldWithDefault(msg, 7, false),
+    batteryLevel: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -2647,7 +3288,7 @@ proto.integration.StatusEvent.deserializeBinaryFromReader = function(msg, reader
     case 9:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 10:
@@ -2665,95 +3306,86 @@ proto.integration.StatusEvent.deserializeBinaryFromReader = function(msg, reader
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.StatusEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.StatusEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.StatusEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.StatusEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.StatusEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.StatusEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.StatusEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getMargin();
+  f = message.getMargin();
   if (f !== 0) {
     writer.writeInt32(
       5,
       f
     );
   }
-  f = this.getExternalPowerSource();
+  f = message.getExternalPowerSource();
   if (f) {
     writer.writeBool(
       6,
       f
     );
   }
-  f = this.getBatteryLevelUnavailable();
+  f = message.getBatteryLevelUnavailable();
   if (f) {
     writer.writeBool(
       7,
       f
     );
   }
-  f = this.getBatteryLevel();
+  f = message.getBatteryLevel();
   if (f !== 0.0) {
     writer.writeFloat(
       8,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       10,
@@ -2765,26 +3397,17 @@ proto.integration.StatusEvent.prototype.serializeBinaryToWriter = function (writ
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.StatusEvent} The clone.
- */
-proto.integration.StatusEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.StatusEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.StatusEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.StatusEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2793,13 +3416,13 @@ proto.integration.StatusEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.StatusEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.StatusEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2808,13 +3431,13 @@ proto.integration.StatusEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.StatusEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.StatusEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -2823,7 +3446,7 @@ proto.integration.StatusEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.StatusEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -2851,9 +3474,9 @@ proto.integration.StatusEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.StatusEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -2862,13 +3485,13 @@ proto.integration.StatusEvent.prototype.setDevEui = function(value) {
  * @return {number}
  */
 proto.integration.StatusEvent.prototype.getMargin = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.StatusEvent.prototype.setMargin = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -2879,13 +3502,13 @@ proto.integration.StatusEvent.prototype.setMargin = function(value) {
  * @return {boolean}
  */
 proto.integration.StatusEvent.prototype.getExternalPowerSource = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 6, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.integration.StatusEvent.prototype.setExternalPowerSource = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
@@ -2896,13 +3519,13 @@ proto.integration.StatusEvent.prototype.setExternalPowerSource = function(value)
  * @return {boolean}
  */
 proto.integration.StatusEvent.prototype.getBatteryLevelUnavailable = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 7, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.integration.StatusEvent.prototype.setBatteryLevelUnavailable = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -2911,13 +3534,13 @@ proto.integration.StatusEvent.prototype.setBatteryLevelUnavailable = function(va
  * @return {number}
  */
 proto.integration.StatusEvent.prototype.getBatteryLevel = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 8, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.StatusEvent.prototype.setBatteryLevel = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3FloatField(this, 8, value);
 };
 
 
@@ -2934,17 +3557,22 @@ proto.integration.StatusEvent.prototype.getTagsMap = function(opt_noLazyCreate) 
 };
 
 
+proto.integration.StatusEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional google.protobuf.Timestamp published_at = 10;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.StatusEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 10));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.StatusEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 10, value);
 };
@@ -2957,7 +3585,7 @@ proto.integration.StatusEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.StatusEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 10) != null;
@@ -3014,17 +3642,18 @@ proto.integration.LocationEvent.prototype.toObject = function(opt_includeInstanc
  *     http://goto/soy-param-migration
  * @param {!proto.integration.LocationEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.LocationEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
     location: (f = msg.getLocation()) && common_common_pb.Location.toObject(includeInstance, f),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
     uplinkIdsList: msg.getUplinkIdsList_asB64(),
-    fCnt: msg.getFCnt(),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 8, 0),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -3086,13 +3715,12 @@ proto.integration.LocationEvent.deserializeBinaryFromReader = function(msg, read
     case 6:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 7:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.getUplinkIdsList().push(value);
-      msg.setUplinkIdsList(msg.getUplinkIdsList());
+      msg.addUplinkIds(value);
       break;
     case 8:
       var value = /** @type {number} */ (reader.readUint32());
@@ -3113,63 +3741,54 @@ proto.integration.LocationEvent.deserializeBinaryFromReader = function(msg, read
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.LocationEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.LocationEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.LocationEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.LocationEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.LocationEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.LocationEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.LocationEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getLocation();
+  f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
       5,
@@ -3177,25 +3796,25 @@ proto.integration.LocationEvent.prototype.serializeBinaryToWriter = function (wr
       common_common_pb.Location.serializeBinaryToWriter
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getUplinkIdsList_asU8();
+  f = message.getUplinkIdsList_asU8();
   if (f.length > 0) {
     writer.writeRepeatedBytes(
       7,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -3207,26 +3826,17 @@ proto.integration.LocationEvent.prototype.serializeBinaryToWriter = function (wr
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.LocationEvent} The clone.
- */
-proto.integration.LocationEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.LocationEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.LocationEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.LocationEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3235,13 +3845,13 @@ proto.integration.LocationEvent.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.integration.LocationEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.LocationEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3250,13 +3860,13 @@ proto.integration.LocationEvent.prototype.setApplicationName = function(value) {
  * @return {string}
  */
 proto.integration.LocationEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.LocationEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -3265,7 +3875,7 @@ proto.integration.LocationEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.LocationEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -3293,23 +3903,23 @@ proto.integration.LocationEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.LocationEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
 /**
  * optional common.Location location = 5;
- * @return {proto.common.Location}
+ * @return {?proto.common.Location}
  */
 proto.integration.LocationEvent.prototype.getLocation = function() {
-  return /** @type{proto.common.Location} */ (
+  return /** @type{?proto.common.Location} */ (
     jspb.Message.getWrapperField(this, common_common_pb.Location, 5));
 };
 
 
-/** @param {proto.common.Location|undefined} value  */
+/** @param {?proto.common.Location|undefined} value */
 proto.integration.LocationEvent.prototype.setLocation = function(value) {
   jspb.Message.setWrapperField(this, 5, value);
 };
@@ -3322,7 +3932,7 @@ proto.integration.LocationEvent.prototype.clearLocation = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.LocationEvent.prototype.hasLocation = function() {
   return jspb.Message.getField(this, 5) != null;
@@ -3342,53 +3952,61 @@ proto.integration.LocationEvent.prototype.getTagsMap = function(opt_noLazyCreate
 };
 
 
+proto.integration.LocationEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * repeated bytes uplink_ids = 7;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * @return {!(Array<!Uint8Array>|Array<string>)}
  */
 proto.integration.LocationEvent.prototype.getUplinkIdsList = function() {
-  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getField(this, 7));
+  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 7));
 };
 
 
 /**
  * repeated bytes uplink_ids = 7;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * This is a type-conversion wrapper around `getUplinkIdsList()`
- * @return {!Array.<string>}
+ * @return {!Array<string>}
  */
 proto.integration.LocationEvent.prototype.getUplinkIdsList_asB64 = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
+  return /** @type {!Array<string>} */ (jspb.Message.bytesListAsB64(
       this.getUplinkIdsList()));
 };
 
 
 /**
  * repeated bytes uplink_ids = 7;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
  * This is a type-conversion wrapper around `getUplinkIdsList()`
- * @return {!Array.<!Uint8Array>}
+ * @return {!Array<!Uint8Array>}
  */
 proto.integration.LocationEvent.prototype.getUplinkIdsList_asU8 = function() {
-  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+  return /** @type {!Array<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
       this.getUplinkIdsList()));
 };
 
 
-/** @param {!(Array<!Uint8Array>|Array<string>)} value  */
+/** @param {!(Array<!Uint8Array>|Array<string>)} value */
 proto.integration.LocationEvent.prototype.setUplinkIdsList = function(value) {
   jspb.Message.setField(this, 7, value || []);
 };
 
 
+/**
+ * @param {!(string|Uint8Array)} value
+ * @param {number=} opt_index
+ */
+proto.integration.LocationEvent.prototype.addUplinkIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 7, value, opt_index);
+};
+
+
 proto.integration.LocationEvent.prototype.clearUplinkIdsList = function() {
-  jspb.Message.setField(this, 7, []);
+  this.setUplinkIdsList([]);
 };
 
 
@@ -3397,27 +4015,27 @@ proto.integration.LocationEvent.prototype.clearUplinkIdsList = function() {
  * @return {number}
  */
 proto.integration.LocationEvent.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.LocationEvent.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 9;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.LocationEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.LocationEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
@@ -3430,7 +4048,7 @@ proto.integration.LocationEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.LocationEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 9) != null;
@@ -3480,17 +4098,18 @@ proto.integration.IntegrationEvent.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.integration.IntegrationEvent} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.integration.IntegrationEvent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName(),
-    deviceName: msg.getDeviceName(),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deviceName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     devEui: msg.getDevEui_asB64(),
-    tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
-    integrationName: msg.getIntegrationName(),
-    eventType: msg.getEventType(),
-    objectJson: msg.getObjectJson(),
+    tagsMap: (f = msg.getTagsMap()) ? f.toObject(includeInstance, undefined) : [],
+    integrationName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    eventType: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    objectJson: jspb.Message.getFieldWithDefault(msg, 8, ""),
     publishedAt: (f = msg.getPublishedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -3547,7 +4166,7 @@ proto.integration.IntegrationEvent.deserializeBinaryFromReader = function(msg, r
     case 5:
       var value = msg.getTagsMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
       break;
     case 6:
@@ -3577,88 +4196,79 @@ proto.integration.IntegrationEvent.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.integration.IntegrationEvent} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.integration.IntegrationEvent.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.integration.IntegrationEvent.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.integration.IntegrationEvent.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.integration.IntegrationEvent} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.integration.IntegrationEvent.prototype.serializeBinaryToWriter = function (writer) {
+proto.integration.IntegrationEvent.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeUint64(
       1,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getDeviceName();
+  f = message.getDeviceName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getDevEui_asU8();
+  f = message.getDevEui_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
       f
     );
   }
-  f = this.getTagsMap(true);
+  f = message.getTagsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = this.getIntegrationName();
+  f = message.getIntegrationName();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getEventType();
+  f = message.getEventType();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getObjectJson();
+  f = message.getObjectJson();
   if (f.length > 0) {
     writer.writeString(
       8,
       f
     );
   }
-  f = this.getPublishedAt();
+  f = message.getPublishedAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -3670,26 +4280,17 @@ proto.integration.IntegrationEvent.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.integration.IntegrationEvent} The clone.
- */
-proto.integration.IntegrationEvent.prototype.cloneMessage = function() {
-  return /** @type {!proto.integration.IntegrationEvent} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint64 application_id = 1;
  * @return {number}
  */
 proto.integration.IntegrationEvent.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.integration.IntegrationEvent.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3698,13 +4299,13 @@ proto.integration.IntegrationEvent.prototype.setApplicationId = function(value) 
  * @return {string}
  */
 proto.integration.IntegrationEvent.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.IntegrationEvent.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3713,13 +4314,13 @@ proto.integration.IntegrationEvent.prototype.setApplicationName = function(value
  * @return {string}
  */
 proto.integration.IntegrationEvent.prototype.getDeviceName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.IntegrationEvent.prototype.setDeviceName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -3728,7 +4329,7 @@ proto.integration.IntegrationEvent.prototype.setDeviceName = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.integration.IntegrationEvent.prototype.getDevEui = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -3756,9 +4357,9 @@ proto.integration.IntegrationEvent.prototype.getDevEui_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.integration.IntegrationEvent.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -3775,18 +4376,23 @@ proto.integration.IntegrationEvent.prototype.getTagsMap = function(opt_noLazyCre
 };
 
 
+proto.integration.IntegrationEvent.prototype.clearTagsMap = function() {
+  this.getTagsMap().clear();
+};
+
+
 /**
  * optional string integration_name = 6;
  * @return {string}
  */
 proto.integration.IntegrationEvent.prototype.getIntegrationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.IntegrationEvent.prototype.setIntegrationName = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -3795,13 +4401,13 @@ proto.integration.IntegrationEvent.prototype.setIntegrationName = function(value
  * @return {string}
  */
 proto.integration.IntegrationEvent.prototype.getEventType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.IntegrationEvent.prototype.setEventType = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -3810,27 +4416,27 @@ proto.integration.IntegrationEvent.prototype.setEventType = function(value) {
  * @return {string}
  */
 proto.integration.IntegrationEvent.prototype.getObjectJson = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.integration.IntegrationEvent.prototype.setObjectJson = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
 /**
  * optional google.protobuf.Timestamp published_at = 9;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.integration.IntegrationEvent.prototype.getPublishedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.integration.IntegrationEvent.prototype.setPublishedAt = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
@@ -3843,7 +4449,7 @@ proto.integration.IntegrationEvent.prototype.clearPublishedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.integration.IntegrationEvent.prototype.hasPublishedAt = function() {
   return jspb.Message.getField(this, 9) != null;

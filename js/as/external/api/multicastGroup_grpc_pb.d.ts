@@ -18,6 +18,8 @@ interface IMulticastGroupServiceService extends grpc.ServiceDefinition<grpc.Unty
   enqueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemRequest, as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemResponse>;
   flushQueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.FlushMulticastGroupQueueItemsRequest, google_protobuf_empty_pb.Empty>;
   listQueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>;
+  bulkMulticastDeployment: grpc.MethodDefinition<as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest, as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse>;
+  resetMulticastSetup: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, as_external_api_multicastGroup_pb.ResetMulticastSetupResponse>;
 }
 
 export const MulticastGroupServiceService: IMulticastGroupServiceService;
@@ -33,6 +35,8 @@ export interface IMulticastGroupServiceServer extends grpc.UntypedServiceImpleme
   enqueue: grpc.handleUnaryCall<as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemRequest, as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemResponse>;
   flushQueue: grpc.handleUnaryCall<as_external_api_multicastGroup_pb.FlushMulticastGroupQueueItemsRequest, google_protobuf_empty_pb.Empty>;
   listQueue: grpc.handleUnaryCall<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>;
+  bulkMulticastDeployment: grpc.handleUnaryCall<as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest, as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse>;
+  resetMulticastSetup: grpc.handleUnaryCall<as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, as_external_api_multicastGroup_pb.ResetMulticastSetupResponse>;
 }
 
 export class MulticastGroupServiceClient extends grpc.Client {
@@ -67,4 +71,10 @@ export class MulticastGroupServiceClient extends grpc.Client {
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
+  bulkMulticastDeployment(argument: as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse>): grpc.ClientUnaryCall;
+  bulkMulticastDeployment(argument: as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse>): grpc.ClientUnaryCall;
+  bulkMulticastDeployment(argument: as_external_api_multicastGroup_pb.BulkMulticastDeploymentRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.BulkMulticastDeploymentResponse>): grpc.ClientUnaryCall;
+  resetMulticastSetup(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ResetMulticastSetupResponse>): grpc.ClientUnaryCall;
+  resetMulticastSetup(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ResetMulticastSetupResponse>): grpc.ClientUnaryCall;
+  resetMulticastSetup(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ResetMulticastSetupResponse>): grpc.ClientUnaryCall;
 }

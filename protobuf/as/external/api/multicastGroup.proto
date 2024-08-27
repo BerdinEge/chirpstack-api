@@ -96,6 +96,14 @@ service MulticastGroupService {
             body: "*"
         };
     }
+
+    // ResetMulticastSetup creates the given multicast-deployment.
+    rpc ResetMulticastSetup(ResetMulticastSetupRequest) returns (ResetMulticastSetupResponse) {
+        option(google.api.http) = {
+            post: "/api/multicast-groups/reset-multicast-setup"
+            body: "*"
+        };
+    }
 }
 
 enum MulticastGroupType {
@@ -272,6 +280,18 @@ message BulkMulticastDeploymentResponse {
 
     // Deployment id of the fuota server deployment object
     string deployment_id = 3;
+}
+
+message ResetMulticastSetupRequest {
+    // Deployment id of the fuota server deployment object
+    string deployment_id = 1;
+    // DevEUI.
+    string dev_eui = 2;
+}
+
+message ResetMulticastSetupResponse {
+    // ID of the created deployment.
+    bool is_succeed = 1;
 }
 
 message GetMulticastGroupRequest {

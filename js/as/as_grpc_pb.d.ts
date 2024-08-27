@@ -9,6 +9,7 @@ import * as grpc from "@grpc/grpc-js";
 
 interface IApplicationServerServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   handleUplinkData: grpc.MethodDefinition<as_as_pb.HandleUplinkDataRequest, google_protobuf_empty_pb.Empty>;
+  handleDownlinkData: grpc.MethodDefinition<as_as_pb.HandleDownlinkDataRequest, google_protobuf_empty_pb.Empty>;
   handleProprietaryUplink: grpc.MethodDefinition<as_as_pb.HandleProprietaryUplinkRequest, google_protobuf_empty_pb.Empty>;
   handleError: grpc.MethodDefinition<as_as_pb.HandleErrorRequest, google_protobuf_empty_pb.Empty>;
   handleDownlinkACK: grpc.MethodDefinition<as_as_pb.HandleDownlinkACKRequest, google_protobuf_empty_pb.Empty>;
@@ -23,6 +24,7 @@ export const ApplicationServerServiceService: IApplicationServerServiceService;
 
 export interface IApplicationServerServiceServer extends grpc.UntypedServiceImplementation {
   handleUplinkData: grpc.handleUnaryCall<as_as_pb.HandleUplinkDataRequest, google_protobuf_empty_pb.Empty>;
+  handleDownlinkData: grpc.handleUnaryCall<as_as_pb.HandleDownlinkDataRequest, google_protobuf_empty_pb.Empty>;
   handleProprietaryUplink: grpc.handleUnaryCall<as_as_pb.HandleProprietaryUplinkRequest, google_protobuf_empty_pb.Empty>;
   handleError: grpc.handleUnaryCall<as_as_pb.HandleErrorRequest, google_protobuf_empty_pb.Empty>;
   handleDownlinkACK: grpc.handleUnaryCall<as_as_pb.HandleDownlinkACKRequest, google_protobuf_empty_pb.Empty>;
@@ -38,6 +40,9 @@ export class ApplicationServerServiceClient extends grpc.Client {
   handleUplinkData(argument: as_as_pb.HandleUplinkDataRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   handleUplinkData(argument: as_as_pb.HandleUplinkDataRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   handleUplinkData(argument: as_as_pb.HandleUplinkDataRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  handleDownlinkData(argument: as_as_pb.HandleDownlinkDataRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  handleDownlinkData(argument: as_as_pb.HandleDownlinkDataRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  handleDownlinkData(argument: as_as_pb.HandleDownlinkDataRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   handleProprietaryUplink(argument: as_as_pb.HandleProprietaryUplinkRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   handleProprietaryUplink(argument: as_as_pb.HandleProprietaryUplinkRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   handleProprietaryUplink(argument: as_as_pb.HandleProprietaryUplinkRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;

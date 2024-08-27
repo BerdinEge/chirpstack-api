@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -12,7 +14,14 @@ var global = Function('return this')();
 var google_api_annotations_pb = require('../../../google/api/annotations_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
+var google_protobuf_duration_pb = require('google-protobuf/google/protobuf/duration_pb.js');
 goog.exportSymbol('proto.api.AddDeviceToMulticastGroupRequest', null, global);
+goog.exportSymbol('proto.api.BulkDeploymentDevice', null, global);
+goog.exportSymbol('proto.api.BulkMulticastDeployment', null, global);
+goog.exportSymbol('proto.api.BulkMulticastDeploymentRequest', null, global);
+goog.exportSymbol('proto.api.BulkMulticastDeploymentResponse', null, global);
+goog.exportSymbol('proto.api.CreateMulticastDeploymentRequest', null, global);
+goog.exportSymbol('proto.api.CreateMulticastDeploymentResponse', null, global);
 goog.exportSymbol('proto.api.CreateMulticastGroupRequest', null, global);
 goog.exportSymbol('proto.api.CreateMulticastGroupResponse', null, global);
 goog.exportSymbol('proto.api.DeleteMulticastGroupRequest', null, global);
@@ -25,11 +34,14 @@ goog.exportSymbol('proto.api.ListMulticastGroupQueueItemsRequest', null, global)
 goog.exportSymbol('proto.api.ListMulticastGroupQueueItemsResponse', null, global);
 goog.exportSymbol('proto.api.ListMulticastGroupRequest', null, global);
 goog.exportSymbol('proto.api.ListMulticastGroupResponse', null, global);
+goog.exportSymbol('proto.api.MulticastDeployment', null, global);
 goog.exportSymbol('proto.api.MulticastGroup', null, global);
 goog.exportSymbol('proto.api.MulticastGroupListItem', null, global);
 goog.exportSymbol('proto.api.MulticastGroupType', null, global);
 goog.exportSymbol('proto.api.MulticastQueueItem', null, global);
 goog.exportSymbol('proto.api.RemoveDeviceFromMulticastGroupRequest', null, global);
+goog.exportSymbol('proto.api.ResetMulticastSetupRequest', null, global);
+goog.exportSymbol('proto.api.ResetMulticastSetupResponse', null, global);
 goog.exportSymbol('proto.api.UpdateMulticastGroupRequest', null, global);
 
 /**
@@ -74,20 +86,21 @@ proto.api.MulticastGroup.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.api.MulticastGroup} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.MulticastGroup.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    mcAddr: msg.getMcAddr(),
-    mcNwkSKey: msg.getMcNwkSKey(),
-    mcAppSKey: msg.getMcAppSKey(),
-    fCnt: msg.getFCnt(),
-    groupType: msg.getGroupType(),
-    dr: msg.getDr(),
-    frequency: msg.getFrequency(),
-    pingSlotPeriod: msg.getPingSlotPeriod(),
-    applicationId: msg.getApplicationId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    mcAddr: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    mcNwkSKey: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    mcAppSKey: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    groupType: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    dr: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    frequency: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    pingSlotPeriod: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 12, 0)
   };
 
   if (includeInstance) {
@@ -178,105 +191,96 @@ proto.api.MulticastGroup.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.MulticastGroup} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.MulticastGroup.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.MulticastGroup.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.MulticastGroup.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.MulticastGroup} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.MulticastGroup.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.MulticastGroup.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getMcAddr();
+  f = message.getMcAddr();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getMcNwkSKey();
+  f = message.getMcNwkSKey();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getMcAppSKey();
+  f = message.getMcAppSKey();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       6,
       f
     );
   }
-  f = this.getGroupType();
+  f = message.getGroupType();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
       f
     );
   }
-  f = this.getDr();
+  f = message.getDr();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
-  f = this.getFrequency();
+  f = message.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
       9,
       f
     );
   }
-  f = this.getPingSlotPeriod();
+  f = message.getPingSlotPeriod();
   if (f !== 0) {
     writer.writeUint32(
       10,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       12,
@@ -287,26 +291,17 @@ proto.api.MulticastGroup.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.MulticastGroup} The clone.
- */
-proto.api.MulticastGroup.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.MulticastGroup} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroup.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -315,13 +310,13 @@ proto.api.MulticastGroup.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroup.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -330,13 +325,13 @@ proto.api.MulticastGroup.prototype.setName = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getMcAddr = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroup.prototype.setMcAddr = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -345,13 +340,13 @@ proto.api.MulticastGroup.prototype.setMcAddr = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getMcNwkSKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroup.prototype.setMcNwkSKey = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -360,13 +355,13 @@ proto.api.MulticastGroup.prototype.setMcNwkSKey = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getMcAppSKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroup.prototype.setMcAppSKey = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -375,13 +370,13 @@ proto.api.MulticastGroup.prototype.setMcAppSKey = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroup.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -390,13 +385,13 @@ proto.api.MulticastGroup.prototype.setFCnt = function(value) {
  * @return {!proto.api.MulticastGroupType}
  */
 proto.api.MulticastGroup.prototype.getGroupType = function() {
-  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {!proto.api.MulticastGroupType} value  */
+/** @param {!proto.api.MulticastGroupType} value */
 proto.api.MulticastGroup.prototype.setGroupType = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -405,13 +400,13 @@ proto.api.MulticastGroup.prototype.setGroupType = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroup.prototype.setDr = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -420,13 +415,13 @@ proto.api.MulticastGroup.prototype.setDr = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroup.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -435,13 +430,13 @@ proto.api.MulticastGroup.prototype.setFrequency = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getPingSlotPeriod = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroup.prototype.setPingSlotPeriod = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -450,13 +445,978 @@ proto.api.MulticastGroup.prototype.setPingSlotPeriod = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 12, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroup.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 12, value);
+  jspb.Message.setProto3IntField(this, 12, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.MulticastDeployment = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.MulticastDeployment, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.MulticastDeployment.displayName = 'proto.api.MulticastDeployment';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.MulticastDeployment.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.MulticastDeployment.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.MulticastDeployment} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.MulticastDeployment.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    mcAddr: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    mcNwkSKey: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    mcAppSKey: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    groupType: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    dr: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    frequency: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    pingSlotPeriod: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 12, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.MulticastDeployment}
+ */
+proto.api.MulticastDeployment.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.MulticastDeployment;
+  return proto.api.MulticastDeployment.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.MulticastDeployment} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.MulticastDeployment}
+ */
+proto.api.MulticastDeployment.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMcAddr(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMcNwkSKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMcAppSKey(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFCnt(value);
+      break;
+    case 7:
+      var value = /** @type {!proto.api.MulticastGroupType} */ (reader.readEnum());
+      msg.setGroupType(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDr(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFrequency(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPingSlotPeriod(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setApplicationId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.MulticastDeployment.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.MulticastDeployment.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.MulticastDeployment} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.MulticastDeployment.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getMcAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getMcNwkSKey();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getMcAppSKey();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getFCnt();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
+      f
+    );
+  }
+  f = message.getGroupType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      7,
+      f
+    );
+  }
+  f = message.getDr();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getFrequency();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
+    );
+  }
+  f = message.getPingSlotPeriod();
+  if (f !== 0) {
+    writer.writeUint32(
+      10,
+      f
+    );
+  }
+  f = message.getApplicationId();
+  if (f !== 0) {
+    writer.writeInt64(
+      12,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string id = 1;
+ * @return {string}
+ */
+proto.api.MulticastDeployment.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.api.MulticastDeployment.prototype.setId = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.api.MulticastDeployment.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.api.MulticastDeployment.prototype.setName = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string mc_addr = 3;
+ * @return {string}
+ */
+proto.api.MulticastDeployment.prototype.getMcAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.api.MulticastDeployment.prototype.setMcAddr = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string mc_nwk_s_key = 4;
+ * @return {string}
+ */
+proto.api.MulticastDeployment.prototype.getMcNwkSKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.api.MulticastDeployment.prototype.setMcNwkSKey = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string mc_app_s_key = 5;
+ * @return {string}
+ */
+proto.api.MulticastDeployment.prototype.getMcAppSKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.api.MulticastDeployment.prototype.setMcAppSKey = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 f_cnt = 6;
+ * @return {number}
+ */
+proto.api.MulticastDeployment.prototype.getFCnt = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.api.MulticastDeployment.prototype.setFCnt = function(value) {
+  jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional MulticastGroupType group_type = 7;
+ * @return {!proto.api.MulticastGroupType}
+ */
+proto.api.MulticastDeployment.prototype.getGroupType = function() {
+  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {!proto.api.MulticastGroupType} value */
+proto.api.MulticastDeployment.prototype.setGroupType = function(value) {
+  jspb.Message.setProto3EnumField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 dr = 8;
+ * @return {number}
+ */
+proto.api.MulticastDeployment.prototype.getDr = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.api.MulticastDeployment.prototype.setDr = function(value) {
+  jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional uint32 frequency = 9;
+ * @return {number}
+ */
+proto.api.MulticastDeployment.prototype.getFrequency = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.api.MulticastDeployment.prototype.setFrequency = function(value) {
+  jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional uint32 ping_slot_period = 10;
+ * @return {number}
+ */
+proto.api.MulticastDeployment.prototype.getPingSlotPeriod = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.api.MulticastDeployment.prototype.setPingSlotPeriod = function(value) {
+  jspb.Message.setProto3IntField(this, 10, value);
+};
+
+
+/**
+ * optional int64 application_id = 12;
+ * @return {number}
+ */
+proto.api.MulticastDeployment.prototype.getApplicationId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/** @param {number} value */
+proto.api.MulticastDeployment.prototype.setApplicationId = function(value) {
+  jspb.Message.setProto3IntField(this, 12, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.BulkMulticastDeployment = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.api.BulkMulticastDeployment.repeatedFields_, null);
+};
+goog.inherits(proto.api.BulkMulticastDeployment, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.BulkMulticastDeployment.displayName = 'proto.api.BulkMulticastDeployment';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.api.BulkMulticastDeployment.repeatedFields_ = [2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.BulkMulticastDeployment.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.BulkMulticastDeployment.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.BulkMulticastDeployment} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeployment.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    applicationId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    devicesList: jspb.Message.toObjectList(msg.getDevicesList(),
+    proto.api.BulkDeploymentDevice.toObject, includeInstance),
+    mcRootKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    multicastDr: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    multicastFrequency: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    unicastTimeout: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    unicastAttemptCount: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    existingMulticastGroupId: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    existingDeploymentId: jspb.Message.getFieldWithDefault(msg, 10, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.BulkMulticastDeployment}
+ */
+proto.api.BulkMulticastDeployment.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.BulkMulticastDeployment;
+  return proto.api.BulkMulticastDeployment.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.BulkMulticastDeployment} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.BulkMulticastDeployment}
+ */
+proto.api.BulkMulticastDeployment.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setApplicationId(value);
+      break;
+    case 2:
+      var value = new proto.api.BulkDeploymentDevice;
+      reader.readMessage(value,proto.api.BulkDeploymentDevice.deserializeBinaryFromReader);
+      msg.addDevices(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMcRootKey(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMulticastDr(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMulticastFrequency(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMulticastGroupId(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setUnicastTimeout(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setUnicastAttemptCount(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExistingMulticastGroupId(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExistingDeploymentId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.BulkMulticastDeployment.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.BulkMulticastDeployment.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.BulkMulticastDeployment} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeployment.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getApplicationId();
+  if (f !== 0) {
+    writer.writeInt64(
+      1,
+      f
+    );
+  }
+  f = message.getDevicesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      proto.api.BulkDeploymentDevice.serializeBinaryToWriter
+    );
+  }
+  f = message.getMcRootKey();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getMulticastDr();
+  if (f !== 0) {
+    writer.writeUint32(
+      4,
+      f
+    );
+  }
+  f = message.getMulticastFrequency();
+  if (f !== 0) {
+    writer.writeUint32(
+      5,
+      f
+    );
+  }
+  f = message.getMulticastGroupId();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
+      f
+    );
+  }
+  f = message.getUnicastTimeout();
+  if (f !== 0) {
+    writer.writeUint32(
+      7,
+      f
+    );
+  }
+  f = message.getUnicastAttemptCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getExistingMulticastGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
+  f = message.getExistingDeploymentId();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int64 application_id = 1;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getApplicationId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setApplicationId = function(value) {
+  jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * repeated BulkDeploymentDevice devices = 2;
+ * @return {!Array<!proto.api.BulkDeploymentDevice>}
+ */
+proto.api.BulkMulticastDeployment.prototype.getDevicesList = function() {
+  return /** @type{!Array<!proto.api.BulkDeploymentDevice>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.api.BulkDeploymentDevice, 2));
+};
+
+
+/** @param {!Array<!proto.api.BulkDeploymentDevice>} value */
+proto.api.BulkMulticastDeployment.prototype.setDevicesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.BulkDeploymentDevice=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.BulkDeploymentDevice}
+ */
+proto.api.BulkMulticastDeployment.prototype.addDevices = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.BulkDeploymentDevice, opt_index);
+};
+
+
+proto.api.BulkMulticastDeployment.prototype.clearDevicesList = function() {
+  this.setDevicesList([]);
+};
+
+
+/**
+ * optional string mc_root_key = 3;
+ * @return {string}
+ */
+proto.api.BulkMulticastDeployment.prototype.getMcRootKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkMulticastDeployment.prototype.setMcRootKey = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional uint32 multicast_dr = 4;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getMulticastDr = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setMulticastDr = function(value) {
+  jspb.Message.setProto3IntField(this, 4, value);
+};
+
+
+/**
+ * optional uint32 multicast_frequency = 5;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getMulticastFrequency = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setMulticastFrequency = function(value) {
+  jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 multicast_group_id = 6;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getMulticastGroupId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setMulticastGroupId = function(value) {
+  jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional uint32 unicast_timeout = 7;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getUnicastTimeout = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setUnicastTimeout = function(value) {
+  jspb.Message.setProto3IntField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 unicast_attempt_count = 8;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeployment.prototype.getUnicastAttemptCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeployment.prototype.setUnicastAttemptCount = function(value) {
+  jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional string existing_multicast_group_id = 9;
+ * @return {string}
+ */
+proto.api.BulkMulticastDeployment.prototype.getExistingMulticastGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkMulticastDeployment.prototype.setExistingMulticastGroupId = function(value) {
+  jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional string existing_deployment_id = 10;
+ * @return {string}
+ */
+proto.api.BulkMulticastDeployment.prototype.getExistingDeploymentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkMulticastDeployment.prototype.setExistingDeploymentId = function(value) {
+  jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.BulkDeploymentDevice = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.BulkDeploymentDevice, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.BulkDeploymentDevice.displayName = 'proto.api.BulkDeploymentDevice';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.BulkDeploymentDevice.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.BulkDeploymentDevice.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.BulkDeploymentDevice} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkDeploymentDevice.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    devEui: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.BulkDeploymentDevice}
+ */
+proto.api.BulkDeploymentDevice.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.BulkDeploymentDevice;
+  return proto.api.BulkDeploymentDevice.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.BulkDeploymentDevice} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.BulkDeploymentDevice}
+ */
+proto.api.BulkDeploymentDevice.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDevEui(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.BulkDeploymentDevice.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.BulkDeploymentDevice.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.BulkDeploymentDevice} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkDeploymentDevice.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getDevEui();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string dev_eui = 1;
+ * @return {string}
+ */
+proto.api.BulkDeploymentDevice.prototype.getDevEui = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkDeploymentDevice.prototype.setDevEui = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -503,13 +1463,14 @@ proto.api.MulticastGroupListItem.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.api.MulticastGroupListItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.MulticastGroupListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    applicationId: msg.getApplicationId(),
-    applicationName: msg.getApplicationName()
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    applicationName: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -572,56 +1533,47 @@ proto.api.MulticastGroupListItem.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.MulticastGroupListItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.MulticastGroupListItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.MulticastGroupListItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.MulticastGroupListItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.MulticastGroupListItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.MulticastGroupListItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.MulticastGroupListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       5,
       f
     );
   }
-  f = this.getApplicationName();
+  f = message.getApplicationName();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -632,26 +1584,17 @@ proto.api.MulticastGroupListItem.prototype.serializeBinaryToWriter = function (w
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.MulticastGroupListItem} The clone.
- */
-proto.api.MulticastGroupListItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.MulticastGroupListItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.MulticastGroupListItem.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroupListItem.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -660,13 +1603,13 @@ proto.api.MulticastGroupListItem.prototype.setId = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroupListItem.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroupListItem.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -675,13 +1618,13 @@ proto.api.MulticastGroupListItem.prototype.setName = function(value) {
  * @return {number}
  */
 proto.api.MulticastGroupListItem.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastGroupListItem.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -690,13 +1633,13 @@ proto.api.MulticastGroupListItem.prototype.setApplicationId = function(value) {
  * @return {string}
  */
 proto.api.MulticastGroupListItem.prototype.getApplicationName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastGroupListItem.prototype.setApplicationName = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -743,6 +1686,7 @@ proto.api.CreateMulticastGroupRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -798,35 +1742,26 @@ proto.api.CreateMulticastGroupRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroup();
+  f = message.getMulticastGroup();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -838,25 +1773,16 @@ proto.api.CreateMulticastGroupRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateMulticastGroupRequest} The clone.
- */
-proto.api.CreateMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MulticastGroup multicast_group = 1;
- * @return {proto.api.MulticastGroup}
+ * @return {?proto.api.MulticastGroup}
  */
 proto.api.CreateMulticastGroupRequest.prototype.getMulticastGroup = function() {
-  return /** @type{proto.api.MulticastGroup} */ (
+  return /** @type{?proto.api.MulticastGroup} */ (
     jspb.Message.getWrapperField(this, proto.api.MulticastGroup, 1));
 };
 
 
-/** @param {proto.api.MulticastGroup|undefined} value  */
+/** @param {?proto.api.MulticastGroup|undefined} value */
 proto.api.CreateMulticastGroupRequest.prototype.setMulticastGroup = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -869,7 +1795,7 @@ proto.api.CreateMulticastGroupRequest.prototype.clearMulticastGroup = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.CreateMulticastGroupRequest.prototype.hasMulticastGroup = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -919,10 +1845,11 @@ proto.api.CreateMulticastGroupResponse.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.api.CreateMulticastGroupResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.CreateMulticastGroupResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -973,35 +1900,26 @@ proto.api.CreateMulticastGroupResponse.deserializeBinaryFromReader = function(ms
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.CreateMulticastGroupResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.CreateMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.CreateMulticastGroupResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.CreateMulticastGroupResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateMulticastGroupResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.CreateMulticastGroupResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.CreateMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1012,11 +1930,303 @@ proto.api.CreateMulticastGroupResponse.prototype.serializeBinaryToWriter = funct
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.CreateMulticastGroupResponse} The clone.
+ * optional string id = 1;
+ * @return {string}
  */
-proto.api.CreateMulticastGroupResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.CreateMulticastGroupResponse} */ (jspb.Message.cloneMessage(this));
+proto.api.CreateMulticastGroupResponse.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.api.CreateMulticastGroupResponse.prototype.setId = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.CreateMulticastDeploymentRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.CreateMulticastDeploymentRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.CreateMulticastDeploymentRequest.displayName = 'proto.api.CreateMulticastDeploymentRequest';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.CreateMulticastDeploymentRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.CreateMulticastDeploymentRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.CreateMulticastDeploymentRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.CreateMulticastDeploymentRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    multicastDeployment: (f = msg.getMulticastDeployment()) && proto.api.MulticastDeployment.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.CreateMulticastDeploymentRequest}
+ */
+proto.api.CreateMulticastDeploymentRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.CreateMulticastDeploymentRequest;
+  return proto.api.CreateMulticastDeploymentRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.CreateMulticastDeploymentRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.CreateMulticastDeploymentRequest}
+ */
+proto.api.CreateMulticastDeploymentRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.api.MulticastDeployment;
+      reader.readMessage(value,proto.api.MulticastDeployment.deserializeBinaryFromReader);
+      msg.setMulticastDeployment(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.CreateMulticastDeploymentRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.CreateMulticastDeploymentRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateMulticastDeploymentRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.CreateMulticastDeploymentRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getMulticastDeployment();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.api.MulticastDeployment.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional MulticastDeployment multicast_deployment = 1;
+ * @return {?proto.api.MulticastDeployment}
+ */
+proto.api.CreateMulticastDeploymentRequest.prototype.getMulticastDeployment = function() {
+  return /** @type{?proto.api.MulticastDeployment} */ (
+    jspb.Message.getWrapperField(this, proto.api.MulticastDeployment, 1));
+};
+
+
+/** @param {?proto.api.MulticastDeployment|undefined} value */
+proto.api.CreateMulticastDeploymentRequest.prototype.setMulticastDeployment = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.api.CreateMulticastDeploymentRequest.prototype.clearMulticastDeployment = function() {
+  this.setMulticastDeployment(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.api.CreateMulticastDeploymentRequest.prototype.hasMulticastDeployment = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.CreateMulticastDeploymentResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.CreateMulticastDeploymentResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.CreateMulticastDeploymentResponse.displayName = 'proto.api.CreateMulticastDeploymentResponse';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.CreateMulticastDeploymentResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.CreateMulticastDeploymentResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.CreateMulticastDeploymentResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.CreateMulticastDeploymentResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.CreateMulticastDeploymentResponse}
+ */
+proto.api.CreateMulticastDeploymentResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.CreateMulticastDeploymentResponse;
+  return proto.api.CreateMulticastDeploymentResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.CreateMulticastDeploymentResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.CreateMulticastDeploymentResponse}
+ */
+proto.api.CreateMulticastDeploymentResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.CreateMulticastDeploymentResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.CreateMulticastDeploymentResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.CreateMulticastDeploymentResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.CreateMulticastDeploymentResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
 };
 
 
@@ -1024,14 +2234,682 @@ proto.api.CreateMulticastGroupResponse.prototype.cloneMessage = function() {
  * optional string id = 1;
  * @return {string}
  */
-proto.api.CreateMulticastGroupResponse.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+proto.api.CreateMulticastDeploymentResponse.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
-proto.api.CreateMulticastGroupResponse.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+/** @param {string} value */
+proto.api.CreateMulticastDeploymentResponse.prototype.setId = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.BulkMulticastDeploymentRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.BulkMulticastDeploymentRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.BulkMulticastDeploymentRequest.displayName = 'proto.api.BulkMulticastDeploymentRequest';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.BulkMulticastDeploymentRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.BulkMulticastDeploymentRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.BulkMulticastDeploymentRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeploymentRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    deployment: (f = msg.getDeployment()) && proto.api.BulkMulticastDeployment.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.BulkMulticastDeploymentRequest}
+ */
+proto.api.BulkMulticastDeploymentRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.BulkMulticastDeploymentRequest;
+  return proto.api.BulkMulticastDeploymentRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.BulkMulticastDeploymentRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.BulkMulticastDeploymentRequest}
+ */
+proto.api.BulkMulticastDeploymentRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.api.BulkMulticastDeployment;
+      reader.readMessage(value,proto.api.BulkMulticastDeployment.deserializeBinaryFromReader);
+      msg.setDeployment(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.BulkMulticastDeploymentRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.BulkMulticastDeploymentRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.BulkMulticastDeploymentRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeploymentRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getDeployment();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.api.BulkMulticastDeployment.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional BulkMulticastDeployment deployment = 1;
+ * @return {?proto.api.BulkMulticastDeployment}
+ */
+proto.api.BulkMulticastDeploymentRequest.prototype.getDeployment = function() {
+  return /** @type{?proto.api.BulkMulticastDeployment} */ (
+    jspb.Message.getWrapperField(this, proto.api.BulkMulticastDeployment, 1));
+};
+
+
+/** @param {?proto.api.BulkMulticastDeployment|undefined} value */
+proto.api.BulkMulticastDeploymentRequest.prototype.setDeployment = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.api.BulkMulticastDeploymentRequest.prototype.clearDeployment = function() {
+  this.setDeployment(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.api.BulkMulticastDeploymentRequest.prototype.hasDeployment = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.BulkMulticastDeploymentResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.BulkMulticastDeploymentResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.BulkMulticastDeploymentResponse.displayName = 'proto.api.BulkMulticastDeploymentResponse';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.BulkMulticastDeploymentResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.BulkMulticastDeploymentResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.BulkMulticastDeploymentResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeploymentResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    numberOfDevices: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    deploymentId: jspb.Message.getFieldWithDefault(msg, 3, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.BulkMulticastDeploymentResponse}
+ */
+proto.api.BulkMulticastDeploymentResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.BulkMulticastDeploymentResponse;
+  return proto.api.BulkMulticastDeploymentResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.BulkMulticastDeploymentResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.BulkMulticastDeploymentResponse}
+ */
+proto.api.BulkMulticastDeploymentResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setNumberOfDevices(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMulticastGroupId(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDeploymentId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.BulkMulticastDeploymentResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.BulkMulticastDeploymentResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.BulkMulticastDeploymentResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.BulkMulticastDeploymentResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getNumberOfDevices();
+  if (f !== 0) {
+    writer.writeUint32(
+      1,
+      f
+    );
+  }
+  f = message.getMulticastGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getDeploymentId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint32 number_of_devices = 1;
+ * @return {number}
+ */
+proto.api.BulkMulticastDeploymentResponse.prototype.getNumberOfDevices = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.api.BulkMulticastDeploymentResponse.prototype.setNumberOfDevices = function(value) {
+  jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * optional string multicast_group_id = 2;
+ * @return {string}
+ */
+proto.api.BulkMulticastDeploymentResponse.prototype.getMulticastGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkMulticastDeploymentResponse.prototype.setMulticastGroupId = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string deployment_id = 3;
+ * @return {string}
+ */
+proto.api.BulkMulticastDeploymentResponse.prototype.getDeploymentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.api.BulkMulticastDeploymentResponse.prototype.setDeploymentId = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.ResetMulticastSetupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.ResetMulticastSetupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.ResetMulticastSetupRequest.displayName = 'proto.api.ResetMulticastSetupRequest';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.ResetMulticastSetupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.ResetMulticastSetupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.ResetMulticastSetupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.ResetMulticastSetupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    deploymentId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    devEui: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.ResetMulticastSetupRequest}
+ */
+proto.api.ResetMulticastSetupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.ResetMulticastSetupRequest;
+  return proto.api.ResetMulticastSetupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.ResetMulticastSetupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.ResetMulticastSetupRequest}
+ */
+proto.api.ResetMulticastSetupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDeploymentId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDevEui(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.ResetMulticastSetupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.ResetMulticastSetupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ResetMulticastSetupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.ResetMulticastSetupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getDeploymentId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getDevEui();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string deployment_id = 1;
+ * @return {string}
+ */
+proto.api.ResetMulticastSetupRequest.prototype.getDeploymentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.api.ResetMulticastSetupRequest.prototype.setDeploymentId = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string dev_eui = 2;
+ * @return {string}
+ */
+proto.api.ResetMulticastSetupRequest.prototype.getDevEui = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.api.ResetMulticastSetupRequest.prototype.setDevEui = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.api.ResetMulticastSetupResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.api.ResetMulticastSetupResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.api.ResetMulticastSetupResponse.displayName = 'proto.api.ResetMulticastSetupResponse';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.api.ResetMulticastSetupResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.api.ResetMulticastSetupResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.api.ResetMulticastSetupResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.ResetMulticastSetupResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    isSucceed: jspb.Message.getFieldWithDefault(msg, 1, false)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.api.ResetMulticastSetupResponse}
+ */
+proto.api.ResetMulticastSetupResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.api.ResetMulticastSetupResponse;
+  return proto.api.ResetMulticastSetupResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.api.ResetMulticastSetupResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.api.ResetMulticastSetupResponse}
+ */
+proto.api.ResetMulticastSetupResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsSucceed(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.api.ResetMulticastSetupResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.api.ResetMulticastSetupResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ResetMulticastSetupResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.api.ResetMulticastSetupResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getIsSucceed();
+  if (f) {
+    writer.writeBool(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional bool is_succeed = 1;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.api.ResetMulticastSetupResponse.prototype.getIsSucceed = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 1, false));
+};
+
+
+/** @param {boolean} value */
+proto.api.ResetMulticastSetupResponse.prototype.setIsSucceed = function(value) {
+  jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
@@ -1078,10 +2956,11 @@ proto.api.GetMulticastGroupRequest.prototype.toObject = function(opt_includeInst
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1132,35 +3011,26 @@ proto.api.GetMulticastGroupRequest.deserializeBinaryFromReader = function(msg, r
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1171,26 +3041,17 @@ proto.api.GetMulticastGroupRequest.prototype.serializeBinaryToWriter = function 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetMulticastGroupRequest} The clone.
- */
-proto.api.GetMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.GetMulticastGroupRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.GetMulticastGroupRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1237,6 +3098,7 @@ proto.api.GetMulticastGroupResponse.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.GetMulticastGroupResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.GetMulticastGroupResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1304,35 +3166,26 @@ proto.api.GetMulticastGroupResponse.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.GetMulticastGroupResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.GetMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.GetMulticastGroupResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.GetMulticastGroupResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.GetMulticastGroupResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.GetMulticastGroupResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.GetMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroup();
+  f = message.getMulticastGroup();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1340,7 +3193,7 @@ proto.api.GetMulticastGroupResponse.prototype.serializeBinaryToWriter = function
       proto.api.MulticastGroup.serializeBinaryToWriter
     );
   }
-  f = this.getCreatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -1348,7 +3201,7 @@ proto.api.GetMulticastGroupResponse.prototype.serializeBinaryToWriter = function
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = this.getUpdatedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -1360,25 +3213,16 @@ proto.api.GetMulticastGroupResponse.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.GetMulticastGroupResponse} The clone.
- */
-proto.api.GetMulticastGroupResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.GetMulticastGroupResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MulticastGroup multicast_group = 1;
- * @return {proto.api.MulticastGroup}
+ * @return {?proto.api.MulticastGroup}
  */
 proto.api.GetMulticastGroupResponse.prototype.getMulticastGroup = function() {
-  return /** @type{proto.api.MulticastGroup} */ (
+  return /** @type{?proto.api.MulticastGroup} */ (
     jspb.Message.getWrapperField(this, proto.api.MulticastGroup, 1));
 };
 
 
-/** @param {proto.api.MulticastGroup|undefined} value  */
+/** @param {?proto.api.MulticastGroup|undefined} value */
 proto.api.GetMulticastGroupResponse.prototype.setMulticastGroup = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1391,7 +3235,7 @@ proto.api.GetMulticastGroupResponse.prototype.clearMulticastGroup = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetMulticastGroupResponse.prototype.hasMulticastGroup = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1400,15 +3244,15 @@ proto.api.GetMulticastGroupResponse.prototype.hasMulticastGroup = function() {
 
 /**
  * optional google.protobuf.Timestamp created_at = 2;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetMulticastGroupResponse.prototype.getCreatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 2));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetMulticastGroupResponse.prototype.setCreatedAt = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
@@ -1421,7 +3265,7 @@ proto.api.GetMulticastGroupResponse.prototype.clearCreatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetMulticastGroupResponse.prototype.hasCreatedAt = function() {
   return jspb.Message.getField(this, 2) != null;
@@ -1430,15 +3274,15 @@ proto.api.GetMulticastGroupResponse.prototype.hasCreatedAt = function() {
 
 /**
  * optional google.protobuf.Timestamp updated_at = 3;
- * @return {proto.google.protobuf.Timestamp}
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.api.GetMulticastGroupResponse.prototype.getUpdatedAt = function() {
-  return /** @type{proto.google.protobuf.Timestamp} */ (
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
-/** @param {proto.google.protobuf.Timestamp|undefined} value  */
+/** @param {?proto.google.protobuf.Timestamp|undefined} value */
 proto.api.GetMulticastGroupResponse.prototype.setUpdatedAt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
@@ -1451,7 +3295,7 @@ proto.api.GetMulticastGroupResponse.prototype.clearUpdatedAt = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.GetMulticastGroupResponse.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 3) != null;
@@ -1501,6 +3345,7 @@ proto.api.UpdateMulticastGroupRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.UpdateMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.UpdateMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1556,35 +3401,26 @@ proto.api.UpdateMulticastGroupRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.UpdateMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.UpdateMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.UpdateMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.UpdateMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.UpdateMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.UpdateMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.UpdateMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroup();
+  f = message.getMulticastGroup();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1596,25 +3432,16 @@ proto.api.UpdateMulticastGroupRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.UpdateMulticastGroupRequest} The clone.
- */
-proto.api.UpdateMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.UpdateMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MulticastGroup multicast_group = 1;
- * @return {proto.api.MulticastGroup}
+ * @return {?proto.api.MulticastGroup}
  */
 proto.api.UpdateMulticastGroupRequest.prototype.getMulticastGroup = function() {
-  return /** @type{proto.api.MulticastGroup} */ (
+  return /** @type{?proto.api.MulticastGroup} */ (
     jspb.Message.getWrapperField(this, proto.api.MulticastGroup, 1));
 };
 
 
-/** @param {proto.api.MulticastGroup|undefined} value  */
+/** @param {?proto.api.MulticastGroup|undefined} value */
 proto.api.UpdateMulticastGroupRequest.prototype.setMulticastGroup = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -1627,7 +3454,7 @@ proto.api.UpdateMulticastGroupRequest.prototype.clearMulticastGroup = function()
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.UpdateMulticastGroupRequest.prototype.hasMulticastGroup = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -1677,10 +3504,11 @@ proto.api.DeleteMulticastGroupRequest.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.api.DeleteMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.DeleteMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId()
+    id: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1731,35 +3559,26 @@ proto.api.DeleteMulticastGroupRequest.deserializeBinaryFromReader = function(msg
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.DeleteMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.DeleteMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.DeleteMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.DeleteMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.DeleteMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.DeleteMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.DeleteMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1770,26 +3589,17 @@ proto.api.DeleteMulticastGroupRequest.prototype.serializeBinaryToWriter = functi
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.DeleteMulticastGroupRequest} The clone.
- */
-proto.api.DeleteMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.DeleteMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.api.DeleteMulticastGroupRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.DeleteMulticastGroupRequest.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1836,11 +3646,12 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.AddDeviceToMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.AddDeviceToMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    multicastGroupId: msg.getMulticastGroupId(),
-    devEui: msg.getDevEui()
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    devEui: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -1895,42 +3706,33 @@ proto.api.AddDeviceToMulticastGroupRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.AddDeviceToMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.AddDeviceToMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.AddDeviceToMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.AddDeviceToMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.AddDeviceToMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.AddDeviceToMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.AddDeviceToMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -1941,26 +3743,17 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.AddDeviceToMulticastGroupRequest} The clone.
- */
-proto.api.AddDeviceToMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.AddDeviceToMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string multicast_group_id = 1;
  * @return {string}
  */
 proto.api.AddDeviceToMulticastGroupRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AddDeviceToMulticastGroupRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1969,13 +3762,13 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.setMulticastGroupId = funct
  * @return {string}
  */
 proto.api.AddDeviceToMulticastGroupRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.AddDeviceToMulticastGroupRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2022,11 +3815,12 @@ proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.toObject = function(op
  *     http://goto/soy-param-migration
  * @param {!proto.api.RemoveDeviceFromMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.RemoveDeviceFromMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    multicastGroupId: msg.getMulticastGroupId(),
-    devEui: msg.getDevEui()
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    devEui: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2081,42 +3875,33 @@ proto.api.RemoveDeviceFromMulticastGroupRequest.deserializeBinaryFromReader = fu
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.RemoveDeviceFromMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.RemoveDeviceFromMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.RemoveDeviceFromMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.RemoveDeviceFromMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.RemoveDeviceFromMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -2127,26 +3912,17 @@ proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.serializeBinaryToWrite
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.RemoveDeviceFromMulticastGroupRequest} The clone.
- */
-proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.RemoveDeviceFromMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string multicast_group_id = 1;
  * @return {string}
  */
 proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2155,13 +3931,13 @@ proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.setMulticastGroupId = 
  * @return {string}
  */
 proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.RemoveDeviceFromMulticastGroupRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2208,15 +3984,16 @@ proto.api.ListMulticastGroupRequest.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListMulticastGroupRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: msg.getLimit(),
-    offset: msg.getOffset(),
-    organizationId: msg.getOrganizationId(),
-    devEui: msg.getDevEui(),
-    search: msg.getSearch(),
-    applicationId: msg.getApplicationId()
+    limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    devEui: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    search: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    applicationId: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -2287,70 +4064,61 @@ proto.api.ListMulticastGroupRequest.deserializeBinaryFromReader = function(msg, 
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListMulticastGroupRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListMulticastGroupRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListMulticastGroupRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListMulticastGroupRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListMulticastGroupRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListMulticastGroupRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getLimit();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getOffset();
+  f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = this.getOrganizationId();
+  f = message.getOrganizationId();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = this.getDevEui();
+  f = message.getDevEui();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getSearch();
+  f = message.getSearch();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getApplicationId();
+  f = message.getApplicationId();
   if (f !== 0) {
     writer.writeInt64(
       7,
@@ -2361,26 +4129,17 @@ proto.api.ListMulticastGroupRequest.prototype.serializeBinaryToWriter = function
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListMulticastGroupRequest} The clone.
- */
-proto.api.ListMulticastGroupRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListMulticastGroupRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 limit = 1;
  * @return {number}
  */
 proto.api.ListMulticastGroupRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListMulticastGroupRequest.prototype.setLimit = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -2389,13 +4148,13 @@ proto.api.ListMulticastGroupRequest.prototype.setLimit = function(value) {
  * @return {number}
  */
 proto.api.ListMulticastGroupRequest.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListMulticastGroupRequest.prototype.setOffset = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2404,13 +4163,13 @@ proto.api.ListMulticastGroupRequest.prototype.setOffset = function(value) {
  * @return {number}
  */
 proto.api.ListMulticastGroupRequest.prototype.getOrganizationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListMulticastGroupRequest.prototype.setOrganizationId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2419,13 +4178,13 @@ proto.api.ListMulticastGroupRequest.prototype.setOrganizationId = function(value
  * @return {string}
  */
 proto.api.ListMulticastGroupRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListMulticastGroupRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2434,13 +4193,13 @@ proto.api.ListMulticastGroupRequest.prototype.setDevEui = function(value) {
  * @return {string}
  */
 proto.api.ListMulticastGroupRequest.prototype.getSearch = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListMulticastGroupRequest.prototype.setSearch = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -2449,13 +4208,13 @@ proto.api.ListMulticastGroupRequest.prototype.setSearch = function(value) {
  * @return {number}
  */
 proto.api.ListMulticastGroupRequest.prototype.getApplicationId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListMulticastGroupRequest.prototype.setApplicationId = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -2509,10 +4268,11 @@ proto.api.ListMulticastGroupResponse.prototype.toObject = function(opt_includeIn
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListMulticastGroupResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListMulticastGroupResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    totalCount: msg.getTotalCount(),
+    totalCount: jspb.Message.getFieldWithDefault(msg, 1, 0),
     resultList: jspb.Message.toObjectList(msg.getResultList(),
     proto.api.MulticastGroupListItem.toObject, includeInstance)
   };
@@ -2558,8 +4318,7 @@ proto.api.ListMulticastGroupResponse.deserializeBinaryFromReader = function(msg,
     case 2:
       var value = new proto.api.MulticastGroupListItem;
       reader.readMessage(value,proto.api.MulticastGroupListItem.deserializeBinaryFromReader);
-      msg.getResultList().push(value);
-      msg.setResultList(msg.getResultList());
+      msg.addResult(value);
       break;
     default:
       reader.skipField();
@@ -2571,42 +4330,33 @@ proto.api.ListMulticastGroupResponse.deserializeBinaryFromReader = function(msg,
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListMulticastGroupResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListMulticastGroupResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListMulticastGroupResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListMulticastGroupResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListMulticastGroupResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListMulticastGroupResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTotalCount();
+  f = message.getTotalCount();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = this.getResultList();
+  f = message.getResultList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2618,44 +4368,43 @@ proto.api.ListMulticastGroupResponse.prototype.serializeBinaryToWriter = functio
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListMulticastGroupResponse} The clone.
- */
-proto.api.ListMulticastGroupResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListMulticastGroupResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int64 total_count = 1;
  * @return {number}
  */
 proto.api.ListMulticastGroupResponse.prototype.getTotalCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.ListMulticastGroupResponse.prototype.setTotalCount = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
  * repeated MulticastGroupListItem result = 2;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.MulticastGroupListItem>}
+ * @return {!Array<!proto.api.MulticastGroupListItem>}
  */
 proto.api.ListMulticastGroupResponse.prototype.getResultList = function() {
-  return /** @type{!Array.<!proto.api.MulticastGroupListItem>} */ (
+  return /** @type{!Array<!proto.api.MulticastGroupListItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.MulticastGroupListItem, 2));
 };
 
 
-/** @param {Array.<!proto.api.MulticastGroupListItem>} value  */
+/** @param {!Array<!proto.api.MulticastGroupListItem>} value */
 proto.api.ListMulticastGroupResponse.prototype.setResultList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.api.MulticastGroupListItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.MulticastGroupListItem}
+ */
+proto.api.ListMulticastGroupResponse.prototype.addResult = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.api.MulticastGroupListItem, opt_index);
 };
 
 
@@ -2707,12 +4456,13 @@ proto.api.MulticastQueueItem.prototype.toObject = function(opt_includeInstance) 
  *     http://goto/soy-param-migration
  * @param {!proto.api.MulticastQueueItem} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.MulticastQueueItem.toObject = function(includeInstance, msg) {
   var f, obj = {
-    multicastGroupId: msg.getMulticastGroupId(),
-    fCnt: msg.getFCnt(),
-    fPort: msg.getFPort(),
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    fCnt: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    fPort: jspb.Message.getFieldWithDefault(msg, 3, 0),
     data: msg.getData_asB64()
   };
 
@@ -2776,56 +4526,47 @@ proto.api.MulticastQueueItem.deserializeBinaryFromReader = function(msg, reader)
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.MulticastQueueItem} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.MulticastQueueItem.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.MulticastQueueItem.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.MulticastQueueItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.MulticastQueueItem} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.MulticastQueueItem.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.MulticastQueueItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       2,
       f
     );
   }
-  f = this.getFPort();
+  f = message.getFPort();
   if (f !== 0) {
     writer.writeUint32(
       3,
       f
     );
   }
-  f = this.getData_asU8();
+  f = message.getData_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
@@ -2836,26 +4577,17 @@ proto.api.MulticastQueueItem.prototype.serializeBinaryToWriter = function (write
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.MulticastQueueItem} The clone.
- */
-proto.api.MulticastQueueItem.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.MulticastQueueItem} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string multicast_group_id = 1;
  * @return {string}
  */
 proto.api.MulticastQueueItem.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.MulticastQueueItem.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2864,13 +4596,13 @@ proto.api.MulticastQueueItem.prototype.setMulticastGroupId = function(value) {
  * @return {number}
  */
 proto.api.MulticastQueueItem.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastQueueItem.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2879,13 +4611,13 @@ proto.api.MulticastQueueItem.prototype.setFCnt = function(value) {
  * @return {number}
  */
 proto.api.MulticastQueueItem.prototype.getFPort = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.MulticastQueueItem.prototype.setFPort = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2894,7 +4626,7 @@ proto.api.MulticastQueueItem.prototype.setFPort = function(value) {
  * @return {!(string|Uint8Array)}
  */
 proto.api.MulticastQueueItem.prototype.getData = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -2922,9 +4654,9 @@ proto.api.MulticastQueueItem.prototype.getData_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value  */
+/** @param {!(string|Uint8Array)} value */
 proto.api.MulticastQueueItem.prototype.setData = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -2971,6 +4703,7 @@ proto.api.EnqueueMulticastQueueItemRequest.prototype.toObject = function(opt_inc
  *     http://goto/soy-param-migration
  * @param {!proto.api.EnqueueMulticastQueueItemRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.EnqueueMulticastQueueItemRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3026,35 +4759,26 @@ proto.api.EnqueueMulticastQueueItemRequest.deserializeBinaryFromReader = functio
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.EnqueueMulticastQueueItemRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.EnqueueMulticastQueueItemRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.EnqueueMulticastQueueItemRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.EnqueueMulticastQueueItemRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.EnqueueMulticastQueueItemRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.EnqueueMulticastQueueItemRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.EnqueueMulticastQueueItemRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastQueueItem();
+  f = message.getMulticastQueueItem();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -3066,25 +4790,16 @@ proto.api.EnqueueMulticastQueueItemRequest.prototype.serializeBinaryToWriter = f
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.EnqueueMulticastQueueItemRequest} The clone.
- */
-proto.api.EnqueueMulticastQueueItemRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.EnqueueMulticastQueueItemRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional MulticastQueueItem multicast_queue_item = 1;
- * @return {proto.api.MulticastQueueItem}
+ * @return {?proto.api.MulticastQueueItem}
  */
 proto.api.EnqueueMulticastQueueItemRequest.prototype.getMulticastQueueItem = function() {
-  return /** @type{proto.api.MulticastQueueItem} */ (
+  return /** @type{?proto.api.MulticastQueueItem} */ (
     jspb.Message.getWrapperField(this, proto.api.MulticastQueueItem, 1));
 };
 
 
-/** @param {proto.api.MulticastQueueItem|undefined} value  */
+/** @param {?proto.api.MulticastQueueItem|undefined} value */
 proto.api.EnqueueMulticastQueueItemRequest.prototype.setMulticastQueueItem = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
@@ -3097,7 +4812,7 @@ proto.api.EnqueueMulticastQueueItemRequest.prototype.clearMulticastQueueItem = f
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.api.EnqueueMulticastQueueItemRequest.prototype.hasMulticastQueueItem = function() {
   return jspb.Message.getField(this, 1) != null;
@@ -3147,10 +4862,11 @@ proto.api.EnqueueMulticastQueueItemResponse.prototype.toObject = function(opt_in
  *     http://goto/soy-param-migration
  * @param {!proto.api.EnqueueMulticastQueueItemResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.EnqueueMulticastQueueItemResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    fCnt: msg.getFCnt()
+    fCnt: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -3201,35 +4917,26 @@ proto.api.EnqueueMulticastQueueItemResponse.deserializeBinaryFromReader = functi
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.EnqueueMulticastQueueItemResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.EnqueueMulticastQueueItemResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.EnqueueMulticastQueueItemResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.EnqueueMulticastQueueItemResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.EnqueueMulticastQueueItemResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.EnqueueMulticastQueueItemResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.EnqueueMulticastQueueItemResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getFCnt();
+  f = message.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
       1,
@@ -3240,26 +4947,17 @@ proto.api.EnqueueMulticastQueueItemResponse.prototype.serializeBinaryToWriter = 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.EnqueueMulticastQueueItemResponse} The clone.
- */
-proto.api.EnqueueMulticastQueueItemResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.EnqueueMulticastQueueItemResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional uint32 f_cnt = 1;
  * @return {number}
  */
 proto.api.EnqueueMulticastQueueItemResponse.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.api.EnqueueMulticastQueueItemResponse.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3306,10 +5004,11 @@ proto.api.FlushMulticastGroupQueueItemsRequest.prototype.toObject = function(opt
  *     http://goto/soy-param-migration
  * @param {!proto.api.FlushMulticastGroupQueueItemsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.FlushMulticastGroupQueueItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    multicastGroupId: msg.getMulticastGroupId()
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -3360,35 +5059,26 @@ proto.api.FlushMulticastGroupQueueItemsRequest.deserializeBinaryFromReader = fun
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.FlushMulticastGroupQueueItemsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.FlushMulticastGroupQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.FlushMulticastGroupQueueItemsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.FlushMulticastGroupQueueItemsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.FlushMulticastGroupQueueItemsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.FlushMulticastGroupQueueItemsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.FlushMulticastGroupQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -3399,26 +5089,17 @@ proto.api.FlushMulticastGroupQueueItemsRequest.prototype.serializeBinaryToWriter
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.FlushMulticastGroupQueueItemsRequest} The clone.
- */
-proto.api.FlushMulticastGroupQueueItemsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.FlushMulticastGroupQueueItemsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string multicast_group_id = 1;
  * @return {string}
  */
 proto.api.FlushMulticastGroupQueueItemsRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.FlushMulticastGroupQueueItemsRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3465,10 +5146,11 @@ proto.api.ListMulticastGroupQueueItemsRequest.prototype.toObject = function(opt_
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListMulticastGroupQueueItemsRequest} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListMulticastGroupQueueItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    multicastGroupId: msg.getMulticastGroupId()
+    multicastGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -3519,35 +5201,26 @@ proto.api.ListMulticastGroupQueueItemsRequest.deserializeBinaryFromReader = func
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListMulticastGroupQueueItemsRequest} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListMulticastGroupQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListMulticastGroupQueueItemsRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListMulticastGroupQueueItemsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListMulticastGroupQueueItemsRequest} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListMulticastGroupQueueItemsRequest.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListMulticastGroupQueueItemsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastGroupId();
+  f = message.getMulticastGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -3558,26 +5231,17 @@ proto.api.ListMulticastGroupQueueItemsRequest.prototype.serializeBinaryToWriter 
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListMulticastGroupQueueItemsRequest} The clone.
- */
-proto.api.ListMulticastGroupQueueItemsRequest.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListMulticastGroupQueueItemsRequest} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string multicast_group_id = 1;
  * @return {string}
  */
 proto.api.ListMulticastGroupQueueItemsRequest.prototype.getMulticastGroupId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.api.ListMulticastGroupQueueItemsRequest.prototype.setMulticastGroupId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3631,6 +5295,7 @@ proto.api.ListMulticastGroupQueueItemsResponse.prototype.toObject = function(opt
  *     http://goto/soy-param-migration
  * @param {!proto.api.ListMulticastGroupQueueItemsResponse} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.api.ListMulticastGroupQueueItemsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -3675,8 +5340,7 @@ proto.api.ListMulticastGroupQueueItemsResponse.deserializeBinaryFromReader = fun
     case 1:
       var value = new proto.api.MulticastQueueItem;
       reader.readMessage(value,proto.api.MulticastQueueItem.deserializeBinaryFromReader);
-      msg.getMulticastQueueItemsList().push(value);
-      msg.setMulticastQueueItemsList(msg.getMulticastQueueItemsList());
+      msg.addMulticastQueueItems(value);
       break;
     default:
       reader.skipField();
@@ -3688,35 +5352,26 @@ proto.api.ListMulticastGroupQueueItemsResponse.deserializeBinaryFromReader = fun
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.api.ListMulticastGroupQueueItemsResponse} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.api.ListMulticastGroupQueueItemsResponse.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.api.ListMulticastGroupQueueItemsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.api.ListMulticastGroupQueueItemsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.api.ListMulticastGroupQueueItemsResponse} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.api.ListMulticastGroupQueueItemsResponse.prototype.serializeBinaryToWriter = function (writer) {
+proto.api.ListMulticastGroupQueueItemsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getMulticastQueueItemsList();
+  f = message.getMulticastQueueItemsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -3728,29 +5383,28 @@ proto.api.ListMulticastGroupQueueItemsResponse.prototype.serializeBinaryToWriter
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.api.ListMulticastGroupQueueItemsResponse} The clone.
- */
-proto.api.ListMulticastGroupQueueItemsResponse.prototype.cloneMessage = function() {
-  return /** @type {!proto.api.ListMulticastGroupQueueItemsResponse} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated MulticastQueueItem multicast_queue_items = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.api.MulticastQueueItem>}
+ * @return {!Array<!proto.api.MulticastQueueItem>}
  */
 proto.api.ListMulticastGroupQueueItemsResponse.prototype.getMulticastQueueItemsList = function() {
-  return /** @type{!Array.<!proto.api.MulticastQueueItem>} */ (
+  return /** @type{!Array<!proto.api.MulticastQueueItem>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.api.MulticastQueueItem, 1));
 };
 
 
-/** @param {Array.<!proto.api.MulticastQueueItem>} value  */
+/** @param {!Array<!proto.api.MulticastQueueItem>} value */
 proto.api.ListMulticastGroupQueueItemsResponse.prototype.setMulticastQueueItemsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.api.MulticastQueueItem=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.api.MulticastQueueItem}
+ */
+proto.api.ListMulticastGroupQueueItemsResponse.prototype.addMulticastQueueItems = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.api.MulticastQueueItem, opt_index);
 };
 
 
